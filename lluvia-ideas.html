@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lluvia de ideas · Sobre lo que no digo</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.idea-card{
+  position:absolute; z-index:2; border-radius:14px; padding:13px 15px;
+  cursor:grab; user-select:none; max-width:180px; min-width:120px;
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow: 0 4px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12);
+  transition:box-shadow .2s, border-color .2s, transform .15s;
+}
+.idea-card:active{cursor:grabbing; transform:scale(1.03);}
+.idea-card:hover{ box-shadow:0 8px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.18); transform:translateY(-2px); }
+.card-actions{position:absolute;top:-11px;right:-11px;display:flex;gap:3px;opacity:0;transition:opacity .2s;}
+.idea-card:hover .card-actions,.idea-card.has-state .card-actions{opacity:1;}
+.marker-btn{width:22px;height:22px;border-radius:50%;border:1px solid var(--border);background:rgba(8,8,24,.8);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;color:var(--muted);transition:all .2s;padding:0;}
+.marker-btn.active.cross{background:#ef4444;border-color:#ef4444;color:#fff;transform:scale(1.1);}
+.marker-btn.active.check{background:#10b981;border-color:#10b981;color:#fff;transform:scale(1.1);}
+.marker-btn.active.star{background:var(--accent);border-color:var(--accent);color:#08081a;transform:scale(1.1);}
+</style>
+</head>
+<body>
+<div class="ambient-glow glow-1"></div>
+<div class="ambient-glow glow-2"></div>
+<div class="ambient-glow glow-3"></div>
+<nav>
+  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
+  <div class="nav-links">
+    <div class="nav-item">
+      <button class="nav-link active">Productos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="cadena-valor.html">Cadena de valor</a>
+        <a href="match-creativo.html">Match creativo</a>
+        <a href="lluvia-ideas.html" class="current">Lluvia de ideas</a>
+      </div>
+    </div>
+        <div class="nav-item">
+      <button class="nav-link">Instrumentos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="cdps.html">CDPS</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="page z1">
+  <div class="hero-new" style="min-height:50vh;padding-bottom:30px;">
+    <div class="hero-tag">Lluvia de ideas · Proyecto + Conceptos de la industria</div>
+    <h1>Lluvia de <em>Ideas</em></h1>
+    <p class="hero-quote">Fusión conceptual entre el prototipo editorial phygital y múltiples conceptos extraídos de las industrias culturales y creativas.</p>
+  </div>
+  <div class="section" style="text-align:center;padding-bottom:0;">
+    <p class="section-label">Ejercicios de combinación</p>
+    <p class="tip-text" style="margin-top:6px;">Exploración del ecosistema con diferentes disciplinas</p>
+  </div>
+  <div id="boards-container"></div>
+  <div class="section" style="text-align:center;padding-bottom:0;margin-top:40px;">
+    <p class="section-label">Filtro de ideas</p>
+    <p class="tip-text" style="margin-top:6px;">Las ideas ganadoras (★) de todos los ejercicios anteriores reunidas aquí</p>
+  </div>
+  <div id="filter-board-container"></div>
+  <footer><p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p></footer>
+</div>
+<script src="js/lluvia-ideas.js"></script>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

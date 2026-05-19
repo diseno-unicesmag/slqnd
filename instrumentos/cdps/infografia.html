@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDPS — Infografía · Sobre lo que no digo</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* compat aliases — mapa antiguo → nuevo design system */
+:root{
+  --card: rgba(255,255,255,0.06);
+  --r: 16px;
+  --dim: rgba(255,255,255,0.55);
+  --gold: var(--accent);
+  --accent2: #e8b820;
+}
+html,body{height:100%;overflow:hidden;font-family:var(--font-body);background:var(--bg);color:var(--text);background-image:radial-gradient(ellipse at 20% 0%,rgba(88,28,135,.22) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(30,58,138,.18) 0%,transparent 60%);}
+
+/* ── SLIDE ENGINE ── */
+#slides-wrapper{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.slide{height:100vh;scroll-snap-align:start;position:relative;display:flex;flex-direction:column;overflow:hidden}
+
+/* ── NAV ── */
+#nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
+.nav-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:all 0.3s;border:none}
+.nav-dot.active{background:var(--accent);transform:scale(1.4)}
+#slide-counter{position:fixed;bottom:24px;right:28px;font-size:0.75rem;color:var(--dim);z-index:100;font-weight:600;letter-spacing:0.1em}
+
+/* ── SLIDE INTERNALS ── */
+.slide-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 72px 56px;max-width:1300px;margin:0 auto;width:100%}
+.slide-label{color:var(--gold);font-size:0.72rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:12px}
+.slide h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2.8rem,5vw,5.5rem);line-height:1;margin-bottom:20px}
+.slide h2{font-family:var(--font-display);font-weight:900;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;margin-bottom:16px}
+.slide h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+em{font-style:normal;color:var(--accent)}
+.lead{font-size:1.05rem;color:var(--dim);line-height:1.8;max-width:640px}
+
+/* ── CHIPS ── */
+.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.chip{background:var(--accent-soft);border:1px solid rgba(245,197,66,0.25);border-radius:999px;padding:8px 20px;font-size:0.88rem;color:var(--accent);font-weight:500}
+
+/* ── GRID ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.g-split{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;min-height:0}
+
+/* ── DONUT LEGENDS ── */
+.donut-wrap{position:relative;height:180px;margin-bottom:16px}
+.legend-pills{display:flex;flex-wrap:wrap;gap:8px}
+.legend-pill{display:flex;align-items:center;gap:6px;font-size:0.75rem;color:var(--dim)}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* ── CARDS ── */
+.card{background:var(--card);border-radius:var(--r);padding:24px;border:1px solid rgba(255,255,255,0.05)}
+.card-glow{background:linear-gradient(135deg,var(--card),rgba(45,212,191,0.04));border-color:rgba(45,212,191,0.18)}
+.stat-card{background:var(--card);border-radius:var(--r);padding:28px 20px;text-align:center;border:1px solid rgba(255,255,255,0.05)}
+.stat-num{font-family:var(--font-display);font-size:3.2rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-label{font-size:0.85rem;color:var(--dim);line-height:1.5}
+
+/* ── HIGHLIGHT ── */
+.hl{background:rgba(45,212,191,0.07);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0;font-size:0.93rem;line-height:1.7;margin-top:14px;color:var(--text)}
+
+/* ── CHART LABEL TAG ── */
+.chart-label{display:inline-block;background:var(--accent-soft);border:1px solid rgba(245,197,66,.25);color:var(--accent);font-family:var(--font-body);font-size:0.72rem;font-weight:600;padding:5px 14px;border-radius:8px;margin-bottom:12px;letter-spacing:0.03em;align-self:flex-end}
+.chart-bare{margin-bottom:20px;display:flex;flex-direction:column}
+
+/* ── VOICE CARDS ── */
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.voice-card{background:var(--card);border-radius:var(--r);padding:20px;border:1px solid rgba(255,255,255,0.07)}
+.v-emoji{font-size:1.5rem;margin-bottom:8px}
+.v-text{font-family:var(--font-display);font-size:0.92rem;font-weight:600;line-height:1.5;color:var(--text)}
+.v-tag{font-size:0.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-top:10px}
+
+/* ── COMPASSION ── */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.comp-card{background:linear-gradient(135deg,var(--accent-soft),rgba(99,102,241,0.04));border:1px solid rgba(245,197,66,0.15);border-radius:var(--r);padding:22px}
+.cc-emoji{font-size:1.6rem;margin-bottom:10px}
+.cc-text{font-family:var(--font-display);font-size:0.9rem;font-weight:600;line-height:1.5;color:var(--text)}
+
+/* ── CONCLUSION ITEMS ── */
+.conc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.conc-card{background:var(--card);border-radius:var(--r);padding:24px;border:1px solid rgba(255,255,255,0.05)}
+.conc-num{font-family:var(--font-display);font-size:2.4rem;font-weight:900;color:rgba(245,197,66,0.12);line-height:1;margin-bottom:8px}
+.conc-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+.conc-desc{font-size:0.88rem;color:var(--dim);line-height:1.65}
+
+/* ── BG DECORATIONS ── */
+.bg-glow{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.slide-inner{position:relative;z-index:1}
+.slide-bar{height:3px;background:linear-gradient(90deg,var(--accent),transparent);position:absolute;bottom:0;left:0;right:0}
+
+canvas{display:block}
+/* ensure slide-inner never overflows vertically */
+.slide-inner{max-height:100vh;overflow:hidden}
+</style>
+</head>
+<body>
+
+<!-- DOTS NAV -->
+<div id="nav"></div>
+<div id="slide-counter">1 / 10</div>
+
+<div id="slides-wrapper">
+
+  <!-- S1: PORTADA -->
+  <section class="slide" id="s1">
+    <div class="bg-glow" style="width:600px;height:600px;background:rgba(45,212,191,0.06);top:-200px;left:50%;transform:translateX(-50%)"></div>
+    <div class="slide-inner" style="align-items:center;text-align:center">
+      <div class="slide-label">Cartografía Digital de Percepción Silenciosa · Focus Group · 24 Abril 2026</div>
+      <h1 style="max-width:900px"><em>Lo que no digo</em><br><span style="font-size:40%;color:#fff;font-weight:100;letter-spacing:0.22em;text-transform:uppercase">CUANDO DISEÑO</span></h1>
+      <p class="lead" style="text-align:center">Diagnóstico del bienestar emocional en estudiantes de Diseño Gráfico. Autoexigencia, Burnout y redes de apoyo.</p>
+      <div class="chips" style="justify-content:center;">
+        <span class="chip">N = 15 participantes</span>
+        <span class="chip">7° Semestre · Diseño Gráfico</span>
+        <span class="chip">Instrumento CDPS</span>
+        <span class="chip">Enfoque mixto: Cuanti + Cuali</span>
+      </div>
+      
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S2: PERFIL -->
+  <section class="slide" id="s2">
+    <div class="slide-inner">
+      <div class="slide-label">Sección 01 · Perfil Sociodemográfico</div>
+      <h2>¿Quiénes son?</h2>
+      <div class="g4" style="margin-bottom:28px" id="demo-stats"></div>
+      <div class="g2">
+        <div>
+          <div class="chart-label">Distribución de Edad</div>
+          <div class="donut-wrap"><canvas id="c-edad"></canvas></div>
+          <div class="legend-pills" id="leg-edad"></div>
+        </div>
+        <div>
+          <div class="chart-label">Identidad de Género</div>
+          <div class="donut-wrap"><canvas id="c-gen"></canvas></div>
+          <div class="legend-pills" id="leg-gen"></div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S3: CARGA ACADÉMICA -->
+  <section class="slide" id="s3">
+    <div class="bg-glow" style="width:400px;height:400px;background:rgba(56,189,248,0.05);bottom:-100px;right:-100px"></div>
+    <div class="slide-inner">
+      <div class="slide-label">Sección 02 · Vida Académica</div>
+      <h2>La jornada<br><em>invisible</em></h2>
+      <div class="g-split">
+        <div>
+          <p class="lead" style="margin-bottom:20px">El <strong style="color:var(--text)">87%</strong> de la muestra pasa entre 4 y 6 horas diarias en la universidad. Pero la jornada no termina ahí: el 80% extiende su trabajo entre 1 y 6 horas adicionales en casa.</p>
+          <p class="lead">La incapacidad de desconectarse del rol académico convierte el hogar en una extensión del aula. Esta <strong style="color:var(--text)">segunda jornada invisible</strong> es la primera forma de sobrecarga que construye el camino hacia el Burnout.</p>
+          <div class="hl">📌 Jornada combinada estimada: <strong>8 a 12 horas diarias</strong> dedicadas a la universidad. Por encima de cualquier estándar laboral regulado.</div>
+        </div>
+        <div>
+          <div class="chart-bare">
+            <div class="chart-label">Horas presenciales / día</div>
+            <div style="height:130px"><canvas id="c-p1"></canvas></div>
+          </div>
+          <div class="chart-bare" style="margin-bottom:0">
+            <div class="chart-label">Trabajo autónomo en casa</div>
+            <div style="height:130px"><canvas id="c-p1b"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S4: AUTOEXIGENCIA -->
+  <section class="slide" id="s4">
+    <div class="bg-glow" style="width:400px;height:400px;background:rgba(244,114,182,0.05);top:-80px;left:-80px"></div>
+    <div class="slide-inner">
+      <div class="slide-label">Sección 03 · Autoexigencia</div>
+      <h2>El látigo<br><em>interior</em></h2>
+      <div class="g-split">
+        <div>
+          <div class="g2" style="margin-bottom:24px">
+            <div class="stat-card card-glow"><div class="stat-num" style="color:#f472b6">47%</div><div class="stat-label">Se ubica en el nivel máximo de autoexigencia (5/5)</div></div>
+            <div class="stat-card card-glow"><div class="stat-num" style="color:#f472b6">74%</div><div class="stat-label">Opera con niveles de exigencia de alto riesgo (4 o 5)</div></div>
+          </div>
+          <p class="lead" style="margin-bottom:14px">El perfeccionismo es dominante: el <strong style="color:var(--text)">47% se identifica como altamente perfeccionista</strong> y otro 27% como tendiente a serlo.</p>
+          <div class="hl">📌 La fuente de presión más intensa no viene de los docentes ni de la carga de materias. Viene del propio estudiante. La autoexigencia supera como estresor a cualquier factor externo.</div>
+        </div>
+        <div>
+          <div class="chart-bare">
+            <div class="chart-label">Nivel de Autoexigencia</div>
+            <div style="height:130px"><canvas id="c-p4"></canvas></div>
+          </div>
+          <div class="chart-bare" style="margin-bottom:0">
+            <div class="chart-label">Reacción ante la frustración</div>
+            <div style="height:130px"><canvas id="c-p7"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S5: BURNOUT KPIs -->
+  <section class="slide" id="s5">
+    <div class="slide-inner" style="align-items:center;text-align:center">
+      <div class="slide-label">Sección 04 · Burnout — La paradoja del síndrome sin nombre</div>
+      <h2 style="margin-bottom:8px">Viven la experiencia.<br><em>Pero no saben nombrarla.</em></h2>
+      <p class="lead" style="margin:0 auto 36px;text-align:center">El instrumento reveló la paradoja central del diagnóstico: el <strong style="color:var(--text)">analfabetismo emocional</strong> como factor de riesgo.</p>
+      <div class="g3" id="burnout-kpis"></div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S6: BURNOUT DETALLE -->
+  <section class="slide" id="s6">
+    <div class="slide-inner">
+      <div class="slide-label">Sección 04 cont. · Burnout — Frecuencia y consecuencias</div>
+      <h2>Un ciclo que<br><em>no para</em></h2>
+      <div class="g-split">
+        <div>
+          <p class="lead" style="margin-bottom:16px">El <strong style="color:var(--text)">80% de los participantes</strong> experimenta el agotamiento como un ciclo recurrente de cada semestre, no como un evento aislado.</p>
+          <p class="lead" style="margin-bottom:16px">Las consecuencias más reportadas son el <strong style="color:var(--text)">cansancio crónico</strong> (67%) y la <strong style="color:var(--text)">ansiedad sostenida</strong> (53%). El Burnout en diseño ha traspasado la esfera curricular para instalarse en el cuerpo.</p>
+          <div class="hl">📌 Cuando el 67% está en un episodio <em>activo</em> durante una clase ordinaria de un semestre normal, el problema no es circunstancial. Es estructural.</div>
+        </div>
+        <div>
+          <div class="chart-bare">
+            <div class="chart-label">Última experiencia de burnout</div>
+            <div style="height:150px"><canvas id="c-p10"></canvas></div>
+          </div>
+          <div class="chart-bare" style="margin-bottom:0">
+            <div class="chart-label">Costo del agotamiento</div>
+            <div style="height:150px"><canvas id="c-p18"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S7: REDES DE APOYO -->
+  <section class="slide" id="s7">
+    <div class="bg-glow" style="width:400px;height:400px;background:rgba(99,102,241,0.05);bottom:-100px;left:-80px"></div>
+    <div class="slide-inner">
+      <div class="slide-label">Sección 05 · Redes de Apoyo</div>
+      <h2>La red que<br><em>falta</em></h2>
+      <div class="g-split">
+        <div>
+          <p class="lead" style="margin-bottom:16px">Solo el <strong style="color:var(--text)">33% declara desahogarse con alguien habitualmente</strong>. El 27% lo hace casi nunca, y un tercio prefiere gestionar el malestar en total soledad.</p>
+          <p class="lead" style="margin-bottom:16px">La familia y los amigos lideran como red de apoyo. El <strong style="color:var(--text)">apoyo institucional (psicólogo, bienestar) es casi inexistente</strong> en los momentos de crisis real.</p>
+          <div class="hl">📌 La brecha entre los servicios de bienestar ofertados y su adopción real es la evidencia más directa de una falla sistémica en la contención emocional universitaria.</div>
+        </div>
+        <div>
+          <div class="chart-bare">
+            <div class="chart-label">¿A quién acudes en crisis?</div>
+            <div style="height:150px"><canvas id="c-p13"></canvas></div>
+          </div>
+          <div class="chart-bare" style="margin-bottom:0">
+            <div class="chart-label">¿Verbalizas tu agotamiento?</div>
+            <div style="height:150px"><canvas id="c-p12"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S8: VOCES -->
+  <section class="slide" id="s8">
+    <div class="slide-inner" style="padding-top:28px;padding-bottom:28px">
+      <div class="slide-label">Sección 06 · Lo que no digo · P19</div>
+      <h2 style="font-size:clamp(1.3rem,2.2vw,1.9rem);margin-bottom:8px">&ldquo;Hay algo que nunca <em>he dicho en voz alta&hellip;</em>&rdquo;</h2>
+      <p class="lead" style="font-size:0.88rem;margin-bottom:16px;color:var(--dim)">5 núcleos temáticos emergentes del análisis de respuestas abiertas.</p>
+      <div class="voice-grid" id="voces-grid" style="gap:12px"></div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S9: AUTOCOMPASIÓN -->
+  <section class="slide" id="s9">
+    <div class="slide-inner" style="padding-top:28px;padding-bottom:28px">
+      <div class="slide-label">Sección 07 · Lo que no digo · P20</div>
+      <h2 style="font-size:clamp(1.3rem,2.2vw,1.9rem);margin-bottom:8px">Lo que le dirías a tu <em>autoexigencia</em></h2>
+      <p class="lead" style="font-size:0.88rem;margin-bottom:16px;color:var(--dim)">4 clusters de autocompasión latente identificados en las respuestas de cierre.</p>
+      <div class="comp-grid" id="comp-grid" style="gap:12px"></div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+  <!-- S10: CONCLUSIONES -->
+  <section class="slide" id="s10">
+    <div class="slide-inner">
+      <div class="slide-label">Sección 08 · Hallazgos y Conclusiones</div>
+      <h2 style="margin-bottom:28px"><em>6 hallazgos</em> que no<br>podemos ignorar</h2>
+      <div class="conc-grid" id="conc-grid"></div>
+    </div>
+    <div class="slide-bar"></div>
+  </section>
+
+</div><!-- /slides-wrapper -->
+
+<script src="js/datos_mock.js"></script>
+<script src="js/preguntas.js"></script>
+<script src="js/infografia.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,663 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sobre lo que no digo — Cartografía Silenciosa</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#060c12;--card:#0d1a22;--accent:#2dd4bf;--accent2:#38bdf8;--text:#e4eef4;--dim:#6a8a9a;--r:16px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+/* ── HEADER ── */
+#header{padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+#header h1{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.05em;color:var(--accent)}
+#player-badge{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--dim)}
+#my-emoji{font-size:1.6rem}
+#q-counter{font-size:.8rem;color:var(--dim);background:rgba(255,255,255,.05);padding:4px 12px;border-radius:20px}
+
+/* ── LOBBY ── */
+#lobby{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:50;background:var(--bg)}
+#lobby h2{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-.01em}
+#lobby p{color:var(--dim);font-size:1rem}
+#lobby .emoji-big{font-size:5rem;animation:pulse 2s ease infinite}
+#lobby .waiting{color:var(--accent);font-size:.9rem}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+/* ── GAME AREA ── */
+#game-wrap{flex:1;position:relative;overflow:hidden}
+canvas{display:block;width:100%;height:100%}
+
+/* ── QUESTION HEADER ── */
+#q-header{position:absolute;top:0;left:0;right:0;padding:16px 24px;background:linear-gradient(180deg,rgba(8,8,14,.95) 60%,transparent);pointer-events:none;z-index:10}
+.qh-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+#q-bloque{font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+#q-hint{font-size:0.85rem;color:var(--accent2);font-weight:600;display:flex;align-items:center;gap:6px}
+#q-text-jovial{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:700;line-height:1.25;color:var(--text)}
+#q-text{font-size:.95rem;color:var(--dim);margin-top:6px;font-style:italic}
+#q-nota{font-size:.85rem;color:var(--accent);background:rgba(201,168,76,.08);border-left:2px solid var(--accent);padding:6px 12px;border-radius:0 6px 6px 0;margin-top:8px;pointer-events:none;display:inline-block}
+
+/* ── TEXT QUESTION ── */
+#text-screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:40px;background:rgba(8,8,14,.97);z-index:20}
+#text-screen h2{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:700;text-align:center;max-width:600px}
+#text-screen textarea{width:100%;max-width:600px;min-height:120px;background:var(--card);border:1.5px solid rgba(255,255,255,.1);border-radius:var(--r);color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;padding:16px;resize:vertical;outline:none;transition:border-color .3s}
+#text-screen textarea:focus{border-color:var(--accent)}
+#text-screen textarea::placeholder{color:var(--dim)}
+.btn-send{background:var(--accent);color:#060c12;border:none;border-radius:40px;padding:13px 36px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;font-family:'Montserrat',sans-serif}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(45,212,191,.35)}
+.btn-send:disabled{opacity:.3;cursor:not-allowed;transform:none}
+#text-sent{color:var(--accent);font-size:.9rem;display:none}
+
+/* ── REGISTRO ── */
+#registro{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;padding:40px 24px 60px;background:var(--bg);z-index:60}
+#registro h2{font-family:'Montserrat',sans-serif;font-size:1.7rem;font-weight:700;margin-bottom:6px;text-align:center}
+#registro .reg-sub{color:var(--dim);font-size:.9rem;margin-bottom:32px;text-align:center}
+.reg-form{width:100%;max-width:560px;display:flex;flex-direction:column;gap:20px}
+.reg-group{display:flex;flex-direction:column;gap:8px}
+.reg-group label{font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.reg-group select,.reg-group input[type=number]{background:var(--card);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;color:var(--text);font-family:'Inter',sans-serif;font-size:.95rem;padding:12px 14px;outline:none;width:100%;transition:border-color .3s;-webkit-appearance:none}
+.reg-group select:focus,.reg-group input[type=number]:focus{border-color:var(--accent)}
+.reg-group select option{background:#12121e}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.reg-progress{font-size:.78rem;color:var(--dim);text-align:center;margin-top:8px}
+
+/* ── ROOM COUNT BADGE ── */
+.room-count{position:absolute;font-size:.7rem;font-weight:700;background:var(--accent);color:#08080e;border-radius:20px;padding:2px 7px;pointer-events:none;z-index:5}
+
+/* ── LIVE TEXT BUBBLES ── */
+#live-text-container{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:15}
+.live-bubble{position:absolute;bottom:-50px;background:var(--card);border:1px solid rgba(255,255,255,.1);padding:14px 24px;border-radius:30px;font-size:1.1rem;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.5);animation:floatUp 10s linear forwards;white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600}
+.live-bubble span{font-size:1.4rem;margin-right:8px;vertical-align:middle}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(.8);opacity:0}
+  10%{opacity:1;transform:translateY(-100px) scale(1)}
+  90%{opacity:1;transform:translateY(-800px) scale(1)}
+  100%{opacity:0;transform:translateY(-900px) scale(.8)}
+}
+
+/* ── REVEAL ── */
+#reveal-screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;overflow-y:auto;padding:40px 24px 60px;background:rgba(8,8,14,.98);z-index:30}
+#reveal-screen h2{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}
+#reveal-screen .sub{color:var(--dim);font-size:.9rem;margin-bottom:36px}
+.reveal-block{width:100%;max-width:700px;margin-bottom:36px}
+.reveal-block h3{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.r-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.r-bar-label{min-width:200px;font-size:.85rem;color:var(--dim);text-align:right}
+.r-bar-track{flex:1;height:28px;background:rgba(255,255,255,.04);border-radius:6px;overflow:hidden}
+.r-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:6px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;min-width:28px}
+.r-bar-n{font-size:.75rem;font-weight:700;color:#08080e}
+.confession{background:var(--card);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;padding:14px 18px;font-style:italic;font-size:.95rem;margin-bottom:12px;opacity:0;animation:fadeUp .5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(16px)}}
+</style>
+</head>
+<body>
+
+<!-- REGISTRO -->
+<div id="registro">
+  <h2>Sobre lo que no digo</h2>
+  <p class="reg-sub">Antes de empezar, cuéntanos un poco sobre ti.<br>Es completamente anónimo.</p>
+  <div class="reg-form">
+    <div class="reg-row">
+      <div class="reg-group">
+        <label>Edad</label>
+        <input type="number" id="r-edad" min="16" max="45" placeholder="Ej: 21">
+      </div>
+      <div class="reg-group">
+        <label>Semestre actual</label>
+        <select id="r-semestre">
+          <option value="">— elige —</option>
+          <option>1°</option><option>2°</option><option>3°</option><option>4°</option>
+          <option>5°</option><option>6°</option><option>7°</option><option>8°</option>
+          <option>9°</option><option>10°</option>
+          <option>En proceso de grado</option>
+        </select>
+      </div>
+    </div>
+    <div class="reg-group">
+      <label>Género</label>
+      <select id="r-genero">
+        <option value="">— elige —</option>
+        <option>Femenino</option><option>Masculino</option>
+        <option>No binario / Otro</option><option>Prefiero no decirlo</option>
+      </select>
+    </div>
+    <div class="reg-row">
+      <div class="reg-group">
+        <label>Estrato</label>
+        <select id="r-estrato">
+          <option value="">— elige —</option>
+          <option>1</option><option>2</option><option>3</option>
+          <option>4</option><option>5 o 6</option><option>No sé</option>
+        </select>
+      </div>
+      <div class="reg-group">
+        <label>Estado civil</label>
+        <select id="r-civil">
+          <option value="">— elige —</option>
+          <option>Soltero/a</option><option>En relación / Unión libre</option>
+          <option>Casado/a</option><option>Prefiero no decirlo</option>
+        </select>
+      </div>
+    </div>
+    <div class="reg-group">
+      <label>Situación actual</label>
+      <select id="r-situacion">
+        <option value="">— elige —</option>
+        <option>Solo estudio</option>
+        <option>Estudio y trabajo</option>
+        <option>Estudio, trabajo y tengo otras responsabilidades</option>
+      </select>
+    </div>
+    <div class="reg-group">
+      <label>Nivel máximo de estudios alcanzado</label>
+      <select id="r-nivel">
+        <option value="">— elige —</option>
+        <option>Bachillerato / Secundaria</option>
+        <option>Técnico</option>
+        <option>Tecnológico</option>
+        <option>Profesional (ya tengo un pregrado)</option>
+        <option>Especialización</option>
+        <option>Maestría o Doctorado</option>
+      </select>
+    </div>
+    <div class="reg-group">
+      <label>Programa académico actual</label>
+      <select id="r-programa">
+        <option value="">— elige —</option>
+        <option>Arquitectura</option>
+        <option>Diseño Gráfico</option>
+        <option>Administración de Empresas</option>
+        <option>Contaduría Pública</option>
+        <option>Marketing Digital</option>
+        <option>Derecho</option>
+        <option>Psicología</option>
+        <option>Licenciatura en Educación Física</option>
+        <option>Licenciatura en Educación Infantil</option>
+        <option>Ingeniería Electrónica</option>
+        <option>Ingeniería Financiera</option>
+        <option>Ingeniería Industrial</option>
+        <option>Ingeniería de Sistemas</option>
+      </select>
+    </div>
+    <div class="reg-group">
+      <label>Nivel de formación más alto de tus padres o acudientes</label>
+      <select id="r-formacion">
+        <option value="">— elige —</option>
+        <option>Bachillerato / Secundaria</option>
+        <option>Técnico</option>
+        <option>Tecnológico</option>
+        <option>Profesional (pregrado)</option>
+        <option>Especialización</option>
+        <option>Maestría o Doctorado</option>
+        <option>Sin estudios formales</option>
+      </select>
+    </div>
+    <button class="btn-send" id="btn-registro" onclick="submitRegistro()">Continuar →</button>
+    <p class="reg-progress" id="reg-error" style="color:#e07070;display:none">Por favor completa todos los campos.</p>
+  </div>
+</div>
+
+<!-- LOBBY -->
+<div id="lobby">
+  <div class="emoji-big" id="lobby-emoji">⏳</div>
+  <h2>Sobre lo que no digo</h2>
+  <p>Cartografía Silenciosa</p>
+  <div class="waiting" id="lobby-wait">Conectando...</div>
+</div>
+
+<!-- HEADER -->
+<div id="header" style="display:none">
+  <h1>Sobre lo que no digo</h1>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div id="q-counter">—</div>
+    <div id="player-badge"><span id="my-emoji"></span><span id="my-code"></span></div>
+  </div>
+</div>
+
+<!-- GAME WRAP -->
+<div id="game-wrap" style="display:none">
+  <div id="q-header">
+    <div class="qh-top">
+      <div id="q-bloque"></div>
+      <div id="q-hint"></div>
+    </div>
+    <div id="q-text-jovial"></div>
+    <div id="q-text"></div>
+    <div id="q-nota" style="display:none"></div>
+  </div>
+  <canvas id="canvas" width="1280" height="720"></canvas>
+</div>
+
+<!-- TEXT SCREEN -->
+<div id="text-screen">
+  <h2 id="ts-text"></h2>
+  <textarea id="ts-input" rows="4" maxlength="600"></textarea>
+  <button class="btn-send" id="ts-btn" onclick="sendText()">Enviar mi respuesta</button>
+  <div id="text-sent">✦ Respuesta registrada. Espera al investigador.</div>
+</div>
+
+<div id="live-text-container"></div>
+
+<!-- No global reveal screen needed anymore -->
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/preguntas.js"></script>
+<script>
+const socket = io();
+let myEmoji = '';
+let currentQ = null;
+let myStickers = []; // [{roomId, relX, relY}]
+let carryingSticker = true; // Si el jugador lleva el sticker en el mouse
+let revealedStickers = []; // Pegatinas de los demás, solo se llenan al revelar
+let rooms = [];   // {id, label, emoji, x,y,w,h}
+let textSent = false;
+let maxVotesRoom = null; // ID of the room with the most votes after reveal
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let mouseX = 0, mouseY = 0;
+
+// ── Socket events ──
+socket.on('welcome', ({emoji, perfil, question, questionRevealed, returning}) => {
+  if (returning && emoji) {
+    myEmoji = emoji;
+    showLobby(emoji);
+    if (question !== null) startQuestion(question, questionRevealed);
+  } else {
+    document.getElementById('registro').style.display = 'flex';
+    document.getElementById('lobby').style.display = 'none';
+  }
+});
+
+socket.on('registered', ({emoji, question}) => {
+  myEmoji = emoji;
+  showLobby(emoji);
+  if (question !== null) startQuestion(question, false);
+});
+
+function showLobby(emoji) {
+  document.getElementById('registro').style.display = 'none';
+  document.getElementById('lobby').style.display = 'flex';
+  document.getElementById('lobby-emoji').textContent = emoji;
+  document.getElementById('lobby-wait').textContent = 'Tu personaje: ' + emoji + ' — Esperando al investigador...';
+  document.getElementById('my-emoji').textContent = emoji;
+}
+
+function submitRegistro() {
+  const edad      = document.getElementById('r-edad').value;
+  const semestre  = document.getElementById('r-semestre').value;
+  const genero    = document.getElementById('r-genero').value;
+  const estrato   = document.getElementById('r-estrato').value;
+  const civil     = document.getElementById('r-civil').value;
+  const situacion = document.getElementById('r-situacion').value;
+  const nivel     = document.getElementById('r-nivel').value;
+  const programa  = document.getElementById('r-programa').value;
+  const formacion = document.getElementById('r-formacion').value;
+  const errEl = document.getElementById('reg-error');
+  if (!edad || !semestre || !genero || !estrato || !civil || !situacion || !nivel || !programa || !formacion) {
+    errEl.style.display = 'block'; return;
+  }
+  errEl.style.display = 'none';
+  document.getElementById('btn-registro').disabled = true;
+  document.getElementById('btn-registro').textContent = 'Registrando...';
+  socket.emit('register', { edad, semestre, genero, estrato, civil, situacion, nivel, programa, formacion });
+}
+
+// No live players event anymore
+socket.on('room-counts', counts => {
+  // Solo se guardan los counts en memoria, no se muestran hasta revelar
+  rooms.forEach(r => r.count = counts[r.id] || 0);
+});
+
+socket.on('question-changed', idx => {
+  startQuestion(idx, false);
+});
+
+socket.on('question-revealed', (stickers) => {
+  revealedStickers = stickers;
+  
+  // Calculate winner
+  const counts = {};
+  stickers.forEach(s => { counts[s.roomId] = (counts[s.roomId]||0)+1; });
+  const maxC = Math.max(...Object.values(counts), 0);
+  if (maxC > 0) {
+    // Determine winner (might be tie, we just highlight all with max)
+    rooms.forEach(r => {
+      if ((counts[r.id]||0) === maxC) r.isWinner = true;
+    });
+  }
+  
+  draw();
+});
+
+socket.on('live-text', ({emoji, text}) => {
+  if (!text) return;
+  const container = document.getElementById('live-text-container');
+  const bubble = document.createElement('div');
+  bubble.className = 'live-bubble';
+  bubble.innerHTML = `<span>${emoji}</span> ${text}`;
+  bubble.style.left = (Math.random() * 70 + 10) + '%'; // 10% to 80%
+  bubble.style.animationDuration = (Math.random() * 3 + 8) + 's'; // 8s to 11s
+  container.appendChild(bubble);
+  setTimeout(() => bubble.remove(), 12000);
+});
+
+socket.on('reset', () => location.reload());
+
+// ── Mouse & Touch ──
+function handleMove(x, y) {
+  mouseX = x; mouseY = y;
+  draw();
+}
+
+function handleInteract() {
+  const q = PREGUNTAS[currentQ];
+  if (!q || q.tipo === 'texto' || q.tipo === 'texto-vivo') return;
+  
+  if (carryingSticker) {
+    // Intentar pegar el sticker en el cuarto actual
+    const room = rooms.find(r => mouseX >= r.x && mouseX <= r.x+r.w && mouseY >= r.y && mouseY <= r.y+r.h);
+    if (room) {
+      const relX = (mouseX - room.x) / room.w;
+      const relY = (mouseY - room.y) / room.h;
+      
+      if (q.tipo === 'unica' || q.tipo === 'escala') {
+        myStickers = [{ roomId: room.id, relX, relY }];
+        carryingSticker = false;
+      } else if (q.tipo === 'multiple') {
+        // En múltiple no perdemos el sticker del mouse, dejamos copias
+        const exists = myStickers.findIndex(s => s.roomId === room.id);
+        if (exists >= 0) myStickers.splice(exists, 1);
+        else myStickers.push({ roomId: room.id, relX, relY });
+      }
+      socket.emit('place-sticker', myStickers);
+    }
+  } else {
+    // Si no llevamos el sticker, intentar recogerlo
+    // Solo si el click está cerca del sticker pegado
+    if (q.tipo === 'unica' || q.tipo === 'escala') {
+      const s = myStickers[0];
+      if (s) {
+        const r = rooms.find(room => room.id === s.roomId);
+        if (r) {
+          const absX = r.x + (s.relX * r.w);
+          const absY = r.y + (s.relY * r.h);
+          const dist = Math.hypot(mouseX - absX, mouseY - absY);
+          if (dist < 40) { // Radio de 40px para recogerlo
+            carryingSticker = true;
+            myStickers = []; // Lo despegamos
+            socket.emit('place-sticker', myStickers);
+          }
+        }
+      }
+    }
+  }
+  draw();
+}
+
+window.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  handleMove(
+    (e.clientX - rect.left) * (canvas.width / rect.width),
+    (e.clientY - rect.top) * (canvas.height / rect.height)
+  );
+});
+
+canvas.addEventListener('click', handleInteract);
+
+// Touch
+function getTouchPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const t = e.touches[0];
+  return {
+    x: (t.clientX - rect.left) * (canvas.width / rect.width),
+    y: (t.clientY - rect.top) * (canvas.height / rect.height)
+  };
+}
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  const pos = getTouchPos(e);
+  handleMove(pos.x, pos.y);
+}, { passive: false });
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  const pos = getTouchPos(e);
+  handleMove(pos.x, pos.y);
+  handleInteract();
+}, { passive: false });
+
+// ── Layout rooms ──
+function layoutRooms(options) {
+  rooms = [];
+  const MARGIN = 20;
+  const TOP_OFFSET = 110; // space for question header
+  const cw = canvas.width;
+  const ch = canvas.height;
+  const available_h = ch - TOP_OFFSET - MARGIN;
+  const n = options.length;
+  const cols = n <= 4 ? 2 : n <= 6 ? 3 : 4;
+  const rows_n = Math.ceil(n / cols);
+  const gapX = 16, gapY = 16;
+  const rw = Math.floor((cw - MARGIN*2 - gapX*(cols-1)) / cols);
+  const rh = Math.floor((available_h - gapY*(rows_n-1)) / rows_n);
+  options.forEach((opt, i) => {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    rooms.push({
+      id: opt.id,
+      label: opt.label,
+      label_acad: opt.label_acad,
+      emoji: opt.emoji,
+      x: MARGIN + col*(rw+gapX),
+      y: TOP_OFFSET + row*(rh+gapY),
+      w: rw, h: rh,
+      isWinner: false
+    });
+  });
+}
+
+function startQuestion(idx, isRevealed) {
+  currentQ = idx;
+  const q = PREGUNTAS[idx];
+  
+  myStickers = [];
+  carryingSticker = true;
+  revealedStickers = [];
+  textSent = false;
+  
+  // Show/hide screens
+  document.getElementById('lobby').style.display = 'none';
+  document.getElementById('header').style.display = 'flex';
+
+  document.getElementById('q-counter').textContent = `${idx+1} / ${PREGUNTAS.length}`;
+  document.getElementById('q-bloque').textContent = q.bloque;
+  document.getElementById('q-text-jovial').textContent = q.texto_jovial || q.texto;
+  document.getElementById('q-text').textContent = q.texto;
+
+  const hintEl = document.getElementById('q-hint');
+  const notaEl = document.getElementById('q-nota');
+  const isTouchDevice = navigator.maxTouchPoints > 0;
+  const mover = isTouchDevice ? 'Toca un cuarto para pegar tu emoji.' : 'Haz clic en un cuarto para pegar tu emoji.';
+  if (q.tipo === 'multiple') {
+    hintEl.textContent = mover + ' Puedes pegar varios.';
+  } else if (q.tipo === 'unica' || q.tipo === 'escala') {
+    hintEl.textContent = mover + ' Haz clic en tu emoji para despegarlo.';
+  } else {
+    hintEl.textContent = '';
+  }
+  if (q.nota) { notaEl.textContent = q.nota; notaEl.style.display='block'; }
+  else notaEl.style.display = 'none';
+
+  if (q.tipo === 'texto' || q.tipo === 'texto-vivo') {
+    document.getElementById('game-wrap').style.display = 'none';
+    document.getElementById('text-screen').style.display = 'flex';
+    document.getElementById('ts-text').textContent = q.texto;
+    document.getElementById('ts-input').placeholder = q.placeholder || '';
+    document.getElementById('ts-input').value = '';
+    document.getElementById('ts-btn').disabled = false;
+    document.getElementById('text-sent').style.display = 'none';
+    textSent = false;
+  } else {
+    document.getElementById('text-screen').style.display = 'none';
+    document.getElementById('game-wrap').style.display = 'block';
+    resizeCanvas();
+    layoutRooms(q.opciones);
+    draw();
+  }
+}
+
+function sendText() {
+  const val = document.getElementById('ts-input').value.trim();
+  if (!val) return;
+  const q = PREGUNTAS[currentQ];
+  
+  if (q.tipo === 'texto-vivo') {
+    myStickers.push({ roomId: val, relX: 0, relY: 0 });
+    socket.emit('place-sticker', myStickers); // Guarda el historial en el server
+    socket.emit('live-text', val);            // Lanza la animación a todos
+    document.getElementById('ts-input').value = '';
+    // Mantiene el input activo para mandar más
+  } else {
+    socket.emit('place-sticker', [{ roomId: val, relX: 0, relY: 0 }]);
+    document.getElementById('ts-btn').disabled = true;
+    document.getElementById('text-sent').style.display = 'block';
+  }
+}
+
+document.getElementById('ts-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    if (!document.getElementById('ts-btn').disabled) {
+      sendText();
+    }
+  }
+});
+
+// ── Canvas draw ──
+function resizeCanvas() {
+  const wrap = document.getElementById('game-wrap');
+  canvas.width = wrap.clientWidth;
+  canvas.height = wrap.clientHeight;
+}
+window.addEventListener('resize', () => { resizeCanvas(); if(currentQ!==null) layoutRooms(PREGUNTAS[currentQ]?.opciones||[]); draw(); });
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const q = PREGUNTAS[currentQ];
+  if (!q || q.tipo === 'texto') return;
+
+  rooms.forEach(r => {
+    const hovered = carryingSticker && mouseX>=r.x && mouseX<=r.x+r.w && mouseY>=r.y && mouseY<=r.y+r.h;
+    const selected = myStickers.some(s => s.roomId === r.id);
+
+    // Room background
+    ctx.fillStyle = selected ? 'rgba(45,212,191,.13)' : hovered ? 'rgba(56,189,248,.06)' : 'rgba(13,26,34,.95)';
+    roundRect(ctx, r.x, r.y, r.w, r.h, 14);
+    ctx.fill();
+
+    // Border (glow if winner)
+    ctx.strokeStyle = r.isWinner ? '#c9a84c' : (selected ? 'rgba(45,212,191,.85)' : hovered ? 'rgba(56,189,248,.3)' : 'rgba(255,255,255,.07)');
+    ctx.lineWidth = r.isWinner ? 3 : (selected ? 2 : 1);
+    roundRect(ctx, r.x, r.y, r.w, r.h, 14);
+    ctx.stroke();
+
+    // Emoji
+    ctx.font = `${Math.min(r.h*.35, 48)}px serif`;
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#fff';
+    ctx.fillText(r.emoji, r.x + r.w/2, r.y + r.h*.42);
+
+    // Label
+    ctx.font = `600 ${Math.min(r.w*.08, 24)}px Montserrat,sans-serif`;
+    ctx.fillStyle = 'rgba(228,238,244,.95)';
+    ctx.textAlign = 'center';
+    let nextY = wrapText(ctx, r.label, r.x + r.w/2, r.y + r.h*.60, r.w - 30, 26);
+    
+    if (r.label_acad) {
+      ctx.font = `italic 400 ${Math.min(r.w*.055, 14)}px Inter,sans-serif`;
+      ctx.fillStyle = 'rgba(228,238,244,.5)';
+      wrapText(ctx, r.label_acad, r.x + r.w/2, nextY + 4, r.w - 30, 18);
+    }
+
+    // Count is ONLY shown after reveal
+    if (revealedStickers.length > 0 && r.count > 0) {
+      ctx.font = 'bold 12px Montserrat,Inter,sans-serif';
+      ctx.fillStyle = r.isWinner ? '#c9a84c' : '#2dd4bf';
+      ctx.textAlign = 'right';
+      ctx.fillText(`${r.count} aquí`, r.x + r.w - 10, r.y + r.h - 10);
+    }
+  });
+
+  // Dibujar los stickers REVELADOS de los demás
+  revealedStickers.forEach(s => {
+    const r = rooms.find(room => room.id === s.roomId);
+    if (!r) return;
+    const absX = r.x + (s.relX * r.w);
+    const absY = r.y + (s.relY * r.h);
+    
+    ctx.font = '22px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(s.emoji, absX, absY);
+  });
+
+  // Dibujar mis stickers PEGADOS
+  myStickers.forEach(s => {
+    const r = rooms.find(room => room.id === s.roomId);
+    if (!r) return;
+    const absX = r.x + (s.relX * r.w);
+    const absY = r.y + (s.relY * r.h);
+    
+    ctx.font = '28px serif';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = '#2dd4bf';
+    ctx.shadowBlur = 14;
+    ctx.fillText(myEmoji, absX, absY);
+    ctx.shadowBlur = 0;
+  });
+
+  // Dibujar mi sticker FLOTANTE (siguiendo al mouse)
+  if (carryingSticker) {
+    ctx.font = '28px serif';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = '#2dd4bf';
+    ctx.shadowBlur = 14;
+    ctx.fillText(myEmoji, mouseX, mouseY);
+    ctx.shadowBlur = 0;
+  }
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y); ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r); ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+  ctx.lineTo(x+r, y+h); ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+  ctx.lineTo(x, y+r); ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath();
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  if (!text) return y;
+  const words = text.split(' ');
+  let line = '';
+  for(let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      ctx.fillText(line.trim(), x, y);
+      line = words[n] + ' ';
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, y);
+  return y + lineHeight;
+}
+
+// No global reveal function anymore
+resizeCanvas();
+</script>
+</body>
+</html>
+

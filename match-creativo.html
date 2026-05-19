@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match Creativo · Sobre lo que no digo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .table-container {
+      max-width: 1100px; margin: 0 auto 70px;
+      background:rgba(0,0,0,0.25); backdrop-filter:blur(16px);
+      border:1px solid var(--glass-border); border-radius:var(--radius);
+      overflow-x:auto;
+    }
+    .match-table { width:100%; border-collapse:collapse; min-width:1000px; }
+    .match-table th {
+      padding:22px 36px; font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
+      color:var(--muted); font-weight:600; text-align:left;
+      border-bottom:1px solid var(--glass-border); background:rgba(255,255,255,0.02);
+      font-family:var(--font-body);
+    }
+    .match-table td {
+      padding:22px 36px; font-size:13.5px; border-bottom:1px solid rgba(255,255,255,0.03);
+      vertical-align:top; line-height:1.75; transition:background 0.25s; font-family:var(--font-body);
+    }
+    .match-table tr:last-child td { border-bottom:none; }
+    .match-table tbody tr:hover td { background:rgba(255,255,255,0.03); }
+    .match-table td:nth-child(1) { font-weight:600; color:var(--muted); min-width:200px; }
+    .match-table td:nth-child(2) { color:var(--muted2); max-width:300px; font-size:12.5px; }
+    .match-table td:nth-child(3) { font-weight:700; min-width:230px; font-size:14.5px; }
+    .match-table td:nth-child(4) { max-width:340px; font-size:13px; color:var(--text); }
+    .phase-header td { background:rgba(255,255,255,0.01)!important; padding:14px 36px; border-bottom:1px solid rgba(255,255,255,0.04)!important; }
+    .phase-label { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; font-weight:700; }
+    .f0 { color:rgba(255,255,255,0.4); }
+    .f1 { color:var(--accent); }
+    .f2 { color:#7c9cbf; }
+    .f3 { color:#7aad8a; }
+  </style>
+</head>
+<body>
+
+<div class="ambient-glow glow-1"></div>
+<div class="ambient-glow glow-2"></div>
+<div class="ambient-glow glow-3"></div>
+
+<nav>
+  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
+  <div class="nav-links">
+    <div class="nav-item">
+      <button class="nav-link active">Productos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="cadena-valor.html">Cadena de valor</a>
+        <a href="match-creativo.html" class="current">Match creativo</a>
+        <a href="lluvia-ideas.html">Lluvia de ideas</a>
+      </div>
+    </div>
+        <div class="nav-item">
+      <button class="nav-link">Instrumentos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="cdps.html">CDPS</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page z1">
+  <div class="hero-new" style="min-height:50vh; padding-bottom:30px;">
+    <div class="hero-tag">Match creativo · Propuesta de productos</div>
+    <h1>Ecosistema<br><em>Interactivo</em></h1>
+    <p class="hero-quote">Contraposición entre los productos académicos genéricos y las resoluciones innovadoras, interactivas y transmedia que define el enfoque de este proyecto.</p>
+    <div class="flex gap-12" style="flex-wrap:wrap; justify-content:center;">
+      <a class="btn btn-accent" href="Recursos/Match Creativo.xlsx" download>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descargar Excel
+      </a>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="match-table" id="match-table">
+      <thead>
+        <tr>
+          <th>Análisis de productos genéricos</th>
+          <th>Por qué es genérico</th>
+          <th>→ Ecosistema Interactivo (Propuesta)</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody id="match-body"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p>
+  </footer>
+</div>
+
+<script>
+const MATCH = [
+  { fase:'f0', cliche:'Marco teórico', porque:'Es el documento de texto con secciones, citas y bibliografía. Organiza los conceptos pero no permite visibilizar las relaciones variadas y multidireccionales entre estos.', innovador:'Red de conceptos interactiva', desc:'Visualización web en forma de malla donde cada concepto del marco teórico es un nodo conectado a los demás mediante hilos de relación. Al mover uno, toda la red reacciona.' },
+  { fase:'f1', cliche:'Informe diagnóstico', porque:'Producto textual diagramado con gráficos técnicos. No tiene capa visual y su alcance rara vez supera el momento de la sustentación.', innovador:'Cartografía emocional', desc:'Experiencia web donde los datos del diagnóstico se presentan como un paisaje ilustrado navegable. Cada zona representa una dimensión emocional del burnout.' },
+  { fase:'f1', cliche:'Álbum fotográfico de registro del proceso', porque:'Las memorias fotográficas evidencian la asistencia a los talleres. Son un registro valioso pero poco atractivos como pieza individual.', innovador:'Galería de silencios', desc:'Galería web donde cada fotografía va acompañada del audio ambiente del momento en que fue tomada. Ver la imagen mientras se escucha el silencio convierte la lectura en experiencia sensorial.' },
+  { fase:'f2', cliche:'Guion narrativo', porque:'Documento de texto con estructura lineal que no propone nada más que la literalidad en que la historia será construida.', innovador:'Portal de historias', desc:'Página web donde el universo de la historia se explora a través de sus personajes. Al hacer clic en cada uno se despliega su narrativa.' },
+  { fase:'f2', cliche:'Portafolio de proceso', porque:'Recopilación cronológica del moodboard, bocetos y versiones finales. Documenta decisiones pero usualmente carece de personalidad y carga justificante.', innovador:'Decisiones vivas', desc:'Experiencia web donde el visitante revive los momentos del proceso de diseño desde adentro. En cada punto clave se le presentan las opciones consideradas y debe elegir una.' },
+  { fase:'f2', cliche:'Paquete de ilustraciones y animaciones 2D', porque:'Recursos para la integración de Realidad Aumentada que por sí solos no generan impacto mayor al de su aspecto.', innovador:'Colección de objetos', desc:'Personajes e ilustraciones del proyecto que se convierten en una línea de souvenirs físicos: stickers, pines, libretas, arttoys o impresiones 3D.' },
+  { fase:'f2', cliche:'Maqueta digital del libro ilustrado', porque:'Pieza editorial con narrativa lineal sin intervención conceptual sobre su estructura. Objeto estético sin propuesta diferencial de lectura.', innovador:'Libro web de lectura ramificada', desc:'Versión web del libro con historia ramificada donde el lector toma decisiones que determinan el camino narrativo. Diálogos como audiolibro interactivo con voces IA.' },
+  { fase:'f2', cliche:'Prototipo de libro ilustrado impreso con RA', porque:'Funciona como reproductor de contenido: el usuario escanea y ve animación. Con el tiempo ha pasado a ser algo común y poco emocionante.', innovador:'Libro impreso de lectura ramificada RA', desc:'El libro comparte la estructura narrativa ramificada de la versión web. La capa de Realidad Aumentada se activa sobre las ilustraciones del camino elegido.' },
+  { fase:'f3', cliche:'Informe cuantitativo', porque:'Producto textual con gráficos del cuestionario Likert. No hace visible el impacto de la experiencia.', innovador:'Escenario de resultados', desc:'Visualización web donde los resultados del cuestionario se presentan con los personajes del libro en escenas ilustradas. Los porcentajes se leen en la composición.' },
+  { fase:'f3', cliche:'Informe cualitativo', porque:'Documento textual con análisis de entrevistas semiestructuradas. Riguroso pero no precisamente conmovedor.', innovador:'Panel de testimonios', desc:'Página web con escenario ilustrado donde los participantes están representados como personajes animados seleccionables. Al hacer clic, su testimonio se presenta animado.' },
+  { fase:'f3', cliche:'Video documental de validación', porque:'Los participantes racionalizan y se censuran al saber que los filman, produciendo una versión modulada de su experiencia real.', innovador:'Observatorio de lectores', desc:'Video ensayo de observación pura, sin entrevistas. La cámara registra el cuerpo del lector: sus manos, microexpresiones, ritmo de lectura y momentos de pausa.' },
+  { fase:'f3', cliche:'Informe final de validación', porque:'Documento de texto con conclusiones técnicas. Poco atractivo visualmente y su utilidad queda restringida al momento de la sustentación.', innovador:'Prototipo intervenido', desc:'Ejemplar impreso del libro que funciona como documento de aprendizaje. Sobre las páginas se anotan las observaciones identificadas durante la validación.' },
+];
+const faseLabel = { f0:'Pre-Requisito — Marco Teórico', f1:'Fase 1 — Cartografía Diagnóstica', f2:'Fase 2 — Tejido Narrativo (Prototipo)', f3:'Fase 3 — Validación' };
+const tbody = document.getElementById('match-body');
+let lastFase = '';
+MATCH.forEach(m => {
+  if (m.fase !== lastFase) {
+    const hr = document.createElement('tr');
+    hr.className = 'phase-header';
+    hr.innerHTML = `<td colspan="4"><span class="phase-label ${m.fase}">${faseLabel[m.fase]}</span></td>`;
+    tbody.appendChild(hr);
+    lastFase = m.fase;
+  }
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${m.cliche}</td><td>${m.porque}</td><td class="${m.fase}">${m.innovador}</td><td>${m.desc}</td>`;
+  tbody.appendChild(tr);
+});
+</script>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

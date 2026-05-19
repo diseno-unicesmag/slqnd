@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CDPS — Visor · Sobre lo que no digo</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg-visor:#080818;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);height:100vh;overflow:hidden;display:flex;flex-direction:column;}
+
+/* ── HEADER ── */
+#header{display:none;align-items:center;justify-content:space-between;padding:24px 32px;background:rgba(6,12,18,.8);backdrop-filter:blur(10px);z-index:20;border-bottom:1px solid rgba(255,255,255,.05)}
+#header h1{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:.05em;color:var(--accent)}
+#q-counter{font-size:1rem;color:var(--dim);background:rgba(255,255,255,.05);padding:6px 16px;border-radius:20px}
+
+/* ── LOBBY ── */
+#lobby{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:50;background:var(--bg)}
+#lobby h2{font-family:'Montserrat',sans-serif;font-size:2.8rem;font-weight:700;letter-spacing:-.01em}
+#lobby p{color:var(--dim);font-size:1.2rem}
+#lobby .emoji-big{font-size:6rem;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+/* ── QUESTION HEADER ── */
+#q-header{position:absolute;top:0;left:0;right:0;padding:24px 40px;background:linear-gradient(180deg,rgba(8,8,14,.95) 80%,transparent);pointer-events:none;z-index:10;text-align:center}
+#q-bloque{font-size:1rem;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:8px}
+#q-text-jovial{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:700;line-height:1.25;color:var(--text)}
+#q-text{font-size:1.15rem;color:var(--dim);margin-top:8px;font-style:italic}
+#q-nota{font-size:1rem;color:var(--accent);background:rgba(201,168,76,.08);border-left:3px solid var(--accent);padding:8px 16px;border-radius:0 6px 6px 0;margin-top:12px;pointer-events:none;display:inline-block}
+
+/* ── GAME WRAP ── */
+#game-wrap{position:relative;flex:1;display:none}
+canvas{display:block;width:100%;height:100%}
+
+/* ── TEXT SCREEN (P0 y Final) ── */
+#text-screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px;background:rgba(8,8,14,.97);z-index:12}
+#text-screen h2{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:700;text-align:center;max-width:800px;line-height:1.2}
+
+/* ── LIVE TEXT BUBBLES ── */
+#live-text-container{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:15}
+.live-bubble{position:absolute;bottom:-50px;background:var(--card);border:1px solid rgba(45,212,191,.3);padding:18px 32px;border-radius:40px;font-size:1.5rem;color:var(--text);box-shadow:0 15px 40px rgba(0,0,0,.6);animation:floatUp 10s linear forwards;white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:600}
+.live-bubble span{font-size:2rem;margin-right:12px;vertical-align:middle}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(.8);opacity:0}
+  10%{opacity:1;transform:translateY(-100px) scale(1)}
+  90%{opacity:1;transform:translateY(-800px) scale(1)}
+  100%{opacity:0;transform:translateY(-900px) scale(.8)}
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <h1>Sobre lo que no digo</h1>
+  <div id="q-counter">0 / 0</div>
+</div>
+
+<!-- LOBBY -->
+<div id="lobby">
+  <div class="emoji-big">🎭</div>
+  <h2>Cartografía Silenciosa</h2>
+  <p>Esperando a que el investigador inicie la sesión...</p>
+</div>
+
+<!-- GAME WRAP -->
+<div id="game-wrap">
+  <div id="q-header">
+    <div id="q-bloque">Bloque</div>
+    <div id="q-text-jovial">Pregunta Jovial</div>
+    <div id="q-text">Pregunta Académica</div>
+    <div id="q-nota" style="display:none">Nota</div>
+  </div>
+  <canvas id="canvas" width="1280" height="720"></canvas>
+</div>
+
+<!-- TEXT SCREEN -->
+<div id="text-screen">
+  <h2 id="ts-text">Texto</h2>
+</div>
+
+<div id="live-text-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/preguntas.js"></script>
+<script>
+const socket = io();
+let currentQ = null;
+let revealedStickers = []; 
+let rooms = [];   
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+socket.on('welcome', ({question, questionRevealed}) => {
+  if (question !== null) startQuestion(question, questionRevealed);
+});
+
+socket.on('room-counts', counts => {
+  rooms.forEach(r => r.count = counts[r.id] || 0);
+});
+
+socket.on('question-changed', idx => {
+  startQuestion(idx, false);
+});
+
+socket.on('question-revealed', (stickers) => {
+  revealedStickers = stickers;
+  
+  const counts = {};
+  stickers.forEach(s => { counts[s.roomId] = (counts[s.roomId]||0)+1; });
+  const maxC = Math.max(...Object.values(counts), 0);
+  if (maxC > 0) {
+    rooms.forEach(r => { if ((counts[r.id]||0) === maxC) r.isWinner = true; });
+  }
+  
+  draw();
+  
+  // Auto-captura de TODA la pantalla (HTML + Canvas)
+  setTimeout(() => {
+    if (currentQ !== null) {
+      html2canvas(document.body, { backgroundColor: '#060c12' }).then(fullCanvas => {
+        const dataUrl = fullCanvas.toDataURL('image/png');
+        socket.emit('save-screenshot', { qId: PREGUNTAS[currentQ].id, dataUrl });
+      });
+    }
+  }, 800); // Dar un poco más de tiempo para que renderice todo y las fuentes
+});
+
+socket.on('live-text', ({emoji, text}) => {
+  if (!text) return;
+  const container = document.getElementById('live-text-container');
+  const bubble = document.createElement('div');
+  bubble.className = 'live-bubble';
+  bubble.innerHTML = `<span>${emoji}</span> ${text}`;
+  bubble.style.left = (Math.random() * 60 + 15) + '%'; // 15% to 75%
+  bubble.style.animationDuration = (Math.random() * 4 + 8) + 's'; // 8s to 12s
+  container.appendChild(bubble);
+  setTimeout(() => bubble.remove(), 12000);
+});
+
+socket.on('reset', () => location.reload());
+
+function layoutRooms(options) {
+  rooms = [];
+  const MARGIN = 40;
+  const TOP_OFFSET = 180; 
+  const cw = canvas.width;
+  const ch = canvas.height;
+  const available_h = ch - TOP_OFFSET - MARGIN;
+  const n = options.length;
+  const cols = n <= 4 ? 2 : n <= 6 ? 3 : 4;
+  const rows_n = Math.ceil(n / cols);
+  const gapX = 24, gapY = 24;
+  const rw = Math.floor((cw - MARGIN*2 - gapX*(cols-1)) / cols);
+  const rh = Math.floor((available_h - gapY*(rows_n-1)) / rows_n);
+  options.forEach((opt, i) => {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    rooms.push({
+      id: opt.id, label: opt.label, label_acad: opt.label_acad, emoji: opt.emoji,
+      x: MARGIN + col*(rw+gapX), y: TOP_OFFSET + row*(rh+gapY),
+      w: rw, h: rh, isWinner: false, count: 0
+    });
+  });
+}
+
+function startQuestion(idx, isRevealed) {
+  currentQ = idx;
+  const q = PREGUNTAS[idx];
+  revealedStickers = [];
+  
+  document.getElementById('lobby').style.display = 'none';
+  document.getElementById('header').style.display = 'flex';
+  document.getElementById('q-counter').textContent = `${idx+1} / ${PREGUNTAS.length}`;
+
+  if (q.tipo === 'texto-vivo') {
+    document.getElementById('game-wrap').style.display = 'none';
+    document.getElementById('text-screen').style.display = 'flex';
+    document.getElementById('ts-text').textContent = q.texto;
+  } else if (q.tipo === 'texto') {
+    document.getElementById('game-wrap').style.display = 'none';
+    document.getElementById('text-screen').style.display = 'flex';
+    document.getElementById('ts-text').textContent = "Momento de reflexión silenciosa...";
+  } else {
+    document.getElementById('text-screen').style.display = 'none';
+    document.getElementById('game-wrap').style.display = 'block';
+    
+    document.getElementById('q-bloque').textContent = q.bloque;
+    document.getElementById('q-text-jovial').textContent = q.texto_jovial || q.texto;
+    document.getElementById('q-text').textContent = q.texto;
+    const notaEl = document.getElementById('q-nota');
+    if (q.nota) { notaEl.textContent = q.nota; notaEl.style.display='inline-block'; }
+    else notaEl.style.display = 'none';
+    
+    resizeCanvas();
+    layoutRooms(q.opciones);
+    draw();
+  }
+}
+
+function resizeCanvas() {
+  const wrap = document.getElementById('game-wrap');
+  if (!wrap) return;
+  canvas.width = wrap.clientWidth;
+  canvas.height = wrap.clientHeight;
+  if (currentQ !== null && PREGUNTAS[currentQ].opciones) {
+    layoutRooms(PREGUNTAS[currentQ].opciones);
+    draw();
+  }
+}
+window.addEventListener('resize', resizeCanvas);
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (currentQ === null) return;
+  const q = PREGUNTAS[currentQ];
+  if (!q || q.tipo === 'texto' || q.tipo === 'texto-vivo') return;
+
+  rooms.forEach(r => {
+    ctx.fillStyle = 'rgba(13,26,34,.6)';
+    roundRect(ctx, r.x, r.y, r.w, r.h, 20);
+    ctx.fill();
+
+    ctx.strokeStyle = r.isWinner ? '#c9a84c' : 'rgba(255,255,255,.05)';
+    ctx.lineWidth = r.isWinner ? 4 : 2;
+    roundRect(ctx, r.x, r.y, r.w, r.h, 20);
+    ctx.stroke();
+
+    ctx.font = `${Math.min(r.w*.12, 40)}px serif`;
+    ctx.textAlign = 'center';
+    ctx.fillText(r.emoji, r.x + r.w/2, r.y + r.h*.45);
+
+    ctx.font = `600 ${Math.min(r.w*.07, 22)}px Montserrat,sans-serif`;
+    ctx.fillStyle = 'rgba(228,238,244,.85)';
+    ctx.textAlign = 'center';
+    let nextY = wrapText(ctx, r.label, r.x + r.w/2, r.y + r.h*.60, r.w - 40, 26);
+    
+    if (r.label_acad) {
+      ctx.font = `italic 400 ${Math.min(r.w*.055, 14)}px Inter,sans-serif`;
+      ctx.fillStyle = 'rgba(228,238,244,.5)';
+      wrapText(ctx, r.label_acad, r.x + r.w/2, nextY + 4, r.w - 30, 18);
+    }
+
+    if (revealedStickers.length > 0 && r.count > 0) {
+      ctx.font = 'bold 18px Montserrat,sans-serif';
+      ctx.fillStyle = r.isWinner ? '#c9a84c' : '#2dd4bf';
+      ctx.textAlign = 'right';
+      ctx.fillText(`${r.count} stickers`, r.x + r.w - 20, r.y + r.h - 20);
+    }
+  });
+
+  revealedStickers.forEach(s => {
+    const r = rooms.find(room => room.id === s.roomId);
+    if (!r) return;
+    const absX = r.x + (s.relX * r.w);
+    const absY = r.y + (s.relY * r.h);
+    
+    ctx.font = '32px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(s.emoji, absX, absY);
+  });
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  if (!text) return y;
+  const words = text.split(' ');
+  let line = '';
+  for(let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      ctx.fillText(line.trim(), x, y);
+      line = words[n] + ' ';
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, y);
+  return y + lineHeight;
+}
+
+resizeCanvas();
+</script>
+</body>
+</html>
+
+
+
+
+
