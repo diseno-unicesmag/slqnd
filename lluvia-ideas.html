@@ -1,35 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lluvia de ideas · Sobre lo que no digo</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lluvia de ideas — Sobre lo que no digo</title>
+  <meta name="description" content="El proyecto cruzado con cinco industrias culturales y creativas: ideas calificadas y matriz de síntesis.">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/glass.css">
-<style>
-.idea-card{
-  position:absolute; z-index:2; border-radius:14px; padding:13px 15px;
-  cursor:grab; user-select:none; max-width:180px; min-width:120px;
-  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-  box-shadow: 0 4px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12);
-  transition:box-shadow .2s, border-color .2s, transform .15s;
-}
-.idea-card:active{cursor:grabbing; transform:scale(1.03);}
-.idea-card:hover{ box-shadow:0 8px 32px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.18); transform:translateY(-2px); }
-.card-actions{position:absolute;top:-11px;right:-11px;display:flex;gap:3px;opacity:0;transition:opacity .2s;}
-.idea-card:hover .card-actions,.idea-card.has-state .card-actions{opacity:1;}
-.marker-btn{width:22px;height:22px;border-radius:50%;border:1px solid var(--border);background:rgba(8,8,24,.8);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:10px;color:var(--muted);transition:all .2s;padding:0;}
-.marker-btn.active.cross{background:#ef4444;border-color:#ef4444;color:#fff;transform:scale(1.1);}
-.marker-btn.active.check{background:#10b981;border-color:#10b981;color:#fff;transform:scale(1.1);}
-.marker-btn.active.star{background:var(--accent);border-color:var(--accent);color:#08081a;transform:scale(1.1);}
-</style>
+  <style>
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px 80px; }
+    .cab { padding: 150px 0 34px; }
+    .cab h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5.4vw, 4.2rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.035em; margin: 22px 0 16px; }
+    .cab h1 em { font-style: normal; color: var(--accent); }
+    .cab p { color: var(--muted); max-width: 60ch; }
+    .cab .nota-version { text-align: left; margin: 14px 0 0; max-width: 60ch; }
+    .rot { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lav); margin-bottom: 6px; }
+
+    /* Embudo */
+    .embudo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; margin-bottom: 40px; }
+    .paso { position: relative; padding: 22px 24px; border-radius: 22px; }
+    .paso:not(:last-child)::after { content: ''; position: absolute; top: 50%; right: -22px; width: 10px; height: 10px; border-top: 2px solid rgba(185, 168, 240, 0.8); border-right: 2px solid rgba(185, 168, 240, 0.8); transform: translateY(-50%) rotate(45deg); }
+    .paso b { display: block; font-family: var(--font-display); font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+    .paso span { display: block; margin-top: 8px; font-size: 0.9rem; color: var(--muted); line-height: 1.4; }
+    .paso.fin { background: linear-gradient(140deg, rgba(240, 194, 75, 0.16), rgba(240, 194, 75, 0.03)); border-color: rgba(240, 194, 75, 0.4); }
+    .paso.fin b { color: var(--accent); }
+
+    /* Pestañas */
+    .tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 5px; border-radius: 100px; width: fit-content; max-width: 100%; margin-bottom: 22px; border: 1px solid var(--lg-border); background: var(--lg-card); }
+    .tabs button { font-family: inherit; font-size: 0.88rem; font-weight: 600; color: var(--muted); cursor: pointer; padding: 9px 18px; border-radius: 100px; background: none; border: 1px solid transparent; transition: color 0.2s ease, background 0.2s ease; display: inline-flex; align-items: center; gap: 8px; }
+    .tabs button:hover { color: var(--text); }
+    .tabs button[aria-selected="true"] { color: var(--text); background: var(--capsule); border-color: rgba(255, 255, 255, 0.3); box-shadow: var(--capsule-shadow); }
+    .tabs button small { font-size: 0.72rem; color: var(--muted2); font-variant-numeric: tabular-nums; }
+    .tabs button.sint { color: var(--accent); }
+
+    .panel-cab { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .panel-cab h2 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; letter-spacing: -0.025em; }
+    .panel-cab h2 span { color: var(--muted2); font-weight: 600; }
+    .panel-cab p { font-size: 0.88rem; color: var(--muted); max-width: 62ch; }
+    .panel-cab a { font-size: 0.84rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .panel-cab a:hover { text-decoration: underline; }
+
+    .cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+    .colu { border-radius: 24px; padding: 14px; }
+    .colu-h { display: flex; align-items: center; gap: 10px; padding: 6px 8px 14px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .colu-h i { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; font-style: normal; font-size: 0.8rem; }
+    .colu-h span { margin-left: auto; color: var(--muted2); font-variant-numeric: tabular-nums; }
+    .star .colu-h { color: var(--accent); } .star .colu-h i { background: var(--accent); color: #14102b; }
+    .check .colu-h { color: #8ed1b1; } .check .colu-h i { background: rgba(142, 209, 177, 0.2); border: 1px solid rgba(142, 209, 177, 0.6); }
+    .cross .colu-h { color: var(--muted); } .cross .colu-h i { border: 1px dashed rgba(255, 255, 255, 0.35); }
+    .idea { padding: 14px 16px; border-radius: 16px; font-size: 0.93rem; line-height: 1.5; background: rgba(255, 255, 255, 0.045); border: 1px solid var(--lg-border); }
+    .idea + .idea { margin-top: 8px; }
+    .star .idea { background: rgba(240, 194, 75, 0.09); border-color: rgba(240, 194, 75, 0.4); }
+    .check .idea { border-color: rgba(142, 209, 177, 0.3); }
+    .cross .idea { background: none; border-style: dashed; color: var(--muted2); }
+    .idea small { display: block; margin-top: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lav); }
+    .colu-vacia { padding: 10px 8px 6px; font-size: 0.86rem; color: var(--muted2); }
+    .rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+    .rejilla .idea + .idea { margin-top: 0; }
+
+    /* Síntesis */
+    .sint-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 16px; align-items: start; }
+    .sint-fila { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; padding: 14px 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.045); border: 1px solid var(--lg-border); font-size: 0.93rem; line-height: 1.5; }
+    .sint-fila + .sint-fila { margin-top: 8px; }
+    .sint-fila i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; font-style: normal; font-size: 0.82rem; }
+    .sint-fila.star { background: rgba(240, 194, 75, 0.09); border-color: rgba(240, 194, 75, 0.4); } .sint-fila.star i { background: var(--accent); color: #14102b; }
+    .sint-fila.check i { background: rgba(142, 209, 177, 0.2); border: 1px solid rgba(142, 209, 177, 0.6); color: #8ed1b1; }
+    .sint-fila.cross { background: none; border-style: dashed; color: var(--muted2); } .sint-fila.cross i { border: 1px dashed rgba(255, 255, 255, 0.35); }
+    .sint-fila small { display: block; margin-top: 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lav); }
+    .propuesta { position: sticky; top: 96px; border-radius: 24px; padding: 26px; background: linear-gradient(150deg, rgba(240, 194, 75, 0.15), rgba(124, 58, 237, 0.12)); border: 1px solid rgba(240, 194, 75, 0.4); box-shadow: var(--lg-card-shadow); }
+    .wrap p.rot { font-size: 0.66rem; line-height: 1.4; margin-bottom: 8px; }
+    .propuesta .rot { color: var(--accent); }
+    .propuesta h3 { font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 14px; }
+    .propuesta p { font-size: 0.92rem; color: var(--muted); margin-bottom: 20px; }
+
+    @media (max-width: 900px) {
+      .embudo { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .paso::after { display: none; }
+      .cols, .sint-grid { grid-template-columns: 1fr; }
+      .propuesta { position: static; }
+      .tabs { border-radius: 24px; }
+      .cab { padding-top: 120px; }
+    }
+  </style>
 </head>
 <body>
-<div class="ambient-glow glow-1"></div>
-<div class="ambient-glow glow-2"></div>
-<div class="ambient-glow glow-3"></div>
+
 <nav>
-  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
+  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
   <div class="nav-links">
     <a class="nav-link" href="ruta-metodologica.html">Ruta</a>
     <div class="nav-item">
@@ -40,7 +97,7 @@
         <a href="lluvia-ideas.html" class="current">Lluvia de ideas</a>
       </div>
     </div>
-        <div class="nav-item">
+    <div class="nav-item">
       <button class="nav-link">Instrumentos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
       <div class="nav-dropdown">
         <a href="cdps.html">CDPS</a>
@@ -48,26 +105,188 @@
     </div>
   </div>
 </nav>
-<div class="page z1">
-  <div class="hero-new" style="min-height:50vh;padding-bottom:30px;">
-    <div class="hero-tag">Lluvia de ideas · Proyecto + Conceptos de la industria</div>
-    <h1>Lluvia de <em>Ideas</em></h1>
-    <p class="hero-quote">Fusión conceptual entre el prototipo editorial phygital y múltiples conceptos extraídos de las industrias culturales y creativas.</p>
-    <p class="nota-version">Ejercicio de clase de la Fase 1. Conserva la formulación con la que se hizo, anterior a la versión actual del proyecto.</p>
-  </div>
-  <div class="section" style="text-align:center;padding-bottom:0;">
-    <p class="section-label">Ejercicios de combinación</p>
-    <p class="tip-text" style="margin-top:6px;">Exploración del ecosistema con diferentes disciplinas</p>
-  </div>
-  <div id="boards-container"></div>
-  <div class="section" style="text-align:center;padding-bottom:0;margin-top:40px;">
-    <p class="section-label">Filtro de ideas</p>
-    <p class="tip-text" style="margin-top:6px;">Las ideas ganadoras (★) de todos los ejercicios anteriores reunidas aquí</p>
-  </div>
-  <div id="filter-board-container"></div>
-  <footer><p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p></footer>
-</div>
-<script src="js/lluvia-ideas.js"></script>
+
+<main class="wrap">
+  <header class="cab">
+    <span class="badge-live"><i></i>Lluvia de ideas · Industrias culturales y creativas</span>
+    <h1>Lluvia de <em>ideas</em></h1>
+    <p>El proyecto cruzado con cinco industrias culturales y creativas. Cada idea se calificó como prioritaria, buena o inviable, y las prioritarias pasaron a una matriz de síntesis.</p>
+    <p class="nota-version">Ejercicio de clase de la Fase 1. Las ideas conservan la formulación con la que se escribieron, cuando el proyecto todavía era un libro ilustrado con Realidad Aumentada.</p>
+  </header>
+
+  <div class="embudo" id="embudo"></div>
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Industrias"></div>
+  <section id="panel" role="tabpanel" aria-live="polite"></section>
+
+  <footer>
+    <p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p>
+  </footer>
+</main>
+
+<script>
+const MAPS = [
+ {
+  "id": "arquitectura",
+  "title": "+ Arquitectura",
+  "image": "Recursos/Lluvia de Ideas/Lluvia de Ideas - Desarrollo.png",
+  "ideas": [
+   "Escenarios arquitectónicos 3D con RA como espacios narrativos del libro",
+   "Ilustraciones con alta carga conceptual en la arquitectura de los espacios",
+   "Obras arquitectónicas abstractas extraídas de las ilustraciones como escena RA",
+   "Plano arquitectónico del lugar donde transcurre la historia",
+   "Elementos de las ilustraciones aplicados a diseño de interior",
+   "Estructura inspirada en el libro e ilustraciones",
+   "Museo donde se exhiban los libros con experiencia personalizada",
+   "Espacio de exposición con mapping que genere RA por ilustración",
+   "Mural con Realidad Aumentada",
+   "Proyección del libro en un espacio, pared o lugar",
+   "Video mapping para presentar el libro a comunidades",
+   "Cada página del libro proyectada en un monumento diferente de la ciudad"
+  ]
+ },
+ {
+  "id": "musica",
+  "title": "+ Música",
+  "image": null,
+  "ideas": [
+   "Composición de paisajes sonoros subconscientes como capas inmersivas en la RA",
+   "Páginas diseñadas como partituras abstractas que reproducen auditivamente el vacío",
+   "El producto físico es la funda de un vinilo o casete, la RA revela el estado del artista",
+   "Letras de canciones ocultas entre los trazos, visibles y audibles mediante RA",
+   "Libro físico como caja de música interactiva modulada desde la pantalla en RA",
+   "Marcadores físicos adicionales que desatan monólogos internos",
+   "Narrativa sonora: sonidos caóticos iniciales que el usuario puede armonizar",
+   "La ilustración vibra o baila en RA al compás del ruido ambiental de la habitación",
+   "Separadores con patrones que activan diferentes pistas de audio",
+   "Colores mapeados a frecuencias de sonido (sinestesia) para \"tocar\" la ilustración",
+   "Álbum conceptual impreso donde la RA es el videoclip inmersivo de cada canción"
+  ]
+ },
+ {
+  "id": "escultura",
+  "title": "+ Escultura",
+  "image": null,
+  "ideas": [
+   "Art Toys coleccionables de resina como marcadores físicos de la carga emocional",
+   "Piezas de cerámica intervenidas con Kintsugi; la RA revela las historias de sus grietas",
+   "Objeto escultórico tridimensional (pop-up) con animaciones proyectadas en RA",
+   "Esculturas de máscaras en arcilla que se agrietan digitalmente mostrando la ilustración",
+   "Empaque escultórico rígido que debe manipularse físicamente para acceder al libro",
+   "Maqueta topográfica de la \"mente\"; la RA proyecta escenas sobre sus valles",
+   "Bloque moldeable para que el usuario esculpa su emoción y la RA le asigne una metáfora",
+   "Escultura monumental central; caminar alrededor revela páginas flotantes en RA",
+   "Cubiertas en alto relieve cuyas texturas interactúan con la iluminación digital",
+   "Esculturas cinéticas; la posición física altera el desenlace visual en RA",
+   "Fragmentos esparcidos para reunir; al juntarlos, la RA proyecta la escena completa"
+  ]
+ },
+ {
+  "id": "museos",
+  "title": "+ Museos",
+  "image": null,
+  "ideas": [
+   "Museo del Silencio: pedestales vacíos donde la RA revela la obra emocional",
+   "El libro es el catálogo del museo, cada página es una sala del subconsciente",
+   "Instalación interactiva con post-its anónimos transformados en galería virtual animada",
+   "Tickets de entrada al museo como marcadores RA con \"tráilers\" de la emoción",
+   "Escape Room emocional: pistas ocultas en ilustraciones esparcidas por el salón",
+   "Curaduría inversa: usuario restaura ilustraciones sin contexto aplicando el Kintsugi",
+   "Museo de Máscaras Sociales en papel que proyectan el verdadero rostro del agotamiento"
+  ]
+ },
+ {
+  "id": "videojuegos",
+  "title": "+ Videojuegos",
+  "image": null,
+  "ideas": [
+   "Mecánica Tamagotchi: sanar a una criatura en RA dando nombre a las emociones diarias",
+   "Sistema de Rachas (Duolingo): la racha transforma el entorno caótico en armónico",
+   "Kintsugi Puzzle: responder preguntas de introspección para ganar piezas doradas",
+   "Coleccionismo: interactuar en distintos momentos del día para desbloquear emociones",
+   "Puntos de Liberación: la máscara se agrieta con el uso, desbloqueando nuevos capítulos",
+   "Novela Visual: opciones de diálogo en RA alteran la animación de la página impresa",
+   "Minijuegos de respiración: seguir el ritmo de la animación RA proyectada sobre la página"
+  ]
+ }
+];
+// Calificación registrada en cada matriz: star = prioritaria, check = buena idea, cross = inviable.
+const RATINGS = {
+  musica: { 0: 'check', 1: 'check', 2: 'star', 3: 'check', 4: 'cross', 5: 'cross', 6: 'cross', 7: 'cross', 8: 'check', 9: 'cross', 10: 'star' },
+  escultura: { 0: 'star', 1: 'check', 2: 'cross', 3: 'check', 4: 'cross', 5: 'cross', 6: 'cross', 7: 'cross', 8: 'check', 9: 'cross', 10: 'cross' },
+  museos: { 0: 'star', 1: 'check', 2: 'cross', 3: 'check', 4: 'cross', 5: 'cross', 6: 'star' },
+  videojuegos: { 0: 'cross', 1: 'check', 2: 'cross', 3: 'star', 4: 'check', 5: 'cross', 6: 'cross' }
+};
+// Veredicto de la matriz de síntesis sobre las prioritarias.
+const SINTESIS = { musica_2: 'check', musica_10: 'star', escultura_0: 'star', museos_0: 'star', museos_6: 'cross', videojuegos_3: 'check' };
+const NIVEL = { star: ['Prioritarias', '★'], check: ['Buenas ideas', '✓'], cross: ['Inviables', '✕'] };
+const VEREDICTO = { star: 'Finalista', check: 'Buena idea, no finalista', cross: 'Descartada en la síntesis' };
+
+const $ = id => document.getElementById(id);
+const el = (tag, cls, txt) => { const n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
+const titulo = m => m.title.replace('+ ', '');
+
+const total = MAPS.reduce((s, m) => s + m.ideas.length, 0);
+const prioritarias = [];
+MAPS.forEach(m => m.ideas.forEach((t, i) => { if ((RATINGS[m.id] || {})[i] === 'star') prioritarias.push({ id: m.id + '_' + i, text: t, de: titulo(m) }); }));
+const calificadas = Object.values(RATINGS).reduce((n, r) => n + Object.keys(r).length, 0);
+const finalistas = prioritarias.filter(p => SINTESIS[p.id] === 'star');
+
+// Embudo
+[[total, 'ideas en ' + MAPS.length + ' industrias', ''], [prioritarias.length, 'prioritarias entre las ' + calificadas + ' ideas calificadas', ''], [finalistas.length, 'finalistas en la matriz de síntesis', ''], [1, 'propuesta: el ecosistema phygital', 'fin']].forEach(([n, t, c]) => {
+  const p = el('div', 'paso lg ' + c); p.append(el('b', null, n), el('span', null, t)); $('embudo').append(p);
+});
+
+// Pestañas
+let actual = null;
+const tabs = MAPS.map(m => ({ id: m.id, label: titulo(m), n: m.ideas.length })).concat([{ id: 'sintesis', label: 'Síntesis', n: prioritarias.length, sint: true }]);
+tabs.forEach(t => {
+  const b = el('button', t.sint ? 'sint' : '', t.label); b.type = 'button'; b.setAttribute('role', 'tab'); b.dataset.id = t.id; b.append(el('small', null, t.n));
+  b.addEventListener('click', () => abrir(t.id));
+  $('tabs').append(b);
+});
+
+function columna(k, ideas) {
+  const c = el('div', 'colu lg ' + k), h = el('div', 'colu-h');
+  h.append(el('i', null, NIVEL[k][1]), document.createTextNode(NIVEL[k][0]), el('span', null, ideas.length));
+  c.append(h);
+  if (!ideas.length) c.append(el('p', 'colu-vacia', 'Ninguna idea en este nivel.'));
+  ideas.forEach(t => c.append(el('div', 'idea', t)));
+  return c;
+}
+function abrir(id) {
+  actual = id;
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.id === id));
+  const p = $('panel'); p.textContent = '';
+  const cab = el('div', 'panel-cab');
+  if (id === 'sintesis') {
+    const iz = el('div'); iz.append(el('h2', null, 'Matriz de síntesis'), el('p', null, 'Las ' + prioritarias.length + ' ideas prioritarias de todas las industrias, comparadas entre sí.'));
+    cab.append(iz); p.append(cab);
+    const g = el('div', 'sint-grid'), lista = el('div');
+    ['star', 'check', 'cross'].forEach(k => prioritarias.filter(x => SINTESIS[x.id] === k).forEach(x => {
+      const f = el('div', 'sint-fila ' + k), tx = el('div', null, x.text);
+      tx.append(el('small', null, x.de + ' · ' + VEREDICTO[k]));
+      f.append(el('i', null, NIVEL[k][1]), tx); lista.append(f);
+    }));
+    const pr = el('aside', 'propuesta');
+    pr.append(el('p', 'rot', 'Lo que emergió'), el('h3', null, 'Un ecosistema phygital: obras conceptuales físicas y una aplicación de Realidad Aumentada que actúa como lente reveladora.'), el('p', null, 'De la matriz de síntesis emergió la propuesta central del proyecto.'));
+    const a = el('a', 'btn-pill primary', 'Ver cómo funciona'); a.href = 'index.html#como-funciona'; pr.append(a);
+    g.append(lista, pr); p.append(g);
+    return;
+  }
+  const m = MAPS.find(x => x.id === id), r = RATINGS[id];
+  const iz = el('div'), h = el('h2', null, 'Proyecto '); h.append(el('span', null, '+ ' + titulo(m))); iz.append(h);
+  if (!r) iz.append(el('p', null, 'Tema asignado en la sesión de clase. La calificación de estas ideas no quedó registrada en la plataforma.'));
+  cab.append(iz);
+  if (m.image) { const a = el('a', null, 'Ver el registro del ejercicio (imagen, 33 MB) →'); a.href = m.image; a.target = '_blank'; a.rel = 'noopener'; cab.append(a); }
+  p.append(cab);
+  if (!r) { const g = el('div', 'rejilla'); m.ideas.forEach(t => g.append(el('div', 'idea', t))); p.append(g); return; }
+  const cols = el('div', 'cols');
+  ['star', 'check', 'cross'].forEach(k => cols.append(columna(k, m.ideas.filter((_, i) => r[i] === k))));
+  p.append(cols);
+}
+abrir(tabs.some(t => t.id === location.hash.slice(1)) ? location.hash.slice(1) : MAPS[0].id);
+</script>
 
 <script src="js/glass.js"></script>
 <script src="js/nav.js"></script>
