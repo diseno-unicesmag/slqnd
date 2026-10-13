@@ -4,8 +4,91 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre lo que no digo — Proyecto de Grado</title>
-  <meta name="description" content="Diseño de un ecosistema editorial phygital que utiliza la Realidad Aumentada como vehículo de decodificación del burnout en jóvenes universitarios.">
+  <meta name="description" content="Estrategia de diseño participativo para fomentar la elaboración emocional en jóvenes universitarios mediante una experiencia phygital: obras conceptuales y Realidad Aumentada.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass.css">
+  <style>
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    .sec { padding: 72px 0; }
+    .kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lav); margin-bottom: 14px; }
+    .sec h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 3.6vw, 2.9rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; max-width: 22ch; margin-bottom: 16px; }
+    .sec .lead { color: var(--muted); font-size: 1.02rem; max-width: 60ch; margin-bottom: 40px; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; padding: 150px 0 70px; min-height: min(92vh, 860px); }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(3rem, 7.2vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; margin: 26px 0 24px; }
+    .hero h1 em { font-style: normal; display: block; background: linear-gradient(120deg, var(--accent) 10%, #fff3c4 90%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero .sub { font-size: clamp(1rem, 1.35vw, 1.15rem); color: var(--muted); line-height: 1.65; max-width: 52ch; margin-bottom: 34px; }
+    .hero .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Lente de cristal líquido: refracta lo que se dice y deja ver lo que se calla */
+    .lente { position: relative; aspect-ratio: 4 / 5; max-height: 560px; width: 100%; border-radius: 28px; overflow: hidden; touch-action: none; cursor: none; container-type: size;
+      background: linear-gradient(155deg, rgba(124, 58, 237, 0.2), rgba(255, 255, 255, 0.03) 55%), repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 26px); }
+    .lente .capa { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 7%; padding: 10% 10% 16%; }
+    .lente .capa p { font-family: var(--font-display); font-size: clamp(1.2rem, 6.2cqw, 2.05rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap; }
+    .lente .dicho p { color: rgba(237, 234, 246, 0.34); }
+    .lupa { position: absolute; left: 0; top: 0; width: 46cqw; height: 46cqw; border-radius: 50%; overflow: hidden; pointer-events: none; will-change: transform;
+      background: radial-gradient(circle, rgba(46, 20, 104, 0.94) 0 58%, rgba(46, 20, 104, 0.5) 74%, rgba(255, 255, 255, 0.06) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.55), inset 0 -10px 24px rgba(240, 194, 75, 0.12), inset 0 0 0 6px rgba(255, 255, 255, 0.04), 0 18px 44px rgba(0, 0, 0, 0.55); }
+    .lupa::after { content: ''; position: absolute; top: 4%; left: 16%; right: 16%; height: 38%; border-radius: 50%; background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.3), transparent 70%); pointer-events: none; }
+    .lupa .capa { inset: auto; left: 0; top: 0; width: 100cqw; height: 100cqh; will-change: transform; }
+    .lupa .capa p { color: var(--accent); }
+    .lente .pie { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 20px; font-size: 0.76rem; color: var(--muted); background: linear-gradient(transparent, rgba(11, 10, 26, 0.88)); display: flex; justify-content: space-between; gap: 12px; }
+
+    /* Cifras */
+    .cifras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .cifra { padding: 26px 24px; border-radius: 22px; }
+    .cifra b { display: block; font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .cifra b small { font-size: 0.42em; font-weight: 700; color: rgba(255, 255, 255, 0.5); letter-spacing: 0; }
+    .cifra span { display: block; margin-top: 12px; font-size: 0.92rem; color: var(--muted); line-height: 1.45; }
+    .fuente { margin-top: 18px; font-size: 0.78rem; color: var(--muted2); }
+
+    /* Propósito */
+    .proposito { border-radius: 28px; padding: clamp(32px, 5vw, 60px); text-align: center; background: linear-gradient(135deg, rgba(124, 58, 237, 0.16), rgba(255, 255, 255, 0.03)); }
+    .proposito p { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; max-width: 30ch; margin: 0 auto; }
+    .proposito p.kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; line-height: 1.4; max-width: none; margin-bottom: 18px; }
+    .proposito p mark { background: none; color: var(--accent); }
+
+    /* Cómo funciona */
+    .pasos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: paso; }
+    .paso { position: relative; padding: 26px 24px 28px; border-radius: 22px; counter-increment: paso; }
+    .paso::before { content: '0' counter(paso); display: block; font-family: var(--font-display); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; color: var(--lav); margin-bottom: 44px; }
+    .paso h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .paso p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+    .paso:not(:last-child)::after { content: ''; position: absolute; top: 34px; right: -16px; width: 16px; height: 1px; background: rgba(185, 168, 240, 0.45); }
+
+    /* Ruta */
+    .fases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+    .fase { display: block; padding: 26px; border-radius: 22px; text-decoration: none; color: var(--text); transition: transform 0.4s var(--ease-out), border-color 0.3s ease; }
+    .fase:hover { transform: translateY(-4px); border-color: rgba(245, 197, 66, 0.45); }
+    .fase .i { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; color: var(--lav); }
+    .fase h3 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; letter-spacing: -0.02em; margin: 6px 0 8px; }
+    .fase p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; min-height: 4.5em; }
+    .fase .prog { display: flex; align-items: center; gap: 10px; margin-top: 18px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .fase .prog div { flex: 1; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+    .fase .prog div span { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+
+    /* Ficha */
+    .ficha { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-radius: 22px; overflow: hidden; }
+    .ficha div { padding: 22px 24px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .ficha dt { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lav); margin-bottom: 4px; }
+    .ficha dd { font-size: 0.95rem; font-weight: 500; }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 120px; min-height: 0; }
+      .lente { max-width: 440px; margin: 0 auto; }
+      .cifras, .pasos { grid-template-columns: 1fr 1fr; }
+      .paso::after { display: none; }
+      .fases, .ficha { grid-template-columns: 1fr; }
+      .fase p { min-height: 0; }
+      .sec { padding: 52px 0; }
+    }
+    @media (max-width: 520px) {
+      .cifras, .pasos { grid-template-columns: 1fr; }
+      .paso::before { margin-bottom: 18px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,8 +98,9 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
+  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
   <div class="nav-links">
+    <a class="nav-link" href="ruta-metodologica.html">Ruta</a>
     <div class="nav-item">
       <button class="nav-link">Productos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
       <div class="nav-dropdown">
@@ -25,7 +109,7 @@
         <a href="lluvia-ideas.html">Lluvia de ideas</a>
       </div>
     </div>
-        <div class="nav-item">
+    <div class="nav-item">
       <button class="nav-link">Instrumentos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
       <div class="nav-dropdown">
         <a href="cdps.html">CDPS</a>
@@ -34,153 +118,188 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero-new">
-  <div class="hero-tag">Investigación · Creación · Diseño Gráfico</div>
-  <h1>SOBRE LO QUE<br><em>NO DIGO</em></h1>
-  <p class="hero-quote">Diseño de una experiencia editorial phygital con Realidad Aumentada que fomenta la introspección frente al burnout en jóvenes universitarios.</p>
-</div>
+<main class="wrap">
 
-<!-- STATS -->
-<div class="stats-row">
-  <div class="stat-glass"><span>Estudiante</span><p>Shamuel Woodcock S.</p></div>
-  <div class="stat-glass"><span>Programa</span><p>Diseño Gráfico</p></div>
-  <div class="stat-glass"><span>Institución</span><p>Universidad CESMAG</p></div>
-  <div class="stat-glass"><span>Periodo</span><p>2025 – 2026</p></div>
-</div>
-
-<div class="page z1" style="padding-top:10px;">
-
-  <!-- OBJETIVO GENERAL -->
-  <div class="section">
-    <div class="obj-master">
-      <h2>Objetivo General</h2>
-      <p>Diseñar una experiencia editorial phygital con Realidad Aumentada que fomente la introspección frente al burnout en jóvenes universitarios de 18 a 25 años en San Juan de Pasto.</p>
-    </div>
-
-    <!-- OBJETIVOS ESPECÍFICOS -->
-    <div class="text-center mb-24">
-      <p class="section-label">Diseño Metodológico</p>
-    </div>
-
-    <div class="glass-grid">
-      <div class="obj-card">
-        <div class="obj-num">01</div>
-        <div class="obj-tag">Fase 1</div>
-        <h4>Cartografía diagnóstica</h4>
-        <p>Identificar patrones de detonantes, dinámicas y consecuencias emocionales de la hiperexigencia autoimpuesta y el perfeccionismo obsesivo.</p>
-        <h5>Instrumentos</h5>
-        <ul class="obj-list"><li>Grupos focales</li><li>Diario de campo</li><li>Observación audiovisual</li></ul>
-        <h5>Productos</h5>
-        <ul class="obj-list"><li>Informe diagnóstico</li><li>Ensayo interpretativo</li><li>Cápsulas testimoniales</li></ul>
-      </div>
-
-      <div class="obj-card">
-        <div class="obj-num">02</div>
-        <div class="obj-tag">Fase 2</div>
-        <h4>Tejido narrativo</h4>
-        <p>Explorar las vivencias silenciadas de jóvenes universitarios relacionadas con el burnout, para extraer conceptos narrativos y metafóricos.</p>
-        <h5>Instrumentos</h5>
-        <ul class="obj-list"><li>Taller de co-creación</li><li>Diario de campo</li><li>Matriz de triangulación</li></ul>
-        <h5>Productos</h5>
-        <ul class="obj-list"><li>Piezas de co-creación</li><li>Crónica audiovisual</li><li>Guion narrativo</li></ul>
-      </div>
-
-      <div class="obj-card">
-        <div class="obj-num">03</div>
-        <div class="obj-tag">Fase 3</div>
-        <h4>Creación editorial</h4>
-        <p>Diseñar un prototipo editorial phygital que articule un libro impreso con Realidad Aumentada para despertar resonancia emocional.</p>
-        <h5>Instrumentos</h5>
-        <ul class="obj-list"><li>Moodboard</li><li>Bocetación y Storyboard</li><li>Prototipado</li></ul>
-        <h5>Productos</h5>
-        <ul class="obj-list"><li>Libro impreso</li><li>Animaciones AR</li><li>App phygital móvil</li></ul>
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <span class="badge-live"><i></i>Proyecto de grado · Investigación-Creación</span>
+      <h1>Sobre lo que <em>no digo</em></h1>
+      <p class="sub">Una estrategia de diseño participativo para fomentar la elaboración emocional en jóvenes universitarios. Obras conceptuales que guardan lo que se calla, y una capa de Realidad Aumentada que lo revela.</p>
+      <div class="cta">
+        <a class="btn-pill primary" href="ruta-metodologica.html">Recorrer la ruta metodológica <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn-pill" href="#como-funciona">Cómo funciona</a>
       </div>
     </div>
 
-    <!-- CRONOGRAMA -->
-    <div class="text-center" style="margin:80px 0 32px;">
-      <p class="section-label">Cronograma de Actividades</p>
-      <p class="tip-text" style="margin-top:6px;">Haz clic en las filas para marcar tu progreso</p>
+    <div class="lente lg" id="lente" role="img" aria-label="Demostración del concepto: una lente de cristal que revela, bajo las frases que se dicen, las que se callan.">
+      <div class="capa dicho" aria-hidden="true">
+        <p>Estoy bien.</p><p>Solo es cansancio.</p><p>Ya casi termino.</p><p>No pasa nada.</p>
+      </div>
+      <div class="lupa lg-r" id="lupa" data-lg-depth="22" data-lg-strength="110" data-lg-blur="0.6" aria-hidden="true">
+        <div class="capa callado" id="callado">
+          <p>Me aguanto y sigo.</p><p>Soy mi peor enemigo.</p><p>Es un ciclo sin fin.</p><p>Trato de salir solo.</p>
+        </div>
+      </div>
+      <div class="pie"><span>Mueve la lente</span><span>Lo revelado: respuestas de la CDPS</span></div>
     </div>
+  </header>
 
-    <div class="gantt-glass">
-      <table class="gantt-table">
-        <thead>
-          <tr>
-            <th style="min-width:90px;">Fase</th>
-            <th style="min-width:270px;">Actividad</th>
-            <th style="min-width:26px;">30/03</th><th style="min-width:26px;">06/04</th>
-            <th style="min-width:26px;">13/04</th><th style="min-width:26px;">20/04</th>
-            <th style="min-width:26px;">27/04</th><th style="min-width:26px;">04/05</th>
-            <th style="min-width:26px;">11/05</th><th style="min-width:26px;">18/05</th>
-            <th style="min-width:26px;">25/05</th><th style="min-width:26px;">01/06</th>
-            <th style="min-width:26px;">08/06</th><th style="min-width:26px;">15/06</th>
-            <th style="min-width:26px;">22/06</th><th style="min-width:26px;">29/06</th>
-            <th style="min-width:26px;">06/07</th><th style="min-width:26px;">13/07</th>
-            <th style="min-width:26px;">20/07</th><th style="min-width:26px;">27/07</th>
-            <th style="min-width:26px;">03/08</th><th style="min-width:26px;">10/08</th>
-            <th style="min-width:26px;">17/08</th><th style="min-width:26px;">24/08</th>
-            <th style="min-width:26px;">31/08</th><th style="min-width:26px;">07/09</th>
-            <th style="min-width:26px;">14/09</th><th style="min-width:26px;">21/09</th>
-            <th style="min-width:26px;">28/09</th><th style="min-width:26px;">05/10</th>
-            <th style="min-width:26px;">12/10</th><th style="min-width:26px;">19/10</th>
-            <th style="min-width:26px;">26/10</th><th style="min-width:26px;">02/11</th>
-            <th style="min-width:26px;">09/11</th><th style="min-width:26px;">16/11</th>
-          </tr>
-        </thead>
-        <tbody id="gantt-body"></tbody>
-      </table>
+  <!-- CIFRAS -->
+  <section class="sec">
+    <p class="kicker reveal">Lo que encontró la indagación</p>
+    <h2 class="reveal">No les falta el malestar. Les faltan canales para nombrarlo.</h2>
+    <p class="lead reveal">Quince estudiantes de Diseño Gráfico respondieron de forma anónima una cartografía digital de su vida académica.</p>
+    <div class="cifras">
+      <div class="cifra lg reveal"><b>15<small> de 15</small></b><span>siguen trabajando en casa por la noche; nadie logra desconectarse.</span></div>
+      <div class="cifra lg reveal d1"><b>4,07<small> / 5</small></b><span>de autoexigencia promedio. Siete se describen como «mi peor enemigo».</span></div>
+      <div class="cifra lg reveal d2"><b>14<small> de 15</small></b><span>nunca habían oído la palabra <em>burnout</em>, y 13 dicen haberlo vivido.</span></div>
+      <div class="cifra lg reveal d3"><b>8<small> de 15</small></b><span>casi nunca hablan de su agotamiento o prefieren guardárselo.</span></div>
     </div>
-  </div>
+    <p class="fuente reveal">CDPS · 24 de abril de 2026 · Universidad CESMAG · resultados exploratorios. <a href="cdps.html" style="color:var(--accent)">Ver el instrumento</a></p>
+  </section>
+
+  <!-- PROPÓSITO -->
+  <section class="sec">
+    <div class="proposito lg reveal">
+      <p class="kicker">Propósito general</p>
+      <p>Diseñar una estrategia de diseño participativo para fomentar la <mark>elaboración emocional</mark> en jóvenes universitarios de 18 a 25 años en San Juan de Pasto mediante una <mark>experiencia phygital</mark>.</p>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="sec" id="como-funciona">
+    <p class="kicker reveal">El ecosistema phygital</p>
+    <h2 class="reveal">La Realidad Aumentada no añade: revela.</h2>
+    <p class="lead reveal">Dos actores, creadores y lectores, se encuentran a través de una obra física y de MetafoRA, la aplicación que actúa como lente.</p>
+    <div class="pasos">
+      <div class="paso lg reveal"><h3>Un creador calla algo</h3><p>En un taller de cocreación convierte ese silencio en una metáfora visual.</p></div>
+      <div class="paso lg reveal d1"><h3>La obra lo guarda</h3><p>La pieza física porta el mensaje visible, sin tener que decirlo con palabras directas.</p></div>
+      <div class="paso lg reveal d2"><h3>MetafoRA lo revela</h3><p>Al escanearla, la capa de Realidad Aumentada despliega la animación y el sonido que completan el mensaje.</p></div>
+      <div class="paso lg reveal d3"><h3>Un lector se reconoce</h3><p>Descubre en la obra de otro el reflejo de lo que también calla. No está solo.</p></div>
+    </div>
+  </section>
+
+  <!-- RUTA -->
+  <section class="sec">
+    <p class="kicker reveal">Ruta metodológica · procedimiento de las 3i</p>
+    <h2 class="reveal">Indagar, idear, implementar.</h2>
+    <p class="lead reveal">Tres fases, cada una con su propósito, sus actividades y su resultado.</p>
+    <div class="fases">
+      <a class="fase lg reveal" href="ruta-metodologica.html">
+        <span class="i">1 · INDAGAR</span><h3>Cartografía</h3>
+        <p>Identificar patrones de causas, dinámicas y consecuencias en las vivencias silenciadas.</p>
+        <div class="prog"><div><span style="width:100%"></span></div>Completa · 6/6</div>
+      </a>
+      <a class="fase lg reveal d1" href="ruta-metodologica.html">
+        <span class="i">2 · IDEAR</span><h3>Prototipado</h3>
+        <p>Diseñar la estrategia: talleres de cocreación artística y experiencia phygital interactiva.</p>
+        <div class="prog"><div><span style="width:66.6%"></span></div>En curso · 4/6</div>
+      </a>
+      <a class="fase lg reveal d2" href="ruta-metodologica.html">
+        <span class="i">3 · IMPLEMENTAR</span><h3>Validación</h3>
+        <p>Evaluar la incidencia en la elaboración emocional de creadores y lectores.</p>
+        <div class="prog"><div><span style="width:0%"></span></div>Por iniciar · 0/6</div>
+      </a>
+    </div>
+    <a class="btn-pill reveal" href="ruta-metodologica.html">Ver la ruta completa <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  </section>
+
+  <!-- EXPLORAR -->
+  <section class="sec">
+    <p class="kicker reveal">Memoria viva del proceso</p>
+    <h2 class="reveal">Cada actividad dejó un artefacto navegable.</h2>
+    <div class="bento" style="margin-top:36px">
+      <a class="bento-card lg span-2 reveal" href="cdps.html">
+        <div class="bento-top">
+          <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span>
+          <span class="bento-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l6-6M5 4h5v5"/></svg></span>
+        </div>
+        <div><h3>CDPS</h3><p>Cartografía Digital de Percepción Silenciosa: la encuesta viva donde el grupo vota de forma anónima y lee su propio mapa de calor.</p></div>
+      </a>
+      <a class="bento-card lg reveal d1" href="cadena-valor.html">
+        <div class="bento-top">
+          <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8.3 6.9l7.3.7M7 8.3l2.2 7.3M16.5 10l-5 6.2"/></svg></span>
+          <span class="bento-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l6-6M5 4h5v5"/></svg></span>
+        </div>
+        <div><h3>Cadena de valor</h3><p>Red de conceptos y autores que sostienen el proyecto.</p></div>
+      </a>
+      <a class="bento-card lg reveal" href="match-creativo.html">
+        <div class="bento-top">
+          <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="16" rx="2"/><rect x="13" y="4" width="8" height="16" rx="2"/><path d="M6 9h2M16 9h2M6 13h2M16 13h2"/></svg></span>
+          <span class="bento-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l6-6M5 4h5v5"/></svg></span>
+        </div>
+        <div><h3>Match creativo</h3><p>La matriz que descartó las soluciones convencionales.</p></div>
+      </a>
+      <a class="bento-card lg reveal d1" href="lluvia-ideas.html">
+        <div class="bento-top">
+          <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span>
+          <span class="bento-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l6-6M5 4h5v5"/></svg></span>
+        </div>
+        <div><h3>Lluvia de ideas</h3><p>Cinco industrias creativas cruzadas con el proyecto.</p></div>
+      </a>
+      <a class="bento-card lg reveal d2" href="ruta-metodologica.html">
+        <div class="bento-top">
+          <span class="bento-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a4 4 0 0 0 0-8h-2a4 4 0 0 1 0-8"/></svg></span>
+          <span class="bento-arrow"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l6-6M5 4h5v5"/></svg></span>
+        </div>
+        <div><h3>Ruta metodológica</h3><p>El recorrido completo, fase por fase.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FICHA -->
+  <section class="sec">
+    <p class="kicker reveal">Ficha del proyecto</p>
+    <dl class="ficha lg reveal">
+      <div><dt>Autor</dt><dd>Shamuel Woodcock Salomón</dd></div>
+      <div><dt>Asesor</dt><dd>Edward Mauricio Montenegro Córdoba</dd></div>
+      <div><dt>Modalidad</dt><dd>Investigación-Creación</dd></div>
+      <div><dt>Programa</dt><dd>Diseño Gráfico · Universidad CESMAG</dd></div>
+      <div><dt>Línea de investigación</dt><dd>Diseño, innovación, cultura y sociedad</dd></div>
+      <div><dt>Lugar</dt><dd>San Juan de Pasto · 2026</dd></div>
+    </dl>
+  </section>
 
   <footer>
     <p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p>
   </footer>
-</div>
+</main>
 
 <script>
-const ganttData = [
-  { fase:'Objetivo 1', cls:'f1', txt:'Diseñar la guía de preguntas y el protocolo de los grupos focales.', weeks:[1] },
-  { fase:'', cls:'f1', txt:'Realizar los grupos focales con jóvenes universitarios.', weeks:[2,3,4] },
-  { fase:'', cls:'f1', txt:'Analizar los resultados e identificar patrones emergentes.', weeks:[5,6] },
-  { fase:'', cls:'f1', txt:'Consolidar un informe diagnóstico con los hallazgos.', weeks:[7,8] },
-  { fase:'Objetivo 2', cls:'f2', txt:'Diseñar el material y el protocolo de los talleres de co-creación.', weeks:[9,10] },
-  { fase:'', cls:'f2', txt:'Realizar los talleres de co-creación con jóvenes universitarios.', weeks:[11,12,13] },
-  { fase:'', cls:'f2', txt:'Analizar los hallazgos y cruzarlos con el informe diagnóstico.', weeks:[13,14] },
-  { fase:'', cls:'f2', txt:'Elaborar el sistema narrativo y metafórico.', weeks:[15,16,17] },
-  { fase:'Objetivo 3', cls:'f3', txt:'Diseñar el sistema visual, tipográfico e ilustrativo del libro.', weeks:[18,19,20] },
-  { fase:'', cls:'f3', txt:'Producir las ilustraciones y la maquetación del libro impreso.', weeks:[21,22,23] },
-  { fase:'', cls:'f3', txt:'Desarrollar la capa de Realidad Aumentada.', weeks:[23,24,25,26,27] },
-  { fase:'', cls:'f3', txt:'Ensamblar el prototipo editorial phygital.', weeks:[27,28,29] }
-];
-
-const TOTAL_WEEKS = 35;
-const tbody = document.getElementById('gantt-body');
-const savedGantt = JSON.parse(localStorage.getItem('gantt_state')) || {};
-
-ganttData.forEach((row, i) => {
-  const tr = document.createElement('tr');
-  if (savedGantt[i]) tr.classList.add('done');
-  tr.addEventListener('click', () => {
-    tr.classList.toggle('done');
-    savedGantt[i] = tr.classList.contains('done');
-    localStorage.setItem('gantt_state', JSON.stringify(savedGantt));
-  });
-  const faseCell = row.fase
-    ? `<td class="g-tag">${row.fase}</td>`
-    : `<td></td>`;
-  let weekCells = '';
-  for (let w = 1; w <= TOTAL_WEEKS; w++) {
-    weekCells += row.weeks.includes(w)
-      ? `<td style="text-align:center"><div class="dot ${row.cls}"></div></td>`
-      : `<td></td>`;
+// Lente: sigue el puntero con suavizado; sin puntero, deriva despacio. Solo anima mientras está en pantalla.
+(function () {
+  var card = document.getElementById('lente'), lupa = document.getElementById('lupa'), inner = document.getElementById('callado');
+  if (!card || !lupa) return;
+  var W = 0, H = 0, R = 0, cx = 0, cy = 0, tx = 0, ty = 0, manual = false, visible = false, raf = 0, t0 = performance.now();
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function medir() { var r = card.getBoundingClientRect(); W = r.width; H = r.height; R = lupa.offsetWidth / 2; }
+  function pintar() {
+    lupa.style.transform = 'translate3d(' + (cx - R) + 'px,' + (cy - R) + 'px,0)';
+    inner.style.transform = 'translate3d(' + (R - cx) + 'px,' + (R - cy) + 'px,0)';
   }
-  tr.innerHTML = faseCell + `<td class="act">${row.txt}</td>` + weekCells;
-  tbody.appendChild(tr);
-});
+  function cuadro(t) {
+    raf = 0;
+    if (!manual && !quieto) {
+      var s = (t - t0) / 1000;
+      tx = W * (0.5 + 0.2 * Math.sin(s * 0.5)); ty = H * (0.43 + 0.22 * Math.sin(s * 0.34 + 1.2));
+    }
+    cx += (tx - cx) * 0.2; cy += (ty - cy) * 0.2;
+    pintar();
+    if (visible && (!quieto || Math.abs(tx - cx) + Math.abs(ty - cy) > 0.5)) raf = requestAnimationFrame(cuadro);
+  }
+  function arrancar() { if (!raf && visible) raf = requestAnimationFrame(cuadro); }
+  function mover(e) { var r = card.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; manual = true; arrancar(); }
+  card.addEventListener('pointermove', mover);
+  card.addEventListener('pointerdown', mover);
+  card.addEventListener('pointerleave', function () { manual = false; t0 = performance.now() - 2000; });
+  medir(); cx = tx = W * 0.6; cy = ty = H * 0.5; pintar();
+  if (window.ResizeObserver) new ResizeObserver(function () { medir(); pintar(); }).observe(card);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; arrancar(); }).observe(card);
+  else { visible = true; arrancar(); }
+})();
 </script>
-
+<script src="js/glass.js"></script>
 <script src="js/nav.js"></script>
 </body>
 </html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruta metodológica — Sobre lo que no digo</title>
+  <meta name="description" content="Ruta metodológica del proyecto: procedimiento de las 3i recorrido en las fases de Cartografía, Prototipado y Validación.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass.css">
+  <style>
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px 80px; }
+    .cab { padding: 150px 0 34px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 40px; align-items: end; }
+    .cab h1 { font-family: var(--font-display); font-size: clamp(2.4rem, 5.4vw, 4.2rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.035em; margin: 22px 0 16px; }
+    .cab h1 em { font-style: normal; color: var(--accent); }
+    .cab p { color: var(--muted); max-width: 54ch; }
+    .avance { padding: 22px 24px; border-radius: 22px; }
+    .avance b { font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+    .avance b small { font-size: 0.42em; color: var(--muted2); font-weight: 600; letter-spacing: 0; }
+    .avance span { display: block; font-size: 0.86rem; color: var(--muted); margin: 6px 0 14px; }
+    .seg { display: grid; grid-template-columns: repeat(18, 1fr); gap: 3px; }
+    .seg i { height: 8px; border-radius: 2px; background: rgba(255, 255, 255, 0.1); }
+    .seg i.ok { background: var(--accent); }
+    .seg i:nth-child(6), .seg i:nth-child(12) { margin-right: 6px; }
+
+    .barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { font-family: inherit; font-size: 0.82rem; font-weight: 600; color: var(--muted); cursor: pointer; padding: 8px 16px; border-radius: 100px; background: transparent; border: 1px solid var(--lg-border); transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+    .chip:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.28); }
+    .chip[aria-pressed="true"] { color: var(--text); background: var(--capsule); border-color: rgba(255, 255, 255, 0.3); box-shadow: var(--capsule-shadow); }
+    .leyenda { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.8rem; color: var(--muted2); }
+    .leyenda span { display: inline-flex; align-items: center; gap: 7px; }
+    .leyenda i { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+    .leyenda i.p { background: none; border: 1.5px dashed var(--muted2); }
+
+    /* Tablero: las tres fases a la vista */
+    .tablero { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; align-items: start; }
+    .col { position: relative; border-radius: 26px; padding: 8px; }
+    .col:not(:last-child)::after { content: ''; position: absolute; top: 62px; right: -31px; width: 30px; height: 2px; background: linear-gradient(90deg, rgba(185, 168, 240, 0.7), rgba(185, 168, 240, 0.15)); }
+    .col:not(:last-child)::before { content: ''; position: absolute; top: 57px; right: -31px; width: 10px; height: 10px; border-top: 2px solid rgba(185, 168, 240, 0.8); border-right: 2px solid rgba(185, 168, 240, 0.8); transform: rotate(45deg); z-index: 2; }
+    .fase-cab { border-radius: 20px; padding: 20px 20px 18px; background: linear-gradient(140deg, rgba(124, 58, 237, 0.42), rgba(124, 58, 237, 0.1)); border: 1px solid rgba(255, 255, 255, 0.12); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18); }
+    .col[data-estado="pend"] .fase-cab { background: linear-gradient(140deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)); }
+    .fase-i { display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; color: var(--lav); }
+    .fase-i em { font-style: normal; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.22); color: var(--text); font-weight: 700; font-size: 0.66rem; }
+    .fase-cab h2 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 2px; }
+    .fase-cab p { font-size: 0.84rem; color: var(--muted); }
+    .prop { padding: 16px 14px 6px; }
+    .rot { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lav); margin-bottom: 5px; }
+    .prop p { font-size: 0.93rem; line-height: 1.5; }
+    .wrap p.rot { font-size: 0.66rem; line-height: 1.4; color: var(--lav); }
+    .wrap .res p.rot { color: var(--accent); font-weight: 800; }
+
+    .acts { list-style: none; position: relative; padding: 8px 6px; }
+    .acts::before { content: ''; position: absolute; left: 23px; top: 30px; bottom: 30px; width: 2px; background: rgba(255, 255, 255, 0.1); }
+    .act { position: relative; border-radius: 16px; border: 1px solid transparent; transition: background 0.25s ease, border-color 0.25s ease, opacity 0.25s ease; }
+    .act.dim { opacity: 0.25; }
+    .act.abierta { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.14); }
+    .act-b { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; width: 100%; text-align: left; cursor: pointer; color: var(--text); font-family: inherit; background: none; border: 0; border-radius: 16px; padding: 9px 12px 9px 0; }
+    .act-b:hover .act-t { color: var(--accent); }
+    .dot { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 0.85rem; background: var(--accent); color: #14102b; position: relative; z-index: 1; }
+    .act.pend .dot { background: #15122c; color: var(--muted); border: 1.5px dashed rgba(255, 255, 255, 0.4); }
+    .act-t { display: block; font-weight: 600; font-size: 0.96rem; line-height: 1.3; transition: color 0.2s ease; }
+    .act-m { display: block; font-size: 0.78rem; color: var(--muted2); }
+    .tag { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--muted); white-space: nowrap; }
+    .tag.Campo { color: #cdbff5; border-color: rgba(185, 168, 240, 0.5); background: rgba(124, 58, 237, 0.18); }
+    .tag.Creación { color: var(--accent); border-color: rgba(240, 194, 75, 0.4); background: rgba(240, 194, 75, 0.08); }
+    .det { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s var(--ease-out); }
+    .act.abierta .det { grid-template-rows: 1fr; }
+    .det > div { overflow: hidden; }
+    .det-in { padding: 2px 14px 16px 46px; }
+    .det-in p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+    .kv { display: grid; grid-template-columns: 78px 1fr; gap: 6px 12px; font-size: 0.84rem; }
+    .kv dt { color: var(--muted2); }
+    .kv dd { color: var(--text); }
+    .det-in a { display: inline-block; margin-top: 14px; font-size: 0.84rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .det-in a:hover { text-decoration: underline; }
+
+    .res { margin: 6px; padding: 14px 16px; border-radius: 16px; background: rgba(240, 194, 75, 0.07); border: 1px solid rgba(240, 194, 75, 0.3); }
+    .res .rot { color: var(--accent); }
+    .res p { font-weight: 700; font-size: 0.98rem; line-height: 1.35; }
+
+    .retorno { position: relative; margin: 26px 0 30px 16.66%; height: 44px; border: 2px dashed rgba(185, 168, 240, 0.4); border-top: 0; border-radius: 0 0 22px 22px; width: 66.66%; }
+    .retorno span { position: absolute; left: 50%; bottom: -11px; transform: translateX(-50%); background: var(--bg); padding: 0 14px; font-size: 0.84rem; color: var(--lav); white-space: nowrap; }
+    .retorno::before { content: ''; position: absolute; left: -7px; top: -4px; width: 10px; height: 10px; border-top: 2px solid rgba(185, 168, 240, 0.8); border-left: 2px solid rgba(185, 168, 240, 0.8); transform: rotate(45deg); }
+
+    .trans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .trans > div { padding: 22px 24px; border-radius: 22px; }
+    .trans p { font-size: 0.92rem; color: var(--muted); }
+
+    .figura { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 28px; align-items: center; margin-top: 16px; padding: 24px; border-radius: 26px; }
+    .figura img { width: 100%; height: auto; border-radius: 14px; display: block; background: #fff; }
+    .figura h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .figura p { color: var(--muted); font-size: 0.93rem; margin-bottom: 18px; }
+    .figura .dl { display: flex; flex-wrap: wrap; gap: 8px; }
+    .figura .dl a { padding: 0.55rem 1.1rem; font-size: 0.84rem; }
+
+    @media (max-width: 1000px) {
+      .cab, .tablero, .trans, .figura { grid-template-columns: 1fr; }
+      .cab { padding-top: 120px; }
+      .col::after, .col::before, .retorno { display: none !important; }
+      .tablero { gap: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .det, .act { transition: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
+  <div class="nav-links">
+    <a class="nav-link active" href="ruta-metodologica.html">Ruta</a>
+    <div class="nav-item">
+      <button class="nav-link">Productos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="cadena-valor.html">Cadena de valor</a>
+        <a href="match-creativo.html">Match creativo</a>
+        <a href="lluvia-ideas.html">Lluvia de ideas</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button class="nav-link">Instrumentos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="cdps.html">CDPS</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="cab">
+    <div>
+      <span class="badge-live"><i></i>Investigación-Creación · Procedimiento de las 3i</span>
+      <h1>Ruta <em>metodológica</em></h1>
+      <p>Indagar, idear e implementar: tres momentos recorridos en tres fases. Abre cualquier actividad para ver qué se hizo, con quién y qué dejó.</p>
+    </div>
+    <div class="avance lg" id="avance"></div>
+  </header>
+
+  <div class="barra">
+    <div class="chips" id="chips" role="group" aria-label="Filtrar actividades por tipo"></div>
+    <div class="leyenda"><span><i></i>Realizada</span><span><i class="p"></i>Por realizar</span></div>
+  </div>
+
+  <div class="tablero" id="tablero"></div>
+
+  <div class="retorno" aria-hidden="true"><span>Proceso recursivo: lo que se valida regresa a la indagación y al prototipo</span></div>
+
+  <div class="trans">
+    <div class="lg">
+      <p class="rot">Transversal · Plataforma web</p>
+      <p>Memoria viva del proceso: cada actividad deja un artefacto digital navegable que sirve de análisis, registro y evidencia.</p>
+    </div>
+    <div class="lg">
+      <p class="rot">Transversal · Marco ético</p>
+      <p>Consentimiento informado, identidad flexible (nombre, seudónimo o código), lenguaje no clínico y devolución de los resultados a los participantes.</p>
+    </div>
+  </div>
+
+  <div class="figura lg">
+    <a href="Recursos/ruta-metodologica.png" target="_blank" rel="noopener"><img src="Recursos/ruta-metodologica.svg" alt="Esquema de la ruta metodológica: tres columnas con las fases de Cartografía, Prototipado y Validación, sus propósitos, actividades y resultados." loading="lazy" width="1600" height="1078"></a>
+    <div>
+      <p class="rot">Versión para el documento</p>
+      <h2>El mismo recorrido, en una sola figura</h2>
+      <p>Esquema estático para insertar al inicio del apartado de ruta metodológica.</p>
+      <div class="dl">
+        <a class="btn-pill" href="Recursos/ruta-metodologica.svg" download>SVG</a>
+        <a class="btn-pill" href="Recursos/ruta-metodologica.png" download>PNG</a>
+        <a class="btn-pill" href="Recursos/ruta-metodologica.pdf" download>PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p>
+  </footer>
+</main>
+
+<script>
+const FASES = [
+  { i: 'Indagar', fase: 'Cartografía', sub: 'Fase 1 · Diagnóstico y cocreación', estado: 'Completa', cuando: 'abr – jun 2026',
+    proposito: 'Identificar patrones de causas, dinámicas y consecuencias en las vivencias silenciadas de universitarios.',
+    resultado: 'Síntesis diagnóstica: 4 oportunidades de diseño',
+    acts: [
+      { t: 'Cadena de Valor', tipo: 'Clase', ok: true, cuando: 'marzo – abril de 2026',
+        que: 'Matriz que organiza y relaciona los conceptos y autores clave: burnout académico, disonancia emocional, sociedad del rendimiento y diseño participativo.',
+        con: 'Revisión documental', deja: 'Red conceptual navegable e interactiva', link: ['cadena-valor.html', 'Abrir la red conceptual'] },
+      { t: 'CDPS', tipo: 'Campo', ok: true, cuando: '24 de abril de 2026',
+        que: 'Cartografía Digital de Percepción Silenciosa: encuesta viva en red local donde cada estudiante vota de forma anónima moviendo un avatar sobre un lienzo, y el grupo lee en vivo el mapa de calor resultante.',
+        con: '15 estudiantes de Diseño Gráfico · Laboratorio de Creación Digital 1', deja: 'Patrones de carga académica, autoexigencia, burnout y silenciamiento', link: ['cdps.html', 'Ver la CDPS'] },
+      { t: 'Match Creativo', tipo: 'Clase', ok: true, cuando: 'abril de 2026',
+        que: 'Matriz comparativa que somete a crítica las propuestas preliminares de producto. Descartó folletos, afiches motivacionales y apps de registro de ánimo por reproducir el estigma.',
+        con: 'Ejercicio proyectual individual', deja: 'Giro hacia una experiencia inmersiva y artística', link: ['match-creativo.html', 'Abrir el Match Creativo'] },
+      { t: 'Lluvia de Ideas', tipo: 'Clase', ok: true, cuando: 'abril – mayo de 2026',
+        que: 'Cruce del proyecto con cinco industrias culturales y creativas (Arquitectura, Música, Escultura, Museos y Videojuegos), con ideas calificadas como inviables, buenas o prioritarias.',
+        con: 'Sesión grupal de clase', deja: 'Matriz de síntesis: ecosistema phygital de obras físicas + app de RA', link: ['lluvia-ideas.html', 'Abrir los mapas'] },
+      { t: 'Taller «Sobre lo que no dices»', tipo: 'Campo', ok: true, cuando: '11 de mayo de 2026',
+        que: 'Taller presencial de indagación participativa. Cada participante votó en la Cartelera Grupal (8 afirmaciones, escala de 1 a 5) y diligenció su Hoja Individual de Prototipado: lo que calla, la metáfora visual de su obra y su capa de Realidad Aumentada.',
+        con: '4 estudiantes de Diseño Gráfico', deja: '4 metáforas visuales con su capa de RA y el hallazgo autoría – anonimato' },
+      { t: 'Entrevista a experto', tipo: 'Campo', ok: true, cuando: '25 de junio de 2026',
+        que: 'Entrevista en profundidad (2 h 20 min) para delimitar el rol del diseñador, el protocolo del taller y los cuidados éticos del proyecto.',
+        con: 'Gabriel Iván Parra Rosero, diseñador gráfico y psicólogo', deja: '10 lineamientos éticos y operativos' }
+    ] },
+  { i: 'Idear', fase: 'Prototipado', sub: 'Fase 2 · Construcción del ecosistema phygital', estado: 'En curso', cuando: 'may – sep 2026',
+    proposito: 'Diseñar una estrategia de diseño participativo articulando talleres de cocreación artística con el desarrollo de una experiencia phygital interactiva.',
+    resultado: 'Ecosistema phygital: obras físicas + app MetafoRA',
+    acts: [
+      { t: 'Concepto y estilo gráfico', tipo: 'Creación', ok: true, cuando: '2026',
+        que: 'La Realidad Aumentada no añade información: la revela. El estilo se apoya en el glassmorfismo, la tensión entre violeta (silencio) y dorado (revelación) y una morfología orgánica.',
+        con: 'Síntesis diagnóstica de la Fase 1', deja: 'Concepto de diseño y dirección de arte' },
+      { t: 'PMV MetafoRA', tipo: 'Creación', ok: true, cuando: 'desde abril de 2026',
+        que: 'Aplicación móvil en Unity con Vuforia Engine. Comprueba tres capacidades: detección estable de marcadores, superposición de animación y sonido en tiempo real, y biblioteca de obras escaneadas.',
+        con: 'Compilaciones 0.0.10 a 0.0.29 en Android', deja: 'Prototipo V1 · metafora_0.0.29.apk' },
+      { t: 'Obras piloto', tipo: 'Creación', ok: true, cuando: '2026',
+        que: 'Los cuatro bocetos del taller se refinaron respetando su metáfora original y recibieron una capa de animación y diseño sonoro como prueba de concepto.',
+        con: 'Bocetos de los 4 participantes del taller', deja: '4 piezas impresas y enmarcadas con capa de RA' },
+      { t: 'Demostraciones del prototipo', tipo: 'Campo', ok: true, cuando: '2026',
+        que: 'El prototipo se probó con personas reales en tres momentos: sustentación final de noveno semestre, Festival Buenamente 2026 y ejercicios de clase en décimo semestre.',
+        con: 'Jurados, docentes, pares y asistentes', deja: 'Viabilidad técnica y perceptiva confirmada' },
+      { t: 'Convocatoria y talleres de cocreación', tipo: 'Campo', ok: false, cuando: 'por realizar',
+        que: 'Sesión única de 120 minutos: 20 de sensibilización, 75 de producción plástica, 10 de pre y post-test y 15 de cierre en Círculo de la Palabra, con consentimiento informado previo.',
+        con: 'Jóvenes creadores convocados', deja: 'Obras conceptuales de los creadores' },
+      { t: 'Producción e integración phygital', tipo: 'Creación', ok: false, cuando: 'por realizar',
+        que: 'Traducción fiel de cada obra a su capa de Realidad Aumentada e integración en la versión final de la aplicación.',
+        con: 'Creadores y equipo de desarrollo', deja: 'Ecosistema listo para exhibirse' }
+    ] },
+  { i: 'Implementar', fase: 'Validación', sub: 'Fase 3 · Usabilidad e incidencia emocional', estado: 'Por iniciar', cuando: 'cierre del ciclo de grado',
+    proposito: 'Evaluar la incidencia de la estrategia participativa y la experiencia phygital en la elaboración emocional de los creadores y lectores.',
+    resultado: 'Hallazgos, conclusiones y recomendaciones',
+    acts: [
+      { t: 'Muestra de obras', tipo: 'Campo', ok: false, cuando: 'por realizar',
+        que: 'Exhibición de las piezas físicas en los pasillos de la Universidad CESMAG, donde la comunidad las recorre con la versión final de MetafoRA.',
+        con: 'Comunidad académica', deja: 'La experiencia phygital en su contexto real' },
+      { t: 'Devolución a los cocreadores', tipo: 'Campo', ok: false, cuando: 'por realizar',
+        que: 'Los creadores asisten como invitados de honor y descubren por primera vez sus obras aumentadas: lo investigado regresa a quienes lo hicieron posible.',
+        con: 'Creadores participantes', deja: 'Cierre ético del proceso' },
+      { t: 'Medición de la experiencia', tipo: 'Campo', ok: false, cuando: 'por realizar',
+        que: 'Evaluación de la aplicación en términos de interacción, fluidez de escaneo y resonancia afectiva en el lector.',
+        con: 'Lectores de la muestra', deja: 'Datos de usabilidad y de incidencia' },
+      { t: 'Escucha post-experiencia', tipo: 'Campo', ok: false, cuando: 'por realizar',
+        que: 'Recolección de las percepciones, emociones y significados de creadores y lectores después de la interacción.',
+        con: 'Creadores y lectores', deja: 'Testimonios para la interpretación' },
+      { t: 'Registro de la interacción', tipo: 'Campo', ok: false, cuando: 'por realizar',
+        que: 'Memoria audiovisual de la muestra y de los recorridos de los asistentes.',
+        con: 'Asistentes a la muestra', deja: 'Evidencia documental' },
+      { t: 'Síntesis de hallazgos', tipo: 'Creación', ok: false, cuando: 'por realizar',
+        que: 'Triangulación de los resultados frente a los tres propósitos del proyecto.',
+        con: 'Todo el material recogido', deja: 'Conclusiones y recomendaciones' }
+    ] }
+];
+const TIPOS = { Todas: 'Todas', Clase: 'Ejercicio de clase', Campo: 'Trabajo de campo', 'Creación': 'Creación' };
+const $ = id => document.getElementById(id);
+const el = (tag, cls, txt) => { const n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
+let abierta = null;
+
+// Avance general
+(function () {
+  const todas = FASES.flatMap(f => f.acts), hechas = todas.filter(a => a.ok).length, box = $('avance');
+  const b = el('b', null, hechas); b.append(el('small', null, ' de ' + todas.length));
+  const seg = el('div', 'seg'); todas.forEach(a => seg.append(el('i', a.ok ? 'ok' : '')));
+  box.append(b, el('span', null, 'actividades realizadas en las tres fases'), seg);
+})();
+
+// Filtros
+Object.keys(TIPOS).forEach(k => {
+  const b = el('button', 'chip', TIPOS[k]); b.type = 'button'; b.setAttribute('aria-pressed', k === 'Todas');
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+    document.querySelectorAll('.act').forEach(a => a.classList.toggle('dim', k !== 'Todas' && a.dataset.tipo !== k));
+  });
+  $('chips').append(b);
+});
+
+// Tablero
+FASES.forEach((f, fi) => {
+  const hechas = f.acts.filter(a => a.ok).length;
+  const col = el('section', 'col lg'); col.dataset.estado = hechas === 0 ? 'pend' : 'ok';
+  const cab = el('div', 'fase-cab');
+  const i = el('div', 'fase-i', (fi + 1) + ' · ' + f.i.toUpperCase()); i.append(el('em', null, f.estado + ' · ' + hechas + '/' + f.acts.length));
+  cab.append(i, el('h2', null, f.fase), el('p', null, f.sub + ' · ' + f.cuando));
+  const prop = el('div', 'prop'); prop.append(el('p', 'rot', 'Propósito específico ' + (fi + 1)), el('p', null, f.proposito));
+  const ul = el('ol', 'acts');
+  f.acts.forEach((a, k) => {
+    const li = el('li', 'act' + (a.ok ? '' : ' pend')); li.dataset.tipo = a.tipo;
+    const id = 'det-' + fi + '-' + k;
+    const b = el('button', 'act-b'); b.type = 'button'; b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', id);
+    const mid = el('span'); mid.append(el('span', 'act-t', a.t), el('span', 'act-m', a.ok ? a.cuando : 'Por realizar'));
+    b.append(el('span', 'dot', k + 1), mid, el('span', 'tag ' + a.tipo, a.tipo));
+    const det = el('div', 'det'); det.id = id;
+    const inner = el('div'), din = el('div', 'det-in'), dl = el('dl', 'kv');
+    [['Con quién', a.con], ['Qué deja', a.deja]].forEach(([q, v]) => dl.append(el('dt', null, q), el('dd', null, v)));
+    din.append(el('p', null, a.que), dl);
+    if (a.link) { const l = el('a', null, a.link[1] + ' →'); l.href = a.link[0]; din.append(l); }
+    inner.append(din); det.append(inner);
+    b.addEventListener('click', () => {
+      const abrir = abierta !== li;
+      if (abierta) { abierta.classList.remove('abierta'); abierta.querySelector('.act-b').setAttribute('aria-expanded', 'false'); }
+      abierta = abrir ? li : null;
+      if (abrir) { li.classList.add('abierta'); b.setAttribute('aria-expanded', 'true'); }
+    });
+    li.append(b, det); ul.append(li);
+  });
+  const res = el('div', 'res'); res.append(el('p', 'rot', 'Resultado'), el('p', null, f.resultado));
+  col.append(cab, prop, ul, res);
+  $('tablero').append(col);
+});
+// Deja abierta la primera actividad para que se entienda el gesto
+document.querySelector('.act-b').click();
+</script>
+
+<script src="js/glass.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>

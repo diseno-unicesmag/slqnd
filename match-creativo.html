@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Match Creativo · Sobre lo que no digo</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/glass.css">
   <style>
     .table-container {
       max-width: 1100px; margin: 0 auto 70px;
@@ -46,6 +47,7 @@
 <nav>
   <a class="nav-brand" href="index.html"><span class="brand-main">SOBRE LO QUE </span><span class="brand-accent">NO DIGO</span></a>
   <div class="nav-links">
+    <a class="nav-link" href="ruta-metodologica.html">Ruta</a>
     <div class="nav-item">
       <button class="nav-link active">Productos <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
       <div class="nav-dropdown">
@@ -68,6 +70,7 @@
     <div class="hero-tag">Match creativo · Propuesta de productos</div>
     <h1>Ecosistema<br><em>Interactivo</em></h1>
     <p class="hero-quote">Contraposición entre los productos académicos genéricos y las resoluciones innovadoras, interactivas y transmedia que define el enfoque de este proyecto.</p>
+    <p class="nota-version">Ejercicio de clase de la Fase 1. Conserva la formulación con la que se hizo, anterior a la versión actual del proyecto.</p>
     <div class="flex gap-12" style="flex-wrap:wrap; justify-content:center;">
       <a class="btn btn-accent" href="Recursos/Match Creativo.xlsx" download>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -76,19 +79,7 @@
     </div>
   </div>
 
-  <div class="table-container">
-    <table class="match-table" id="match-table">
-      <thead>
-        <tr>
-          <th>Análisis de productos genéricos</th>
-          <th>Por qué es genérico</th>
-          <th>→ Ecosistema Interactivo (Propuesta)</th>
-          <th>Descripción</th>
-        </tr>
-      </thead>
-      <tbody id="match-body"></tbody>
-    </table>
-  </div>
+  <div class="match-wrap" id="match-wrap"></div>
 
   <footer>
     <p>Sobre lo que no digo · Universidad CESMAG · Diseño Gráfico · 2026</p>
@@ -110,23 +101,25 @@ const MATCH = [
   { fase:'f3', cliche:'Video documental de validación', porque:'Los participantes racionalizan y se censuran al saber que los filman, produciendo una versión modulada de su experiencia real.', innovador:'Observatorio de lectores', desc:'Video ensayo de observación pura, sin entrevistas. La cámara registra el cuerpo del lector: sus manos, microexpresiones, ritmo de lectura y momentos de pausa.' },
   { fase:'f3', cliche:'Informe final de validación', porque:'Documento de texto con conclusiones técnicas. Poco atractivo visualmente y su utilidad queda restringida al momento de la sustentación.', innovador:'Prototipo intervenido', desc:'Ejemplar impreso del libro que funciona como documento de aprendizaje. Sobre las páginas se anotan las observaciones identificadas durante la validación.' },
 ];
-const faseLabel = { f0:'Pre-Requisito — Marco Teórico', f1:'Fase 1 — Cartografía Diagnóstica', f2:'Fase 2 — Tejido Narrativo (Prototipo)', f3:'Fase 3 — Validación' };
-const tbody = document.getElementById('match-body');
+const faseLabel = { f0:['Pre-requisito','Marco teórico'], f1:['Fase 1','Cartografía diagnóstica'], f2:['Fase 2','Tejido narrativo (prototipo)'], f3:['Fase 3','Validación'] };
+const wrap = document.getElementById('match-wrap');
+const el = (tag, cls, txt) => { const n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
 let lastFase = '';
 MATCH.forEach(m => {
   if (m.fase !== lastFase) {
-    const hr = document.createElement('tr');
-    hr.className = 'phase-header';
-    hr.innerHTML = `<td colspan="4"><span class="phase-label ${m.fase}">${faseLabel[m.fase]}</span></td>`;
-    tbody.appendChild(hr);
-    lastFase = m.fase;
+    const h = el('div', 'match-fase reveal');
+    h.append(el('span', null, faseLabel[m.fase][0]), el('h2', null, faseLabel[m.fase][1]));
+    wrap.append(h); lastFase = m.fase;
   }
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${m.cliche}</td><td>${m.porque}</td><td class="${m.fase}">${m.innovador}</td><td>${m.desc}</td>`;
-  tbody.appendChild(tr);
+  const par = el('div', 'match-par reveal');
+  const de = el('div', 'match-de'); de.append(el('span', 'match-rot', 'Producto genérico'), el('h3', null, m.cliche), el('p', null, m.porque));
+  const fl = el('div', 'match-flecha'); fl.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+  const a = el('div', 'match-a lg'); a.append(el('span', 'match-rot', 'Propuesta'), el('h3', null, m.innovador), el('p', null, m.desc));
+  par.append(de, fl, a); wrap.append(par);
 });
 </script>
 
+<script src="js/glass.js"></script>
 <script src="js/nav.js"></script>
 </body>
 </html>
