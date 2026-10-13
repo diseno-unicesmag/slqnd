@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 
-// Lo que se dice y, debajo, lo que se calla (respuestas del instrumento CDPS).
+// Lo que se dice y, debajo, lo que se calla. Lo callado son opciones que los participantes marcaron en la CDPS (P14 y P17).
 const FRASES = [
-  ['Estoy bien.', 'Me aguanto y sigo.'],
-  ['Solo es cansancio.', 'Soy mi peor enemigo.'],
-  ['Ya casi termino.', 'Es un ciclo sin fin.'],
-  ['No pasa nada.', 'Trato de salir solo.'],
+  ['Estoy bien.', 'Pierdo las ganas de todo.'],
+  ['Yo puedo con todo.', 'Nunca es suficiente.'],
+  ['Ya descanso después.', 'Si descanso, siento culpa.'],
+  ['No pasa nada.', 'Me encierro y me aíslo.'],
 ];
 
 /* Lente de cristal líquido: un disco transparente que refracta lo que tiene debajo.
@@ -25,7 +25,7 @@ export default function Lente() {
       centros = filas.map(f => { const b = f.getBoundingClientRect(); return { y: b.top - r.top + b.height / 2, x0: b.left - r.left, x1: b.right - r.left }; });
     };
     const pintar = () => {
-      l.style.transform = `translate3d(${cx - R}px,${cy - R}px,0)`;
+      l.style.transform = `translate3d(${Math.round(cx - R)}px,${Math.round(cy - R)}px,0)`;
       filas.forEach((f, i) => {
         const m = centros[i];
         const dx = Math.max(m.x0 - cx, 0, cx - m.x1), dy = Math.abs(cy - m.y);
@@ -66,7 +66,7 @@ export default function Lente() {
         ))}
       </div>
       <div className="lupa lg-r" ref={lupa} data-lg-depth="16" data-lg-strength="24" data-lg-blur="0.4" data-lg-ca="0" aria-hidden="true" />
-      <div className="pie"><span>Mueve la lente</span><span>Lo revelado: respuestas de la CDPS</span></div>
+      <div className="pie"><span>Mueve la lente</span><span>Lo revelado: lo que marcaron en la CDPS</span></div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const todas = FASES.flatMap(f => f.acts);
 const hechasTotal = todas.filter(a => a.ok).length;
 
 export default function Ruta() {
-  const [abierta, setAbierta] = useState('0-0');
+  const [abierta, setAbierta] = useState(null);
   const [filtro, setFiltro] = useState('Todas');
 
   return (
