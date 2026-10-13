@@ -20,6 +20,7 @@ export default function Nav() {
       <Link className="nav-brand" href="/"><span className="brand-main">SOBRE LO QUE</span><span className="brand-accent">NO DIGO</span></Link>
       <div className="nav-links">
         <Link className={'nav-link' + (esta('/ruta-metodologica/') ? ' active' : '')} href="/ruta-metodologica/">Ruta</Link>
+        <Link className={'nav-link' + (esta('/concepto/') ? ' active' : '')} href="/concepto/">Concepto</Link>
         {GRUPOS.map(g => (
           <div className="nav-item" key={g.label}>
             <button type="button" className={'nav-link' + (g.items.some(([h]) => esta(h)) ? ' active' : '')} aria-haspopup="true">{g.label} <Chevron /></button>

@@ -2,30 +2,45 @@
 
 import { useEffect, useRef } from 'react';
 
-const DICHO = ['Estoy bien.', 'Solo es cansancio.', 'Ya casi termino.', 'No pasa nada.'];
-const CALLADO = ['Me aguanto y sigo.', 'Soy mi peor enemigo.', 'Es un ciclo sin fin.', 'Trato de salir solo.'];
+// Lo que se dice y, debajo, lo que se calla (respuestas del instrumento CDPS).
+const FRASES = [
+  ['Estoy bien.', 'Me aguanto y sigo.'],
+  ['Solo es cansancio.', 'Soy mi peor enemigo.'],
+  ['Ya casi termino.', 'Es un ciclo sin fin.'],
+  ['No pasa nada.', 'Trato de salir solo.'],
+];
 
-/* Lente de cristal líquido: sigue el puntero con suavizado; sin puntero, deriva despacio.
-   Solo anima mientras está en pantalla. */
+/* Lente de cristal líquido: un disco transparente que refracta lo que tiene debajo.
+   La frase que toca se revela completa. Sigue el puntero con suavizado; sin puntero,
+   deriva despacio. Solo anima mientras está en pantalla. */
 export default function Lente() {
-  const card = useRef(null), lupa = useRef(null), inner = useRef(null);
+  const card = useRef(null), lupa = useRef(null);
 
   useEffect(() => {
-    const c = card.current, l = lupa.current, n = inner.current;
-    let W = 0, H = 0, R = 0, cx = 0, cy = 0, tx = 0, ty = 0, manual = false, visible = false, raf = 0, t0 = performance.now();
+    const c = card.current, l = lupa.current, filas = [...c.querySelectorAll('.fila')];
+    let W = 0, H = 0, R = 0, centros = [], cx = 0, cy = 0, tx = 0, ty = 0, manual = false, visible = false, raf = 0, t0 = performance.now();
     const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const medir = () => { const r = c.getBoundingClientRect(); W = r.width; H = r.height; R = l.offsetWidth / 2; };
+    const medir = () => {
+      const r = c.getBoundingClientRect(); W = r.width; H = r.height; R = l.offsetWidth / 2;
+      centros = filas.map(f => { const b = f.getBoundingClientRect(); return { y: b.top - r.top + b.height / 2, x0: b.left - r.left, x1: b.right - r.left }; });
+    };
     const pintar = () => {
       l.style.transform = `translate3d(${cx - R}px,${cy - R}px,0)`;
-      n.style.transform = `translate3d(${R - cx}px,${R - cy}px,0)`;
+      filas.forEach((f, i) => {
+        const m = centros[i];
+        const dx = Math.max(m.x0 - cx, 0, cx - m.x1), dy = Math.abs(cy - m.y);
+        const d = Math.hypot(dx, dy) / (R * 0.82);
+        const t = Math.max(0, Math.min(1, 1.25 - d));
+        f.style.setProperty('--t', (t * t * (3 - 2 * t)).toFixed(3));
+      });
     };
     const cuadro = t => {
       raf = 0;
       if (!manual && !quieto) {
         const s = (t - t0) / 1000;
-        tx = W * (0.5 + 0.2 * Math.sin(s * 0.5)); ty = H * (0.43 + 0.22 * Math.sin(s * 0.34 + 1.2));
+        tx = W * (0.46 + 0.16 * Math.sin(s * 0.45)); ty = H * (0.44 + 0.24 * Math.sin(s * 0.3 + 1.2));
       }
-      cx += (tx - cx) * 0.2; cy += (ty - cy) * 0.2;
+      cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
       pintar();
       if (visible && (!quieto || Math.abs(tx - cx) + Math.abs(ty - cy) > 0.5)) raf = requestAnimationFrame(cuadro);
     };
@@ -33,18 +48,24 @@ export default function Lente() {
     const mover = e => { const r = c.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; manual = true; arrancar(); };
     const salir = () => { manual = false; t0 = performance.now() - 2000; };
     c.addEventListener('pointermove', mover); c.addEventListener('pointerdown', mover); c.addEventListener('pointerleave', salir);
-    medir(); cx = tx = W * 0.6; cy = ty = H * 0.5; pintar();
+    medir(); cx = tx = W * 0.5; cy = ty = H * 0.42; pintar();
     const ro = new ResizeObserver(() => { medir(); pintar(); }); ro.observe(c);
     const io = new IntersectionObserver(en => { visible = en[0].isIntersecting; arrancar(); }); io.observe(c);
+    document.fonts?.ready.then(() => { medir(); pintar(); });
     return () => { cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); c.removeEventListener('pointermove', mover); c.removeEventListener('pointerdown', mover); c.removeEventListener('pointerleave', salir); };
   }, []);
 
   return (
-    <div className="lente lg" ref={card} role="img" aria-label="Demostración del concepto: una lente de cristal que revela, bajo las frases que se dicen, las que se callan.">
-      <div className="capa dicho" aria-hidden="true">{DICHO.map(t => <p key={t}>{t}</p>)}</div>
-      <div className="lupa lg-r" ref={lupa} data-lg-depth="22" data-lg-strength="110" data-lg-blur="0.6" aria-hidden="true">
-        <div className="capa callado" ref={inner}>{CALLADO.map(t => <p key={t}>{t}</p>)}</div>
+    <div className="lente lg" ref={card}>
+      <div className="frases">
+        {FRASES.map(([dicho, callado]) => (
+          <p className="fila" key={dicho}>
+            <span className="dicho">{dicho}</span>
+            <span className="callado" aria-label={'Lo que se calla: ' + callado}>{callado}</span>
+          </p>
+        ))}
       </div>
+      <div className="lupa lg-r" ref={lupa} data-lg-depth="16" data-lg-strength="24" data-lg-blur="0.4" data-lg-ca="0" aria-hidden="true" />
       <div className="pie"><span>Mueve la lente</span><span>Lo revelado: respuestas de la CDPS</span></div>
     </div>
   );

@@ -100,9 +100,10 @@ export default function Ruta() {
           <div>
             <p className="rot">Versión para el documento</p>
             <h2>El mismo recorrido, en una sola figura</h2>
-            <p>Esquema estático para insertar al inicio del apartado de ruta metodológica.</p>
+            <p>Esquema estático para el documento. La versión detallada describe cada actividad; la esquemática, más legible a tamaño de página, es la que va montada en el apartado de ruta metodológica.</p>
             <div className="dl">
               {['svg', 'png', 'pdf'].map(x => <a className="btn-pill" key={x} href={pub('/Recursos/ruta-metodologica.' + x)} download>{x.toUpperCase()}</a>)}
+              {['svg', 'png'].map(x => <a className="btn-pill" key={'e' + x} href={pub('/Recursos/ruta-metodologica-esquema.' + x)} download>Esquema {x.toUpperCase()}</a>)}
             </div>
           </div>
         </div>

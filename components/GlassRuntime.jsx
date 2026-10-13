@@ -46,7 +46,8 @@ function refract(el) {
   const d = Math.min(Number(el.dataset.lgDepth) || 8, Math.floor(Math.min(w, h) / 4));
   const strength = Number(el.dataset.lgStrength) || 60;
   const blur = el.dataset.lgBlur != null ? Number(el.dataset.lgBlur) : 3;
-  const f = `blur(${blur}px) url('${displacementFilter(w, h, r, d, strength, 2)}') saturate(1.5) brightness(1.08)`;
+  const ca = el.dataset.lgCa != null ? Number(el.dataset.lgCa) : 2;
+  const f = `blur(${blur}px) url('${displacementFilter(w, h, r, d, strength, ca)}') saturate(1.5) brightness(1.08)`;
   el.style.backdropFilter = f;
   el.style.webkitBackdropFilter = f;
 }

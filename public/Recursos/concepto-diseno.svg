@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1230" width="2000" height="1230" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-labelledby="t d">
+<title id="t">Mapa mental del concepto de diseño</title>
+<desc id="d">Tres conceptos encadenados, silencio, metáfora y revelación, cada uno con qué es, de dónde viene y cómo se ve.</desc>
+<rect width="2000" height="1230" fill="#ffffff"/>
+<path d="M810 640 C787.5 640 787.5 640 765 640" fill="none" stroke="#2b1759" stroke-width="7" stroke-linecap="round"/>
+<path d="M1190 640 C1212.5 640 1212.5 640 1235 640" fill="none" stroke="#b88a00" stroke-width="7" stroke-linecap="round"/>
+<path d="M1000 562 C1000 489.0 1000 489.0 1000 416" fill="none" stroke="#6a45c4" stroke-width="7" stroke-linecap="round"/>
+<path d="M495 640 C452.5 640 452.5 446.0 410 446.0" fill="none" stroke="#2b1759" stroke-width="3" stroke-linecap="round"/>
+<rect x="30" y="375.5" width="380" height="141" rx="14" fill="#ece6f8" stroke="#b9a8e6" stroke-width="1.5"/>
+<text x="48" y="405.5" font-size="14" font-weight="800" fill="#2b1759" text-anchor="start" letter-spacing="1.6">QUÉ ES</text>
+<circle cx="52" cy="429.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="435.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Lo que existe y se calla</text>
+<circle cx="52" cy="456.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="462.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">No es vacío: es contención</text>
+<circle cx="52" cy="483.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="489.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">«Me aguanto y sigo»</text>
+<path d="M495 640 C452.5 640 452.5 626.5 410 626.5" fill="none" stroke="#2b1759" stroke-width="3" stroke-linecap="round"/>
+<rect x="30" y="542.5" width="380" height="168" rx="14" fill="#ece6f8" stroke="#b9a8e6" stroke-width="1.5"/>
+<text x="48" y="572.5" font-size="14" font-weight="800" fill="#2b1759" text-anchor="start" letter-spacing="1.6">DE DÓNDE VIENE</text>
+<circle cx="52" cy="596.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="602.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Han: el sujeto que se autoexplota</text>
+<circle cx="52" cy="623.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="629.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">CDPS: 8 de 15 casi nunca lo hablan</text>
+<circle cx="52" cy="650.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="656.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">We Listen: «I’m fine» / «Save me»</text>
+<circle cx="52" cy="677.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="683.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">PostSecret: decir desde el anonimato</text>
+<path d="M495 640 C452.5 640 452.5 820.5 410 820.5" fill="none" stroke="#2b1759" stroke-width="3" stroke-linecap="round"/>
+<rect x="30" y="736.5" width="380" height="168" rx="14" fill="#ece6f8" stroke="#b9a8e6" stroke-width="1.5"/>
+<text x="48" y="766.5" font-size="14" font-weight="800" fill="#2b1759" text-anchor="start" letter-spacing="1.6">CÓMO SE VE</text>
+<circle cx="52" cy="790.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="796.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Violeta profundo y penumbra</text>
+<circle cx="52" cy="817.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="823.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Vidrio esmerilado: se intuye, no se ve</text>
+<circle cx="52" cy="844.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="850.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Neutros oscuros, poco contraste</text>
+<circle cx="52" cy="871.5" r="3.5" fill="#2b1759"/>
+<text x="66" y="877.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Quietud: nada se mueve todavía</text>
+<path d="M1505 640 C1547.5 640 1547.5 446.0 1590 446.0" fill="none" stroke="#b88a00" stroke-width="3" stroke-linecap="round"/>
+<rect x="1590" y="375.5" width="380" height="141" rx="14" fill="#fdf5d6" stroke="#ecc94b" stroke-width="1.5"/>
+<text x="1608" y="405.5" font-size="14" font-weight="800" fill="#b88a00" text-anchor="start" letter-spacing="1.6">QUÉ ES</text>
+<circle cx="1612" cy="429.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="435.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Lo que la RA hace con la metáfora</text>
+<circle cx="1612" cy="456.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="462.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">No añade: deja ver lo que guardaba</text>
+<circle cx="1612" cy="483.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="489.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">El lector la activa al apuntar</text>
+<path d="M1505 640 C1547.5 640 1547.5 626.5 1590 626.5" fill="none" stroke="#b88a00" stroke-width="3" stroke-linecap="round"/>
+<rect x="1590" y="542.5" width="380" height="168" rx="14" fill="#fdf5d6" stroke="#ecc94b" stroke-width="1.5"/>
+<text x="1608" y="572.5" font-size="14" font-weight="800" fill="#b88a00" text-anchor="start" letter-spacing="1.6">DE DÓNDE VIENE</text>
+<circle cx="1612" cy="596.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="602.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Artivive: la capa oculta en la obra</text>
+<circle cx="1612" cy="623.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="629.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Hellblade: el sonido que envuelve</text>
+<circle cx="1612" cy="650.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="656.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Bandersnatch: el espectador decide</text>
+<circle cx="1612" cy="677.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="683.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Norman: diseño reflexivo</text>
+<path d="M1505 640 C1547.5 640 1547.5 820.5 1590 820.5" fill="none" stroke="#b88a00" stroke-width="3" stroke-linecap="round"/>
+<rect x="1590" y="736.5" width="380" height="168" rx="14" fill="#fdf5d6" stroke="#ecc94b" stroke-width="1.5"/>
+<text x="1608" y="766.5" font-size="14" font-weight="800" fill="#b88a00" text-anchor="start" letter-spacing="1.6">CÓMO SE VE</text>
+<circle cx="1612" cy="790.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="796.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Dorado y luz sobre el violeta</text>
+<circle cx="1612" cy="817.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="823.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">La lente: cristal que enfoca</text>
+<circle cx="1612" cy="844.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="850.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Animación y sonido que se despliegan</text>
+<circle cx="1612" cy="871.5" r="3.5" fill="#b88a00"/>
+<text x="1626" y="877.5" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">El momento de sorpresa</text>
+<path d="M930 328 C930 296.0 596.0 296.0 596.0 264" fill="none" stroke="#6a45c4" stroke-width="3" stroke-linecap="round"/>
+<rect x="406.0" y="123" width="380" height="141" rx="14" fill="#f3effc" stroke="#cbbdf0" stroke-width="1.5"/>
+<text x="424.0" y="153" font-size="14" font-weight="800" fill="#6a45c4" text-anchor="start" letter-spacing="1.6">QUÉ ES</text>
+<circle cx="428.0" cy="177" r="3.5" fill="#6a45c4"/>
+<text x="442.0" y="183" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">La figura que carga el silencio</text>
+<circle cx="428.0" cy="204" r="3.5" fill="#6a45c4"/>
+<text x="442.0" y="210" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Dice sin decirlo en primera persona</text>
+<circle cx="428.0" cy="231" r="3.5" fill="#6a45c4"/>
+<text x="442.0" y="237" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">La elige y la explica su autor</text>
+<path d="M1000 328 C1000 296.0 1000.0 296.0 1000.0 264" fill="none" stroke="#6a45c4" stroke-width="3" stroke-linecap="round"/>
+<rect x="810.0" y="96" width="380" height="168" rx="14" fill="#f3effc" stroke="#cbbdf0" stroke-width="1.5"/>
+<text x="828.0" y="126" font-size="14" font-weight="800" fill="#6a45c4" text-anchor="start" letter-spacing="1.6">DE DÓNDE VIENE</text>
+<circle cx="832.0" cy="150" r="3.5" fill="#6a45c4"/>
+<text x="846.0" y="156" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Lakoff y Johnson: pensamos en metáforas</text>
+<circle cx="832.0" cy="177" r="3.5" fill="#6a45c4"/>
+<text x="846.0" y="183" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Carnaval: la máscara libera</text>
+<circle cx="832.0" cy="204" r="3.5" fill="#6a45c4"/>
+<text x="846.0" y="210" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Kintsugi: la grieta se muestra</text>
+<circle cx="832.0" cy="231" r="3.5" fill="#6a45c4"/>
+<text x="846.0" y="237" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Marbles, Celeste, BoJack Horseman</text>
+<path d="M1070 328 C1070 296.0 1404.0 296.0 1404.0 264" fill="none" stroke="#6a45c4" stroke-width="3" stroke-linecap="round"/>
+<rect x="1214.0" y="96" width="380" height="168" rx="14" fill="#f3effc" stroke="#cbbdf0" stroke-width="1.5"/>
+<text x="1232.0" y="126" font-size="14" font-weight="800" fill="#6a45c4" text-anchor="start" letter-spacing="1.6">CÓMO SE VE</text>
+<circle cx="1236.0" cy="150" r="3.5" fill="#6a45c4"/>
+<text x="1250.0" y="156" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">La obra física, impresa</text>
+<circle cx="1236.0" cy="177" r="3.5" fill="#6a45c4"/>
+<text x="1250.0" y="183" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Formas orgánicas y curvas</text>
+<circle cx="1236.0" cy="204" r="3.5" fill="#6a45c4"/>
+<text x="1250.0" y="210" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">El trazo propio de cada creador</text>
+<circle cx="1236.0" cy="231" r="3.5" fill="#6a45c4"/>
+<text x="1250.0" y="237" font-size="18" font-weight="400" fill="#1d1a2b" text-anchor="start">Frasco, ojo, silueta, candado</text>
+<rect x="495" y="596" width="270" height="88" rx="44" fill="#2b1759"/>
+<text x="630" y="642" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">SILENCIO</text>
+<text x="630" y="667" font-size="16" font-weight="400" fill="#ffffff" text-anchor="middle">lo que existe y se calla</text>
+<rect x="865" y="328" width="270" height="88" rx="44" fill="#6a45c4"/>
+<text x="1000" y="374" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">METÁFORA</text>
+<text x="1000" y="399" font-size="16" font-weight="400" fill="#ffffff" text-anchor="middle">la figura que lo carga</text>
+<rect x="1235" y="596" width="270" height="88" rx="44" fill="#b88a00"/>
+<text x="1370" y="642" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">REVELACIÓN</text>
+<text x="1370" y="667" font-size="16" font-weight="400" fill="#ffffff" text-anchor="middle">lo que la RA deja ver</text>
+<rect x="810" y="562" width="380" height="156" rx="24" fill="#ffffff" stroke="#1d1a2b" stroke-width="4"/>
+<text x="1000" y="596" font-size="14" font-weight="800" fill="#5d5a6b" text-anchor="middle" letter-spacing="2">CONCEPTO DE DISEÑO</text>
+<text x="1000" y="628" font-size="23" font-weight="800" fill="#1d1a2b" text-anchor="middle">El silencio toma forma</text>
+<text x="1000" y="657" font-size="23" font-weight="800" fill="#1d1a2b" text-anchor="middle">en una metáfora, y la Realidad</text>
+<text x="1000" y="686" font-size="23" font-weight="800" fill="#1d1a2b" text-anchor="middle">Aumentada la revela.</text>
+<text x="30" y="50" font-size="26" font-weight="800" fill="#2b1759" text-anchor="start" letter-spacing="1.5">CONCEPTO DE DISEÑO</text>
+<text x="1970" y="48" font-size="18" font-weight="400" fill="#5d5a6b" text-anchor="end">Sobre lo que no digo · MetafoRA</text>
+<rect x="30" y="64" width="1940" height="3" fill="#f5c542"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1d1a2b"/></marker></defs>
+<text x="1000" y="1008" font-size="14" font-weight="800" fill="#5d5a6b" text-anchor="middle" letter-spacing="2">LA MISMA CADENA, EN LA EXPERIENCIA</text>
+<rect x="390.0" y="1030" width="360" height="92" rx="16" fill="#ece6f8" stroke="#2b1759" stroke-width="2"/>
+<text x="570.0" y="1068" font-size="20" font-weight="800" fill="#2b1759" text-anchor="middle" letter-spacing="2">SILENCIO</text>
+<text x="570.0" y="1098" font-size="19" font-weight="400" fill="#1d1a2b" text-anchor="middle">Un creador calla algo</text>
+<line x1="760.0" y1="1076" x2="808.0" y2="1076" stroke="#1d1a2b" stroke-width="3.5" marker-end="url(#ah)"/>
+<rect x="820.0" y="1030" width="360" height="92" rx="16" fill="#f3effc" stroke="#6a45c4" stroke-width="2"/>
+<text x="1000.0" y="1068" font-size="20" font-weight="800" fill="#6a45c4" text-anchor="middle" letter-spacing="2">METÁFORA</text>
+<text x="1000.0" y="1098" font-size="19" font-weight="400" fill="#1d1a2b" text-anchor="middle">Lo deposita en una obra</text>
+<line x1="1190.0" y1="1076" x2="1238.0" y2="1076" stroke="#1d1a2b" stroke-width="3.5" marker-end="url(#ah)"/>
+<rect x="1250.0" y="1030" width="360" height="92" rx="16" fill="#fdf5d6" stroke="#b88a00" stroke-width="2"/>
+<text x="1430.0" y="1068" font-size="20" font-weight="800" fill="#b88a00" text-anchor="middle" letter-spacing="2">REVELACIÓN</text>
+<text x="1430.0" y="1098" font-size="19" font-weight="400" fill="#1d1a2b" text-anchor="middle">La app deja ver lo que guarda</text>
+<text x="1000" y="1162" font-size="19" font-weight="400" fill="#5d5a6b" text-anchor="middle">MetafoRA = metáfora + RA: el nombre ya contiene la cadena.</text>
+<text x="1000" y="1208" font-size="15" font-weight="400" fill="#5d5a6b" text-anchor="middle">Cada entrada de «De dónde viene» sale de los referentes y autores del documento (apartados 1.7 y 1.8).</text>
+</svg>
