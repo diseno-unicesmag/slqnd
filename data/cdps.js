@@ -1,0 +1,919 @@
+export const CDPS = {
+ "fecha": "24 de abril de 2026",
+ "lugar": "Laboratorio de Creación Digital 1 · Universidad CESMAG",
+ "n": 15,
+ "preguntas": [
+  {
+   "id": "P0",
+   "bloque": "Rompehielo",
+   "tipo": "texto-vivo",
+   "texto": "Expresa en una frase tu estado emocional en este momento.",
+   "jovial": "¿Siendo sinceros, cómo te sientes ahora mismo?",
+   "textos": [
+    "a comer wafles con helaito",
+    "asustada por el proyecto de grado",
+    "aunque el me ha tratado mal o un trato que no me ha gustado",
+    "cansancio",
+    "chacahy",
+    "con dolor de cabeza",
+    "Con expectativas",
+    "con ganas de cafecito",
+    "con ganas de estar con mi amorcito",
+    "con hambre",
+    "Con hambreeeeee",
+    "Con mucho calor",
+    "confundida y solita",
+    "decaida y enferma",
+    "decepcionada triste y hambre",
+    "eligiendo entre dos amores",
+    "en fin que rico dormir",
+    "estoy cansada",
+    "feliz",
+    "Feliz",
+    "Felizzzzzzzzzz",
+    "Me siento bieeeeeeen enamorada",
+    "me siento con ganas de poder pintar el cuadro a mi corazon",
+    "me siento confundida o desconectada de muchas cosas",
+    "me siento dormida",
+    "me siento estresada",
+    "me siento expectante por saber como  va a terminar el dia",
+    "quiero hablar mas cpn las personas",
+    "quiero plataaa",
+    "quiero saber como voy a sentirme en una hora",
+    "Quiero sopa de cafeee",
+    "quiero tomar fotos",
+    "quiero un frappe",
+    "Tengo 2 mil, ¿qué hay pa hacer?",
+    "tengo hambreeeeeeeeeeeeeeeeeeeee",
+    "tengo sueño",
+    "ven y cuenatame"
+   ]
+  },
+  {
+   "id": "P1",
+   "bloque": "Tu vida académica",
+   "tipo": "unica",
+   "texto": "¿Cuántas horas diarias dedicas a tu universidad de forma presencial?",
+   "jovial": "¿Cuánto tiempo pasas en la U?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Solo a lo que toca",
+     "acad": "Menos de 4 horas",
+     "n": 2
+    },
+    {
+     "id": "b",
+     "label": "Medio tiempo",
+     "acad": "Entre 4 y 6 horas",
+     "n": 13
+    },
+    {
+     "id": "c",
+     "label": "Casi vivo en la U",
+     "acad": "Entre 6 y 8 horas",
+     "n": 0
+    },
+    {
+     "id": "d",
+     "label": "Vivo literalmente allá",
+     "acad": "Más de 8 horas",
+     "n": 0
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P1b",
+   "bloque": "Tu vida académica",
+   "tipo": "unica",
+   "texto": "¿Cuántas horas adicionales dedicas al trabajo autónomo fuera de la universidad?",
+   "jovial": "Y cuando llegas a tu casa... ¿cuánto le metes a los trabajos?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Casi nada, trato de desconectar",
+     "acad": "Menos de 1 hora",
+     "n": 0
+    },
+    {
+     "id": "b",
+     "label": "Un rato por la noche",
+     "acad": "Entre 1 y 3 horas",
+     "n": 6
+    },
+    {
+     "id": "c",
+     "label": "Le sigo dando parejo",
+     "acad": "Entre 4 y 6 horas",
+     "n": 6
+    },
+    {
+     "id": "d",
+     "label": "Hasta la madrugada",
+     "acad": "Más de 6 horas",
+     "n": 3
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P2",
+   "bloque": "Tu vida académica",
+   "tipo": "unica",
+   "texto": "¿Cuál es tu motivación principal para cursar esta carrera?",
+   "jovial": "Hablando claro, ¿por qué estudias Diseño Gráfico?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Porque me apasiona",
+     "acad": "Por vocación o pasión genuina",
+     "n": 4
+    },
+    {
+     "id": "b",
+     "label": "Le agarré cariño en el camino",
+     "acad": "Interés desarrollado en el proceso",
+     "n": 9
+    },
+    {
+     "id": "c",
+     "label": "Por obligación o mis papás",
+     "acad": "Por presión familiar/externa",
+     "n": 0
+    },
+    {
+     "id": "d",
+     "label": "No sabía qué más hacer",
+     "acad": "Falta de orientación profesional",
+     "n": 2
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P3",
+   "bloque": "Tu vida académica",
+   "tipo": "unica",
+   "texto": "¿Con qué frecuencia te sientes satisfecho/a con tus resultados académicos?",
+   "jovial": "Cuando entregas un proyecto, ¿sientes que \"la rompiste\"?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Casi nunca",
+     "acad": "Muy baja frecuencia de satisfacción",
+     "n": 4
+    },
+    {
+     "id": "b",
+     "label": "A veces",
+     "acad": "Frecuencia ocasional",
+     "n": 5
+    },
+    {
+     "id": "c",
+     "label": "Seguido",
+     "acad": "Alta frecuencia",
+     "n": 4
+    },
+    {
+     "id": "d",
+     "label": "Siempre",
+     "acad": "Constante satisfacción",
+     "n": 2
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P4",
+   "bloque": "Tu exigencia",
+   "tipo": "escala",
+   "texto": "¿Cómo describirías tu nivel de autoexigencia académica?",
+   "jovial": "Del 1 al 5, ¿qué tanto látigo te das con tus entregas?",
+   "opciones": [
+    {
+     "id": "1",
+     "label": "1 - Relajado/a",
+     "acad": "1 - Exigencia muy baja",
+     "n": 0
+    },
+    {
+     "id": "2",
+     "label": "2 - Suave",
+     "acad": "2 - Exigencia baja",
+     "n": 1
+    },
+    {
+     "id": "3",
+     "label": "3 - Normal",
+     "acad": "3 - Exigencia moderada",
+     "n": 4
+    },
+    {
+     "id": "4",
+     "label": "4 - Duro",
+     "acad": "4 - Exigencia alta",
+     "n": 3
+    },
+    {
+     "id": "5",
+     "label": "5 - Soy mi peor enemigo/a",
+     "acad": "5 - Exigencia muy alta",
+     "n": 7
+    }
+   ],
+   "respuestas": 15,
+   "media": 4.07
+  },
+  {
+   "id": "P4b",
+   "bloque": "Tu exigencia",
+   "tipo": "unica",
+   "texto": "¿Tienes claridad sobre el origen de tu nivel de autoexigencia?",
+   "jovial": "Esa voz que te exige tanto... ¿sabes de dónde salió?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Sí, lo tengo clarísimo",
+     "acad": "Identifico claramente la causa",
+     "n": 8
+    },
+    {
+     "id": "b",
+     "label": "Tengo una ligera idea",
+     "acad": "Noción parcial del origen",
+     "n": 4
+    },
+    {
+     "id": "c",
+     "label": "Nunca lo he pensado",
+     "acad": "Ausencia de autorreflexión",
+     "n": 1
+    },
+    {
+     "id": "d",
+     "label": "No sé, creo que así nací",
+     "acad": "Se percibe como rasgo innato",
+     "n": 2
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P5",
+   "bloque": "Tu exigencia",
+   "tipo": "unica",
+   "texto": "¿Te identificas a ti mismo/a como una persona perfeccionista?",
+   "jovial": "Sinceramente, ¿te consideras perfeccionista?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Sí, a morir",
+     "acad": "Altamente perfeccionista",
+     "n": 7
+    },
+    {
+     "id": "b",
+     "label": "Creo que sí",
+     "acad": "Tendencia perfeccionista",
+     "n": 4
+    },
+    {
+     "id": "c",
+     "label": "Solo a veces",
+     "acad": "Perfeccionismo situacional",
+     "n": 3
+    },
+    {
+     "id": "d",
+     "label": "No, para nada",
+     "acad": "No perfeccionista",
+     "n": 1
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P6",
+   "bloque": "Tu exigencia",
+   "tipo": "escala",
+   "texto": "¿Qué tan fácil o recurrente es tu nivel de frustración ante las dificultades?",
+   "jovial": "Del 1 al 5, ¿qué tan rápido se te agota la paciencia?",
+   "opciones": [
+    {
+     "id": "1",
+     "label": "1 - Casi nunca",
+     "acad": "1 - Tolerancia muy alta",
+     "n": 2
+    },
+    {
+     "id": "2",
+     "label": "2 - Me aguanto",
+     "acad": "2 - Tolerancia alta",
+     "n": 4
+    },
+    {
+     "id": "3",
+     "label": "3 - Mitad y mitad",
+     "acad": "3 - Tolerancia moderada",
+     "n": 4
+    },
+    {
+     "id": "4",
+     "label": "4 - Rápido",
+     "acad": "4 - Tolerancia baja",
+     "n": 5
+    },
+    {
+     "id": "5",
+     "label": "5 - Exploto de una",
+     "acad": "5 - Tolerancia muy baja",
+     "n": 0
+    }
+   ],
+   "respuestas": 15,
+   "media": 2.8
+  },
+  {
+   "id": "P7",
+   "bloque": "Tu exigencia",
+   "tipo": "multiple",
+   "texto": "Cuando te enfrentas a una situación de profunda frustración, ¿cómo sueles reaccionar?",
+   "jovial": "Cuando el Illustrator se cierra o nada cuadra, ¿tú qué haces?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Me bloqueo feo",
+     "acad": "Parálisis cognitiva o creativa",
+     "n": 0
+    },
+    {
+     "id": "b",
+     "label": "Me ciego y sigo forzando",
+     "acad": "Sobrecompensación de esfuerzo",
+     "n": 1
+    },
+    {
+     "id": "c",
+     "label": "Me emputo / irrito muchísimo",
+     "acad": "Respuesta de ira / irritabilidad",
+     "n": 7
+    },
+    {
+     "id": "d",
+     "label": "Lo dejo botado",
+     "acad": "Evasión de la tarea",
+     "n": 0
+    },
+    {
+     "id": "e",
+     "label": "Pido auxilio",
+     "acad": "Búsqueda de apoyo externo",
+     "n": 1
+    },
+    {
+     "id": "f",
+     "label": "Me la trago y sigo",
+     "acad": "Internalización de la frustración",
+     "n": 8
+    }
+   ],
+   "respuestas": 17
+  },
+  {
+   "id": "P8",
+   "bloque": "Burnout",
+   "tipo": "unica",
+   "texto": "¿Conoces el término \"Burnout\" o síndrome del estudiante quemado?",
+   "jovial": "¿Has escuchado alguna vez la palabra \"Burnout\"?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Sí, lo conozco súper bien",
+     "acad": "Conocimiento claro del término",
+     "n": 0
+    },
+    {
+     "id": "b",
+     "label": "Sí, pero no sé explicarlo",
+     "acad": "Noción superficial del término",
+     "n": 1
+    },
+    {
+     "id": "c",
+     "label": "Nunca lo había escuchado",
+     "acad": "Desconocimiento total",
+     "n": 14
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P9",
+   "bloque": "Burnout",
+   "tipo": "unica",
+   "texto": "¿Sientes que has experimentado burnout en algún momento de tu proceso universitario?",
+   "jovial": "A calzón quitado, ¿sientes que la carrera te ha \"quemado\"?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Sí, sin duda",
+     "acad": "Identificación clara del síndrome",
+     "n": 10
+    },
+    {
+     "id": "b",
+     "label": "Creo que sí",
+     "acad": "Sospecha de haberlo padecido",
+     "n": 1
+    },
+    {
+     "id": "c",
+     "label": "Solo en picos de estrés",
+     "acad": "Episodios agudos aislados",
+     "n": 3
+    },
+    {
+     "id": "d",
+     "label": "No lo creo",
+     "acad": "No identificación con el síndrome",
+     "n": 1
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P10",
+   "bloque": "Burnout",
+   "tipo": "unica",
+   "texto": "¿En qué momento temporal ubicas tu última experiencia de burnout?",
+   "jovial": "¿Cuándo fue la última vez que te sentiste así de quemado/a?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Lo estoy viviendo ahora",
+     "acad": "Episodio activo / Actualidad",
+     "n": 10
+    },
+    {
+     "id": "b",
+     "label": "El semestre pasado",
+     "acad": "Hace menos de seis meses",
+     "n": 2
+    },
+    {
+     "id": "c",
+     "label": "Hace más de un año",
+     "acad": "Hace más de un año",
+     "n": 2
+    },
+    {
+     "id": "d",
+     "label": "Nunca me ha pasado",
+     "acad": "No aplica",
+     "n": 1
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P11",
+   "bloque": "Burnout",
+   "tipo": "unica",
+   "texto": "¿Consideras que el agotamiento extremo es una experiencia recurrente en tu vida académica?",
+   "jovial": "¿Sientes que quemarte es un ciclo de cada semestre?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Sí, es un ciclo sin fin",
+     "acad": "Experiencia crónica o cíclica",
+     "n": 12
+    },
+    {
+     "id": "b",
+     "label": "No, fue un evento aislado",
+     "acad": "Experiencia puntual aislada",
+     "n": 1
+    },
+    {
+     "id": "c",
+     "label": "No estoy seguro/a",
+     "acad": "Dificultad para establecer patrones",
+     "n": 2
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P12",
+   "bloque": "Apoyo",
+   "tipo": "unica",
+   "texto": "¿Sueles verbalizar tus emociones o agotamiento mental con tu círculo social?",
+   "jovial": "Cuando estás a punto de colapsar, ¿se lo cuentas a alguien?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Sí, me desahogo",
+     "acad": "Expresión emocional habitual",
+     "n": 3
+    },
+    {
+     "id": "b",
+     "label": "A veces, con confianza",
+     "acad": "Expresión selectiva / condicional",
+     "n": 4
+    },
+    {
+     "id": "c",
+     "label": "Casi nunca",
+     "acad": "Baja tendencia a compartir",
+     "n": 5
+    },
+    {
+     "id": "d",
+     "label": "Prefiero tragármelo solo/a",
+     "acad": "Aislamiento emocional voluntario",
+     "n": 3
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P13",
+   "bloque": "Apoyo",
+   "tipo": "multiple",
+   "texto": "En momentos de colapso emocional o académico, ¿a quién acudes en busca de apoyo?",
+   "jovial": "¿Quién es tu salvavidas cuando sientes que no puedes más?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Mis amigos de la U",
+     "acad": "Círculo de pares / compañeros",
+     "n": 4
+    },
+    {
+     "id": "b",
+     "label": "Mi familia",
+     "acad": "Núcleo familiar",
+     "n": 6
+    },
+    {
+     "id": "c",
+     "label": "Mi pareja",
+     "acad": "Relación sentimental",
+     "n": 4
+    },
+    {
+     "id": "d",
+     "label": "Un psicólogo",
+     "acad": "Apoyo profesional / Terapia",
+     "n": 3
+    },
+    {
+     "id": "e",
+     "label": "Nadie, trato de salir solo/a",
+     "acad": "Afrontamiento solitario",
+     "n": 6
+    }
+   ],
+   "respuestas": 23
+  },
+  {
+   "id": "P14",
+   "bloque": "Identificación",
+   "tipo": "multiple",
+   "texto": "¿Con cuáles de las siguientes afirmaciones sobre hiperexigencia te identificas?",
+   "jovial": "¿Cuáles de estas \"red flags\" 🚩 académicas te suenan familiares?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Siento que nunca es suficiente",
+     "acad": "Insatisfacción crónica con resultados",
+     "n": 7
+    },
+    {
+     "id": "b",
+     "label": "No puedo parar de camellar",
+     "acad": "Incapacidad para desconectarse",
+     "n": 1
+    },
+    {
+     "id": "c",
+     "label": "Equivocarme me destruye",
+     "acad": "Baja tolerancia al error",
+     "n": 5
+    },
+    {
+     "id": "d",
+     "label": "Vivo comparándome",
+     "acad": "Autoevaluación basada en pares",
+     "n": 4
+    },
+    {
+     "id": "e",
+     "label": "Si descanso, siento culpa",
+     "acad": "Culpa asociada al ocio",
+     "n": 5
+    },
+    {
+     "id": "f",
+     "label": "Me siento en control",
+     "acad": "Ausencia de estos síntomas",
+     "n": 3
+    }
+   ],
+   "respuestas": 25
+  },
+  {
+   "id": "P15",
+   "bloque": "Identificación",
+   "tipo": "unica",
+   "texto": "¿En qué medida influyen los comentarios o valoraciones externas en tu percepción propia?",
+   "jovial": "¿Qué tanto te afecta que te destruyan un proyecto?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Muchísimo, me ahogo",
+     "acad": "Alta vulnerabilidad externa",
+     "n": 3
+    },
+    {
+     "id": "b",
+     "label": "Depende de quién venga",
+     "acad": "Vulnerabilidad selectiva",
+     "n": 9
+    },
+    {
+     "id": "c",
+     "label": "Casi nada",
+     "acad": "Baja vulnerabilidad externa",
+     "n": 0
+    },
+    {
+     "id": "d",
+     "label": "Me resbala",
+     "acad": "Indiferencia a la crítica",
+     "n": 3
+    }
+   ],
+   "respuestas": 15
+  },
+  {
+   "id": "P16",
+   "bloque": "Cartografía",
+   "tipo": "multiple",
+   "texto": "¿Cuáles son las situaciones o factores que te generan mayor presión universitaria?",
+   "jovial": "¿Qué es lo que más te exprime la cabeza en la U?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Mi propia cabeza exigiéndome",
+     "acad": "Presión endógena (Autoexigencia)",
+     "n": 6
+    },
+    {
+     "id": "b",
+     "label": "La avalancha de entregas",
+     "acad": "Sobrecarga académica objetiva",
+     "n": 7
+    },
+    {
+     "id": "c",
+     "label": "No decepcionar a mi familia",
+     "acad": "Expectativas familiares",
+     "n": 4
+    },
+    {
+     "id": "d",
+     "label": "El nivel de mis compañeros",
+     "acad": "Competitividad entre pares",
+     "n": 2
+    },
+    {
+     "id": "e",
+     "label": "El pánico a fracasar",
+     "acad": "Miedo al fracaso profesional",
+     "n": 4
+    }
+   ],
+   "respuestas": 23
+  },
+  {
+   "id": "P16b",
+   "bloque": "Cartografía",
+   "tipo": "multiple",
+   "texto": "¿Durante qué etapas del semestre académico percibes mayor intensidad en tu carga mental?",
+   "jovial": "¿En qué momento del semestre sientes que se te va la vida?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Desde la semana 1",
+     "acad": "Desde el inicio del periodo",
+     "n": 1
+    },
+    {
+     "id": "b",
+     "label": "En semana de parciales",
+     "acad": "Durante cortes evaluativos medios",
+     "n": 3
+    },
+    {
+     "id": "c",
+     "label": "Cuando todo se cruza",
+     "acad": "En picos de carga acumulada",
+     "n": 9
+    },
+    {
+     "id": "d",
+     "label": "En las entregas finales",
+     "acad": "Durante el cierre del periodo",
+     "n": 10
+    },
+    {
+     "id": "e",
+     "label": "Siempre estoy colapsado",
+     "acad": "Tensión constante y permanente",
+     "n": 1
+    }
+   ],
+   "respuestas": 24
+  },
+  {
+   "id": "P17",
+   "bloque": "Cartografía",
+   "tipo": "multiple",
+   "texto": "Ante el agotamiento profundo, ¿qué comportamientos o reacciones sueles manifestar?",
+   "jovial": "Cuando tu batería está en 1%, ¿cómo reaccionas?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Me encierro y me aíslo",
+     "acad": "Aislamiento social progresivo",
+     "n": 8
+    },
+    {
+     "id": "b",
+     "label": "Se me daña el sueño",
+     "acad": "Alteraciones del ritmo circadiano",
+     "n": 4
+    },
+    {
+     "id": "c",
+     "label": "Me exijo el triple",
+     "acad": "Intensificación del esfuerzo (burnout activo)",
+     "n": 3
+    },
+    {
+     "id": "d",
+     "label": "Pierdo las ganas de todo",
+     "acad": "Apatía generalizada (burnout pasivo)",
+     "n": 9
+    },
+    {
+     "id": "e",
+     "label": "Dejo todo para última hora",
+     "acad": "Procrastinación por agotamiento",
+     "n": 4
+    }
+   ],
+   "respuestas": 28
+  },
+  {
+   "id": "P18",
+   "bloque": "Cartografía",
+   "tipo": "multiple",
+   "texto": "¿De qué manera ha afectado el agotamiento tu bienestar físico, emocional o social?",
+   "jovial": "¿Cuál ha sido el costo real de estar quemado/a?",
+   "opciones": [
+    {
+     "id": "a",
+     "label": "Ansiedad 24/7",
+     "acad": "Trastornos de ansiedad sostenida",
+     "n": 7
+    },
+    {
+     "id": "b",
+     "label": "Cansancio crónico",
+     "acad": "Agotamiento físico severo",
+     "n": 10
+    },
+    {
+     "id": "c",
+     "label": "Cero vida social",
+     "acad": "Deterioro de relaciones interpersonales",
+     "n": 3
+    },
+    {
+     "id": "d",
+     "label": "Bloqueo creativo",
+     "acad": "Parálisis cognitiva o creativa",
+     "n": 5
+    },
+    {
+     "id": "e",
+     "label": "Depresión o vacío",
+     "acad": "Síntomas depresivos / Sensación de vacío",
+     "n": 6
+    }
+   ],
+   "respuestas": 31
+  },
+  {
+   "id": "P19",
+   "bloque": "Lo que no digo",
+   "tipo": "texto",
+   "texto": "¿Existe alguna experiencia, frustración o sentimiento académico que siempre hayas mantenido en silencio?",
+   "jovial": "Sinceramente, ¿hay algo de tu vida universitaria que nunca has dicho en voz alta?",
+   "textos": [
+    "agotamiento a raíz de todos los traumas o experiencias que he vivido durante la carrera, me siento cansada mentalmente y siento que de alguna forma mi cuerpo lo esta expresando haciendo que me desconecte de mis responsabilidades",
+    "ansiedad, ganas de morir, frustracion porque no creo merecer la nota que me dieron",
+    "aprendi a soltar cosas y personas, a tenerme compasión, cuidarme.\nque explorar nuevas cosas a veces te ayuda, te hace mejor persona.",
+    "desde el primer semestre he vivido como no soy, suficiente en los trabajos, vivo comparándome con mis compañeros, y no solo es entregas finales, es todo el tiempo,",
+    "el como he aprendido a soltar a personas y que no hay de verdad la amistad estas solo y ya solo es estudiar y ya estas sola",
+    "En primer semestre comencé a notar que tenia compañeros muy talentosos en dibujo y pintura, y lo siguen siendo, esto hizo que mi ausensia de talento en esas áreas me hicieran tener un bajo promedio, y al venir acostumbrada a tener las mejores notas y destacar siendo la mejor en el colegio eso me dio un choque total, me sentia inutil y por un momento pense haber elegido la carrera incorrecta, posteriormente no tuvve un grupo fijo y afin a mis gutos hasta el momento de aislarme y quedarme sola, pero hoy en dia cuento con un equipo que son de los mios y me siento bien y tranquila con ellos y conm",
+    "estar estudiando algo que no me gusta",
+    "Frustración",
+    "Hay algunos profesores que me desaniman y no me hacen gustar la carrera :c Y cada vez empiezo a ser más mediocre en lo que hago",
+    "la opción más acertada en un momento fue dejar la U",
+    "la universidad influye mucho en la carga emocional de los jovenes, y por eso aparecen síntomas de ansiedad, depresión , y es un tema que se a convertido en algo sin importancia,cuando se deberia dar la importancia que merce.",
+    "que debo hacerle caso ami intuicion, y analizar las posibles finales y sus factores",
+    "que no soy suficiente, siento que me falta algo, que debería de vivir alguien mas en vez de mi persona, no quiero decepcionar a mi padres",
+    "Querer cancelar la carrera por no ver libertad laboral",
+    "Recuerdos del primer y segundo semestre, donde todo era solo frustración de conseguir los materiales xd"
+   ]
+  },
+  {
+   "id": "P20",
+   "bloque": "Lo que no digo",
+   "tipo": "texto",
+   "texto": "Escribe una frase final dirigida a tu propia autoexigencia.",
+   "jovial": "Si tuvieras al frente a esa parte tuya que siempre te exige más, ¿qué le dirías?",
+   "textos": [
+    "Agradezco toda tu exigencia, pero debes descansar un poco de vez en cuando.",
+    "El talento lo tienes, solo necesitas seguridad y confianza en ti misma",
+    "enfocate mas, puedes mejorar muchas cosas aunque no siempre todo salga de la mejor manera, no debes ser dura contigo misma",
+    "Gracias, por ayudarme a siempre dar lo mejor de mi y demostrar todo el potencial que puedo llegar tener, porque siempre se puede dar un poco más, pero nunca debemos olvidar en que la autoexigencia no debe destruirnos y podemos también estar en paz y confiar en lo que hacemos.",
+    "Métele más diseño; hay momentos donde se bloquea la mente, pero cuando se desbloquea... nadie te para. Sigue adelante y no te rindas.",
+    "No estas sola lo lograremos sigamos avanzando poco a poco yo te cuido",
+    "No me importa no esforzarme, siento que prefiero mi salud mental a complacer a profesores :D. Solo lo hago si realmente me gusta la materia o realmente siento que estoy inspirada",
+    "que puedes encajar que vas a estar donde tu debes que estar, acepta y mejora tu estilo sigue haciéndolo y pues si no les gusta, se que algún dia se dara y podre compartir muy segura de lo que hago",
+    "Quierete a ti misma por lo que haces y hazlo por tu cuenta",
+    "tu puedes bebé, duerme mas",
+    "tu puedes con todo",
+    "Tu siempre haz podido con todo... solo Confía",
+    "Vas bien, por un buen camino, enfocate mas concentrate en ti no en los demas, hptaaa hacele vos puedees",
+    "Vivo comparándome con mis compañeros porque no es suficiente lo que hago, y por mas que lo intente y me esfuerzo, no llevo a ese nivel y sigo pensando en que mejorar"
+   ]
+  }
+ ],
+ "perfil": [
+  {
+   "titulo": "Edad",
+   "datos": [
+    {
+     "label": "20 a 22 años",
+     "n": 9
+    },
+    {
+     "label": "23 a 25 años",
+     "n": 4
+    },
+    {
+     "label": "26 años o más",
+     "n": 2
+    }
+   ]
+  },
+  {
+   "titulo": "Género",
+   "datos": [
+    {
+     "label": "Femenino",
+     "n": 11
+    },
+    {
+     "label": "Masculino",
+     "n": 4
+    }
+   ]
+  },
+  {
+   "titulo": "Situación actual",
+   "datos": [
+    {
+     "label": "Solo estudio",
+     "n": 8
+    },
+    {
+     "label": "Estudio y trabajo",
+     "n": 6
+    },
+    {
+     "label": "Estudio, trabajo y tengo otras responsabilidades",
+     "n": 1
+    }
+   ]
+  }
+ ]
+};

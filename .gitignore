@@ -1,2 +1,5 @@
 Cuenta.md
 *.bak
+node_modules/
+.next/
+out/
