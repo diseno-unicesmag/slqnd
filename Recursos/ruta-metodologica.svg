@@ -1,183 +1,176 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1078" width="1600" height="1078" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1472" width="1200" height="1472" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" role="img" aria-labelledby="t d">
 <title id="t">Ruta metodológica del proyecto Sobre lo que no digo</title>
-<desc id="d">Procedimiento de las 3i: Indagar (Fase 1, Cartografía), Idear (Fase 2, Prototipado) e Implementar (Fase 3, Validación), con el propósito, las actividades y el resultado de cada fase.</desc>
-<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b2fb0"/></marker></defs>
-<rect width="1600" height="1078" fill="#ffffff"/>
-<text x="40" y="46" font-size="23" font-weight="800" fill="#2b1759" text-anchor="start" letter-spacing="1.5"><tspan x="40" dy="0">RUTA METODOLÓGICA</tspan></text>
-<text x="1560" y="44" font-size="15" font-weight="400" fill="#5d5a6b" text-anchor="end"><tspan x="1560" dy="0">Investigación-Creación · enfoque cualitativo · diseño participativo · procedimiento de las 3i</tspan></text>
-<rect x="40" y="62" width="1520" height="2" fill="#f5c542"/>
-<polygon points="40,84 512,84 546,140 512,196 40,196" fill="#2b1759"/>
-<text x="64" y="114" font-size="15" font-weight="800" fill="#f5c542" text-anchor="start" letter-spacing="2.5"><tspan x="64" dy="0">1 · INDAGAR</tspan></text>
-<text x="64" y="151" font-size="32" font-weight="800" fill="#ffffff" text-anchor="start"><tspan x="64" dy="0">Cartografía</tspan></text>
-<text x="64" y="178" font-size="14.5" font-weight="400" fill="#e4dcf6" text-anchor="start"><tspan x="64" dy="0">Fase 1 · Diagnóstico y cocreación</tspan></text>
-<rect x="330" y="98" width="176" height="46" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
-<text x="418.0" y="117" font-size="12.5" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.2"><tspan x="418.0" dy="0">COMPLETA</tspan></text>
-<text x="418.0" y="135" font-size="12.5" font-weight="400" fill="#e4dcf6" text-anchor="middle"><tspan x="418.0" dy="0">abr – jun 2026</tspan></text>
-<rect x="40" y="210" width="480" height="96" rx="10" fill="#f1ecfa" stroke="#cfc2ec"/>
-<text x="56" y="232" font-size="11.5" font-weight="800" fill="#5b2fb0" text-anchor="start" letter-spacing="1.4"><tspan x="56" dy="0">PROPÓSITO ESPECÍFICO 1</tspan></text>
-<text x="56" y="253" font-size="14" font-weight="400" fill="#1d1a2b" text-anchor="start"><tspan x="56" dy="0">Identificar patrones de causas, dinámicas y consecuencias en</tspan><tspan x="56" dy="18.2">las vivencias silenciadas de universitarios.</tspan></text>
-<line x1="59" y1="340" x2="59" y2="808" stroke="#cfc2ec" stroke-width="2.5"/>
-<circle cx="59" cy="340" r="14" fill="#2b1759"/>
-<text x="59" y="345" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="59" dy="0">1</tspan></text>
-<rect x="462" y="328" width="58" height="22" rx="11" fill="#ffffff" stroke="#8b879a"/>
-<text x="491.0" y="343.5" font-size="11.5" font-weight="700" fill="#4a4658" text-anchor="middle"><tspan x="491.0" dy="0">Clase</tspan></text>
-<text x="86" y="345" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="86" dy="0">Cadena de Valor</tspan></text>
-<text x="86" y="366" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="86" dy="0">Estudio bibliográfico y contextualización → red conceptual</tspan><tspan x="86" dy="16.9">interactiva</tspan></text>
-<circle cx="59" cy="420" r="14" fill="#2b1759"/>
-<text x="59" y="425" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="59" dy="0">2</tspan></text>
-<rect x="458" y="408" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="489.0" y="423.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="489.0" dy="0">Campo</tspan></text>
-<text x="86" y="425" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="86" dy="0">CDPS</tspan></text>
-<text x="86" y="446" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="86" dy="0">Cartografía Digital de Percepción Silenciosa · 24 abr · N = 15</tspan><tspan x="86" dy="16.9">→ patrones en mapas de calor</tspan></text>
-<circle cx="59" cy="500" r="14" fill="#2b1759"/>
-<text x="59" y="505" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="59" dy="0">3</tspan></text>
-<rect x="462" y="488" width="58" height="22" rx="11" fill="#ffffff" stroke="#8b879a"/>
-<text x="491.0" y="503.5" font-size="11.5" font-weight="700" fill="#4a4658" text-anchor="middle"><tspan x="491.0" dy="0">Clase</tspan></text>
-<text x="86" y="505" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="86" dy="0">Match Creativo</tspan></text>
-<text x="86" y="526" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="86" dy="0">Depuración crítica de propuestas preliminares → matriz</tspan><tspan x="86" dy="16.9">comparativa</tspan></text>
-<circle cx="59" cy="580" r="14" fill="#2b1759"/>
-<text x="59" y="585" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="59" dy="0">4</tspan></text>
-<rect x="462" y="568" width="58" height="22" rx="11" fill="#ffffff" stroke="#8b879a"/>
-<text x="491.0" y="583.5" font-size="11.5" font-weight="700" fill="#4a4658" text-anchor="middle"><tspan x="491.0" dy="0">Clase</tspan></text>
-<text x="86" y="585" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="86" dy="0">Lluvia de Ideas</tspan></text>
-<text x="86" y="606" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="86" dy="0">Cruce con industrias culturales y creativas → matriz de</tspan><tspan x="86" dy="16.9">síntesis proyectual</tspan></text>
-<circle cx="59" cy="660" r="14" fill="#2b1759"/>
-<text x="59" y="665" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="59" dy="0">5</tspan></text>
-<rect x="458" y="648" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="489.0" y="663.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="489.0" dy="0">Campo</tspan></text>
-<text x="86" y="665" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="86" dy="0">Taller «Sobre lo que no dices»</tspan></text>
-<text x="86" y="686" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="86" dy="0">11 may · N = 4 · cartelera grupal y hojas de prototipado → 4</tspan><tspan x="86" dy="16.9">metáforas con capa de RA</tspan></text>
-<circle cx="59" cy="740" r="14" fill="#2b1759"/>
-<text x="59" y="745" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="59" dy="0">6</tspan></text>
-<rect x="458" y="728" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="489.0" y="743.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="489.0" dy="0">Campo</tspan></text>
-<text x="86" y="745" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="86" dy="0">Entrevista a experto</tspan></text>
-<text x="86" y="766" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="86" dy="0">25 jun · diseñador y psicólogo Gabriel Parra → 10 lineamientos</tspan><tspan x="86" dy="16.9">éticos y operativos</tspan></text>
-<rect x="40" y="808" width="480" height="64" rx="10" fill="#fdf3c9" stroke="#f5c542" stroke-width="2"/>
-<text x="56" y="831" font-size="11.5" font-weight="800" fill="#6b4e00" text-anchor="start" letter-spacing="1.4"><tspan x="56" dy="0">RESULTADO</tspan></text>
-<text x="56" y="855" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="56" dy="0">Síntesis diagnóstica: 4 oportunidades de diseño</tspan></text>
-<line x1="525" y1="840" x2="553" y2="840" stroke="#5b2fb0" stroke-width="3" marker-end="url(#ah)"/>
-<polygon points="560,84 1032,84 1066,140 1032,196 560,196 594,140" fill="#4a2a96"/>
-<text x="616" y="114" font-size="15" font-weight="800" fill="#f5c542" text-anchor="start" letter-spacing="2.5"><tspan x="616" dy="0">2 · IDEAR</tspan></text>
-<text x="616" y="151" font-size="32" font-weight="800" fill="#ffffff" text-anchor="start"><tspan x="616" dy="0">Prototipado</tspan></text>
-<text x="616" y="178" font-size="14.5" font-weight="400" fill="#e4dcf6" text-anchor="start"><tspan x="616" dy="0">Fase 2 · Construcción del ecosistema phygital</tspan></text>
-<rect x="850" y="98" width="176" height="46" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
-<text x="938.0" y="117" font-size="12.5" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.2"><tspan x="938.0" dy="0">EN CURSO</tspan></text>
-<text x="938.0" y="135" font-size="12.5" font-weight="400" fill="#e4dcf6" text-anchor="middle"><tspan x="938.0" dy="0">may – sep 2026</tspan></text>
-<rect x="560" y="210" width="480" height="96" rx="10" fill="#f1ecfa" stroke="#cfc2ec"/>
-<text x="576" y="232" font-size="11.5" font-weight="800" fill="#5b2fb0" text-anchor="start" letter-spacing="1.4"><tspan x="576" dy="0">PROPÓSITO ESPECÍFICO 2</tspan></text>
-<text x="576" y="253" font-size="14" font-weight="400" fill="#1d1a2b" text-anchor="start"><tspan x="576" dy="0">Diseñar una estrategia de diseño participativo articulando</tspan><tspan x="576" dy="18.2">talleres de cocreación artística con una experiencia</tspan><tspan x="576" dy="18.2">phygital interactiva.</tspan></text>
-<line x1="579" y1="340" x2="579" y2="808" stroke="#cfc2ec" stroke-width="2.5"/>
-<circle cx="579" cy="340" r="14" fill="#2b1759"/>
-<text x="579" y="345" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="579" dy="0">1</tspan></text>
-<rect x="964" y="328" width="76" height="22" rx="11" fill="#fdf3c9" stroke="#c99a12"/>
-<text x="1002.0" y="343.5" font-size="11.5" font-weight="700" fill="#6b4e00" text-anchor="middle"><tspan x="1002.0" dy="0">Creación</tspan></text>
-<text x="606" y="345" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="606" dy="0">Concepto y estilo gráfico</tspan></text>
-<text x="606" y="366" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="606" dy="0">«La RA no añade: revela» · glassmorfismo · tensión violeta –</tspan><tspan x="606" dy="16.9">dorado</tspan></text>
-<circle cx="579" cy="420" r="14" fill="#2b1759"/>
-<text x="579" y="425" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="579" dy="0">2</tspan></text>
-<rect x="964" y="408" width="76" height="22" rx="11" fill="#fdf3c9" stroke="#c99a12"/>
-<text x="1002.0" y="423.5" font-size="11.5" font-weight="700" fill="#6b4e00" text-anchor="middle"><tspan x="1002.0" dy="0">Creación</tspan></text>
-<text x="606" y="425" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="606" dy="0">PMV MetafoRA</tspan></text>
-<text x="606" y="446" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="606" dy="0">App móvil en Unity + Vuforia · escaneo, capa de RA y</tspan><tspan x="606" dy="16.9">biblioteca · versión 0.0.29</tspan></text>
-<circle cx="579" cy="500" r="14" fill="#2b1759"/>
-<text x="579" y="505" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="579" dy="0">3</tspan></text>
-<rect x="964" y="488" width="76" height="22" rx="11" fill="#fdf3c9" stroke="#c99a12"/>
-<text x="1002.0" y="503.5" font-size="11.5" font-weight="700" fill="#6b4e00" text-anchor="middle"><tspan x="1002.0" dy="0">Creación</tspan></text>
-<text x="606" y="505" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="606" dy="0">Obras piloto</tspan></text>
-<text x="606" y="526" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="606" dy="0">Las 4 piezas del taller, refinadas y aumentadas con animación</tspan><tspan x="606" dy="16.9">y sonido</tspan></text>
-<circle cx="579" cy="580" r="14" fill="#2b1759"/>
-<text x="579" y="585" font-size="14" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="579" dy="0">4</tspan></text>
-<rect x="978" y="568" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1009.0" y="583.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1009.0" dy="0">Campo</tspan></text>
-<text x="606" y="585" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="606" dy="0">Demostraciones del prototipo</tspan></text>
-<text x="606" y="606" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="606" dy="0">Sustentación de 9.º semestre · Festival Buenamente 2026 ·</tspan><tspan x="606" dy="16.9">pruebas en clase</tspan></text>
-<circle cx="579" cy="660" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="579" y="665" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="579" dy="0">5</tspan></text>
-<rect x="978" y="648" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1009.0" y="663.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1009.0" dy="0">Campo</tspan></text>
-<text x="606" y="665" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="606" dy="0">Convocatoria y talleres de cocreación</tspan></text>
-<text x="606" y="686" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="606" dy="0">Sesión única de 120 min con cierre en Círculo de la Palabra y</tspan><tspan x="606" dy="16.9">consentimiento informado</tspan></text>
-<circle cx="579" cy="740" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="579" y="745" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="579" dy="0">6</tspan></text>
-<rect x="964" y="728" width="76" height="22" rx="11" fill="#fdf3c9" stroke="#c99a12"/>
-<text x="1002.0" y="743.5" font-size="11.5" font-weight="700" fill="#6b4e00" text-anchor="middle"><tspan x="1002.0" dy="0">Creación</tspan></text>
-<text x="606" y="745" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="606" dy="0">Producción e integración phygital</tspan></text>
-<text x="606" y="766" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="606" dy="0">Obras definitivas de los creadores + versión final de la</tspan><tspan x="606" dy="16.9">aplicación</tspan></text>
-<rect x="560" y="808" width="480" height="64" rx="10" fill="#fdf3c9" stroke="#f5c542" stroke-width="2"/>
-<text x="576" y="831" font-size="11.5" font-weight="800" fill="#6b4e00" text-anchor="start" letter-spacing="1.4"><tspan x="576" dy="0">RESULTADO</tspan></text>
-<text x="576" y="855" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="576" dy="0">Ecosistema phygital: obras físicas + app MetafoRA</tspan></text>
-<line x1="1045" y1="840" x2="1073" y2="840" stroke="#5b2fb0" stroke-width="3" marker-end="url(#ah)"/>
-<polygon points="1080,84 1526,84 1560,140 1526,196 1080,196 1114,140" fill="#7455c2"/>
-<text x="1136" y="114" font-size="15" font-weight="800" fill="#f5c542" text-anchor="start" letter-spacing="2.5"><tspan x="1136" dy="0">3 · IMPLEMENTAR</tspan></text>
-<text x="1136" y="151" font-size="32" font-weight="800" fill="#ffffff" text-anchor="start"><tspan x="1136" dy="0">Validación</tspan></text>
-<text x="1136" y="178" font-size="14.5" font-weight="400" fill="#e4dcf6" text-anchor="start"><tspan x="1136" dy="0">Fase 3 · Usabilidad e incidencia emocional</tspan></text>
-<rect x="1344" y="98" width="176" height="46" rx="8" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.45"/>
-<text x="1432.0" y="117" font-size="12.5" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.2"><tspan x="1432.0" dy="0">POR INICIAR</tspan></text>
-<text x="1432.0" y="135" font-size="12.5" font-weight="400" fill="#e4dcf6" text-anchor="middle"><tspan x="1432.0" dy="0">cierre del ciclo de grado</tspan></text>
-<rect x="1080" y="210" width="480" height="96" rx="10" fill="#f1ecfa" stroke="#cfc2ec"/>
-<text x="1096" y="232" font-size="11.5" font-weight="800" fill="#5b2fb0" text-anchor="start" letter-spacing="1.4"><tspan x="1096" dy="0">PROPÓSITO ESPECÍFICO 3</tspan></text>
-<text x="1096" y="253" font-size="14" font-weight="400" fill="#1d1a2b" text-anchor="start"><tspan x="1096" dy="0">Evaluar la incidencia de la estrategia participativa y la</tspan><tspan x="1096" dy="18.2">experiencia phygital en la elaboración emocional de los</tspan><tspan x="1096" dy="18.2">creadores y lectores.</tspan></text>
-<line x1="1099" y1="340" x2="1099" y2="808" stroke="#cfc2ec" stroke-width="2.5"/>
-<circle cx="1099" cy="340" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="1099" y="345" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="1099" dy="0">1</tspan></text>
-<rect x="1498" y="328" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1529.0" y="343.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1529.0" dy="0">Campo</tspan></text>
-<text x="1126" y="345" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1126" dy="0">Muestra de obras</tspan></text>
-<text x="1126" y="366" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1126" dy="0">Exhibición de las piezas físicas en los pasillos de la</tspan><tspan x="1126" dy="16.9">Universidad CESMAG</tspan></text>
-<circle cx="1099" cy="420" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="1099" y="425" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="1099" dy="0">2</tspan></text>
-<rect x="1498" y="408" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1529.0" y="423.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1529.0" dy="0">Campo</tspan></text>
-<text x="1126" y="425" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1126" dy="0">Devolución a los cocreadores</tspan></text>
-<text x="1126" y="446" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1126" dy="0">Los creadores, invitados de honor, descubren por primera vez</tspan><tspan x="1126" dy="16.9">sus obras aumentadas</tspan></text>
-<circle cx="1099" cy="500" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="1099" y="505" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="1099" dy="0">3</tspan></text>
-<rect x="1498" y="488" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1529.0" y="503.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1529.0" dy="0">Campo</tspan></text>
-<text x="1126" y="505" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1126" dy="0">Medición de la experiencia</tspan></text>
-<text x="1126" y="526" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1126" dy="0">Usabilidad de MetafoRA y resonancia afectiva en los lectores</tspan></text>
-<circle cx="1099" cy="580" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="1099" y="585" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="1099" dy="0">4</tspan></text>
-<rect x="1498" y="568" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1529.0" y="583.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1529.0" dy="0">Campo</tspan></text>
-<text x="1126" y="585" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1126" dy="0">Escucha post-experiencia</tspan></text>
-<text x="1126" y="606" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1126" dy="0">Voces de creadores y lectores tras la interacción con las</tspan><tspan x="1126" dy="16.9">obras</tspan></text>
-<circle cx="1099" cy="660" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="1099" y="665" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="1099" dy="0">5</tspan></text>
-<rect x="1498" y="648" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="1529.0" y="663.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="1529.0" dy="0">Campo</tspan></text>
-<text x="1126" y="665" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1126" dy="0">Registro de la interacción</tspan></text>
-<text x="1126" y="686" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1126" dy="0">Memoria audiovisual de la muestra y de sus recorridos</tspan></text>
-<circle cx="1099" cy="740" r="13" fill="#ffffff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="1099" y="745" font-size="14" font-weight="800" fill="#5b2fb0" text-anchor="middle"><tspan x="1099" dy="0">6</tspan></text>
-<rect x="1484" y="728" width="76" height="22" rx="11" fill="#fdf3c9" stroke="#c99a12"/>
-<text x="1522.0" y="743.5" font-size="11.5" font-weight="700" fill="#6b4e00" text-anchor="middle"><tspan x="1522.0" dy="0">Creación</tspan></text>
-<text x="1126" y="745" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1126" dy="0">Síntesis de hallazgos</tspan></text>
-<text x="1126" y="766" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1126" dy="0">Triangulación de resultados frente a los propósitos del</tspan><tspan x="1126" dy="16.9">proyecto</tspan></text>
-<rect x="1080" y="808" width="480" height="64" rx="10" fill="#fdf3c9" stroke="#f5c542" stroke-width="2"/>
-<text x="1096" y="831" font-size="11.5" font-weight="800" fill="#6b4e00" text-anchor="start" letter-spacing="1.4"><tspan x="1096" dy="0">RESULTADO</tspan></text>
-<text x="1096" y="855" font-size="16" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="1096" dy="0">Hallazgos, conclusiones y recomendaciones</tspan></text>
-<path d="M1320.0 876 V896 H280.0 V881" fill="none" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#ah)"/>
-<rect x="530.0" y="885" width="540" height="22" fill="#ffffff"/>
-<text x="800.0" y="901" font-size="13.5" font-weight="600" fill="#3a1c7a" text-anchor="middle"><tspan x="800.0" dy="0">Proceso recursivo: lo que se valida regresa a la indagación y al prototipo</tspan></text>
-<rect x="40" y="924" width="1520" height="42" rx="21" fill="#f1ecfa" stroke="#cfc2ec"/>
-<text x="64" y="951" font-size="13" font-weight="800" fill="#3a1c7a" text-anchor="start" letter-spacing="1.3"><tspan x="64" dy="0">PLATAFORMA WEB DEL PROYECTO</tspan></text>
-<text x="370" y="951" font-size="14" font-weight="400" fill="#1d1a2b" text-anchor="start"><tspan x="370" dy="0">Memoria viva del proceso: cada actividad deja un artefacto digital navegable que sirve de análisis, registro y evidencia.</tspan></text>
-<rect x="40" y="976" width="1520" height="42" rx="21" fill="#f4f3f7" stroke="#d5d2de"/>
-<text x="64" y="1003" font-size="13" font-weight="800" fill="#3a3648" text-anchor="start" letter-spacing="1.3"><tspan x="64" dy="0">MARCO ÉTICO</tspan></text>
-<text x="370" y="1003" font-size="14" font-weight="400" fill="#1d1a2b" text-anchor="start"><tspan x="370" dy="0">Consentimiento informado · identidad flexible (nombre, seudónimo o código) · lenguaje no clínico · devolución a los participantes.</tspan></text>
-<circle cx="50" cy="1050" r="9" fill="#2b1759"/>
-<text x="66" y="1055" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="66" dy="0">Actividad realizada</tspan></text>
-<circle cx="240" cy="1050" r="8.5" fill="#fff" stroke="#5b2fb0" stroke-width="2" stroke-dasharray="4 3"/>
-<text x="256" y="1055" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="256" dy="0">Actividad por realizar</tspan></text>
-<rect x="440" y="1039" width="58" height="22" rx="11" fill="#ffffff" stroke="#8b879a"/>
-<text x="469.0" y="1054.5" font-size="11.5" font-weight="700" fill="#4a4658" text-anchor="middle"><tspan x="469.0" dy="0">Clase</tspan></text>
-<text x="508" y="1055" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="508" dy="0">Ejercicio de clase (formación proyectual)</tspan></text>
-<rect x="806.9000000000001" y="1039" width="62" height="22" rx="11" fill="#e6dcf8" stroke="#5b2fb0"/>
-<text x="837.9000000000001" y="1054.5" font-size="11.5" font-weight="700" fill="#3a1c7a" text-anchor="middle"><tspan x="837.9000000000001" dy="0">Campo</tspan></text>
-<text x="878.9000000000001" y="1055" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="878.9000000000001" dy="0">Trabajo de campo con participantes</tspan></text>
-<rect x="1129.5" y="1039" width="76" height="22" rx="11" fill="#fdf3c9" stroke="#c99a12"/>
-<text x="1167.5" y="1054.5" font-size="11.5" font-weight="700" fill="#6b4e00" text-anchor="middle"><tspan x="1167.5" dy="0">Creación</tspan></text>
-<text x="1215.5" y="1055" font-size="13" font-weight="400" fill="#5d5a6b" text-anchor="start"><tspan x="1215.5" dy="0">Diseño, desarrollo y síntesis</tspan></text>
+<desc id="d">Tres momentos del procedimiento de las 3i (indagar, idear e implementar) con el propósito, las seis actividades y el resultado de cada fase.</desc>
+<rect width="1200" height="1472" fill="#ffffff"/>
+<text x="28" y="56" font-size="38" font-weight="700" fill="#2b1759" text-anchor="start"><tspan x="28" dy="0">Ruta metodológica</tspan></text>
+<text x="28" y="86" font-size="17.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="28" dy="0">El proyecto avanza en tres momentos: indagar, idear e implementar. Cada tarjeta resume una actividad.</tspan></text>
+<text x="1022.503125" y="51" font-size="16" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="1022.503125" dy="0">Actividad por realizar</tspan></text>
+<rect x="988.503125" y="33" width="26" height="26" rx="8" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(994.003125 38.5) scale(0.625)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="829.90625" y="51" font-size="16" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="829.90625" dy="0">Actividad realizada</tspan></text>
+<rect x="795.90625" y="33" width="26" height="26" rx="8" fill="#2b1759"/><g transform="translate(801.40625 38.5) scale(0.625)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.500l4.500 4.500L19 7.500"/></g>
+<rect x="28" y="102" width="1144" height="3" rx="1.5" fill="#f5c542"/>
+<rect x="28" y="122" width="252" height="367" rx="18" fill="#2b1759"/>
+<text x="260" y="188" font-size="60" font-weight="700" fill="#ffffff" text-anchor="end" fill-opacity="0.16"><tspan x="260" dy="0">1</tspan></text>
+<rect x="50" y="144" width="46" height="46" rx="13" fill="#ffffff"/><g transform="translate(60.0 154.0) scale(1.0833)" fill="none" stroke="#2b1759" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></g>
+<text x="108" y="163" font-size="15" font-weight="400" fill="#e6dff7" text-anchor="start"><tspan x="108" dy="0">Momento 1</tspan></text>
+<text x="108" y="185" font-size="19" font-weight="700" fill="#f5c542" text-anchor="start"><tspan x="108" dy="0">Indagar</tspan></text>
+<text x="50" y="232" font-size="34" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="50" dy="0">Cartografía</tspan></text>
+<text x="50" y="258" font-size="15.5" font-weight="400" fill="#e6dff7" text-anchor="start"><tspan x="50" dy="0">Diagnóstico y cocreación</tspan></text>
+<rect x="50" y="282" width="111.9" height="28" rx="14" fill="#ffffff" fill-opacity="0.16"/>
+<g transform="translate(59 287) scale(0.75)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.500l4.500 4.500L19 7.500"/></g>
+<text x="83" y="301.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="83" dy="0">Completa</tspan></text>
+<g transform="translate(50 324) scale(0.75)" fill="none" stroke="#e6dff7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.500 10h17M8 3v4M16 3v4"/></g>
+<text x="75" y="338" font-size="15.5" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="75" dy="0">Abril a junio de 2026</tspan></text>
+<rect x="50" y="356" width="208" height="1.5" fill="#ffffff" fill-opacity="0.25"/>
+<g transform="translate(50 372) scale(0.75)" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></g>
+<text x="75" y="386" font-size="15.5" font-weight="700" fill="#f5c542" text-anchor="start"><tspan x="75" dy="0">Propósito 1</tspan></text>
+<text x="50" y="410" font-size="16" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="50" dy="0">Identificar patrones en las</tspan><tspan x="50" dy="21.0">vivencias que los</tspan><tspan x="50" dy="21.0">universitarios callan.</tspan></text>
+<rect x="294.0" y="122" width="283.3" height="142.5" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="309.0" y="137" width="40" height="40" rx="11" fill="#2b1759"/><g transform="translate(318.0 146.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8.3 6.9l7.3.7M7 8.3l2.2 7.3M16.5 10l-5 6.2"/></g>
+<text x="562.3" y="150" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="562.3" dy="0">01</tspan></text>
+<text x="360.0" y="162.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="360.0" dy="0">Cadena de Valor</tspan></text>
+<text x="309.0" y="203" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="309.0" dy="0">Matriz que relaciona los conceptos</tspan><tspan x="309.0" dy="22.0">y autores que sostienen el</tspan><tspan x="309.0" dy="22.0">proyecto.</tspan></text>
+<rect x="591.3" y="122" width="283.3" height="142.5" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="606.3" y="137" width="40" height="40" rx="11" fill="#2b1759"/><g transform="translate(615.3 146.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5.5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="6" width="3" height="11" rx="1"/><rect x="15.5" y="9" width="3" height="8" rx="1"/></g>
+<text x="859.7" y="150" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="859.7" dy="0">02</tspan></text>
+<text x="657.3" y="162.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="657.3" dy="0">CDPS</tspan></text>
+<text x="606.3" y="203" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="606.3" dy="0">Encuesta en vivo y anónima a 15</tspan><tspan x="606.3" dy="22.0">estudiantes sobre carga, exigencia</tspan><tspan x="606.3" dy="22.0">y silencio.</tspan></text>
+<rect x="888.7" y="122" width="283.3" height="142.5" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="903.7" y="137" width="40" height="40" rx="11" fill="#2b1759"/><g transform="translate(912.7 146.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="16" rx="2"/><rect x="13" y="4" width="8" height="16" rx="2"/><path d="M6 9h2M16 9h2M6 13h2M16 13h2"/></g>
+<text x="1157.0" y="150" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="1157.0" dy="0">03</tspan></text>
+<text x="954.7" y="162.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="954.7" dy="0">Match Creativo</tspan></text>
+<text x="903.7" y="203" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="903.7" dy="0">Comparación crítica de productos</tspan><tspan x="903.7" dy="22.0">posibles; descartó los que repiten</tspan><tspan x="903.7" dy="22.0">el estigma.</tspan></text>
+<rect x="294.0" y="278.5" width="283.3" height="148.5" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="309.0" y="293.5" width="40" height="40" rx="11" fill="#2b1759"/><g transform="translate(318.0 302.5) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 15a4 4 0 0 1 .6-7.950A5.500 5.500 0 0 1 18 8.500a3.300 3.300 0 0 1-.5 6.500H7z"/><path d="M8.500 18.500l-1 2M12.500 18.500l-1 2M16.500 18.500l-1 2"/></g>
+<text x="562.3" y="306.5" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="562.3" dy="0">04</tspan></text>
+<text x="360.0" y="319.0" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="360.0" dy="0">Lluvia de Ideas</tspan></text>
+<text x="309.0" y="359.5" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="309.0" dy="0">Cruce del proyecto con cinco</tspan><tspan x="309.0" dy="22.0">industrias creativas para definir el</tspan><tspan x="309.0" dy="22.0">producto.</tspan></text>
+<rect x="591.3" y="278.5" width="283.3" height="148.5" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="606.3" y="293.5" width="40" height="40" rx="11" fill="#2b1759"/><g transform="translate(615.3 302.5) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.300 2.700-6 6-6s6 2.700 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M16.500 14.200c2.600.3 4.500 2.500 4.500 5.300"/></g>
+<text x="859.7" y="306.5" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="859.7" dy="0">05</tspan></text>
+<text x="657.3" y="310.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="657.3" dy="0">Taller «Sobre lo</tspan><tspan x="657.3" dy="23.0">que no dices»</tspan></text>
+<text x="606.3" y="365.5" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="606.3" dy="0">Cuatro estudiantes crearon la</tspan><tspan x="606.3" dy="22.0">metáfora visual de aquello que</tspan><tspan x="606.3" dy="22.0">callan.</tspan></text>
+<rect x="888.7" y="278.5" width="283.3" height="148.5" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="903.7" y="293.5" width="40" height="40" rx="11" fill="#2b1759"/><g transform="translate(912.7 302.5) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11a1.500 1.500 0 0 1 1.500 1.500v6A1.500 1.500 0 0 1 15 14H9l-4 3v-3H4a1.500 1.500 0 0 1-1.500-1.500v-6A1.500 1.500 0 0 1 4 5z"/><path d="M19.500 9.500h.5a1.500 1.500 0 0 1 1.500 1.500v5a1.500 1.500 0 0 1-1.500 1.500h-.5v2.500l-3-2.500H12"/></g>
+<text x="1157.0" y="306.5" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="1157.0" dy="0">06</tspan></text>
+<text x="954.7" y="310.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="954.7" dy="0">Entrevista a</tspan><tspan x="954.7" dy="23.0">experto</tspan></text>
+<text x="903.7" y="365.5" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="903.7" dy="0">Un psicólogo y diseñador fijó los</tspan><tspan x="903.7" dy="22.0">cuidados éticos y el protocolo del</tspan><tspan x="903.7" dy="22.0">taller.</tspan></text>
+<rect x="294" y="441.0" width="878" height="48" rx="14" fill="#fdf5d6" stroke="#f5c542" stroke-width="1.8"/>
+<g transform="translate(310 454.0) scale(0.9167)" fill="none" stroke="#6b4e00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4.500h11l-2 4 2 4H5"/></g>
+<text x="342" y="471.5" font-size="17.5" font-weight="700" fill="#6b4e00" text-anchor="start"><tspan x="342" dy="0">Resultado:</tspan></text>
+<text x="433.39375" y="471.5" font-size="17.5" font-weight="600" fill="#1d1a2b" text-anchor="start"><tspan x="433.39375" dy="0">Síntesis diagnóstica con cuatro oportunidades de diseño.</tspan></text>
+<path d="M154.0 495 v14 m-8 -8 l8 8 l8 -8" fill="none" stroke="#5b2fb0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="28" y="521" width="252" height="389" rx="18" fill="#4a2a96"/>
+<text x="260" y="587" font-size="60" font-weight="700" fill="#ffffff" text-anchor="end" fill-opacity="0.16"><tspan x="260" dy="0">2</tspan></text>
+<rect x="50" y="543" width="46" height="46" rx="13" fill="#ffffff"/><g transform="translate(60.0 553.0) scale(1.0833)" fill="none" stroke="#4a2a96" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></g>
+<text x="108" y="562" font-size="15" font-weight="400" fill="#e6dff7" text-anchor="start"><tspan x="108" dy="0">Momento 2</tspan></text>
+<text x="108" y="584" font-size="19" font-weight="700" fill="#f5c542" text-anchor="start"><tspan x="108" dy="0">Idear</tspan></text>
+<text x="50" y="631" font-size="34" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="50" dy="0">Prototipado</tspan></text>
+<text x="50" y="657" font-size="15.5" font-weight="400" fill="#e6dff7" text-anchor="start"><tspan x="50" dy="0">Construcción del ecosistema</tspan><tspan x="50" dy="20.0">phygital</tspan></text>
+<rect x="50" y="701" width="103.3015625" height="28" rx="14" fill="#ffffff" fill-opacity="0.16"/>
+<g transform="translate(59 706) scale(0.75)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></g>
+<text x="83" y="720.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="83" dy="0">En curso</tspan></text>
+<g transform="translate(50 743) scale(0.75)" fill="none" stroke="#e6dff7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.500 10h17M8 3v4M16 3v4"/></g>
+<text x="75" y="757" font-size="15.5" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="75" dy="0">Mayo a septiembre de 2026</tspan></text>
+<rect x="50" y="775" width="208" height="1.5" fill="#ffffff" fill-opacity="0.25"/>
+<g transform="translate(50 791) scale(0.75)" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></g>
+<text x="75" y="805" font-size="15.5" font-weight="700" fill="#f5c542" text-anchor="start"><tspan x="75" dy="0">Propósito 2</tspan></text>
+<text x="50" y="829" font-size="16" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="50" dy="0">Diseñar la estrategia</tspan><tspan x="50" dy="21.0">participativa y la experiencia</tspan><tspan x="50" dy="21.0">phygital.</tspan></text>
+<rect x="294.0" y="521" width="283.3" height="142.0" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="309.0" y="536" width="40" height="40" rx="11" fill="#4a2a96"/><g transform="translate(318.0 545.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.200 0 1.800-.9 1.800-1.800 0-.5-.2-.9-.5-1.200-.3-.4-.5-.8-.5-1.200 0-1 .8-1.800 1.800-1.800H17a4 4 0 0 0 4-4c0-4.400-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="14.5" cy="7" r="1"/></g>
+<text x="562.3" y="549" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="562.3" dy="0">01</tspan></text>
+<text x="360.0" y="553" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="360.0" dy="0">Concepto y estilo</tspan><tspan x="360.0" dy="23.0">gráfico</tspan></text>
+<text x="309.0" y="608" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="309.0" dy="0">Silencio, metáfora y revelación: la</tspan><tspan x="309.0" dy="22.0">idea que guía la forma y el color.</tspan></text>
+<rect x="591.3" y="521" width="283.3" height="142.0" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="606.3" y="536" width="40" height="40" rx="11" fill="#4a2a96"/><g transform="translate(615.3 545.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.500h2"/></g>
+<text x="859.7" y="549" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="859.7" dy="0">02</tspan></text>
+<text x="657.3" y="561.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="657.3" dy="0">PMV MetafoRA</tspan></text>
+<text x="606.3" y="602" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="606.3" dy="0">Aplicación en Unity que reconoce</tspan><tspan x="606.3" dy="22.0">la obra y le superpone animación</tspan><tspan x="606.3" dy="22.0">y sonido.</tspan></text>
+<rect x="888.7" y="521" width="283.3" height="142.0" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="903.7" y="536" width="40" height="40" rx="11" fill="#4a2a96"/><g transform="translate(912.7 545.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M4 16.500l4-4 4 4 2.500-2.500 5.500 5"/><circle cx="15.5" cy="9" r="1.5"/></g>
+<text x="1157.0" y="549" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="1157.0" dy="0">03</tspan></text>
+<text x="954.7" y="561.5" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="954.7" dy="0">Obras piloto</tspan></text>
+<text x="903.7" y="602" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="903.7" dy="0">Los cuatro bocetos del taller,</tspan><tspan x="903.7" dy="22.0">impresos y enmarcados con su</tspan><tspan x="903.7" dy="22.0">capa de RA.</tspan></text>
+<rect x="294.0" y="677.0" width="283.3" height="171.0" rx="14" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/>
+<rect x="309.0" y="692.0" width="40" height="40" rx="11" fill="#4a2a96"/><g transform="translate(318.0 701.0) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10.500 8.200v3.600l3.300-1.800z"/></g>
+<text x="562.3" y="705.0" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="562.3" dy="0">04</tspan></text>
+<text x="360.0" y="709.0" font-size="19" font-weight="700" fill="#1d1a2b" text-anchor="start"><tspan x="360.0" dy="0">Demostraciones</tspan><tspan x="360.0" dy="23.0">del prototipo</tspan></text>
+<text x="309.0" y="764.0" font-size="16.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="309.0" dy="0">Pruebas con jurados, docentes y</tspan><tspan x="309.0" dy="22.0">público en tres eventos</tspan><tspan x="309.0" dy="22.0">académicos.</tspan></text>
+<rect x="591.3" y="677.0" width="283.3" height="171.0" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="606.3" y="692.0" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(615.3 701.0) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l8 4V6l-8 4H4z"/><path d="M18 9.500a3.500 3.500 0 0 1 0 5"/><path d="M7.500 14v4.500h2.500"/></g>
+<text x="859.7" y="705.0" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="859.7" dy="0">05</tspan></text>
+<text x="657.3" y="709.0" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="657.3" dy="0">Convocatoria y</tspan><tspan x="657.3" dy="23.0">talleres de</tspan><tspan x="657.3" dy="23.0">cocreación</tspan></text>
+<text x="606.3" y="787.0" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="606.3" dy="0">Sesiones de 120 minutos en las</tspan><tspan x="606.3" dy="22.0">que nuevos creadores producirán</tspan><tspan x="606.3" dy="22.0">sus obras.</tspan></text>
+<rect x="888.7" y="677.0" width="283.3" height="171.0" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="903.7" y="692.0" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(912.7 701.0) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.500l9 5 9-5"/><path d="M3 16.500l9 5 9-5"/></g>
+<text x="1157.0" y="705.0" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="1157.0" dy="0">06</tspan></text>
+<text x="954.7" y="709.0" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="954.7" dy="0">Producción e</tspan><tspan x="954.7" dy="23.0">integración</tspan><tspan x="954.7" dy="23.0">phygital</tspan></text>
+<text x="903.7" y="787.0" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="903.7" dy="0">Cada obra recibirá su capa de RA y</tspan><tspan x="903.7" dy="22.0">entrará a la versión final de la</tspan><tspan x="903.7" dy="22.0">aplicación.</tspan></text>
+<rect x="294" y="862.0" width="878" height="48" rx="14" fill="#fdf5d6" stroke="#f5c542" stroke-width="1.8"/>
+<g transform="translate(310 875.0) scale(0.9167)" fill="none" stroke="#6b4e00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4.500h11l-2 4 2 4H5"/></g>
+<text x="342" y="892.5" font-size="17.5" font-weight="700" fill="#6b4e00" text-anchor="start"><tspan x="342" dy="0">Resultado:</tspan></text>
+<text x="433.39375" y="892.5" font-size="17.5" font-weight="600" fill="#1d1a2b" text-anchor="start"><tspan x="433.39375" dy="0">Ecosistema phygital: obras físicas y aplicación MetafoRA.</tspan></text>
+<path d="M154.0 916 v14 m-8 -8 l8 8 l8 -8" fill="none" stroke="#5b2fb0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="28" y="942" width="252" height="387" rx="18" fill="#7455c2"/>
+<text x="260" y="1008" font-size="60" font-weight="700" fill="#ffffff" text-anchor="end" fill-opacity="0.16"><tspan x="260" dy="0">3</tspan></text>
+<rect x="50" y="964" width="46" height="46" rx="13" fill="#ffffff"/><g transform="translate(60.0 974.0) scale(1.0833)" fill="none" stroke="#7455c2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 2.5 4.5 6 4.5 9.500V16h-9v-3.500C7.500 9 9 5.500 12 3z"/><circle cx="12" cy="10" r="1.6"/><path d="M7.500 13L5 16.500h2.500M16.500 13l2.500 3.500h-2.500M10 19.500l2 2 2-2"/></g>
+<text x="108" y="983" font-size="15" font-weight="400" fill="#e6dff7" text-anchor="start"><tspan x="108" dy="0">Momento 3</tspan></text>
+<text x="108" y="1005" font-size="19" font-weight="700" fill="#f5c542" text-anchor="start"><tspan x="108" dy="0">Implementar</tspan></text>
+<text x="50" y="1052" font-size="34" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="50" dy="0">Validación</tspan></text>
+<text x="50" y="1078" font-size="15.5" font-weight="400" fill="#e6dff7" text-anchor="start"><tspan x="50" dy="0">Usabilidad e incidencia</tspan><tspan x="50" dy="20.0">emocional</tspan></text>
+<rect x="50" y="1122" width="115.79375" height="28" rx="14" fill="#ffffff" fill-opacity="0.16"/>
+<g transform="translate(59 1127) scale(0.75)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+<text x="83" y="1141.5" font-size="15" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="83" dy="0">Por iniciar</tspan></text>
+<g transform="translate(50 1164) scale(0.75)" fill="none" stroke="#e6dff7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.500 10h17M8 3v4M16 3v4"/></g>
+<text x="75" y="1178" font-size="15.5" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="75" dy="0">Al cierre del ciclo de grado</tspan></text>
+<rect x="50" y="1196" width="208" height="1.5" fill="#ffffff" fill-opacity="0.25"/>
+<g transform="translate(50 1212) scale(0.75)" fill="none" stroke="#f5c542" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></g>
+<text x="75" y="1226" font-size="15.5" font-weight="700" fill="#f5c542" text-anchor="start"><tspan x="75" dy="0">Propósito 3</tspan></text>
+<text x="50" y="1250" font-size="16" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="50" dy="0">Evaluar la incidencia en la</tspan><tspan x="50" dy="21.0">elaboración emocional de</tspan><tspan x="50" dy="21.0">creadores y lectores.</tspan></text>
+<rect x="294.0" y="942" width="283.3" height="155.5" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="309.0" y="957" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(318.0 966.0) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.500L12 4l9 5.500"/><path d="M5 10.500v7.500M9.500 10.500v7.500M14.500 10.500v7.500M19 10.500v7.500"/><path d="M3 20.500h18"/></g>
+<text x="562.3" y="970" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="562.3" dy="0">01</tspan></text>
+<text x="360.0" y="982.5" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="360.0" dy="0">Muestra de obras</tspan></text>
+<text x="309.0" y="1023" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="309.0" dy="0">Exhibición en los pasillos de la</tspan><tspan x="309.0" dy="22.0">universidad, recorrida con</tspan><tspan x="309.0" dy="22.0">MetafoRA.</tspan></text>
+<rect x="591.3" y="942" width="283.3" height="155.5" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="606.3" y="957" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(615.3 966.0) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.600A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></g>
+<text x="859.7" y="970" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="859.7" dy="0">02</tspan></text>
+<text x="657.3" y="974" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="657.3" dy="0">Devolución a los</tspan><tspan x="657.3" dy="23.0">cocreadores</tspan></text>
+<text x="606.3" y="1029" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="606.3" dy="0">Los creadores verán por primera</tspan><tspan x="606.3" dy="22.0">vez sus obras aumentadas.</tspan></text>
+<rect x="888.7" y="942" width="283.3" height="155.5" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="903.7" y="957" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(912.7 966.0) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17l4-5.500"/><circle cx="12" cy="17" r="1.2"/></g>
+<text x="1157.0" y="970" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="1157.0" dy="0">03</tspan></text>
+<text x="954.7" y="974" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="954.7" dy="0">Medición de la</tspan><tspan x="954.7" dy="23.0">experiencia</tspan></text>
+<text x="903.7" y="1029" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="903.7" dy="0">Evaluación de la interacción, la</tspan><tspan x="903.7" dy="22.0">fluidez del escaneo y la resonancia</tspan><tspan x="903.7" dy="22.0">afectiva.</tspan></text>
+<rect x="294.0" y="1111.5" width="283.3" height="155.5" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="309.0" y="1126.5" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(318.0 1135.5) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 3.500V17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></g>
+<text x="562.3" y="1139.5" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="562.3" dy="0">04</tspan></text>
+<text x="360.0" y="1143.5" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="360.0" dy="0">Escucha</tspan><tspan x="360.0" dy="23.0">post-experiencia</tspan></text>
+<text x="309.0" y="1198.5" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="309.0" dy="0">Recolección de lo que sintieron y</tspan><tspan x="309.0" dy="22.0">entendieron creadores y lectores.</tspan></text>
+<rect x="591.3" y="1111.5" width="283.3" height="155.5" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="606.3" y="1126.5" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(615.3 1135.5) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.500-2.500h7L17 8h3a1.500 1.500 0 0 1 1.500 1.500v8A1.500 1.500 0 0 1 20 19H4a1.500 1.500 0 0 1-1.500-1.500v-8A1.500 1.500 0 0 1 4 8z"/><circle cx="12" cy="13" r="3.5"/></g>
+<text x="859.7" y="1139.5" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="859.7" dy="0">05</tspan></text>
+<text x="657.3" y="1143.5" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="657.3" dy="0">Registro de la</tspan><tspan x="657.3" dy="23.0">interacción</tspan></text>
+<text x="606.3" y="1198.5" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="606.3" dy="0">Memoria audiovisual de la</tspan><tspan x="606.3" dy="22.0">muestra y de los recorridos de los</tspan><tspan x="606.3" dy="22.0">asistentes.</tspan></text>
+<rect x="888.7" y="1111.5" width="283.3" height="155.5" rx="14" fill="#faf9fc" stroke="#aaa4bd" stroke-width="1.6" stroke-dasharray="6 4"/>
+<rect x="903.7" y="1126.5" width="40" height="40" rx="11" fill="#ffffff" stroke="#5b2fb0" stroke-width="1.6" stroke-dasharray="4 3.5"/><g transform="translate(912.7 1135.5) scale(0.9167)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></g>
+<text x="1157.0" y="1139.5" font-size="14" font-weight="700" fill="#a39db6" text-anchor="end"><tspan x="1157.0" dy="0">06</tspan></text>
+<text x="954.7" y="1143.5" font-size="19" font-weight="700" fill="#4f4b60" text-anchor="start"><tspan x="954.7" dy="0">Síntesis de</tspan><tspan x="954.7" dy="23.0">hallazgos</tspan></text>
+<text x="903.7" y="1198.5" font-size="16.5" font-weight="400" fill="#6a6678" text-anchor="start"><tspan x="903.7" dy="0">Contraste de los resultados con</tspan><tspan x="903.7" dy="22.0">los tres propósitos del proyecto.</tspan></text>
+<rect x="294" y="1281.0" width="878" height="48" rx="14" fill="#fdf5d6" stroke="#f5c542" stroke-width="1.8"/>
+<g transform="translate(310 1294.0) scale(0.9167)" fill="none" stroke="#6b4e00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4.500h11l-2 4 2 4H5"/></g>
+<text x="342" y="1311.5" font-size="17.5" font-weight="700" fill="#6b4e00" text-anchor="start"><tspan x="342" dy="0">Resultado:</tspan></text>
+<text x="433.39375" y="1311.5" font-size="17.5" font-weight="600" fill="#1d1a2b" text-anchor="start"><tspan x="433.39375" dy="0">Hallazgos, conclusiones y recomendaciones.</tspan></text>
+<rect x="28.0" y="1347" width="372.0" height="97.0" rx="14" fill="#f3effb" stroke="#d6cbef" stroke-width="1.5"/>
+<rect x="42.0" y="1361" width="38" height="38" rx="11" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/><g transform="translate(50.5 1369.5) scale(0.875)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14 5.300M4 12a8 8 0 0 1 14-5.300"/><path d="M18 3v4h-4M6 21v-4h4"/></g>
+<text x="92.0" y="1378" font-size="17" font-weight="700" fill="#2b1759" text-anchor="start"><tspan x="92.0" dy="0">Proceso recursivo</tspan></text>
+<text x="92.0" y="1400" font-size="15.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="92.0" dy="0">Lo que se valida regresa a la indagación y</tspan><tspan x="92.0" dy="20.5">al prototipo.</tspan></text>
+<rect x="414.0" y="1347" width="372.0" height="97.0" rx="14" fill="#f3effb" stroke="#d6cbef" stroke-width="1.5"/>
+<rect x="428.0" y="1361" width="38" height="38" rx="11" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/><g transform="translate(436.5 1369.5) scale(0.875)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></g>
+<text x="478.0" y="1378" font-size="17" font-weight="700" fill="#2b1759" text-anchor="start"><tspan x="478.0" dy="0">Plataforma web</tspan></text>
+<text x="478.0" y="1400" font-size="15.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="478.0" dy="0">Cada actividad deja un artefacto digital</tspan><tspan x="478.0" dy="20.5">que se puede recorrer.</tspan></text>
+<rect x="800.0" y="1347" width="372.0" height="97.0" rx="14" fill="#f3effb" stroke="#d6cbef" stroke-width="1.5"/>
+<rect x="814.0" y="1361" width="38" height="38" rx="11" fill="#ffffff" stroke="#d6cbef" stroke-width="1.6"/><g transform="translate(822.5 1369.5) scale(0.875)" fill="none" stroke="#5b2fb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.500 3v5.500c0 4.500-3 8-7.500 9.500-4.500-1.500-7.500-5-7.500-9.500V6L12 3z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></g>
+<text x="864.0" y="1378" font-size="17" font-weight="700" fill="#2b1759" text-anchor="start"><tspan x="864.0" dy="0">Marco ético</tspan></text>
+<text x="864.0" y="1400" font-size="15.5" font-weight="400" fill="#45415a" text-anchor="start"><tspan x="864.0" dy="0">Consentimiento informado, identidad</tspan><tspan x="864.0" dy="20.5">flexible, lenguaje no clínico y devolución.</tspan></text>
 </svg>
