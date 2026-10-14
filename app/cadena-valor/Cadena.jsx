@@ -55,7 +55,7 @@ function Panel({ sel, fijar }) {
         <h2>{sel.tema ? tema(sel.tema).label : b.nombre}</h2>
         <p>{hs.length} {hs.length === 1 ? 'concepto' : 'conceptos'}</p>
         <ul className="lista-h">
-          {hs.map(n => <li key={n.id}><button type="button" onClick={() => fijar({ hoja: n.id })}>{n.sub}<small>{n.label} · {n.author}</small></button></li>)}
+          {hs.map(n => <li key={n.id}><button type="button" onClick={() => fijar({ hoja: n.id })}>{n.sub}<small>{n.label}, {n.author}</small></button></li>)}
         </ul>
       </>
     );
@@ -100,7 +100,7 @@ export default function Cadena() {
       <main className="wrap">
         <header className="cab">
           <div>
-            <span className="badge-live"><i />Cadena de valor · Marco teórico</span>
+            <span className="badge-live"><i />Cadena de valor: marco teórico</span>
             <h1>Red de <em>conceptos</em></h1>
             <p>Seis bloques, sus temas y los autores que sostienen el proyecto. Pasa por un concepto para seguir su hilo hasta el centro; haz clic para fijarlo.</p>
           </div>

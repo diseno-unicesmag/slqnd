@@ -17,7 +17,7 @@ export default function Pagina() {
   return (
     <main className="match-wrap">
       <header className="cab-simple">
-        <span className="badge-live"><i />Concepto de diseño · MetafoRA</span>
+        <span className="badge-live"><i />Concepto de diseño de MetafoRA</span>
         <h1>El silencio toma forma en una <em>metáfora</em></h1>
         <p>Y la Realidad Aumentada la revela. Tres ideas encadenadas ordenan el proyecto, de lo que se calla a lo que se deja ver.</p>
       </header>

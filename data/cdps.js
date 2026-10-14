@@ -1,6 +1,6 @@
 export const CDPS = {
  "fecha": "24 de abril de 2026",
- "lugar": "Laboratorio de Creación Digital 1 · Universidad CESMAG",
+ "lugar": "Laboratorio de Creación Digital 1, Universidad CESMAG",
  "n": 15,
  "preguntas": [
   {

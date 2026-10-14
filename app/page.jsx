@@ -31,7 +31,7 @@ const BENTO = [
 ];
 const FICHA = [
   ['Autor', 'Shamuel Woodcock Salomón'], ['Asesor', 'Edward Mauricio Montenegro Córdoba'], ['Modalidad', 'Investigación-Creación'],
-  ['Programa', 'Diseño Gráfico · Universidad CESMAG'], ['Línea de investigación', 'Diseño, innovación, cultura y sociedad'], ['Lugar', 'San Juan de Pasto · 2026'],
+  ['Programa', 'Diseño Gráfico, Universidad CESMAG'], ['Línea de investigación', 'Diseño, innovación, cultura y sociedad'], ['Lugar', 'San Juan de Pasto, 2026'],
 ];
 const D = ['', ' d1', ' d2', ' d3'];
 
@@ -40,7 +40,7 @@ export default function Inicio() {
     <div className="pg-inicio"><main className="wrap">
       <header className="hero">
         <div>
-          <span className="badge-live"><i />Proyecto de grado · Investigación-Creación</span>
+          <span className="badge-live"><i />Proyecto de grado de Investigación-Creación</span>
           <h1>Sobre lo que <em>no digo</em></h1>
           <p className="sub">Una estrategia de diseño participativo para fomentar la elaboración emocional en jóvenes universitarios. Obras conceptuales que guardan lo que se calla, y una capa de Realidad Aumentada que lo revela.</p>
           <div className="cta">
@@ -60,7 +60,7 @@ export default function Inicio() {
             <div className={'cifra lg reveal' + D[i]} key={n + de}><b>{n}<small>{de}</small></b><span>{texto}</span></div>
           ))}
         </div>
-        <p className="fuente reveal">CDPS · 24 de abril de 2026 · Universidad CESMAG · resultados exploratorios. <Link href="/cdps/" style={{ color: 'var(--accent)' }}>Ver los resultados</Link></p>
+        <p className="fuente reveal">Resultados exploratorios de la CDPS, aplicada el 24 de abril de 2026 en la Universidad CESMAG. <Link href="/cdps/" style={{ color: 'var(--accent)' }}>Ver los resultados</Link></p>
       </section>
 
       <section className="sec">
@@ -80,7 +80,7 @@ export default function Inicio() {
       </section>
 
       <section className="sec">
-        <p className="kicker reveal">Ruta metodológica · procedimiento de las 3i</p>
+        <p className="kicker reveal">Ruta metodológica: procedimiento de las 3i</p>
         <h2 className="reveal">Indagar, idear, implementar.</h2>
         <p className="lead reveal">Tres fases, cada una con su propósito, sus actividades y su resultado.</p>
         <div className="fases">
@@ -88,9 +88,9 @@ export default function Inicio() {
             const hechas = f.acts.filter(a => a.ok).length;
             return (
               <Link className={'fase lg reveal' + D[i]} href="/ruta-metodologica/" key={f.fase}>
-                <span className="i">{i + 1} · {f.i.toUpperCase()}</span><h3>{f.fase}</h3>
+                <span className="i">Momento {i + 1}: {f.i}</span><h3>{f.fase}</h3>
                 <p>{RESUMEN[i]}</p>
-                <div className="prog"><div><span style={{ width: (hechas / f.acts.length * 100) + '%' }} /></div>{f.estado} · {hechas}/{f.acts.length}</div>
+                <div className="prog"><div><span style={{ width: (hechas / f.acts.length * 100) + '%' }} /></div>{f.estado}: {hechas} de {f.acts.length}</div>
               </Link>
             );
           })}

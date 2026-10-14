@@ -13,7 +13,7 @@ export default function Pagina() {
   return (
     <main className="match-wrap">
       <header className="cab-simple">
-        <span className="badge-live"><i />Match creativo · Propuesta de productos</span>
+        <span className="badge-live"><i />Match creativo: propuesta de productos</span>
         <h1>De lo genérico a <em>lo propio</em></h1>
         <p>Cada producto académico convencional, frente a la resolución interactiva que el proyecto propuso en su lugar.</p>
         <p className="nota-version">Ejercicio de clase de la Fase 1. Conserva la formulación con la que se hizo, anterior a la versión actual del proyecto.</p>

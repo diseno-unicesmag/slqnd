@@ -108,7 +108,7 @@ export default function Cdps() {
       <main className="wrap">
         <header className="cab">
           <div>
-            <span className="badge-live"><i />Instrumento de indagación · Fase 1</span>
+            <span className="badge-live"><i />Instrumento de indagación de la Fase 1</span>
             <h1>Cartografía Digital de <em>Percepción Silenciosa</em></h1>
             <p>Una encuesta viva: cada estudiante vota de forma anónima moviendo un avatar sobre un lienzo compartido, y el grupo lee en vivo su propio mapa de calor. Estos son los resultados de la sesión.</p>
             <div className="acciones">
@@ -165,14 +165,14 @@ export default function Cdps() {
           {ABIERTAS.map(p => (
             <div className="abierta" key={p.id}>
               <h3>{registro === 'acad' ? p.texto : p.jovial}</h3>
-              <p>{p.id} · {p.textos.length} respuestas</p>
+              <p>{p.id}: {p.textos.length} respuestas</p>
               <div className="citas">{p.textos.map((t, i) => <blockquote className="lg" key={i}>{t}</blockquote>)}</div>
             </div>
           ))}
           {P0 && (
             <div className="abierta">
               <h3>{registro === 'acad' ? P0.texto : P0.jovial}</h3>
-              <p>{P0.id} · rompehielo · {P0.textos.length} frases</p>
+              <p>Rompehielo ({P0.id}): {P0.textos.length} frases</p>
               <div className="nube">{P0.textos.map((t, i) => <span key={i}>{t}</span>)}</div>
             </div>
           )}

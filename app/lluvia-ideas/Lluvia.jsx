@@ -66,7 +66,7 @@ function Sintesis() {
           {ORDEN.flatMap(k => prioritarias.filter(x => SINTESIS[x.id] === k).map(x => (
             <div className={'sint-fila ' + k} key={x.id}>
               <i>{NIVEL[k][1]}</i>
-              <div>{x.text}<small>{x.de} · {VEREDICTO[k]}</small></div>
+              <div>{x.text}<small>{x.de}: {VEREDICTO[k]}</small></div>
             </div>
           )))}
         </div>
@@ -89,7 +89,7 @@ export default function Lluvia() {
     <div className="pg-lluvia">
       <main className="wrap">
         <header className="cab">
-          <span className="badge-live"><i />Lluvia de ideas · Industrias culturales y creativas</span>
+          <span className="badge-live"><i />Lluvia de ideas: industrias culturales y creativas</span>
           <h1>Lluvia de <em>ideas</em></h1>
           <p>El proyecto cruzado con cinco industrias culturales y creativas. Cada idea se calificó como prioritaria, buena o inviable, y las prioritarias pasaron a una matriz de síntesis.</p>
           <p className="nota-version">Ejercicio de clase de la Fase 1. Las ideas conservan la formulación con la que se escribieron, cuando el proyecto todavía era un libro ilustrado con Realidad Aumentada.</p>

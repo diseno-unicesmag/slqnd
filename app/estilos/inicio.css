@@ -55,10 +55,10 @@
     .fases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
     .fase { display: block; padding: 26px; border-radius: 22px; text-decoration: none; color: var(--text); transition: transform 0.4s var(--ease-out), border-color 0.3s ease; }
     .fase:hover { transform: translateY(-4px); border-color: rgba(245, 197, 66, 0.45); }
-    .fase .i { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.2em; color: var(--lav); }
+    .fase .i { font-size: 0.82rem; font-weight: 700; color: var(--lav); }
     .fase h3 { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; letter-spacing: -0.02em; margin: 6px 0 8px; }
     .fase p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; min-height: 4.5em; }
-    .fase .prog { display: flex; align-items: center; gap: 10px; margin-top: 18px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .fase .prog { display: flex; align-items: center; gap: 10px; margin-top: 18px; font-size: 0.78rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
     .fase .prog div { flex: 1; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
     .fase .prog div span { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
 
