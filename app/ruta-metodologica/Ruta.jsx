@@ -115,7 +115,7 @@ export default function Ruta() {
 
         <div className="figura lg">
           <a href={pub('/Recursos/ruta-metodologica.png')} target="_blank" rel="noopener">
-            <img src={pub('/Recursos/ruta-metodologica.svg')} alt="Figura de la ruta metodológica: tres filas con las fases de Cartografía, Prototipado y Validación; cada una muestra su propósito, sus seis actividades con una frase que las explica y su resultado." loading="lazy" width="1200" height="1472" />
+            <img src={pub('/Recursos/ruta-metodologica.svg')} alt="Figura de la ruta metodológica: tres filas con las fases de Cartografía, Prototipado y Validación; cada una muestra su propósito, sus seis actividades con una frase que las explica y su resultado." loading="lazy" width="1200" height="1516" />
           </a>
           <div>
             <p className="rot">Versión para el documento</p>
@@ -123,6 +123,7 @@ export default function Ruta() {
             <p>Es la figura que va montada en el apartado de ruta metodológica del documento. Usa los mismos iconos y las mismas frases que esta página.</p>
             <div className="dl">
               {['svg', 'png', 'pdf'].map(x => <a className="btn-pill" key={x} href={pub('/Recursos/ruta-metodologica.' + x)} download>{x.toUpperCase()}</a>)}
+              {['png', 'pdf'].map(x => <a className="btn-pill" key={'v' + x} href={pub('/Recursos/ruta-metodologica-vertical.' + x)} download>En columnas, {x.toUpperCase()}</a>)}
             </div>
           </div>
         </div>
