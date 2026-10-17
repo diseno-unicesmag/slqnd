@@ -6,8 +6,8 @@ export const FASES = [
   "sub": "Diagnóstico y cocreación",
   "estado": "Completa",
   "cuando": "Abril a junio de 2026",
-  "proposito": "Identificar patrones de causas, dinámicas y consecuencias en las vivencias silenciadas de universitarios.",
-  "corto": "Identificar patrones en las vivencias que los universitarios callan.",
+  "proposito": "Identificar las causas, dinámicas y consecuencias del malestar que callan los jóvenes universitarios como punto de partida para su elaboración emocional.",
+  "corto": "Identificar las causas, dinámicas y consecuencias del malestar que callan.",
   "resultado": "Síntesis diagnóstica con cuatro oportunidades de diseño.",
   "acts": [
    {
@@ -101,8 +101,8 @@ export const FASES = [
   "sub": "Construcción del ecosistema phygital",
   "estado": "En curso",
   "cuando": "Mayo a septiembre de 2026",
-  "proposito": "Diseñar una estrategia de diseño participativo articulando talleres de cocreación artística con el desarrollo de una experiencia phygital interactiva.",
-  "corto": "Diseñar la estrategia participativa y la experiencia phygital.",
+  "proposito": "Realizar talleres de cocreación artística desde el diseño participativo con jóvenes universitarios, cuyas obras resultantes, concebidas como ejercicio de elaboración emocional, se integren en una experiencia phygital interactiva.",
+  "corto": "Realizar talleres de cocreación cuyas obras se integren en la experiencia phygital.",
   "resultado": "Ecosistema phygital: obras físicas y aplicación MetafoRA.",
   "acts": [
    {
@@ -155,7 +155,7 @@ export const FASES = [
     "tipo": "Campo",
     "ok": false,
     "cuando": "Por realizar",
-    "resumen": "Sesiones de 120 minutos en las que nuevos creadores producirán sus obras.",
+    "resumen": "Sesiones de 120 minutos donde nuevos creadores producirán sus obras.",
     "que": "Sesión única de 120 minutos: 20 de sensibilización, 75 de producción plástica, 10 de pre y post-test y 15 de cierre en Círculo de la Palabra, con consentimiento informado previo.",
     "con": "Participarán los jóvenes creadores convocados.",
     "deja": "Dejará las obras conceptuales de los creadores."
@@ -166,7 +166,7 @@ export const FASES = [
     "tipo": "Creación",
     "ok": false,
     "cuando": "Por realizar",
-    "resumen": "Cada obra recibirá su capa de RA y entrará a la versión final de la aplicación.",
+    "resumen": "Cada obra recibirá su capa de RA y entrará a la versión final de la app.",
     "que": "Traducción fiel de cada obra a su capa de Realidad Aumentada e integración en la versión final de la aplicación.",
     "con": "Trabajarán los creadores y el equipo de desarrollo.",
     "deja": "Dejará el ecosistema listo para exhibirse."
@@ -180,8 +180,8 @@ export const FASES = [
   "sub": "Usabilidad e incidencia emocional",
   "estado": "Por iniciar",
   "cuando": "Al cierre del ciclo de grado",
-  "proposito": "Evaluar la incidencia de la estrategia participativa y la experiencia phygital en la elaboración emocional de los creadores y lectores.",
-  "corto": "Evaluar la incidencia en la elaboración emocional de creadores y lectores.",
+  "proposito": "Evaluar la incidencia de la estrategia de diseño participativo y de su experiencia phygital en la elaboración emocional de los jóvenes universitarios.",
+  "corto": "Evaluar la incidencia de la estrategia y su experiencia en la elaboración emocional.",
   "resultado": "Hallazgos, conclusiones y recomendaciones.",
   "acts": [
    {
