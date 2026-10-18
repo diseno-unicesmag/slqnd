@@ -1,0 +1,72 @@
+.mood {
+
+    a.concepto-paso { display: block; color: inherit; text-decoration: none; transition: transform 0.25s ease, border-color 0.25s ease; }
+    a.concepto-paso:hover { transform: translateY(-3px); }
+    .mood-mini { display: flex; gap: 6px; margin-top: 16px; }
+    .mood-mini i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.25); }
+
+    .mood-sec { margin: 0 0 34px; border-radius: 34px; padding: 26px; scroll-margin-top: 100px; }
+    .mood-silencio { background: linear-gradient(160deg, #1b0f38, #0c0a1a 70%); border: 1px solid rgba(255, 255, 255, 0.07); }
+    .mood-metafora { background: linear-gradient(160deg, #2f1a63, #160f33 75%); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .mood-revelacion { background: linear-gradient(160deg, #2b1759 0%, #3b2370 45%, #5c3d22 100%); border: 1px solid rgba(245, 197, 66, 0.25); }
+
+    .mood-cab { display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; margin-bottom: 22px; }
+    .mood-n { font-family: var(--font-display); font-size: 3.6rem; font-weight: 800; line-height: 1; color: rgba(255, 255, 255, 0.14); }
+    .mood-cab h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .mood-revelacion .mood-cab h2 { color: var(--accent); }
+    .mood-cab p { color: var(--muted); margin-top: 6px; }
+    .mood-pal { display: flex; gap: 10px; }
+    .mood-pal span { display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 0.74rem; font-weight: 600; color: var(--text); }
+    .mood-pal i { width: 54px; height: 54px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2); }
+    .mood-pal small { font-size: 0.66rem; color: var(--muted2); font-family: ui-monospace, monospace; }
+
+    .mood-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; grid-auto-rows: minmax(0, auto); gap: 14px; }
+    .mood-img { position: relative; margin: 0; border-radius: 22px; overflow: hidden; background: #000; min-height: 220px; }
+    .mood-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mood-img.a { grid-row: span 2; } .mood-img.c { grid-column: span 2; min-height: 300px; }
+    .mood-img figcaption { position: absolute; left: 12px; bottom: 12px; padding: 5px 11px; border-radius: 10px; background: rgba(10, 8, 24, 0.75); backdrop-filter: blur(6px); font-size: 0.78rem; font-weight: 600; }
+
+    .mood-card { border-radius: 22px; padding: 20px 22px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .mood-card h3 { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .mood-card.es ul { list-style: none; display: grid; gap: 9px; }
+    .mood-card.es li { font-size: 0.98rem; line-height: 1.45; padding-left: 16px; position: relative; }
+    .mood-card.es li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+    .mood-card.viene { grid-row: span 2; display: flex; flex-direction: column; gap: 12px; }
+    .mood-card.viene blockquote { margin: 0; padding: 0 0 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+    .mood-card.viene blockquote:last-child { border: 0; padding: 0; }
+    .mood-card.viene p { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.32; font-weight: 600; }
+    .mood-card.viene cite { display: block; margin-top: 4px; font-style: normal; font-size: 0.78rem; color: var(--muted); }
+    .mood-card.ve dl { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mood-card.ve dl div { padding: 10px 12px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); }
+    .mood-card.ve dt { font-weight: 700; font-size: 0.92rem; }
+    .mood-card.ve dd { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+    .mood-cita { grid-column: 1 / -1; border-radius: 22px; padding: 22px 26px; background: rgba(245, 197, 66, 0.1); border: 1px solid rgba(245, 197, 66, 0.3); display: grid; gap: 8px; }
+    .mood-cita p { font-family: var(--font-display); font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 700; line-height: 1.3; }
+
+    .mood-cierre { background: linear-gradient(140deg, #f5c542, #f1b12c 50%, #e88a7d); color: #1d1a2b; }
+    .mood-cierre .match-rot { color: rgba(29, 26, 43, 0.6); }
+    .mood-cierre-in { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: end; margin-bottom: 22px; }
+    .mood-cierre h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; margin-bottom: 10px; }
+    .mood-cierre p { color: rgba(29, 26, 43, 0.75); }
+    .mood-pal-final { display: flex; align-items: center; }
+    .mood-pal-final i { width: 74px; height: 74px; border-radius: 50%; opacity: .9; }
+    .mood-pal-final i + i { margin-left: -26px; }
+    .mood-pal-final span { margin-left: 16px; font-size: 0.86rem; font-weight: 600; }
+    .mood-nube { display: flex; flex-wrap: wrap; gap: 8px; }
+    .mood-nube span { padding: 8px 16px; border-radius: 100px; background: rgba(255, 255, 255, 0.55); font-weight: 600; }
+    .mood-nube .w1 { font-size: 1.25rem; } .mood-nube .w2 { background: #2b1759; color: #fff; } .mood-nube .w3 { font-size: 0.9rem; }
+    .mood-nube .no { background: transparent; border: 2px solid #1d1a2b; font-weight: 800; }
+    .mood-nombres { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(29, 26, 43, 0.15); }
+    .mood-nombres div { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 6px; }
+    .mood-nombres span { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+    .mood-creditos { font-size: 0.78rem; color: var(--muted2); margin: -10px 0 30px; }
+
+    @media (max-width: 900px) {
+      .mood-cab { grid-template-columns: auto 1fr; }
+      .mood-pal { grid-column: 1 / -1; }
+      .mood-grid { grid-template-columns: 1fr; }
+      .mood-img.a, .mood-card.viene { grid-row: auto; } .mood-img.c { grid-column: auto; }
+      .mood-cierre-in { grid-template-columns: 1fr; }
+    }
+}
