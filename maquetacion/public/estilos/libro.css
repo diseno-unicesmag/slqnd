@@ -97,6 +97,7 @@
 .libro td { padding: 0.45em 0.7em; border-top: 1px solid var(--linea); vertical-align: top; }
 .libro tbody tr:nth-child(even) td { background: rgba(124, 58, 237, 0.025); }
 .libro .tabla { break-inside: auto; }
+.libro .tabla .fig-cab, .libro .tabla thead { break-after: avoid; }
 .libro .tabla tr { break-inside: avoid; }
 
 /* ── Páginas oscuras: portada y aperturas de capítulo (Liquid Glass impreso) ── */
