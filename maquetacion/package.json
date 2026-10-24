@@ -1,0 +1,17 @@
+{
+  "name": "slqnd-maquetacion",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 8766",
+    "build": "next build",
+    "postinstall": "node scripts/copiar-paged.mjs"
+  },
+  "dependencies": {
+    "jszip": "3.10.1",
+    "next": "16.3.0",
+    "pagedjs": "0.4.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  }
+}

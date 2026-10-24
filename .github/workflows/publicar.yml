@@ -1,0 +1,58 @@
+# Publica en GitHub Pages cada vez que cambia la rama next (también al guardar desde la maquetación).
+# Construye las dos apps y deja el resultado en main: el sitio en la raíz y la maquetación en /maquetacion.
+name: Publicar
+
+on:
+  push:
+    branches: [next]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            web/package-lock.json
+            maquetacion/package-lock.json
+
+      - name: Sitio
+        working-directory: web
+        env:
+          BASE_PATH: /slqnd
+          NEXT_TELEMETRY_DISABLED: 1
+        run: npm ci && npm run build
+
+      - name: Maquetación
+        working-directory: maquetacion
+        env:
+          BASE_PATH: /slqnd/maquetacion
+          NEXT_TELEMETRY_DISABLED: 1
+        run: npm ci && npm run build
+
+      - name: Unir
+        run: |
+          mkdir sitio
+          cp -r web/out/. sitio/
+          mkdir -p sitio/maquetacion
+          cp -r maquetacion/out/. sitio/maquetacion/
+          touch sitio/.nojekyll
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: main
+          publish_dir: ./sitio
+          commit_message: Publica
