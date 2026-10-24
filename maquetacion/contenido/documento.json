@@ -1,0 +1,2736 @@
+{
+ "title": "Sobre lo que no digo",
+ "source": "Reescritura - V5.docx",
+ "blocks": [
+  {
+   "type": "p",
+   "html": "<strong>Sobre lo que no digo - Estrategia de diseño participativo para fomentar la elaboración emocional mediante una experiencia <em>phygital</em></strong>",
+   "id": "b001",
+   "style": "portada-titulo",
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "<strong>Autor:</strong> Shamuel Woodcock Salomón",
+   "id": "b002",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Universidad CESMAG",
+   "id": "b003",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Facultad de Arquitectura y Bellas Artes",
+   "id": "b004",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Programa de Diseño Gráfico",
+   "id": "b005",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Proyecto de Grado",
+   "id": "b006",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "San Juan de Pasto",
+   "id": "b007",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "<strong>2027</strong>",
+   "id": "b008",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Sobre lo que no digo - Estrategia de diseño participativo para fomentar la elaboración emocional mediante una experiencia <em>phygital</em></strong>",
+   "id": "b009",
+   "style": "portadilla-titulo",
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "<strong>Autor:</strong> Shamuel Woodcock Salomón",
+   "id": "b010",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Asesor:</strong> Edward Mauricio Montenegro Córdoba",
+   "id": "b011",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Universidad CESMAG",
+   "id": "b012",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Facultad de Arquitectura y Bellas Artes",
+   "id": "b013",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Programa de Diseño Gráfico",
+   "id": "b014",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "Proyecto de Grado",
+   "id": "b015",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Modalidad:</strong> Investigación+Creación",
+   "id": "b016",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "San Juan de Pasto",
+   "id": "b017",
+   "style": "centrado"
+  },
+  {
+   "type": "p",
+   "html": "<strong>2027</strong>",
+   "id": "b018",
+   "style": "centrado"
+  },
+  {
+   "id": "b019",
+   "type": "heading",
+   "level": 1,
+   "html": "Nota de autor",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "Universidad CESMAG / Facultad de Arquitectura y Bellas Artes / Programa de Diseño Gráfico.",
+   "id": "b020"
+  },
+  {
+   "type": "p",
+   "html": "Título: Sobre lo que no digo – Estrategia de diseño participativo para fomentar la elaboración emocional mediante una experiencia phygital",
+   "id": "b021"
+  },
+  {
+   "type": "p",
+   "html": "Modalidad: Investigación Creación [IC]",
+   "id": "b022"
+  },
+  {
+   "type": "p",
+   "html": "Autor: Shamuel Woodcock Salomón",
+   "id": "b023"
+  },
+  {
+   "type": "p",
+   "html": "Asesor: Edward Mauricio Montenegro Córdoba",
+   "id": "b024"
+  },
+  {
+   "type": "p",
+   "html": "Fecha: San Juan de Pasto, diciembre de 2026",
+   "id": "b025"
+  },
+  {
+   "type": "p",
+   "html": "Código RAE:",
+   "id": "b026"
+  },
+  {
+   "id": "b027",
+   "type": "heading",
+   "level": 1,
+   "html": "Nota de responsabilidad",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "El pensamiento que se expresa en esta obra es de exclusiva responsabilidad de su autor y no compromete la ideología de la Universidad CESMAG.",
+   "id": "b028"
+  },
+  {
+   "id": "b029",
+   "type": "heading",
+   "level": 1,
+   "html": "Nota de aceptación",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "Jurado 1:",
+   "id": "b030"
+  },
+  {
+   "type": "p",
+   "html": "Jurado 2:",
+   "id": "b031"
+  },
+  {
+   "type": "p",
+   "html": "Asesor:",
+   "id": "b032"
+  },
+  {
+   "id": "b033",
+   "type": "heading",
+   "level": 1,
+   "html": "Agradecimientos",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "A mis docentes de la Universidad CESMAG, por su orientación académica y humana a lo largo del desarrollo de esta propuesta, cuyo apoyo fue fundamental para estructurar este proyecto. A mis compañeros de universidad, quienes fueron parte esencial de mi crecimiento profesional y personal durante estos años; sus vivencias y compañía fueron el catalizador necesario para dotar a este trabajo de una carga de realidad y significado que hoy se ve reflejada en sus resultados. Finalmente, a mi familia, por su apoyo constante y acompañamiento incondicional en toda mi trayectoria académica, y por su respaldo para consolidar las ideas y propósitos que dan forma a este proyecto de grado.",
+   "id": "b034"
+  },
+  {
+   "id": "b035",
+   "type": "heading",
+   "level": 1,
+   "html": "Dedicatoria",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "A mi familia, por estar siempre presentes. Son el motor de mis acciones y la razón por la que emprendo cada desafío. Este logro es, ante todo, suyo.",
+   "id": "b036"
+  },
+  {
+   "id": "b037",
+   "type": "heading",
+   "level": 1,
+   "html": "Resumen",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "En la sociedad del rendimiento, muchos jóvenes universitarios aprenden a callar su malestar: el miedo al fracaso y la presión por sostener una imagen de fortaleza dificultan la expresión emocional y favorecen el agotamiento académico o <em>burnout</em>. Frente a ello, el proyecto de investigación-creación «Sobre lo que no digo» propone una estrategia de diseño participativo para fomentar la elaboración emocional mediante una experiencia <em>phygital</em> (físico-digital): jóvenes creadores convierten lo que callan en obras conceptuales articuladas con capas de Realidad Aumentada (RA), y los lectores pueden reconocer en ellas algo de lo que también guardan. La investigación es cualitativa, de paradigma histórico-hermenéutico con orientación sociocrítica, y sigue el procedimiento metodológico de las 3i (indagación, ideación e implementación) con métodos de diseño participativo y enfoque etnográfico. La revisión documental y el trabajo de campo con estudiantes del Programa de Diseño Gráfico de la Universidad CESMAG, en San Juan de Pasto (una cartografía digital con 15 participantes, un taller con cuatro creadores y una entrevista a un diseñador y psicólogo), sugieren que el agotamiento es frecuente, que rara vez se comunica de forma directa y que el arte es percibido como un canal posible para decirlo. Con estos insumos se desarrolló el primer Producto Mínimo Viable (PMV) de la aplicación móvil <em>MetafoRA</em> y se diseñó el protocolo de los talleres de cocreación con comunidad que darán forma a las obras definitivas.",
+   "id": "b038"
+  },
+  {
+   "type": "p",
+   "html": "<em>Palabras clave:</em> elaboración emocional, diseño participativo, experiencia phygital, realidad aumentada, burnout académico.",
+   "id": "b039"
+  },
+  {
+   "id": "b040",
+   "type": "heading",
+   "level": 1,
+   "html": "Abstract",
+   "pre": true,
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "In the achievement society, many university students learn to keep their distress to themselves: fear of failure and the pressure to sustain an image of strength hinder emotional expression and contribute to academic exhaustion, or <em>burnout</em>. In response, the research-creation project «Sobre lo que no digo» (What I don't say) proposes a participatory design strategy to foster emotional elaboration through a <em>phygital</em> (physical-digital) experience: young creators turn what they keep silent into conceptual artworks linked to Augmented Reality (AR) layers, and readers may recognize in them something of what they also hold back. The research is qualitative, grounded in a historical-hermeneutic paradigm with a socio-critical orientation, and follows the 3i methodological procedure (inquiry, ideation and implementation) through participatory design methods with an ethnographic approach. The literature review and fieldwork with Graphic Design students at Universidad CESMAG in San Juan de Pasto (a digital mapping with 15 participants, a workshop with four creators and an interview with a designer and psychologist) suggest that exhaustion is frequent, that it is rarely communicated directly, and that art is perceived as a possible channel to express it. Based on these inputs, the first Minimum Viable Product (MVP) of the mobile application <em>MetafoRA</em> was developed, and the protocol for the community co-creation workshops that will shape the final artworks was designed.",
+   "id": "b041"
+  },
+  {
+   "type": "p",
+   "html": "<em>Keywords:</em> Emotional elaboration, participatory design, phygital experience, augmented reality, academic burnout.",
+   "id": "b042"
+  },
+  {
+   "type": "heading",
+   "level": 1,
+   "html": "Introducción",
+   "id": "b057",
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "Hay cosas de las que no hablamos. No porque no existan, sino porque culturalmente hemos aprendido a callarlas. La salud mental, el miedo de no cumplir expectativas o el profundo vacío que genera sacrificar quién eres por lo que \"deberías ser\" para el mundo son temas que, al ser ignorados, no desaparecen, sino que se pudren bajo la superficie y enferman a la sociedad desde adentro. La OMS estima que uno de cada siete adolescentes de entre 10 y 19 años experimenta algún trastorno mental (World Health Organization, 2025), mientras Han (2012) explica que este colapso es el resultado de una sociedad que nos enseña a autoexplotarnos bajo una falsa ilusión de libertad.",
+   "id": "b058"
+  },
+  {
+   "type": "p",
+   "html": "\"Sobre lo que no digo\" nace como una respuesta a ese silencio, pero no es un proyecto psicológico de autoayuda ni un manual terapéutico; es una propuesta de diseño emocional: un ecosistema <em>phygital</em> (físico-digital) pensado para crear espacios seguros donde nombrar lo innombrable a través de obras conceptuales, con el fin de fomentar la elaboración emocional frente al <em>burnout</em> en jóvenes universitarios de 18 a 25 años de San Juan de Pasto. Y es que a veces las palabras directas no son suficientes, mientras que una metáfora bien implementada en un objeto de arte es capaz de abrir las puertas a la introspección que el discurso literal suele cerrar. Norman (2004) ubica este tipo de experiencia en el nivel reflexivo del diseño: el que tiene que ver con el significado, los recuerdos y el relato que un objeto deja en quien lo usa, más allá de la impresión inmediata.",
+   "id": "b059"
+  },
+  {
+   "type": "p",
+   "html": "En ese sentido, el proyecto articula talleres de cocreación con una aplicación móvil que funciona como una galería colaborativa de expresión artística y conecta a dos actores: creadores y lectores. Para los primeros, la plataforma es un canal de desahogo, el espacio donde socializar aquellos estresores convertidos en creaciones tangibles. Para los segundos, es un espejo donde reconocerse y saber que no están solos, al descubrir en cada pieza el mensaje emocional que el artista decidió comunicar. De este modo, la Realidad Aumentada (RA) opera como una lente que amplifica o revela aquello que la obra física carga, pero que por sí sola podría no transmitir en su totalidad.",
+   "id": "b060"
+  },
+  {
+   "type": "p",
+   "html": "Ahora bien, siguiendo el procedimiento metodológico de las 3i, el presente documento registra de forma organizada el proceso llevado a cabo para la construcción de este ecosistema. El \"Capítulo 1 – Indagar\" identifica el origen del problema, estableciendo los referentes teóricos y el planteamiento formal del proyecto. El \"Capítulo 2 – Idear\" presenta la ruta metodológica, traduce los hallazgos de la indagación en decisiones y requerimientos de diseño y define el concepto y el estilo gráfico. El \"Capítulo 3 – Implementar\", que corresponde a la siguiente etapa del proyecto, documentará la producción de las obras, la versión final de <em>MetafoRA</em> y la evaluación de la experiencia con la comunidad.",
+   "id": "b061"
+  },
+  {
+   "type": "p",
+   "html": "Como resultado central de esta etapa se presenta el primer Producto Mínimo Viable (PMV) de la aplicación móvil, denominado <em>MetafoRA</em>: una prueba de concepto que demuestra la viabilidad técnica de la propuesta y sienta las bases para su implementación completa, junto con el protocolo de los talleres de cocreación con comunidad que quedan por realizar.",
+   "id": "b062"
+  },
+  {
+   "type": "heading",
+   "level": 1,
+   "html": "Capítulo 1 – Indagar",
+   "id": "b063",
+   "breakBefore": true
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.1 - Necesidad u Oportunidad Identificada",
+   "id": "b064"
+  },
+  {
+   "type": "p",
+   "html": "La juventud contemporánea atraviesa una contradicción silenciosa: hablar de salud mental \"está de moda\", pero admitir el agotamiento sigue castigándose como debilidad. La causa estructural de este silencio opera bajo una falsa sensación de libertad, donde la hiperexigencia social empuja al individuo a autoexplotarse voluntariamente (Han, 2012). Los jóvenes callan su agotamiento porque admitirlo se interpreta como fracaso, y al callar, el problema se cronifica hasta convertirse en <em>burnout</em>.",
+   "id": "b065"
+  },
+  {
+   "type": "p",
+   "html": "Esta crisis no es abstracta. En Nariño, Moreno González (2025) informa que las atenciones en urgencias psiquiátricas aumentaron de manera desproporcionada durante los primeros meses de 2025, en medio de un desabastecimiento de medicamentos; y la situación tiene raíces profundas, pues desde hace más de una década Castro et al. (2011) encontraron agotamiento emocional en el 18,7 % de los estudiantes de pregrado de la Universidad de Nariño que participaron en su estudio. En efecto, Caballero et al. (2015) relacionan el <em>burnout</em> estudiantil con demandas excesivas y crónicamente no resueltas que dependen de los contextos organizacionales de la universidad: el malestar no es solo un asunto individual, sino también una señal sobre el entorno académico.",
+   "id": "b066"
+  },
+  {
+   "type": "p",
+   "html": "Afortunadamente, han surgido algunas respuestas. En la Universidad CESMAG, el grupo de investigación Perspectivas Psicológicas trabaja en promoción y prevención en salud mental (Universidad CESMAG, 2025), y entre sus productos figura \"Florece\", un programa virtual de bienestar psicológico para universitarios que «se planteó como un curso de 16 semanas; dos semanas iniciales de socialización de la propuesta y desarrollo de la escala de bienestar psicológico, seguida de módulos virtuales de dos semanas de duración» (Cabrera-Gómez et al., 2019, p. 411). Son pasos importantes; sin embargo, para que estos esfuerzos funcionen no pueden convertirse en una obligación más que abrume a un alumno ya sin energía, sino que deben ofrecer puentes fluidos, empáticos y accesibles que se adapten al ritmo de su cotidianidad. Las herramientas culturales no son todavía lo suficientemente accesibles como para permitir a los jóvenes reconocerse en su dolor sin pasar por el filtro de la palabra directa, un lenguaje que aprendieron a censurar.",
+   "id": "b067"
+  },
+  {
+   "type": "p",
+   "html": "Asimismo, aunque las intervenciones digitales de salud mental para universitarios muestran efectos favorables, la mayoría se basa en la terapia cognitivo-conductual y en formatos estructurados (Madrid-Cagigal et al., 2025), con lo que queda abierto un espacio para propuestas expresivas que partan de la experiencia subjetiva del joven. A ello se suma que, en su revisión sobre realidad aumentada, realidad virtual e inteligencia artificial en la educación secundaria, Lancheros-Bohorquez y Vesga-Bravo (2024) no encontraron un número representativo de investigaciones en América del Sur, lo que deja al contexto local con pocos referentes propios desde donde construir.",
+   "id": "b068"
+  },
+  {
+   "type": "p",
+   "html": "De ahí surge la pertinencia del ecosistema <em>phygital</em>, donde el objeto físico porta el mensaje visible y la Realidad Aumentada revela la capa emocional. Cerasa et al. (2024) describen esta convergencia al señalar que el metaverso conecta los mundos físico y digital, y que la realidad aumentada superpone contenido digital sobre el entorno real. Como proponen Cabero-Almenara et al. (2022), existe además una distinción clave: mientras la Realidad Virtual sustituye el entorno físico, la Realidad Aumentada se superpone a él en capas, permitiendo que lo impreso y lo digital se complementen en lugar de reemplazarse. Diseñarlo exige, sin embargo, atender principios éticos como la privacidad, la autonomía y la sensibilidad cultural de los usuarios (Spahl et al., 2023). El diseño puede reducir barreras y facilitar conversaciones que de otro modo no ocurrirían, pero no reemplaza la atención profesional.",
+   "id": "b069"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.2 - Contextualización",
+   "id": "b070"
+  },
+  {
+   "type": "p",
+   "html": "El proyecto se sitúa en San Juan de Pasto, capital del departamento de Nariño, cuya identidad cultural está marcada por el sincretismo entre tradiciones indígenas, coloniales y mestizas. La tradición local se ve fuertemente impactada por prácticas artísticas de gran riqueza histórica, y su expresión más reconocida es el Carnaval de Negros y Blancos, un ejemplo de expresión artística traída a la contemporaneidad. A propósito de esta fiesta, Timaran (2005) escribe que la danza, la música, el disfraz y la máscara «no son cómplices para perder lo que somos, más bien, son una proyección que expresa y refleja ese ser en sí mismo» (p. 101). Desde la experiencia de quien escribe, en este entorno la vulnerabilidad suele percibirse como fracaso, el éxito se asocia con la fortaleza visible y, con frecuencia, salir de la región se entiende como sinónimo de progreso; ideas que generan una tensión silenciosa entre quienes se quedan y quienes sienten que deberían irse, y que se convierten en una carga emocional constante.",
+   "id": "b071"
+  },
+  {
+   "type": "p",
+   "html": "En este entorno opera la Universidad CESMAG, de tradición católica y humanista, cuyo programa de Diseño Gráfico es el contexto académico del proyecto, inscrito en la línea de investigación \"Diseño, innovación, cultura y sociedad\". La preocupación por el bienestar estudiantil no es ajena a la institución: su grupo de investigación Perspectivas Psicológicas ha desarrollado un proyecto sobre riesgo suicida en estudiantes de la universidad (Universidad CESMAG, 2025). Aun así, desde la experiencia de quien escribe, su ambiente formal y disciplinado tiende a amplificar en los estudiantes las mismas presiones que este proyecto busca atender.",
+   "id": "b072"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.3 - Objeto o Tema de Investigación",
+   "id": "b073"
+  },
+  {
+   "type": "p",
+   "html": "El proyecto aborda el diseño de una estrategia de diseño participativo que, a través de talleres de cocreación y una experiencia <em>phygital</em>, propicie la elaboración emocional frente al burnout académico en estudiantes de 18 a 25 años en San Juan de Pasto, articulando la expresión artística en obras conceptuales con capas de Realidad Aumentada. Este objeto de estudio responde a una crisis de bienestar emocional que azota a la sociedad del rendimiento contemporánea, donde los jóvenes silencian su malestar por el miedo de no cumplir expectativas y derivan en agotamiento crónico; ahí es donde entra el diseño emocional, proponiendo la metáfora aplicada a objetos de arte como herramienta de sensibilización. La propuesta se delimita al contexto universitario de San Juan de Pasto dados los alcances de un proyecto de grado; no obstante, sus principios son extrapolables a otras regiones con dinámicas sociales similares de alta exigencia.",
+   "id": "b074"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.4 - Formulación del Problema",
+   "id": "b075"
+  },
+  {
+   "type": "p",
+   "html": "¿Cómo desarrollar una estrategia de diseño participativo basada en una experiencia phygital para fomentar la elaboración emocional en jóvenes universitarios de 18 a 25 años de San Juan de Pasto?",
+   "id": "b076"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.5 - Propósitos del Proyecto",
+   "id": "b077"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.5.1 - Propósito General",
+   "id": "b078"
+  },
+  {
+   "type": "p",
+   "html": "Desarrollar una estrategia de diseño participativo basada en una experiencia phygital para fomentar la elaboración emocional en jóvenes universitarios de 18 a 25 años de San Juan de Pasto.",
+   "id": "b079"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.5.2 - Propósitos Específicos",
+   "id": "b080"
+  },
+  {
+   "type": "list",
+   "items": [
+    "Identificar las causas, dinámicas y consecuencias del malestar que callan los jóvenes universitarios como punto de partida para su elaboración emocional.",
+    "Realizar talleres de cocreación artística desde el diseño participativo con jóvenes universitarios, cuyas obras resultantes, concebidas como ejercicio de elaboración emocional, se integren en una experiencia phygital interactiva.",
+    "Evaluar la incidencia de la estrategia de diseño participativo y de su experiencia phygital en la elaboración emocional de los jóvenes universitarios."
+   ],
+   "id": "b081"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.6 - Justificación",
+   "id": "b082"
+  },
+  {
+   "type": "p",
+   "html": "Vivimos en una sociedad que cree en la perfección, idealiza la hiperproductividad y premia la apariencia de fortaleza. Bajo ese estándar imposible, todo lo que no encaja, como el agotamiento, la fragilidad o la duda, se oculta; no por convicción personal, sino por obligación cultural. La normalización del fenómeno de la hiperexigencia desencadena en una juventud sometida al <em>burnout</em>, construyendo una generación que no sabe decir lo que siente.",
+   "id": "b083"
+  },
+  {
+   "type": "p",
+   "html": "A nivel global, la OMS estima que las condiciones de salud mental representan el 15 % de la carga mundial de enfermedad en adolescentes de 10 a 19 años (World Health Organization, 2025); en Colombia, Caballero et al. (2015) relacionan el malestar universitario con demandas excesivas y crónicamente no resueltas que dependen del contexto académico, y no solo del estudiante. En el contexto regional, Castro et al. (2011) hallaron agotamiento emocional en el 18,7 % de los estudiantes de pregrado de la Universidad de Nariño, una cifra que ya era preocupante hace más de una década. Estos datos no son abstractos: son el índice de vidas reales bajo presión.",
+   "id": "b084"
+  },
+  {
+   "type": "p",
+   "html": "\"Sobre lo que no digo\" surge como una respuesta a ese silencio estructural. No es un proyecto clínico ni de autoayuda, sino un ecosistema <em>phygital</em> diseñado para visibilizar, mediante obras conceptuales articuladas con capas de Realidad Aumentada, aquellos temas que culturalmente hemos decidido no abordar pese al daño que hacen cuando permanecen ocultos. Dentro de esta propuesta, la pieza física usa el arte como canal de expresión no clínico, en sintonía con lo que Timaran (2005) observa sobre el Carnaval de Negros y Blancos: el disfraz y la máscara no ocultan la identidad, sino que la expresan; son el espacio simbólico que a veces hace falta para decir lo que la cotidianidad censura. Las obras del ecosistema son ese canal, mientras la aplicación móvil con RA revela su capa emocional, de modo que lo físico y lo digital se complementan.",
+   "id": "b085"
+  },
+  {
+   "type": "p",
+   "html": "El proyecto se inscribe en la línea de investigación \"Diseño, innovación, cultura y sociedad\" del programa de Diseño Gráfico de la Universidad CESMAG, al explorar cómo las prácticas de diseño pueden intervenir en dinámicas culturales de represión emocional propias del contexto nariñense: la presión por mantener apariencias, el estigma asociado a la vulnerabilidad y una noción de éxito ligada al abandono de las raíces. Desde lo disciplinar, reivindica un rol expandido para el diseñador gráfico como constructor de medios, y no como un mero maquetador de contenido. Como argumenta Papanek (1971/2014), el diseño tiene una responsabilidad social más allá de la estética o la funcionalidad comercial; la propuesta materializa ese compromiso al integrar programación, narrativa visual y tecnología inmersiva para crear un canal de comunicación que no existía. El diseño corpóreo no está muriendo con lo digital: está evolucionando hacia formas híbridas que recuperan la intimidad del objeto físico y la capacidad expresiva del software.",
+   "id": "b086"
+  },
+  {
+   "type": "p",
+   "html": "El impacto esperado es doble: por un lado, ofrecer a jóvenes de 18 a 25 años un espacio seguro donde expresar lo que callan y resonar con la vulnerabilidad expresada por otros sin sentirse juzgados; y por otro, demostrar, siguiendo a Sullivan (2010), que la práctica creativa no solo aplica conocimiento, sino que también lo genera. Por eso el proyecto se enmarca en la modalidad de Investigación-Creación: el artefacto diseñado no es únicamente el resultado final, sino un método de indagación en sí mismo, en el que son los propios jóvenes quienes, al crear, producen conocimiento y contribuyen a comprender lo que la sociedad calla.",
+   "id": "b087"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.7 - Sustento Teórico",
+   "id": "b088"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.1 - Elaboración Emocional",
+   "id": "b089"
+  },
+  {
+   "type": "p",
+   "html": "Antes de recorrer el problema conviene precisar el concepto que da nombre a este proyecto. Orbegozo et al. (2018) definen el procesamiento emocional como «el conjunto de estrategias que se dan desde que la emoción es percibida hasta que es expresada» (p. 24), y señalan que las dificultades en ese proceso son un factor de riesgo para la ansiedad o la depresión; cuando la emoción no se procesa debidamente, su expresión queda bloqueada. Lo que se siente y no se tramita no desaparece: permanece.",
+   "id": "b090"
+  },
+  {
+   "type": "p",
+   "html": "La evidencia sugiere que ese trámite pasa por darle forma a la vivencia. Peñate et al. (2010) recuerdan que el procedimiento de escritura emocional propuesto por Pennebaker, conocido como autorrevelación o apertura emocional, ha demostrado «su utilidad en muchos y variados indicadores de salud» (p. 434): se relaciona con una mejora en la salud física y ha mostrado eficacia en la disminución de síntomas psicológicos. La terapia narrativa, por su parte, propone la externalización, que White y Epston describen como «un abordaje terapéutico que insta a las personas a cosificar y, a veces, a personificar, los problemas que las oprimen» (citados en Urrego Aguinaga et al., 2016, p. 70); así, el problema pasa a ser una entidad separada de la persona. En el terreno de las artes visuales, Del Río Diéguez y Navarrete Torres (2025) describen la creación artística como una disposición que permite «conectar simbólicamente contenidos implícitos (o inefables) con materiales fácticos» (pp. 10-11) y que no solo ayuda a la persona a conectar con lo vivido y elaborarlo, «sino ponerlo de manifiesto, mostrarlo, compartirlo» (p. 11).",
+   "id": "b091"
+  },
+  {
+   "type": "p",
+   "html": "En este proyecto, la elaboración emocional se entiende como el proceso mediante el cual una vivencia que se ha callado se reconoce, toma forma fuera de quien la vive y adquiere un nuevo sentido al ser compartida. Esa definición se traduce en tres momentos observables: nombrar (identificar lo que se calla), dar forma (convertirlo en una metáfora material) y resignificar (verlo desde afuera, o verse reflejado en lo que otro creó). No se trata de un proceso terapéutico ni de un resultado clínico: es un tránsito expresivo que el diseño puede propiciar.",
+   "id": "b092"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.2 - El Malestar que se Calla",
+   "id": "b093"
+  },
+  {
+   "type": "p",
+   "html": "La salud mental es un concepto ampliamente discutido, y todavía resulta complejo acordar una definición nacida de un consenso. Una de las referencias más aceptadas es la de la Organización Mundial de la Salud, que la describe como un estado de bienestar mental que permite a las personas afrontar el estrés de la vida, desarrollar sus capacidades, aprender y trabajar adecuadamente y contribuir a su comunidad (World Health Organization, 2022). Bajo esta definición, gozar de buena salud mental no es simplemente no tener un diagnóstico; y cuando esa base se fractura, aunque nadie lo note y aunque no haya un nombre para explicarlo, todo lo demás se resiente. Lo más grave es que esa fractura ocurre masivamente en los jóvenes: la misma OMS estima que uno de cada siete adolescentes de entre 10 y 19 años experimenta un trastorno mental (World Health Organization, 2025), mientras la sociedad sigue repitiendo que \"son jóvenes y ya se les pasará\"; aunque claro, eso no sucede.",
+   "id": "b094"
+  },
+  {
+   "type": "p",
+   "html": "La OMS advierte, además, que las consecuencias de no atender estas condiciones en la adolescencia se extienden a la adultez (World Health Organization, 2025). El problema, entonces, no es solo que los jóvenes estén mal, sino que lo estén justo cuando se está formando la persona que serán el resto de su vida. Una salud mental sometida a intensas cargas de estrés, a una presión desmedida y a un peso emocional desbalanceado termina por quemar a su portador, y quizás <em>burnout</em> (síndrome del quemado o del desgaste) sea el término anglosajón que mejor nombra esta situación. Se trata de un concepto tan discutido como el problema en sí mismo, pero cuando un organismo internacional lo reconoce se descarta, por fin, la idea de que el agotamiento es una excusa: en 2019, la OMS incluyó el <em>burnout</em> en la Clasificación Internacional de Enfermedades como un fenómeno ocupacional, aunque lo circunscribe al contexto laboral y aclara que no lo clasifica como una condición médica (World Health Organization, 2019).",
+   "id": "b095"
+  },
+  {
+   "type": "p",
+   "html": "En el ámbito académico, el concepto se ha trasladado a los estudiantes. Caballero et al. (2015) lo describen como «una respuesta emocional negativa, persistente, relacionada con los estudios, formada por una sensación de encontrarse exhausto, de no poder más en las tareas como estudiante (agotamiento); una actitud cínica o de distanciamiento con el significado y la utilidad de los estudios que se están realizando (cinismo); y un sentimiento de incompetencia académica como estudiante (ineficacia)» (p. 428). Caballero et al. (2010), que retoman la tradición iniciada por Maslach, precisan que esta tríada de agotamiento, cinismo y baja eficacia académica configura un síndrome asociado al entorno de estudio y no una queja aislada: el agotamiento crónico no es pereza ni falta de carácter. Mientras los cambios estructurales avanzan a paso de tortuga, la gente se sigue quemando hoy; por eso hacen falta herramientas reales, accesibles y concretas, porque cuando el trabajo y el estudio dejan de dignificar y se convierten en fuentes de estrés permanente, se transforman, en esencia, en todo lo que juraron destruir.",
+   "id": "b096"
+  },
+  {
+   "type": "p",
+   "html": "Lastimosamente, no se trata de una distopía, sino de la realidad: el desgaste mental y el <em>burnout</em> han dejado de ser quejas aisladas. En Nariño, Moreno González (2025) informa que las atenciones en urgencias psiquiátricas aumentaron de manera desproporcionada durante los primeros meses de 2025, en medio de un desabastecimiento de medicamentos que, según la Asociación Colombiana de Psiquiatría, eleva el riesgo de conductas suicidas en pacientes vulnerables. Si hace más de una década un estudio de la Universidad de Nariño ya encontraba agotamiento emocional en el 18,7 % de sus estudiantes de pregrado (Castro et al., 2011), la prevención no puede seguir siendo secundaria. En la misma línea, Cayambe Guzmán et al. (2024) concluyen que la prevalencia moderada de <em>burnout</em> académico que hallaron en universitarios requiere atención por parte de la institución educativa y de los investigadores.",
+   "id": "b097"
+  },
+  {
+   "type": "p",
+   "html": "Caballero et al. (2015) insisten en que el <em>burnout</em> estudiantil se relaciona con demandas excesivas y crónicamente no resueltas que dependen de los contextos organizacionales de la universidad: el daño emocional no es solo responsabilidad del estudiante. Tampoco se trata de una afección únicamente académica, sino de una falla estructural que atraviesa el comportamiento de las personas en todos los niveles y escenarios. Y aunque hablar de salud mental parezca haberse normalizado, e incluso presuma estar de moda, la práctica social diaria sigue castigando la vulnerabilidad con el rechazo y las violencias sutiles de la cotidianidad.",
+   "id": "b098"
+  },
+  {
+   "type": "p",
+   "html": "Este miedo al rechazo responde a un sistema que, como advierte Han (2017), al rechazar la negatividad de lo distinto desarrolla rasgos autodestructivos; quien no encaja en el molde del éxito termina ejerciendo violencia contra sí mismo solo por intentar encajar. El silencio de los jóvenes no es casualidad, sino una forma de protegerse de este entorno, lo que hace vital construir refugios comunicativos donde no haya penalización por decir la verdad ni vergüenza por sentirla.",
+   "id": "b099"
+  },
+  {
+   "type": "p",
+   "html": "Callar, además, tiene un costo. Gross (2002) define la supresión expresiva como la inhibición de la conducta expresiva de una emoción en curso, y muestra que no disminuye la experiencia emocional, que deteriora la memoria y que aumenta la respuesta fisiológica tanto en quien suprime como en sus interlocutores; quienes suprimen de forma habitual, además, comparten menos sus emociones con otros. En universitarios, Chen et al. (2025) encontraron, en una muestra de 956 estudiantes, que aunque la supresión expresiva contiene las manifestaciones externas de la emoción, no mitiga el afecto negativo interno.",
+   "id": "b100"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.3 - La Sociedad del Rendimiento y el Mandato de Invulnerabilidad",
+   "id": "b101"
+  },
+  {
+   "type": "p",
+   "html": "Este conflicto no afecta solo a quienes se apartan de la norma social. El perfil masculino más conservador y heteronormativo también es víctima de él, puesto que mientras ser vulnerable siga viéndose como una debilidad masculina, la salud emocional de los hombres será un problema sin solución. Salazar (2018) ilustra cómo el mandato tradicional de mostrarse invulnerables para no parecer \"débiles\" o \"femeninos\" y responder al modelo hegemónico de fortaleza los daña en silencio, cuando en <em>El hombre que no deberíamos ser</em> formula la pregunta: «¿Soy consciente, como hombre, de que el modelo de masculinidad al que trato de responder genera no solo tremendas injusticias para las mujeres, sino también cargas y patologías en nosotros mismos?» (p. 14).",
+   "id": "b102"
+  },
+  {
+   "type": "p",
+   "html": "Con esto en mente, es fácil concluir que el sistema actual ha asignado roles y comportamientos predefinidos a todo el mundo, convirtiendo a las personas en esclavos de sí mismos: la humanidad se autoexige y explota sin freno, guiada por una falsa ilusión de libertad productiva, y se vacía de humanidad en el proceso. Múltiples autores han abordado este hecho de diferentes maneras. Franz Kafka, en <em>La metamorfosis</em>, retrata a un hombre cuyo lugar en su familia depende de su capacidad de trabajar y que es apartado cuando deja de producir (Kafka, 1915/2023). Han, por su parte, ataca los distintos flancos del problema: en <em>La sociedad de la transparencia</em> (2013) critica la obsesión contemporánea por la exposición total y la pérdida de la intimidad, y en <em>Psicopolítica</em> (2014) concluye que «el sujeto del rendimiento, que se pretende libre, es en realidad un esclavo. Es un esclavo absoluto, en la medida en que sin amo alguno se explota a sí mismo de forma voluntaria» («La crisis de la libertad», párr. 4). Frente al agotamiento de esta rueda incesante, el proyecto busca ofrecer una pausa genuina, que valide ese colapso como una fractura natural frente a un entorno insostenible, reconociendo, como lo hace <em>El mito de Sísifo</em>, que tras una larga alienación «un día surge el \"por qué\" y todo comienza con esa lasitud teñida de asombro» (Camus, 1942/1995, p. 27).",
+   "id": "b103"
+  },
+  {
+   "type": "p",
+   "html": "Pero ¿por qué ha tenido que llegarse a este punto? ¿Por qué, en tantos años de evolución de la sociedad, las personas se han sometido desde jóvenes al mandato de una realidad alienante que las acostumbra a olvidar quiénes son? La respuesta ha estado al frente de todos: la academia forma mentes brillantes pero analfabetas emocionales, forzadas a sostener una máscara de falsa estabilidad bajo el mandato de ser siempre funcionales. Sostener esta fachada, agravada por el mandato de invulnerabilidad atado a la masculinidad hegemónica, desgasta el cuerpo y la mente; por ello urge generar espacios que abracen la ambigüedad humana y reduzcan la distancia entre lo que se siente y lo que se debe aparentar. Daniel Goleman recoge al respecto la declaración de Karen Stone McCown, creadora del programa Self Science: \"El aprendizaje no sucede como algo aislado de los sentimientos de los niños. De hecho, la alfabetización emocional es tan importante como el aprendizaje de las matemáticas o la lectura\" (citada en Goleman, 1995/1996, p. 220). Se puede saber mucho de ciencias y poco de los sentimientos propios; y al no aprender a reconocer y gestionar las emociones, el resto del conocimiento queda incompleto, porque nadie se ha preocupado tampoco por enseñarlo.",
+   "id": "b104"
+  },
+  {
+   "type": "p",
+   "html": "Aquel hombre masculino y viril, sin aparentes inseguridades, ilustra bien este dilema: la masculinidad no es algo natural, sino una construcción social. Fingir estar bien cuando no se está cansa la mente y desgasta el cuerpo; y cuando alguien se ha acostumbrado a llevar esa máscara todo el tiempo, es difícil aceptar el momento en que se rompe. Este esfuerzo tiene nombre: trabajo emocional. Retomando a Hochschild, Cascales Mira (2022) lo define como «el manejo de los sentimientos por parte del trabajador para crear una apariencia acorde con las reglas» (pp. 8-9), y recoge evidencia de que fingir o suprimir emociones de forma continua agota la energía y se asocia con el agotamiento. Ver llorar al hombre que creciste viendo como invencible demuestra algo fundamental: los hombres sí sienten, solo que les enseñaron a esconderlo, y eso se puede desaprender. Por eso Connell (2005/2015) insiste en que, como sociedad, «aún necesitamos un modo de teorizar las relaciones de poder marcadas por el género entre hombres, y entender la efectividad de las masculinidades en la legitimación del orden de género» (p. 20); comprender esas relaciones es un paso para que algún día los hombres puedan pedir ayuda sin sentir que pierden valor.",
+   "id": "b105"
+  },
+  {
+   "type": "p",
+   "html": "Entretanto, y antes de lograr una transformación tan profunda, es prioritario aceptar que el <em>burnout</em> universitario no es una queja pasajera ni un rasgo de debilidad, sino un proceso en el que la fatiga muta hacia la indiferencia y aplasta la autoconfianza de los estudiantes. La diferencia entre quien aguanta la presión y quien se quiebra no es la fortaleza personal, sino el haber tenido o no las herramientas adecuadas para enfrentar la situación. Por eso no basta con pedirle al joven que sea \"resiliente\" en soledad: hacen falta vínculos, símbolos compartidos y espacios compasivos que le den el andamiaje necesario para no hundirse. El problema no se ha resuelto solo; sigue ahí, esperando una respuesta real.",
+   "id": "b106"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.4 - Decir a Través de Otra Cosa",
+   "id": "b107"
+  },
+  {
+   "type": "p",
+   "html": "Ante esta crisis han surgido también vías alternativas a la atención psicológica tradicional. Algunas experiencias interactivas logran mezclar las emociones de una historia ficticia con las del jugador, hasta hacerlo responsable de lo que ocurre en una narrativa construida como un árbol de decisiones. <em>Life Is Strange</em> (Dontnod Entertainment, 2015) aborda así el acoso escolar, el suicidio juvenil y la salud mental, y <em>Black Mirror: Bandersnatch</em> (Slade, 2018) pone sobre el espectador el peso de decidir. Transitar pasajes dolorosos a través de la inmersión enseña que tropezar y convivir con la angustia no es un fracaso, sino parte de la experiencia, incluso en escenarios complejos como el de <em>Hellblade: Senua's Sacrifice</em> (Ninja Theory, 2017), desarrollado con la asesoría de neurocientíficos, que representa en primera persona la experiencia de la psicosis. En un registro similar, <em>Celeste</em> (Extremely OK Games, 2018) convierte la dificultad del juego de plataformas en una metáfora de la lucha contra la ansiedad: la protagonista aprende que enfrentar a sus demonios internos no significa destruirlos, sino aprender a convivir con ellos, y cada caída le recuerda que caerse no es fracasar, sino parte del proceso.",
+   "id": "b108"
+  },
+  {
+   "type": "p",
+   "html": "Las series también aportan. <em>BoJack Horseman</em> (Bob-Waksberg, 2014-2020) retrata la depresión, la adicción y la autodestrucción emocional con un humor que permite hablar del vacío sin que el público se cierre: al reconocerse en un personaje absurdo, muchos espectadores dan un paso para dejar de ignorar lo que sienten. <em>Merlí</em> (Lozano, 2015-2018), por su parte, usa el pensamiento de los filósofos clásicos para abordar los conflictos cotidianos de un grupo de adolescentes e invitarlos a pensar por sí mismos. En todos estos casos, el dolor se aborda a través de un personaje, una metáfora o una historia, y no mediante un discurso literal; el humor, la ironía y el abordaje informal logran acercar a un espectador escéptico frente a la terapia tradicional. Varios de estos productos se analizan como referentes en el apartado 1.8.",
+   "id": "b109"
+  },
+  {
+   "type": "p",
+   "html": "No se trata de darle respuestas a nadie, sino de devolverle la capacidad de hacerse preguntas. Esta forma indirecta de decir importa porque, como afirma Wittgenstein (1921/2009) en el <em>Tractatus logico-philosophicus</em>, «los límites de mi lenguaje significan los límites de mi mundo» (p. 125): si una persona no tiene las palabras para nombrar sus emociones, su capacidad para comprenderlas y gestionarlas se ve limitada. El lenguaje diagnóstico, además, puede asustar y levantar defensas difíciles de atravesar para una mente agotada; allí es donde entra otro idioma que sortea esa censura: la metáfora y la expresión simbólica.",
+   "id": "b110"
+  },
+  {
+   "type": "p",
+   "html": "Lakoff y Johnson (1980/2003) explican en <em>Metaphors we live by</em> que nuestro sistema conceptual ordinario es, en lo fundamental, de naturaleza metafórica. Por eso usar un universo simbólico para hablar de salud mental no es un rodeo, sino una forma natural de abordar lo difícil. La expresión artística visual refuerza esta premisa: Forney (2012), en su novela gráfica <em>Marbles</em>, convierte su experiencia con el trastorno bipolar en imágenes y narrativa personal, y vuelve visible y comunicable una vivencia interna difícil de verbalizar. Ocultarse tras una fábula o un universo visual le concede al joven un medio para observar, narrar e interactuar con sus propios miedos.",
+   "id": "b111"
+  },
+  {
+   "type": "p",
+   "html": "Esta capacidad de decir a través de otra cosa tiene un antecedente en las técnicas proyectivas. Como explica Sneiderman (2011), estas técnicas han sido consideradas instrumentos para explorar la personalidad: operan con un material ambiguo y poco estructurado, y promueven respuestas libres en las que aparecen manifestaciones tanto conscientes como inconscientes de quien responde. Su uso diagnóstico, sin embargo, ha sido cuestionado: la misma autora reconoce que las principales críticas se dirigen a su confiabilidad y que aún deben mejorarse sus propiedades psicométricas. Este proyecto no retoma la técnica como prueba ni interpreta dibujos; conserva solo el principio que la sostiene: a veces es más fácil poner en una figura lo que no se logra decir en primera persona.",
+   "id": "b112"
+  },
+  {
+   "type": "p",
+   "html": "En la investigación en diseño, Sanders y Stappers (2008) plantean que los usuarios pueden participar en el proceso creativo como expertos de su propia experiencia, siempre que cuenten con herramientas adecuadas para expresarse. Desde ahí, este proyecto denomina figura proyectiva al objeto, personaje o imagen que cada creador elige para cargar lo que calla. Su sentido no lo interpreta el diseñador: lo declara su autor.",
+   "id": "b113"
+  },
+  {
+   "type": "p",
+   "html": "La figura proyectiva opera en dos momentos. El primero es el del creador, que deposita en ella lo que no dice y la explica con sus propias palabras. El segundo es el del lector, que se encuentra con la obra de un desconocido y, sin que nadie le diga qué significa, puede reconocer en ella algo de su propia experiencia. Ese segundo momento no se plantea aquí como un mecanismo comprobado, sino como una posibilidad que algunos autores relacionan con la simulación corporal que ocurre al contemplar una obra (Freedberg y Gallese, 2007), y que el proyecto resume en una idea sencilla: es más fácil abrirse cuando alguien más ya contó su historia primero.",
+   "id": "b114"
+  },
+  {
+   "type": "p",
+   "html": "Aunque parezca una idea extraña, no es una propuesta nueva. En el carnaval, la máscara también libera y sincera. Sobre el Carnaval de Negros y Blancos, Timaran (2005) escribe: «somos danza, música, disfraz y máscara que permiten identificarnos y diferenciarnos de los otros, no son cómplices para perder lo que somos, más bien, son una proyección que expresa y refleja ese ser en sí mismo» (p. 101). En esta celebración, el disfraz y la máscara no esconden la identidad: la expresan. Y como el carnaval se construye en comunidad, recuerda también que la vida se hace en sociedad y así mismo ha de acompañarse: nadie sobrevive aislado, y todo lo vivo necesita una red de apoyo que lo sostenga, como los hongos que conectan ecosistemas enteros bajo tierra sin que nadie lo note.",
+   "id": "b115"
+  },
+  {
+   "type": "p",
+   "html": "Pero una comunidad que acompaña no es el final del camino; también hace falta la introspección, la aceptación individual y el entendimiento de que sanar no equivale a olvidar. El kintsugi, técnica japonesa de reparar la cerámica rota con oro o plata, es una alegoría de esta idea: la pieza reparada no oculta sus grietas y puede llegar a considerarse más bella que la original (Dobkin, 2022). Esta premisa apuntala el proyecto: superar el <em>burnout</em>, la hiperexigencia y la autoexplotación no consiste en volver a ser la pieza perfecta de antes, sino en abrazar con dignidad, desde la elaboración emocional, la fisura que nos atraviesa.",
+   "id": "b116"
+  },
+  {
+   "type": "p",
+   "html": "Mirarse por dentro sin filtros no es un acto banal, sino un ejercicio de honestidad y valentía. Esta mirada tiene respaldo en el estudio de la recuperación: Herman (1992/2004) describe, como parte de ese proceso, una etapa dedicada a reconstruir la historia, en la que la persona narra lo vivido y recupera así el control sobre su propio relato, aunque lo haga de forma desordenada, emocional y contradictoria.",
+   "id": "b117"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.5 - Diseño Emocional, Diseño Participativo e Investigación-Creación",
+   "id": "b118"
+  },
+  {
+   "type": "p",
+   "html": "Ante ello, se aclara el deber del diseño. Lejos de fabricar adornos inofensivos, el diseño puede asumir con responsabilidad social la tarea de atender las heridas de su tiempo. Norman (2004) sostiene que la estética de un producto no es superficial: los objetos atractivos generan una respuesta emocional positiva que mejora la percepción de su funcionamiento y la disposición del usuario a interactuar con ellos. En sus palabras: \"Visceral, conductual y reflexivo: Estas tres dimensiones muy diferentes se entrelazan a través de cualquier diseño. No es posible tener el diseño sin los tres\" (p. 6).",
+   "id": "b119"
+  },
+  {
+   "type": "p",
+   "html": "Investigar desde la creación artística es iluminar zonas difíciles de nombrar; no como un decorado final, sino como el motor para comprender el entorno de los propios estudiantes. Bien lo establece Papanek (1971/2014) en <em>Diseño para el mundo real</em>: \"El diseño tiene que ser una herramienta innovadora, altamente creativa e interdisciplinaria, que responda a las verdaderas necesidades de la humanidad … y es preciso que dejemos de deshonrar a la misma tierra con objetos y estructuras pobremente diseñadas\" (p. 22). Además, crear no es solo expresar, es investigar: al intentar darle forma a algo que no se entiende del todo se genera conocimiento nuevo, y el proceso creativo se convierte en una forma legítima de investigar y comprender (Sullivan, 2010).",
+   "id": "b120"
+  },
+  {
+   "type": "p",
+   "html": "Este proyecto, además, no diseña para los jóvenes, sino con ellos. Sanders y Stappers (2008) definen la cocreación como cualquier acto de creatividad colectiva, y el codiseño como esa creatividad colectiva aplicada a lo largo de todo el proceso de diseño. La participación, sin embargo, debe ser real: en el campo de la salud mental digital, Blease et al. (2026) advierten que los jóvenes siguen subrepresentados en la investigación y recomiendan declarar el modelo de participación utilizado e informar qué decisiones fueron influidas por ellos. Siguiendo esa recomendación, el capítulo 2 indica qué aportaron los participantes y qué decidió el diseñador.",
+   "id": "b121"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.6 - Lo <em>Phygital</em> y la Realidad Aumentada",
+   "id": "b122"
+  },
+  {
+   "type": "p",
+   "html": "La tecnología y el mundo digital son parte inseparable de la vida de los jóvenes y ofrecen posibilidades que hace algunos años no existían. En un metaanálisis reciente, Madrid-Cagigal et al. (2025) encontraron que las intervenciones digitales de salud mental para universitarios con dificultades de salud mental tienen un efecto favorable de tamaño medio sobre la depresión; en ansiedad, las intervenciones completamente automatizadas mostraron un efecto mayor que las guiadas por un profesional. Quizás la autonomía, o la ausencia de la presión de ser evaluado por alguien, tenga algo que ver; aunque esta es una lectura de quien escribe, no una conclusión del estudio.",
+   "id": "b123"
+  },
+  {
+   "type": "p",
+   "html": "Con todo, la región sigue rezagada. En su revisión sobre realidad aumentada, realidad virtual e inteligencia artificial en la educación secundaria, Lancheros-Bohorquez y Vesga-Bravo (2024) señalan que «países como China, Turquía, Taiwán, España, Malasia y Grecia son referentes en investigaciones en este campo y llevan el liderazgo en implementación de estas tecnologías en proceso de enseñanza. En este mismo sentido, no se encuentra un número representativo de investigaciones en América del sur» (p. 104). Aunque su estudio se centra en la educación, evidencia un vacío regional que este proyecto también enfrenta.",
+   "id": "b124"
+  },
+  {
+   "type": "p",
+   "html": "Para entender la propuesta conviene precisar dos términos. Azuma (1997) define la realidad aumentada como una tecnología que complementa la realidad en lugar de reemplazarla por completo, y le atribuye tres características: combina lo real y lo virtual, es interactiva en tiempo real y está registrada en tres dimensiones. Por su parte, el término <em>phygital</em> designa la integración fluida de experiencias en los ámbitos físico y digital; en el caso de las exposiciones, Chai-Arayalert et al. (2025) muestran cómo una aplicación móvil puede superponer contenido digital sobre piezas físicas. En este proyecto, lo <em>phygital</em> es precisamente eso: una obra física que funciona por sí sola y una capa de RA que se activa al apuntar el teléfono hacia ella.",
+   "id": "b125"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "1.7.7 - Límites y Ética",
+   "id": "b126"
+  },
+  {
+   "type": "p",
+   "html": "Al final de la ruta, la presencia del diseñador se vuelve necesaria, aunque entendiendo su rol y sus límites: es mediador y puente, nunca un reemplazo de la atención profesional. Yeo y Teo (2020) plantean que los diseñadores gráficos pueden contribuir a la salud mental promoviendo una actitud de apertura frente a ella, con la que se reduce el estigma y se favorece la empatía; eso ya es una contribución real al bienestar. Esta postura exige velar por la autonomía del usuario y procurar que salga de la experiencia sin un daño adicional al que traía. También exige ser consciente de los alcances de la tecnología: Gennari et al. (2023) recuerdan que el uso que una persona hace de la tecnología afecta también a sus pares y a su vida cotidiana, por lo que el diseño para el bienestar digital debe considerar esa dimensión colectiva.",
+   "id": "b127"
+  },
+  {
+   "type": "p",
+   "html": "Del mismo modo, la Realidad Aumentada puede generar malestar físico si no se diseña con cuidado. Park et al. (2021) encontraron que la exposición prolongada a la RA puede inducir <em>cybersickness</em> (náuseas, molestias visuales y desorientación), lo que obliga a diseñar experiencias de corta duración y bien dosificadas para que el bienestar del usuario se mantenga como prioridad. Al fin y al cabo, lo importante no es solo la cantidad de tiempo frente a la pantalla, sino la calidad y la intención de su uso.",
+   "id": "b128"
+  },
+  {
+   "type": "p",
+   "html": "Por consiguiente, la ética no es un agregado al diseño, sino su base. En su revisión sobre intervenciones digitales gamificadas de salud mental para jóvenes, Spahl et al. (2023) identifican como principios éticos la privacidad, la accesibilidad, el empoderamiento y la autonomía, la sensibilidad cultural y social y el codiseño con los usuarios. Las mecánicas de juego pueden empoderar tanto como manipular, por lo que este proyecto evita recursos como los rankings competitivos o las recompensas compulsivas. Un proyecto de bienestar tiene que ser honesto y transparente, nunca una trampa disfrazada de ayuda, y su intención jamás puede ser provocar un efecto rebote que empeore la salud de quienes lo usan.",
+   "id": "b129"
+  },
+  {
+   "type": "p",
+   "html": "Entonces, ¿es realmente pertinente este proyecto de diseño? La respuesta es sí. En Colombia, la Ley 1616 de 2013 (Congreso de Colombia, 2013) busca garantizar el ejercicio pleno del derecho a la salud mental, y la Ley 2460 de 2025 (Congreso de Colombia, 2025), que la modifica, tiene por objeto la prevención y atención de los trastornos mentales y la promoción y atención de la salud mental; en su artículo 14 vincula el deporte y la cultura con la salud mental, y en su artículo 38 prevé que las instituciones de educación superior puedan diseñar centros de escucha. Pero en la práctica, el acceso institucional sigue siendo una carrera de obstáculos. Frente a una norma que promete más de lo que alcanza a cubrir en la realidad diaria, urge que desde el diseño, y desde todas las áreas posibles, se creen herramientas tangibles y accesibles de apoyo preventivo que empiecen a actuar allí donde el sistema de salud no da abasto.",
+   "id": "b130"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "1.8 - Antecedentes y Referentes",
+   "id": "b131"
+  },
+  {
+   "type": "p",
+   "html": "Para fundamentar las decisiones conceptuales, formales, interactivas y vivenciales de la estrategia de diseño participativo planteada en este proyecto, se desarrolló una matriz de análisis de referentes proyectuales organizada en cinco categorías de diseño: concepto, forma, funcionalidad, contexto y emoción. Cada referente se analiza críticamente a partir de la problemática que atiende, su mecanismo de acción, sus aciertos, sus debilidades y su aporte metodológico específico a la investigación.",
+   "id": "b132"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Referentes de Concepto.</strong> Idea rectora y enfoque de externalización.",
+   "id": "b133"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>A. PostSecret (Frank Warren, Estados Unidos, 2005 - Presente).</strong></em> Plataforma comunitaria donde personas anónimas plasman secretos y dolores jamás revelados en postales físicas hechas a mano, enviadas por correo tradicional para ser exhibidas públicamente en libros, galerías y web.",
+   "id": "b134"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Canal unidireccional y pasivo sin interactividad digital en tiempo real; depende exclusivamente del soporte postal estático o galerías web planas.",
+   "id": "b135"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> El anonimato total desactiva el temor al juicio social; el soporte físico tangible obliga a sintetizar el dolor íntimo en una metáfora visual directa y potente que genera identificación inmediata.",
+   "id": "b136"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Valida la dinámica creador–obra física–lector y demuestra que el anonimato es la condición indispensable para que el universitario se atreva a exteriorizar vivencias silenciadas sin miedo al estigma.",
+   "id": "b137"
+  },
+  {
+   "id": "b138",
+   "type": "figure",
+   "label": "Figura R1",
+   "title": "PostSecret (Frank Warren, 2005 - Presente)",
+   "src": "img/image1.png",
+   "note": "<em>Nota. Muro digital y postales anónimas de confesión personal. Fuente: Warren (2005-presente).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>B. Campaña \"We Listen\" – Samaritans (MullenLowe, Reino Unido, 2016).</strong></em> Campaña gráfica desplegada en carteles, medios digitales y estaciones de tren, con retratos sin rostro de personas de espaldas acompañados de la palabra <em>fine</em> (\"bien\"), para sugerir lo que alguien quiere decir realmente cuando afirma que está bien (It's Nice That, 2016), evidenciando que detrás de la máscara de estabilidad subyace una petición de escucha.",
+   "id": "b141"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Formato publicitario estático que depende de la atención fugaz del peatón en pasillos de tránsito acelerado, sin mecanismos de diálogo o acompañamiento directo.",
+   "id": "b142"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Enfoque visual indirecto y anti-clínico; el encuadre dorsal genera un anonimato universal que interpela al espectador sin sermonearlo ni emitir diagnósticos médicos.",
+   "id": "b143"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Aporta la estrategia discursiva para interpelar a los estudiantes en la convocatoria y el diagnóstico: desmantelar el discurso del \"no pasa nada\" desarmando las frases automáticas con las que encubren el burnout.",
+   "id": "b144"
+  },
+  {
+   "id": "b145",
+   "type": "figure",
+   "label": "Figura R2",
+   "title": "Campaña \"We Listen\" – Samaritans (MullenLowe, 2016)",
+   "src": "img/image2.png",
+   "note": "<em>Nota. Retrato de espaldas del fotógrafo Nadav Kander para la campaña. Fuente: Samaritans y MullenLowe London (It's Nice That, 2016).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>C. Mind Journal: Diario Estructurado Para Hombres (Ollie Aplin, Reino Unido, 2017).</strong></em> Cuaderno editorial de autorreflexión guiada con diseño sobrio y ejercicios breves, orientado a canalizar el estrés y la gestión emocional en un público reticente ante la terapia tradicional.",
+   "id": "b148"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Depende de la disciplina individual y solitaria del usuario, sin generar comunidad ni integrar soporte tecnológico o participativo.",
+   "id": "b149"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Estética minimalista que elimina el estigma de la autoayuda convencional; las preguntas pautadas reducen la intimidación frente a la página en blanco y facilitan la introspección.",
+   "id": "b150"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Proporciona el modelo para estructurar las consignas y detonantes reflexivos de la primera fase del taller de cocreación, guiando la introspección del estudiante sin que se sienta evaluado.",
+   "id": "b151"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Referentes de Forma.</strong> El lenguaje visual y estético.",
+   "id": "b152"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>A. Studio Myerscough (Morag Myerscough, Reino Unido, 2022).</strong></em> Intervenciones espaciales en hospitales y centros educativos, como el jardín y pabellón del Sheffield Children's Hospital (Dezeen, 2022), con geometrías envolventes, patrones gráficos a gran escala y paletas cromáticas contrastantes de alto impacto.",
+   "id": "b153"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> La saturación cromática extrema puede resultar invasiva ante sensibilidades sensoriales agudas y demanda espacios arquitectónicos e inversiones elevadas.",
+   "id": "b154"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Rompe con la esterilidad médica tradicional y plantea el color y la forma geométrica como agentes activos del ánimo, aportando calidez y dignidad al espacio.",
+   "id": "b155"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Muestra que el color y la forma pueden transformar un espacio asociado a la enfermedad en un lugar cálido. Este principio orienta el uso del color en la exposición y en las piezas del ecosistema, cuya paleta se define en el apartado 2.3.",
+   "id": "b156"
+  },
+  {
+   "id": "b157",
+   "type": "figure",
+   "label": "Figura R3",
+   "title": "Studio Myerscough (Morag Myerscough, 2022)",
+   "src": "img/image3.png",
+   "note": "<em>Nota. Intervención espacial con patrones geométricos a gran escala. Fuente: Studio Myerscough (Dezeen, 2022).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>B. Marbles: Mania, Depression, Michelangelo, and Me (Ellen Forney, Estados Unidos, 2012).</strong></em> Novela gráfica autobiográfica que traduce episodios de trastorno bipolar y sufrimiento psíquico mediante el lenguaje del cómic, distorsiones anatómicas y contrastes gestuales en blanco y negro.",
+   "id": "b160"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Formato autoral cerrado y lineal; el lector contempla la experiencia subjetiva de una sola autora sin posibilidades de interacción o cocreación colectiva.",
+   "id": "b161"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> La caricatura y la metáfora plástica materializan sensaciones corporales complejas (peso, asfixia, dispersión mental) que el lenguaje formal no logra describir, normalizando el padecimiento con humor e ingenio visual.",
+   "id": "b162"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Justifica la adopción del dibujo y la plástica metafórica como lenguaje central del taller: el trazo visual permite exteriorizar bloqueos afectivos que la palabra hablada censura o no sabe cómo enunciar.",
+   "id": "b163"
+  },
+  {
+   "id": "b164",
+   "type": "figure",
+   "label": "Figura R4",
+   "title": "Marbles: Mania, Depression, Michelangelo, and Me (Ellen Forney, 2012)",
+   "src": "img/image4.png",
+   "note": "<em>Nota. Portada y exploración gráfica de la subjetividad emocional en formato cómic. Fuente: Forney (2012).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>C. BoJack Horseman (Raphael Bob-Waksberg, Estados Unidos, 2014 - 2020).</strong></em> Serie animada que explora el vacío existencial, la autoexplotación y el autosabotaje a través de un universo antropomórfico, recursos surrealistas y un tratamiento plástico de vanguardia.",
+   "id": "b167"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Producto audiovisual lineal de consumo comercial masivo sin interacción directa del público ni aplicación comunitaria en el mundo físico.",
+   "id": "b168"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Utiliza la sátira, la metáfora poética y el absurdo visual para desarmar el escepticismo del espectador, creando secuencias mudas y fondos simbólicos de altísima resonancia emocional.",
+   "id": "b169"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Aporta el tono estético y conceptual de las animaciones en Realidad Aumentada: una narrativa simbólica, directa y ligeramente irónica que conecta con la sensibilidad juvenil sin caer en discursos morales solemnes.",
+   "id": "b170"
+  },
+  {
+   "id": "b171",
+   "type": "figure",
+   "label": "Figura R5",
+   "title": "BoJack Horseman (Raphael Bob-Waksberg, 2014 - 2020)",
+   "src": "img/image5.png",
+   "note": "<em>Nota. Lenguaje visual que conjuga el absurdo estético con el vacío existencial y la sátira contemporánea. Fuente: The Tornante Company / Netflix.</em>"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Referentes de Funcionalidad.</strong> La interacción y la tecnología phygital.",
+   "id": "b174"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>A. Artivive y Exhibiciones de Arte Aumentado (Sergiu Ardelean &amp; Codin Popescu, Austria, 2017 - Presente).</strong></em> Ecosistema tecnológico que transforma ilustraciones y pinturas impresas en marcadores ópticos, superponiendo animaciones digitales sincronizadas con diseño sonoro al ser escaneadas mediante un dispositivo móvil.",
+   "id": "b175"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> En aplicaciones comerciales suele limitarse a un truco visual efectista sin profundidad conceptual; depende de condiciones estables de iluminación y de la cámara del usuario.",
+   "id": "b176"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Mecánica de uso intuitiva y sin fricción técnica; respeta la primacía de la pieza física, concibiendo lo digital como una dimensión narrativa oculta que se desvela con el dispositivo.",
+   "id": "b177"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Constituye la solución técnica de la capa digital: la obra física custodia el silencio material, mientras que la Realidad Aumentada actúa como la lente interactiva que decodifica y revela la carga narrativa interior.",
+   "id": "b178"
+  },
+  {
+   "id": "b179",
+   "type": "figure",
+   "label": "Figura R6",
+   "title": "Exhibición Interactiva con Artivive (Sergiu Ardelean &amp; Codin Popescu, 2017)",
+   "src": "img/image6.png",
+   "note": "<em>Nota. Dispositivo móvil actuando como ventana de revelación aumentada sobre el soporte físico. Fuente: Artivive (s. f.).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>B. Espacio Sensorial para Trastornos de Ansiedad (María Quiñones, Guatemala, 2023).</strong></em> Módulo físico portátil de descompresión inmediata en entornos universitarios latinoamericanos, combinando texturas táctiles de fieltro, aromaterapia, aislamiento acústico e iluminación cálida regulable.",
+   "id": "b182"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Capacidad unipersonal reducida y ausencia de componentes digitales o de socialización colectiva que permitan registrar las vivencias procesadas.",
+   "id": "b183"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Aborda el bienestar desde el cuerpo y los sentidos con materiales accesibles y de bajo costo adaptados a la realidad presupuestal de una universidad regional.",
+   "id": "b184"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Aporta el concepto de espacio seguro: el taller de cocreación y la exhibición deben operar como entornos de pausa que desactiven el ritmo acelerado del campus.",
+   "id": "b185"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>C. Before I Die (Candy Chang, Estados Unidos, 2011 - Presente).</strong></em> Intervención participativa en el espacio público: una pared de una casa abandonada en Nueva Orleans se cubrió con pintura de pizarra y la frase «Antes de morir quiero ___», para que cualquier transeúnte la completara con tiza. Nació del duelo de la artista por la muerte de una persona cercana y hoy se ha replicado en más de 5.000 muros en más de 75 países.",
+   "id": "b186"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Las respuestas son breves y públicas, por lo que la profundidad de la reflexión depende de cada transeúnte; no ofrece acompañamiento ni seguimiento a lo que se escribe.",
+   "id": "b187"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Una consigna sencilla y abierta, en un soporte físico al alcance de todos, basta para que desconocidos compartan algo íntimo en el espacio público y se lean entre sí.",
+   "id": "b188"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Fundamenta el formato de consigna abierta de la cartelera grupal y de la hoja individual del taller, y muestra que leer lo que otros escribieron invita a escribir lo propio.",
+   "id": "b189"
+  },
+  {
+   "id": "b191",
+   "type": "figure",
+   "label": "Figura R7",
+   "title": "Before I Die (Candy Chang, 2011 - Presente)",
+   "src": null,
+   "note": "<em>Nota. Muro participativo con la consigna «Antes de morir quiero ___». Fuente: Chang (s. f.).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Referentes de Contexto.</strong> El entorno universitario y la salud mental local.",
+   "id": "b193"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>A. Programa Florece y grupo Perspectivas Psicológicas (Universidad CESMAG, Pasto, 2019 - Presente).</strong></em> Iniciativas asociadas a la Universidad CESMAG: Florece es un programa virtual de bienestar psicológico para universitarios, planteado como un curso de 16 semanas, y Perspectivas Psicológicas es un grupo de investigación que trabaja en promoción y prevención en salud mental, con estudios como el de riesgo suicida en estudiantes de la institución.",
+   "id": "b194"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Son propuestas estructuradas, de formato académico o virtual, que exigen al estudiante una dedicación sostenida (un curso de 16 semanas), algo difícil de asumir para quien ya se siente agotado.",
+   "id": "b195"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Demuestran que la salud mental de los estudiantes es una preocupación institucional en la Universidad CESMAG y aportan conocimiento sobre la realidad del campus local.",
+   "id": "b196"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Delimita la oportunidad del proyecto: la propuesta no busca competir con los servicios de bienestar de la universidad, sino operar como una puerta de entrada empática y artística que acerque al estudiante a ellos.",
+   "id": "b197"
+  },
+  {
+   "id": "b198",
+   "type": "figure",
+   "label": "Figura R8",
+   "title": "Programa de Bienestar Psicológico \"Florece\" (Universidad CESMAG, 2019)",
+   "src": "img/image8.png",
+   "note": "<em>Nota. Plataforma y modelo institucional de educación en salud mental universitaria en San Juan de Pasto. Fuente: Cabrera-Gómez et al. (2019).</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>B. Póster para Reducir Estigmas de Ansiedad (Aaminah Muskeen, Reino Unido, 2018).</strong></em> Serie de carteles tipográficos instalados en pasillos escolares que combinan citas de figuras culturales juveniles con diseño moderno para naturalizar la conversación sobre la ansiedad en espacios formativos.",
+   "id": "b201"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Formato estático bidimensional que corre el riesgo de perder novedad y mimetizarse en la contaminación visual de las carteleras del pasillo.",
+   "id": "b202"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Desplaza la conversación sobre bienestar de los despachos cerrados hacia los espacios físicos de circulación diaria, utilizando un lenguaje gráfico directo y empático.",
+   "id": "b203"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Aporta la estrategia de visibilización en el campus: la necesidad de intervenir los corredores cotidianos donde el estudiante transita en silencio, convirtiendo la gráfica en un detonador visible de conversación entre pares.",
+   "id": "b204"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>C. Merlí (Héctor Lozano, España, 2015 - 2018).</strong></em> Ficción televisiva que retrata a un docente que desmonta la rigidez del aula tradicional para abrir debates filosóficos dialógicos en círculo, conectando dilemas clásicos con las vivencias silenciadas de sus alumnos.",
+   "id": "b205"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Formato de ficción seriada de consumo pasivo sin una instancia de producción plástica ni intervención comunitaria real en un territorio específico.",
+   "id": "b206"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Demuestra que al suprimir la amenaza de la calificación y disponer el espacio de forma circular y horizontal, los jóvenes muestran una profunda disposición para expresar sus fragilidades y escucharse con respeto.",
+   "id": "b207"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Es un referente para el Círculo de la Palabra con que cierran los talleres: sugiere que una conversación horizontal, sin calificación de por medio, favorece que el grupo comparta y valide lo vivido.",
+   "id": "b208"
+  },
+  {
+   "id": "b209",
+   "type": "figure",
+   "label": "Figura R9",
+   "title": "Merlí (Héctor Lozano, 2015 - 2018)",
+   "src": "img/image9.png",
+   "note": "<em>Nota. Mediación pedagógica horizontal y desarticulación del juicio formal a través del diálogo colectivo. Fuente: TV3 / Netflix.</em>"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Referentes de Emoción.</strong> La resonancia empática y el impacto vivencial.",
+   "id": "b212"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>A. Celeste (Extremely OK Games, Canadá, 2018).</strong></em> Obra interactiva donde la protagonista escala una montaña mientras lidia con la personificación física de su ansiedad (\"Badeline\"), aprendiendo que su fragilidad no debe aniquilarse sino integrarse y comprenderse.",
+   "id": "b213"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> La alta dificultad psicomotriz de sus mecánicas puede frustrar a usuarios no habituados a videojuegos, bloqueando el acceso a la conclusión narrativa.",
+   "id": "b214"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> No patologiza ni maquilla la ansiedad; la metáfora de la pluma flotante para regular la respiración y el diálogo con la propia sombra proporcionan herramientas poéticas de elaboración profunda.",
+   "id": "b215"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Define el principio de que la emoción se elabora cuando se le da forma y se dialoga con ella: el proyecto no busca eliminar mágicamente el estrés, sino ofrecer un medio para mirarlo de frente, plasmarlo y resignificarlo.",
+   "id": "b216"
+  },
+  {
+   "id": "b217",
+   "type": "figure",
+   "label": "Figura R10",
+   "title": "Celeste (Extremely OK Games, 2018)",
+   "src": "img/image10.png",
+   "note": "<em>Nota. Metáfora plástica del ascenso y mecánicas interactivas de regulación ante la ansiedad. Fuente: Extremely OK Games.</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>B. Hellblade: Senua’s Sacrifice (Ninja Theory, Reino Unido, 2017).</strong></em> Obra interactiva desarrollada con la asesoría de neurocientíficos, que emplea audio binaural 3D y distorsiones visuales para sumergir al usuario en la mente de una guerrera con psicosis.",
+   "id": "b220"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> Su alta intensidad inmersiva y dramática puede resultar abrumadora si no se acompaña de advertencias de contenido y pautas de distanciamiento emocional.",
+   "id": "b221"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Genera una empatía visceral inmediata: el espectador no recibe una explicación teórica sobre el sufrimiento mental, sino que lo experimenta perceptivamente, dignificando el dolor interno mediante belleza estética.",
+   "id": "b222"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Fundamenta la potencia del diseño sonoro inmersivo en la Realidad Aumentada: el audio espacial puede convertir la lectura visual en una experiencia que también se siente con el cuerpo, lo que favorece la resonancia del lector.",
+   "id": "b223"
+  },
+  {
+   "id": "b224",
+   "type": "figure",
+   "label": "Figura R11",
+   "title": "Hellblade: Senua’s Sacrifice (Ninja Theory, 2017)",
+   "src": "img/image11.png",
+   "note": "<em>Nota. Construcción inmersiva de la vulnerabilidad psicológica mediante diseño sonoro binaural espacializado. Fuente: Ninja Theory.</em>"
+  },
+  {
+   "type": "p",
+   "html": "<em><strong>C. Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, Croacia, 2006 - Presente).</strong></em> Museo construido con objetos donados por personas anónimas tras una ruptura, cada uno acompañado por el relato breve de quien lo entrega. Surgió de la ruptura de sus propios fundadores, comenzó en 2006 como una exposición temporal que recorrió varios países y desde 2010 tiene sede permanente en Zagreb.",
+   "id": "b227"
+  },
+  {
+   "type": "p",
+   "html": "<em>Debilidades.</em> La experiencia se limita a la lectura del objeto y su texto; durante la visita, el espectador no tiene un canal para responder a lo que lee, y el formato depende de un espacio expositivo físico.",
+   "id": "b228"
+  },
+  {
+   "type": "p",
+   "html": "<em>Fortalezas.</em> Un objeto cotidiano y un relato breve bastan para transmitir una pérdida íntima a un desconocido; el anonimato protege a quien dona y la exposición convierte el dolor individual en una experiencia compartida.",
+   "id": "b229"
+  },
+  {
+   "type": "p",
+   "html": "<em>Aporte.</em> Es el modelo más cercano a la relación creador–obra–lector del proyecto: cada pieza viaja con el relato de su autor, y el espectador descubre que detrás de cada obra hay alguien que vivió algo parecido a lo suyo, lo que diluye la sensación de aislamiento.",
+   "id": "b230"
+  },
+  {
+   "id": "b232",
+   "type": "figure",
+   "label": "Figura R12",
+   "title": "Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, 2006 - Presente)",
+   "src": null,
+   "note": "<em>Nota. Objetos donados acompañados del relato de sus antiguos dueños. Fuente: NPR (2013).</em>"
+  },
+  {
+   "type": "heading",
+   "level": 1,
+   "html": "Capítulo 2 – Idear",
+   "id": "b234",
+   "breakBefore": true
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "2.1 - Metodología",
+   "id": "b235"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "2.1.1 - Enfoque Metodológico",
+   "id": "b236"
+  },
+  {
+   "type": "p",
+   "html": "Este proyecto hace parte de un proceso de investigación cualitativa, de paradigma histórico-hermenéutico con orientación sociocrítica, en el marco de la Investigación-Creación, que reconoce la práctica del diseño no como un simple ejecutor técnico de artefactos, sino como una modalidad legítima de producción de conocimiento sensible y situado (Sullivan, 2010). Desde esta perspectiva, el diseño actúa como un dispositivo que permite explorar, visibilizar y transformar realidades psicosociales complejas que escapan a los métodos cuantitativos tradicionales. La investigación se fundamenta en metodologías de diseño colaborativo y participativo (Sanders y Stappers, 2008), apoyadas en un enfoque etnográfico que sitúa a los actores en el centro del proceso creativo.",
+   "id": "b238"
+  },
+  {
+   "type": "p",
+   "html": "Para operativizar esta perspectiva, el proyecto adopta el procedimiento metodológico de las 3i (Indagación, Ideación e Implementación), estructurado de manera procesual y recursiva:",
+   "id": "b239"
+  },
+  {
+   "type": "list",
+   "items": [
+    "<strong>Indagación:</strong> corresponde al reconocimiento del contexto problemático, la exploración bibliográfica y el levantamiento de datos empíricos directos mediante instrumentos interactivos y cualitativos de campo.",
+    "<strong>Ideación:</strong> constituye la fase de traducción conceptual y proyectual, donde los insumos recolectados se sintetizan en requerimientos estéticos, narrativos y tecnológicos que dan forma al ecosistema <em>phygital</em>.",
+    "<strong>Implementación:</strong> abarca la producción final, el despliegue del ecosistema y la evaluación de su incidencia con la comunidad."
+   ],
+   "id": "b240"
+  },
+  {
+   "type": "p",
+   "html": "De este modo, los estudiantes universitarios no son abordados como sujetos pasivos de estudio ni como usuarios receptores de una solución prediseñada, sino como coautores y coinvestigadores de sus propias vivencias emocionales.",
+   "id": "b241"
+  },
+  {
+   "type": "p",
+   "html": "Cada momento de las 3i se recorre en una fase de la ruta y responde a uno de los propósitos específicos: la indagación corresponde a la Fase 1, Cartografía; la ideación, a la Fase 2, Prototipado; y la implementación, a la Fase 3, Validación (Figura 1). El proceso es recursivo: lo que se valida regresa a la indagación y al prototipo.",
+   "id": "b242"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "html": "2.1.2 - Ruta Metodológica",
+   "id": "b243"
+  },
+  {
+   "type": "p",
+   "html": "La ruta metodológica del proyecto se recorre en tres fases secuenciales e interdependientes: Cartografía, Prototipado y Validación, cada una con propósitos, instrumentos y entregables propios que alimentan directamente a la siguiente. Con el fin de responder a las dinámicas contemporáneas de interacción y registro, cada actividad se articula con un artefacto web o digital interactivo que consolida la información recopilada: bajo esta lógica, la investigación se vincula con un ecosistema digital en construcción permanente que sirve como herramienta de análisis, memoria documental y evidencia viva del proceso proyectual. La Figura 1 sintetiza este recorrido.",
+   "id": "b244"
+  },
+  {
+   "id": "b245",
+   "label": "Figura 1",
+   "title": "Ruta Metodológica del Proyecto",
+   "type": "figure",
+   "src": "img/image14.png",
+   "note": "<em>Nota.</em> Elaboración propia."
+  },
+  {
+   "type": "p",
+   "html": "En el recorrido de esta ruta conviene distinguir dos niveles de actuación: los ejercicios de clase, desarrollados como formación proyectual previa al campo, y el trabajo de campo propio, núcleo investigativo del proyecto. Las fronteras entre fases tampoco son rígidas: el taller «Sobre lo que no dices» fue a la vez la última actividad de indagación de la Fase 1 y un primer ejercicio de cocreación cuyas piezas alimentaron el prototipo de la Fase 2. A continuación se presenta la ruta tal como se ha recorrido hasta la fecha, fase por fase, con las tareas realizadas, los resultados obtenidos y lo que queda pendiente.",
+   "id": "b249"
+  },
+  {
+   "type": "heading",
+   "level": 4,
+   "html": "Fase 1 - Cartografía (Diagnóstico y Cocreación)",
+   "id": "b250"
+  },
+  {
+   "type": "p",
+   "html": "Esta fase buscó definir los cimientos conceptuales del proyecto y mapear las experiencias asociadas al <em>burnout</em> y al silenciamiento emocional con jóvenes universitarios del Programa de Diseño Gráfico de la Universidad CESMAG, en San Juan de Pasto. Se desarrolló entre abril y junio de 2026 y se encuentra prácticamente completa: solo queda pendiente, como cierre, la documentación del proceso en el <em>Portal de Memorias</em> de la plataforma web del proyecto. Las tareas realizadas y lo que se obtuvo en cada una se exponen a continuación.",
+   "id": "b251"
+  },
+  {
+   "id": "b252",
+   "type": "heading",
+   "level": 5,
+   "html": "A. Cadena de Valor: Estudio Bibliográfico y Contextualización (Ejercicio de Clase)"
+  },
+  {
+   "type": "p",
+   "html": "Se construyó una matriz digital tipo hoja de cálculo, denominada <em>Cadena de Valor</em>, en la que se organizaron y relacionaron los conceptos teóricos y autores clave en torno al <em>burnout</em> académico, el trabajo emocional (Cascales Mira, 2022) y el diseño participativo como vehículo de elaboración simbólica, en el marco de la sociedad del rendimiento (Han, 2012, 2014). El contenido de la matriz se exportó como una red conceptual navegable e interactiva publicada en la plataforma web del proyecto, que sirve como marco referencial abierto (Figura 2).",
+   "id": "b253"
+  },
+  {
+   "id": "b254",
+   "label": "Figura 2",
+   "title": "Red conceptual interactiva de la Cadena de Valor",
+   "type": "figure",
+   "src": "img/image13.png",
+   "note": "<em>Nota.</em> Captura de pantalla extraída de la plataforma web del proyecto."
+  },
+  {
+   "id": "b258",
+   "type": "heading",
+   "level": 5,
+   "html": "B. Cartografía Digital de Percepción Silenciosa (CDPS): Identificación de Patrones (Trabajo de Campo)"
+  },
+  {
+   "type": "p",
+   "html": "Se diseñó y programó a medida la <em>Cartografía Digital de Percepción Silenciosa</em> (en adelante, <em>CDPS</em>), una aplicación web de preguntas interactivas a modo de encuesta viva que opera sobre una red local en una sala de cómputo. El sistema cuenta con tres interfaces sincronizadas en tiempo real: un panel de control para el administrador, una interfaz anónima donde cada estudiante vota espacialmente arrastrando un avatar único sobre un lienzo digital, y un visualizador proyectado en una pantalla compartida. Al cerrar cada pregunta, las respuestas se revelan de forma simultánea y el grupo lee y comenta en vivo el mapa de calor resultante. El instrumento se aplicó el 24 de abril de 2026 en el Laboratorio de Creación Digital 1 del Campus Centro de la Universidad CESMAG, con una muestra de N = 15 estudiantes de pregrado del programa de Diseño Gráfico. El cuestionario constó de 24 ítems organizados en ocho bloques temáticos, entre ellos la carga académica, la autoexigencia, la vivencia del <em>burnout</em>, las redes de apoyo y el silenciamiento emocional. La dinámica permitió responder de forma anónima y comentar los resultados en grupo; los datos se presentan a continuación en cuatro dimensiones, seguidas de las respuestas abiertas.",
+   "id": "b259"
+  },
+  {
+   "type": "p",
+   "html": "Los 15 participantes cursaban séptimo semestre: 11 mujeres y 4 hombres, con edades entre 20 y 30 años (13 de ellos dentro del rango de 18 a 25 años que delimita el proyecto). En cuanto a su situación, 8 se dedicaban solo al estudio, 6 estudiaban y trabajaban, y 1 combinaba el estudio, el trabajo y otras responsabilidades. Se trata de una muestra pequeña y no probabilística, por lo que sus resultados se leen como hallazgos exploratorios del grupo participante y no como generalizaciones.",
+   "id": "b260"
+  },
+  {
+   "type": "list",
+   "items": [
+    "<strong>Carga académica y ocupación del espacio vital:</strong> Los datos revelan una absorción casi total del tiempo del estudiante por parte de la dinámica académica. El 86,7 % (n = 13) permanece entre 4 y 6 horas diarias de forma presencial en las instalaciones universitarias (Tabla 1). Lo más llamativo apareció con respecto al trabajo autónomo en el hogar: el 100 % de la muestra destina horas de la noche o la madrugada a continuar con los encargos de diseño; ningún estudiante reportó lograr desconectarse al llegar a su casa. El 40,0 % (n = 6) le dedica entre 4 y 6 horas (\"le sigo dando parejo\") y un 20,0 % (n = 3) trabaja de forma continua \"hasta la madrugada\". Esto muestra que, para este grupo, la frontera entre el espacio formativo y el tiempo de descanso se encuentra desdibujada, como se aprecia en la Tabla 1 y en el mapa de calor de la Figura 3."
+   ],
+   "id": "b261"
+  },
+  {
+   "id": "b262",
+   "label": "Tabla 1",
+   "title": "Tiempo Presencial Universitario y Trabajo Autónomo en el Hogar (CDPS)",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Variable</strong>",
+     "<strong>Opción de respuesta</strong>",
+     "<strong>f</strong>",
+     "<strong>%</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "P1. Tiempo presencial diario en la universidad",
+     "Solo a lo que toca (menos de 4 h)",
+     "2",
+     "13,3"
+    ],
+    [
+     "Medio tiempo (4-6 h)",
+     "13",
+     "86,7"
+    ],
+    [
+     "Casi vivo en la U (6-8 h)",
+     "0",
+     "0,0"
+    ],
+    [
+     "Vivo literalmente allá (+8 h)",
+     "0",
+     "0,0"
+    ],
+    [
+     "<strong>Total P1</strong>",
+     "",
+     "15",
+     "100,0"
+    ],
+    [
+     "P1b. Trabajo autónomo adicional en casa",
+     "Casi nada, trato de desconectar",
+     "0",
+     "0,0"
+    ],
+    [
+     "Un rato por la noche (1-3 h)",
+     "6",
+     "40,0"
+    ],
+    [
+     "Le sigo dando parejo (4-6 h)",
+     "6",
+     "40,0"
+    ],
+    [
+     "Hasta la madrugada (+6 h)",
+     "3",
+     "20,0"
+    ],
+    [
+     "<strong>Total P1b</strong>",
+     "",
+     "15",
+     "100,0"
+    ]
+   ],
+   "note": "<em>Nota.</em> N = 15. Datos de las preguntas P1 y P1b de la CDPS, aplicada el 24 de abril de 2026. Los porcentajes se calculan sobre el total de cada pregunta."
+  },
+  {
+   "id": "b266",
+   "label": "Figura 3",
+   "title": "Mapa de Calor de la CDPS: Distribución del Tiempo Académico Presencial y Autónomo (P1)",
+   "type": "figure",
+   "src": "img/image15.png",
+   "note": "<em>Nota.</em> Visualizador de la CDPS durante la sesión del 24 de abril de 2026. La densidad de cada zona corresponde a la concentración de los votos anónimos de los 15 participantes sobre el lienzo digital."
+  },
+  {
+   "type": "list",
+   "items": [
+    "<strong>Autoexigencia, perfeccionismo y silenciamiento:</strong> Al indagar sobre la relación de los estudiantes consigo mismos, la autoexigencia apareció como una presión interna muy alta. En la pregunta P4 (escala Likert del 1 al 5), el promedio se situó en M = 4,07, con un 46,7 % (n = 7) que eligió la opción \"mi peor enemigo/a\" y un 20,0 % adicional que se autoexige al máximo (Tabla 2 y Figura 4). Esto conecta con la pregunta P5, donde el 73,3 % (n = 11) se reconoció como perfeccionista."
+   ],
+   "id": "b270"
+  },
+  {
+   "id": "b271",
+   "label": "Tabla 2",
+   "title": "Autoexigencia Académica y Rasgo de Perfeccionismo (CDPS)",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Nivel de autoexigencia (P4)</strong>",
+     "<strong>f</strong>",
+     "<strong>%</strong>",
+     "<strong>Identificación con el perfeccionismo (P5)</strong>",
+     "<strong>f</strong>",
+     "<strong>%</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "Nivel 1 (Relajado/a)",
+     "0",
+     "0,0",
+     "No, para nada",
+     "1",
+     "6,7"
+    ],
+    [
+     "Nivel 2 (Suave)",
+     "1",
+     "6,7",
+     "Solo a veces",
+     "3",
+     "20,0"
+    ],
+    [
+     "Nivel 3 (Normal)",
+     "4",
+     "26,7",
+     "Creo que sí",
+     "4",
+     "26,7"
+    ],
+    [
+     "Nivel 4 (Duro)",
+     "3",
+     "20,0",
+     "Sí, a morir",
+     "7",
+     "46,7"
+    ],
+    [
+     "Nivel 5 (Soy mi peor enemigo/a)",
+     "7",
+     "46,7",
+     "—",
+     "—",
+     "—"
+    ],
+    [
+     "<strong>Media de la escala</strong><br><strong>(M = 4,07)</strong>",
+     "15",
+     "100,0",
+     "Total con rasgos de perfeccionismo",
+     "11",
+     "73,3"
+    ]
+   ],
+   "note": "<em>Nota.</em> N = 15. La media de autoexigencia (M = 4,07) se calculó sobre la escala Likert de 1 a 5 de la pregunta P4; el porcentaje de perfeccionismo agrupa las respuestas “Creo que sí” y “Sí, a morir” de la pregunta P5."
+  },
+  {
+   "id": "b275",
+   "label": "Figura 4",
+   "title": "Distribución de la Autoexigencia Autorreportada (Pregunta P4)",
+   "type": "figure",
+   "src": null,
+   "chart": {
+    "type": "bar",
+    "dir": "bar",
+    "categories": [
+     "Nivel 1 (Relajado/a)",
+     "Nivel 2 (Suave)",
+     "Nivel 3 (Normal)",
+     "Nivel 4 (Duro)",
+     "Nivel 5 (Soy mi peor enemigo/a)"
+    ],
+    "series": [
+     {
+      "name": "Porcentaje de estudiantes (%)",
+      "values": [
+       0.0,
+       6.7,
+       26.7,
+       20.0,
+       46.7
+      ]
+     }
+    ]
+   },
+   "note": "<em>Nota.</em> Distribución porcentual de las respuestas de la pregunta P4 de la CDPS (N = 15). El nivel 5, destacado en amarillo, concentra el 46,7 % de la muestra."
+  },
+  {
+   "type": "p",
+   "html": "Frente a la frustración académica profunda (pregunta P7, 17 respuestas registradas), el 47,1 % (n = 8) manifestó que su respuesta principal es \"Me aguanto y sigo\", mientras que el 41,2 % (n = 7) experimenta una irritación que no exterioriza (Tabla 3 y Figura 5). Resultó llamativo que ningún estudiante eligiera abandonar el proyecto: en este grupo, renunciar no apareció como opción, incluso en momentos de saturación.",
+   "id": "b278"
+  },
+  {
+   "id": "b279",
+   "label": "Tabla 3",
+   "title": "Reacciones Conductuales ante la Frustración Académica Profunda (CDPS)",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Opción de respuesta</strong>",
+     "<strong>Valor</strong>",
+     "<strong>f</strong>",
+     "<strong>%</strong>",
+     "<strong>Categoría de reacción</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "Me aguanto y sigo",
+     "f",
+     "8",
+     "47,1",
+     "Represión / silenciamiento activo"
+    ],
+    [
+     "Me emputo / me irrito muchísimo",
+     "c",
+     "7",
+     "41,2",
+     "Tensión emocional internalizada"
+    ],
+    [
+     "Me ciego y sigo forzando",
+     "b",
+     "1",
+     "5,9",
+     "Hiperactividad compulsiva"
+    ],
+    [
+     "Pido auxilio",
+     "e",
+     "1",
+     "5,9",
+     "Búsqueda de apoyo externo"
+    ],
+    [
+     "Me bloqueo feo",
+     "a",
+     "0",
+     "0,0",
+     "Parálisis cognitiva"
+    ],
+    [
+     "Lo dejo botado",
+     "d",
+     "0",
+     "0,0",
+     "Deserción / abandono de la tarea"
+    ],
+    [
+     "<strong>Total de respuestas</strong>",
+     "",
+     "17",
+     "100,0",
+     ""
+    ]
+   ],
+   "note": "<em>Nota.</em> Pregunta P7 de selección múltiple (n = 17 respuestas registradas). El 88,3 % de las respuestas se concentra en la contención silenciosa y la irritabilidad no verbalizada; la deserción registra 0 %."
+  },
+  {
+   "id": "b283",
+   "label": "Figura 5",
+   "title": "Reacciones ante la Frustración Académica Profunda (Pregunta P7)",
+   "type": "figure",
+   "src": null,
+   "chart": {
+    "type": "bar",
+    "dir": "bar",
+    "categories": [
+     "Me aguanto y sigo",
+     "Me irrito mucho",
+     "Me ciego y sigo forzando",
+     "Pido auxilio",
+     "Me bloqueo",
+     "Lo dejo botado"
+    ],
+    "series": [
+     {
+      "name": "Porcentaje de respuestas (%)",
+      "values": [
+       47.1,
+       41.2,
+       5.9,
+       5.9,
+       0.0,
+       0.0
+      ]
+     }
+    ]
+   },
+   "note": "<em>Nota.</em> Distribución porcentual de las 17 respuestas registradas en la pregunta P7 de la CDPS."
+  },
+  {
+   "type": "p",
+   "html": "<strong>La paradoja del burnout, desconocimiento del término frente a vivencia frecuente:</strong> El cruce de las preguntas P8 a P11 dejó el hallazgo más llamativo de la fase, que la investigación denomina La Paradoja del <em>Burnout</em> (Tabla 4 y Figura 6). En la pregunta P8, el 93,3 % (n = 14) declaró que nunca había escuchado el término <em>burnout</em> o síndrome del quemado, y el 6,7 % restante (n = 1) afirmó haberlo oído sin comprender su significado; sin embargo, en la pregunta P9 el 86,7 % reconoció haberse sentido quemado por la carrera (66,7 % \"sí, sin duda\" y 20,0 % \"en picos intensos de estrés\"). Además, el 66,7 % (n = 10) afirmó en la pregunta P10 que se encuentra viviendo esa situación en este momento, y el 80,0 % (n = 12) manifestó en la pregunta P11 que este agotamiento es un \"ciclo sin fin que se repite cada semestre\".",
+   "id": "b286"
+  },
+  {
+   "id": "b287",
+   "label": "Tabla 4",
+   "title": "La Paradoja del Burnout: Contraste entre Concepto y Corporalidad (CDPS)",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Dimensión evaluada</strong>",
+     "<strong>Pregunta formulada</strong>",
+     "<strong>Resultado dominante</strong>",
+     "<strong>f</strong>",
+     "<strong>%</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "Alfabetización conceptual",
+     "P8. ¿Conoces el término “burnout”?",
+     "Nunca lo había escuchado en mi vida",
+     "14",
+     "93,3"
+    ],
+    [
+     "Experiencia vital encarnada",
+     "P9. ¿Sientes que la carrera te ha quemado?",
+     "Sí, sin duda alguna / en picos intensos de estrés",
+     "13",
+     "86,7"
+    ],
+    [
+     "Temporalidad inmediata",
+     "P10. ¿Cuándo sentiste tu último episodio?",
+     "Lo estoy viviendo en este momento",
+     "10",
+     "66,7"
+    ],
+    [
+     "Cronicidad estructural",
+     "P11. ¿Es un fenómeno recurrente?",
+     "Sí, es un ciclo sin fin de cada semestre",
+     "12",
+     "80,0"
+    ]
+   ],
+   "note": "<em>Nota.</em> N = 15. En la pregunta P9 el porcentaje agrupa las respuestas “Sí, sin duda alguna” (66,7 %) y “En picos intensos de estrés” (20,0 %)."
+  },
+  {
+   "id": "b291",
+   "label": "Figura 6",
+   "title": "La Paradoja del Burnout: Desconocimiento Conceptual frente a Vivencia Empírica",
+   "type": "figure",
+   "src": null,
+   "chart": {
+    "type": "bar",
+    "dir": "col",
+    "categories": [
+     "Nunca había escuchado el término (P8)",
+     "Lo ha experimentado en carne propia (P9)",
+     "Lo está viviendo ahora (P10)",
+     "Ciclo que se repite cada semestre (P11)"
+    ],
+    "series": [
+     {
+      "name": "Porcentaje de estudiantes (%)",
+      "values": [
+       93.3,
+       86.7,
+       66.7,
+       80.0
+      ]
+     }
+    ]
+   },
+   "note": "<em>Nota.</em> Comparación de los resultados dominantes de las preguntas P8 a P11 de la CDPS."
+  },
+  {
+   "type": "p",
+   "html": "Este hallazgo exploratorio refuerza la pertinencia de abordar la salud mental universitaria desde el diseño y el arte participativo: en este grupo, lo que parece faltar no es la vivencia del agotamiento, sino palabras y canales para nombrarlo y comunicarlo.",
+   "id": "b294"
+  },
+  {
+   "type": "list",
+   "items": [
+    "<strong>Redes de apoyo y costo vital del agotamiento:</strong> En la pregunta P12, el 53,3 % (n = 8) de los estudiantes indicó que casi nunca verbaliza sus emociones o su agotamiento, o que prefiere guardárselo. Ante un momento de colapso (pregunta P13), la opción más elegida, empatada con la familia, fue \"nadie, trato de salir solo/a\" (26,1 % de las respuestas), mientras que acudir a un psicólogo reunió el 13,0 % (n = 3). Los datos sugieren una tendencia a resolver el malestar en soledad, como se consolida en la Tabla 5."
+   ],
+   "id": "b295"
+  },
+  {
+   "id": "b296",
+   "label": "Tabla 5",
+   "title": "Tendencias de Silenciamiento Emocional y Redes de Auxilio (CDPS)",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Variable</strong>",
+     "<strong>Opción de respuesta</strong>",
+     "<strong>f</strong>",
+     "<strong>%</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "P12. ¿Sueles verbalizar tus emociones o tu agotamiento?",
+     "Sí, me desahogo",
+     "3",
+     "20,0"
+    ],
+    [
+     "A veces, con confianza",
+     "4",
+     "26,7"
+    ],
+    [
+     "Casi nunca",
+     "5",
+     "33,3"
+    ],
+    [
+     "Prefiero tragármelo solo/a",
+     "3",
+     "20,0"
+    ],
+    [
+     "<strong>Total P12</strong>",
+     "",
+     "15",
+     "100,0"
+    ],
+    [
+     "P13. ¿A quién acudes en momentos de colapso?",
+     "Nadie, trato de salir solo/a",
+     "6",
+     "26,1"
+    ],
+    [
+     "Mi familia",
+     "6",
+     "26,1"
+    ],
+    [
+     "Mis amigos de la U",
+     "4",
+     "17,4"
+    ],
+    [
+     "Mi pareja",
+     "4",
+     "17,4"
+    ],
+    [
+     "Un psicólogo",
+     "3",
+     "13,0"
+    ],
+    [
+     "<strong>Total P13</strong>",
+     "",
+     "23",
+     "100,0"
+    ]
+   ],
+   "note": "<em>Nota.</em> P12: pregunta cerrada (n = 15). P13: pregunta de selección múltiple (n = 23 respuestas registradas); sus porcentajes se calculan sobre el total de respuestas, no de participantes."
+  },
+  {
+   "type": "p",
+   "html": "Las consecuencias de esta carga (pregunta P18, 31 respuestas registradas) se reflejaron en el cuerpo y en lo psicosocial. Como muestra la Figura 7, el cansancio crónico lideró con el 32,3 % (n = 10), seguido por la ansiedad permanente (22,6 %, n = 7), la depresión o sensación de vacío (19,4 %, n = 6) y el bloqueo creativo (16,1 %, n = 5). Para un estudiante de una carrera proyectual, el bloqueo creativo no es un simple retraso: puede afectar directamente su identidad vocacional. El registro original del instrumento se conserva en el mapa de calor de la Figura 8.",
+   "id": "b300"
+  },
+  {
+   "id": "b301",
+   "label": "Figura 7",
+   "title": "Manifestaciones del Costo Vital del Burnout Académico",
+   "type": "figure",
+   "src": null,
+   "chart": {
+    "type": "doughnut",
+    "dir": null,
+    "categories": [
+     "Cansancio crónico",
+     "Ansiedad 24/7",
+     "Sensación de vacío",
+     "Bloqueo creativo",
+     "Aislamiento social"
+    ],
+    "series": [
+     {
+      "name": "",
+      "values": [
+       32.3,
+       22.6,
+       19.4,
+       16.1,
+       9.7
+      ]
+     }
+    ]
+   },
+   "note": "<em>Nota.</em> Distribución porcentual de las 31 respuestas registradas en la pregunta P18 de la CDPS"
+  },
+  {
+   "id": "b304",
+   "label": "Figura 8",
+   "title": "Mapa de Calor de la CDPS: Afectaciones Corporales y Creativas del Burnout (P18)",
+   "type": "figure",
+   "src": "img/image16.png",
+   "note": "<em>Nota.</em> Visualizador de la CDPS en el momento de cierre de la pregunta P18, con la votación simultánea de los 15 participantes sobre el lienzo digital."
+  },
+  {
+   "type": "list",
+   "items": [
+    "<strong>Respuestas abiertas (P19 y P20):</strong> Al final del instrumento se formularon dos preguntas abiertas. En la P19 («¿Existe alguna experiencia, frustración o sentimiento académico que siempre hayas mantenido en silencio?»), las respuestas giraron en torno a temas recurrentes: la comparación con los compañeros y la sensación de no ser suficiente («vivo comparándome con mis compañeros»), las dudas sobre la carrera elegida («Querer cancelar la carrera por no ver libertad laboral»), la soledad, la relación con algunos profesores y las notas, y el agotamiento. Algunas respuestas expresaron un malestar severo, lo que confirma la necesidad del protocolo de acompañamiento descrito en la Tabla 7. En la P20 («Escribe una frase final dirigida a tu propia autoexigencia»), predominaron los mensajes de ánimo y autocompasión, como «Vas bien, por un buen camino», «no debes ser dura contigo misma» o «Agradezco toda tu exigencia, pero debes descansar un poco de vez en cuando». Invitados a dirigirse a su propia autoexigencia, los participantes respondieron mayoritariamente con amabilidad."
+   ],
+   "id": "b308"
+  },
+  {
+   "id": "b309",
+   "type": "heading",
+   "level": 5,
+   "html": "C. Match Creativo: Depuración Conceptual (Ejercicio de Clase)"
+  },
+  {
+   "type": "p",
+   "html": "Se estructuró una matriz comparativa, denominada <em>Match Creativo</em>, para someter a crítica las propuestas preliminares de producto. El ejercicio llevó a descartar las propuestas convencionales de diseño frente a la salud mental (folletos informativos, afiches con frases motivacionales o aplicaciones de registro del estado de ánimo), por considerar que podían reproducir el estigma y abordar al estudiante desde la frialdad instrumental, lo que orientó el proyecto hacia una experiencia inmersiva y artística. La versión final de la matriz quedó alojada en la plataforma web.",
+   "id": "b310"
+  },
+  {
+   "id": "b311",
+   "type": "heading",
+   "level": 5,
+   "html": "D. Lluvia de Ideas: Exploración y Cruce con Industrias Culturales y Creativas (Ejercicio de Clase)"
+  },
+  {
+   "type": "p",
+   "html": "Durante la sesión grupal coordinada por la docente Caroll Suárez se asignó al proyecto el tema de la Arquitectura como referente de las Industrias Culturales y Creativas; por iniciativa propia, el ejercicio se extendió a cuatro temas adicionales (Música, Escultura, Museos y Videojuegos), produciendo cinco matrices en formato de mapa mental con ideas calificadas en tres niveles: inviable, buena idea y prioritaria. Las ideas prioritarias de las cinco matrices se reunieron y analizaron comparativamente en una matriz de síntesis proyectual, de la que emergió la propuesta central del proyecto: un ecosistema <em>phygital</em> que articula obras conceptuales físicas con una aplicación móvil de Realidad Aumentada que opera como lente reveladora. Todas las matrices fueron publicadas como mapas navegables e interactivos en la plataforma web (Figura 9). Junto con el Match Creativo, este ejercicio marca el paso de la indagación a la ideación.",
+   "id": "b312"
+  },
+  {
+   "id": "b313",
+   "label": "Figura 9",
+   "title": "Matriz de Síntesis y Decantación Conceptual hacia el Ecosistema Phygital",
+   "type": "figure",
+   "src": null
+  },
+  {
+   "id": "b316",
+   "type": "heading",
+   "level": 5,
+   "html": "E. Taller «Sobre lo que no dices»: Indagación Participativa y Primer Ejercicio de Cocreación (Trabajo de Campo)"
+  },
+  {
+   "type": "p",
+   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre del programa de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. La participación fue activa: cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego físico de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>, un formato impreso en el que escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con Realidad Aumentada y definió lo que espera que sienta quien la vea. La sesión generó dos corpus de información, uno cuantitativo y uno cualitativo. Por esta doble naturaleza, el taller cierra la indagación de la Fase 1 y, a la vez, constituye el primer ejercicio de cocreación del proyecto: las piezas propuestas en las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2).",
+   "id": "b317"
+  },
+  {
+   "type": "p",
+   "html": "La Hoja Individual opera como una consigna proyectiva: en lugar de pedir un testimonio directo, invita a elegir una figura que cargue aquello que se calla. La lectura de cada figura se tomó exclusivamente de lo que su autor escribió y explicó en voz alta; en ningún caso se interpretaron rasgos del dibujo.",
+   "id": "b318"
+  },
+  {
+   "type": "p",
+   "html": "Análisis cuantitativo de la cartelera grupal: El análisis descriptivo de las votaciones (Tabla 6 y Figura 11) ofrece un primer respaldo, exploratorio, a las premisas del proyecto, con dos consensos unánimes en el máximo de la escala.",
+   "id": "b319"
+  },
+  {
+   "id": "b320",
+   "label": "Tabla 6",
+   "title": "Matriz de Resultados Cuantitativos de la Cartelera Grupal",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Ítem</strong>",
+     "<strong>Afirmación evaluada</strong>",
+     "<strong>Votación nominal (1 al 5)</strong>",
+     "<strong>Media (M)</strong>",
+     "<strong>% de acuerdo (4 y 5)</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "1",
+     "El agotamiento afecta significativamente mi vida cotidiana.",
+     "[2]: 1, [3]: 1, [4]: 2",
+     "3,25",
+     "50,0"
+    ],
+    [
+     "2",
+     "Con frecuencia callo cosas que me pesan o me agobian.",
+     "[2]: 1, [4]: 1, [5]: 2",
+     "4,00",
+     "75,0"
+    ],
+    [
+     "3",
+     "Me resulta difícil poner en palabras lo que siento cuando estoy agotado/a.",
+     "[3]: 2, [4]: 1, [5]: 1",
+     "3,75",
+     "50,0"
+    ],
+    [
+     "4",
+     "El arte puede comunicar cosas que las palabras no logran expresar.",
+     "[5]: 4",
+     "5,00",
+     "100,0"
+    ],
+    [
+     "5",
+     "Estaría dispuesto/a a crear y publicar una pieza sobre algo que callo.",
+     "[4]: 1, [5]: 3",
+     "4,75",
+     "100,0"
+    ],
+    [
+     "6",
+     "Me sentiría cómodo/a con que desconocidos interactúen con mi obra emocional.",
+     "[3]: 1, [4]: 3",
+     "3,75",
+     "75,0"
+    ],
+    [
+     "7",
+     "La realidad aumentada con capacidad de expresión en la pieza me parece atractiva.",
+     "[4]: 1, [5]: 3",
+     "4,75",
+     "100,0"
+    ],
+    [
+     "8",
+     "Interactuaría con la obra emocional de otro creador si tuviera acceso a ella.",
+     "[5]: 4",
+     "5,00",
+     "100,0"
+    ]
+   ],
+   "note": "<em>Nota.</em> N = 4 estudiantes de Diseño Gráfico. Escala Likert de 1 (totalmente en desacuerdo) a 5 (totalmente de acuerdo); la votación nominal indica el número de participantes por nivel. El porcentaje de acuerdo agrupa los niveles 4 y 5."
+  },
+  {
+   "type": "p",
+   "html": "Con la cautela que impone un grupo de cuatro personas, se desprenden tres lecturas de esta matriz. Primero, el arte como canal de expresión (M = 5,00, unánime): los cuatro participantes estuvieron totalmente de acuerdo en que el arte puede comunicar cosas que las palabras no logran expresar. Segundo, la disposición a encontrarse con la obra de otro (M = 5,00, unánime): todos interactuarían con la obra emocional de otro creador si tuvieran acceso a ella. Tercero, el interés por la Realidad Aumentada (M = 4,75): la capa digital les resultó atractiva como forma de expresión de la pieza. A la vez, la afirmación sobre el efecto del agotamiento en la vida cotidiana obtuvo la media más baja (M = 3,25), y la comodidad con que desconocidos interactúen con la propia obra (M = 3,75) fue menor que la disposición a crearla y publicarla (M = 4,75), una tensión que reaparece en el debate sobre autoría y anonimato. Las Figuras 10 y 11 complementan este análisis con el registro fotográfico del pliego marcado y la comparación radial de las medias.",
+   "id": "b324"
+  },
+  {
+   "id": "b325",
+   "label": "Figura 10",
+   "title": "Registro Fotográfico de la Cartelera Grupal",
+   "type": "figure",
+   "src": "img/image17.jpeg",
+   "note": "<em>Nota.</em> Pliego físico de 100 × 70 cm marcado por los cuatro participantes durante el taller del 11 de mayo de 2026."
+  },
+  {
+   "id": "b329",
+   "label": "Figura 11",
+   "title": "Medias por Afirmación de la Cartelera Grupal",
+   "type": "figure",
+   "src": null,
+   "chart": {
+    "type": "radar",
+    "dir": null,
+    "categories": [
+     "1. Agotamiento en la vida diaria",
+     "2. Callar lo que pesa",
+     "3. Dificultad para verbalizar",
+     "4. El arte comunica",
+     "5. Disposición a crear",
+     "6. Comodidad con extraños",
+     "7. Atractivo de la RA",
+     "8. Interactuaría con la obra"
+    ],
+    "series": [
+     {
+      "name": "",
+      "values": [
+       3.25,
+       4.0,
+       3.75,
+       5.0,
+       4.75,
+       3.75,
+       4.75,
+       5.0
+      ]
+     }
+    ]
+   },
+   "note": "<em>Nota.</em> Comparación radial de las medias (M) de las 8 afirmaciones evaluadas (N = 4). Los puntos dorados destacan los dos consensos unánimes con M = 5,00: la capacidad comunicativa del arte (afirmación 4) y la disposición a interactuar con la obra de otro creador (afirmación 8)."
+  },
+  {
+   "type": "p",
+   "html": "Análisis cualitativo de las hojas individuales de prototipado: Los cuatro formatos individuales (Figura 12) se presentan a continuación sin interpretar los dibujos. Para cada caso se recoge, con las palabras de su autor, lo que escribió que calla, la pieza que dibujó, lo que propuso para la capa de Realidad Aumentada y lo que espera que sienta quien la vea. Los nombres corresponden a los alias elegidos por los participantes, y las citas se transcriben de las hojas con ajustes mínimos de ortografía.",
+   "id": "b332"
+  },
+  {
+   "type": "list",
+   "items": [
+    "<strong>Caso 01 – Flor.</strong> Escribió que calla: «Que estoy cansada seguido y harta de tanta carga». Dibujó un frasco en forma de corazón, con grietas, del que sale un líquido. Para la capa de RA propuso: «Un frasco de agua rota y se rompe, puede tener textura suave como si fuera fuerte o como si no pasara nada». Espera que quien vea la pieza sienta o piense: «Que así se ve cuando te guardas todo pensando que no pasará nada si no lo hablas, lo que te duele».",
+    "<strong>Caso 02 – Blue.</strong> Escribió que calla: «Tu forma de ser, hablar lo que pienso». Dibujó un ojo en el centro de una espiral, acompañado de las palabras «Emociones», «lo que siente» y «El ojo que todo lo ve», y anotó que lo representa como un disco porque depende de la música y su ritmo. Para la capa de RA propuso: «Cuando escaneas esta ilustración salen diferentes tipos de ritmos de música como un disco, que va cambiando de color depende cómo te sientes». Espera transmitir «tranquilidad, saber cómo están los sentimientos», y añadió que, al tocar el ojo, van saliendo diferentes ilustraciones.",
+    "<strong>Caso 03 – Nyo.</strong> Escribió que calla una sola palabra: «Incertidumbre». Dibujó una figura humana que sostiene una llama, con la anotación: «se mueve y me ayuda a saber qué hacer en cada situación de incertidumbre». Para la capa de RA propuso «interacción con la pieza para ayudar». Espera que quien la vea sienta «tranquilidad, una ayuda, saber cómo solucionar problemas», y señaló como mensaje: «siempre hay una solución a todo».",
+    "<strong>Caso 04 – Sun.</strong> Escribió que calla: «Preocupaciones, que pueda pasar después, por decirlo así: \"el futuro\", inseguridades». Dibujó un candado con grietas y líneas a su alrededor. Para la capa de RA propuso: «que al momento que se escanee la pieza le den toques a esta y se quiebre, y tenga sonidos». Espera transmitir «que de cierta manera somos frágiles» y que «muchas veces tenemos que ponernos de primeros»."
+   ],
+   "id": "b333"
+  },
+  {
+   "id": "b334",
+   "label": "Figura 12",
+   "title": "Hojas Individuales de Prototipado Diligenciadas por los Participantes",
+   "type": "figure",
+   "src": "img/image18.jpeg",
+   "images": [
+    "img/image18.jpeg",
+    "img/image19.jpeg",
+    "img/image20.jpeg",
+    "img/image21.jpeg"
+   ],
+   "note": "<em>Nota.</em> Registro fotográfico de las cuatro hojas individuales (del 01 al 04), con la confesión escrita, el boceto de la obra conceptual y la definición de su capa de Realidad Aumentada."
+  },
+  {
+   "type": "p",
+   "html": "Tras este ejercicio emergió un hallazgo metodológico: la tensión entre autoría, anonimato y exposición. Durante el diálogo abierto del taller, los participantes manifestaron un conflicto entre el deseo de reconocimiento autoral y el pudor de exponer públicamente intimidades tan vulnerables. Algunos preferían el anonimato estricto o condicionaban la exhibición pública de lo que callan a un marco formal de cesión de derechos o de compensación económica, por temor al estigma o la humillación; otros preferían la autoría explícita no remunerada, al valorar el crédito artístico como un acto de valentía y reivindicación personal.",
+   "id": "b341"
+  },
+  {
+   "type": "p",
+   "html": "En vista de esta dualidad, como resolución proyectual para el ecosistema <em>phygital</em>, se determinó implementar un sistema de identidad flexible mediado por el consentimiento informado previo, donde cada creador escoge libremente cómo desea firmar su pieza física y su registro en la app móvil: con su nombre real, bajo un pseudónimo poético o mediante un código alfanumérico anónimo.",
+   "id": "b342"
+  },
+  {
+   "id": "b343",
+   "type": "heading",
+   "level": 5,
+   "html": "F. Entrevista a Gabriel Iván Parra Rosero: Lineamientos Éticos y Metodológicos (Trabajo de Campo)"
+  },
+  {
+   "type": "p",
+   "html": "Para orientar ética y metodológicamente el proyecto, el 25 de junio de 2026 se llevó a cabo una entrevista en profundidad de 2 horas y 20 minutos con Gabriel Iván Parra Rosero, diseñador gráfico y psicólogo de la Universidad de Nariño y líder del proyecto comunitario <em>Comunarte</em>. Sus orientaciones permitieron establecer diez lineamientos que rigen el proyecto, sintetizados en la Tabla 7. El registro de la sesión se documenta en la Figura 13.",
+   "id": "b344"
+  },
+  {
+   "id": "b345",
+   "label": "Tabla 7",
+   "title": "Lineamientos Éticos y Operativos Derivados de la Entrevista con el Experto",
+   "type": "table",
+   "head": [
+    [
+     "<strong>Principio operativo</strong>",
+     "<strong>Orientación de Gabriel Parra</strong>",
+     "<strong>Integración en el ecosistema</strong>"
+    ]
+   ],
+   "rows": [
+    [
+     "1. Delimitación del rol del diseñador",
+     "El diseñador es un gestor cultural y puente narrativo/tecnológico; jamás debe usurpar el papel del terapeuta ni evaluar patologías.",
+     "El proyecto se delimita estrictamente a la mediación expresiva y la producción artística sensible."
+    ],
+    [
+     "2. Desmedicalización del lenguaje",
+     "Descartar términos clínicos como “terapia”, “diagnóstico”, “cura” o “depresión”, que activan barreras defensivas.",
+     "La convocatoria y el discurso del proyecto se formulan desde el “encuentro creativo”, el “desahogo emocional” y la “elaboración simbólica”."
+    ],
+    [
+     "3. Protocolo de taller intensivo",
+     "Sesión única de máximo 2 horas continuas para evitar la desconexión emocional y el agotamiento mental.",
+     "Estructura modular de 120 minutos: 20 min de sensibilización, 75 min de producción plástica, 10 min de pre/post-test y 15 min de cierre."
+    ],
+    [
+     "4. Cierre con Círculo de la Palabra",
+     "Los últimos 15 minutos deben destinarse obligatoriamente a compartir impresiones colectivas para decantar la carga movilizada.",
+     "Implementación del Círculo de la Palabra como dispositivo de contención comunitaria y cierre reflexivo."
+    ],
+    [
+     "5. Protocolo de contención emocional",
+     "Disponer de una red de apoyo profesional ante eventuales crisis afectivas o expresiones de desborde.",
+     "Acompañamiento profesional y protocolo de articulación inmediata con el servicio de Bienestar Universitario."
+    ],
+    [
+     "6. Fidelidad en la traducción digital",
+     "La capa de Realidad Aumentada no debe interpretar libremente al autor; debe traducir con rigor lo que el creador declaró.",
+     "La animación, el modelado y el sonido se derivan directamente de las narraciones escritas en las hojas individuales y del audio del taller."
+    ],
+    [
+     "7. Validación de la RA centrada en UX",
+     "La RA no requiere validación psicológica ni juicio de expertos clínicos; su eficacia se evalúa en términos de usabilidad y comunicación.",
+     "Las pruebas de la aplicación MetafoRA se concentran en métricas de interacción, fluidez de escaneo y resonancia afectiva en el lector."
+    ],
+    [
+     "8. Resonancia del lector",
+     "Es viable que un espectador resuene con la obra de un extraño, porque compartimos dolores comunes (duelo, desamor, estrés).",
+     "La exhibición se plantea como un espacio de identificación con experiencias compartidas (ver apartado 1.7.4)."
+    ],
+    [
+     "9. Blindaje ético y consentimiento",
+     "Firma de consentimiento informado riguroso previo a la sesión de taller para autorizar la digitalización y definir la autoría.",
+     "Formato formal de consentimiento con cláusula explícita de opción de firma anónima o crédito artístico abierto."
+    ],
+    [
+     "10. Devolución de emergentes",
+     "Evitar el extractivismo académico: los resultados y la capa digital deben retornar a los participantes.",
+     "Los cocreadores son los invitados de honor en la muestra final, donde conocen la versión definitiva de sus obras aumentadas."
+    ]
+   ],
+   "note": "<em>Nota.</em> Síntesis de la entrevista en profundidad con Gabriel Iván Parra Rosero del 25 de junio de 2026 (2 horas y 20 minutos)."
+  },
+  {
+   "id": "b349",
+   "label": "Figura 13",
+   "title": "Registro de la Sesión de Trabajo con Gabriel Iván Parra Rosero",
+   "type": "figure",
+   "src": "img/image22.png",
+   "note": "<em>Nota.</em> Captura de la sesión virtual con Gabriel Iván Parra Rosero, realizada el 25 de junio de 2026."
+  },
+  {
+   "type": "p",
+   "html": "<strong>Síntesis Diagnóstica y Oportunidades de Diseño</strong>",
+   "id": "b353"
+  },
+  {
+   "type": "p",
+   "html": "El recorrido de la Fase 1, articulado a través de la CDPS (n = 15), el taller <em>Sobre lo que no dices</em> con sus cuatro hojas individuales (Flor, Blue, Nyo y Sun) y la entrevista con el diseñador y psicólogo Gabriel Iván Parra Rosero, consolidó una base exploratoria sobre la vivencia del agotamiento y el silenciamiento en estudiantes de diseño. Los hallazgos sugieren que la sobrecarga académica se vive también en el cuerpo (cansancio, ansiedad, bloqueo creativo) y que muchos jóvenes tienden a guardarse lo que sienten. A partir de esta base se identifican cuatro oportunidades de diseño que orientan el paso hacia la creación y el prototipado del ecosistema <em>phygital</em>:",
+   "id": "b354"
+  },
+  {
+   "type": "p",
+   "html": "<strong>1. Expresión indirecta y desahogo simbólico:</strong> En la CDPS, el 53,3 % de los participantes indicó que casi nunca verbaliza sus emociones o que prefiere guardárselas, y acudir a un psicólogo reunió solo 3 de las 23 respuestas sobre a quién acudir en un momento de colapso. La primera oportunidad de diseño reside en ofrecer un canal indirecto y protegido, donde el participante pueda proyectar lo que siente a través de una metáfora visual. En este sentido, Parra recomendó el método biográfico narrativo, que invita a contar las propias vivencias en tercera persona, como si le ocurrieran a un alterego (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026); la figura proyectiva cumple una función similar en el plano visual.",
+   "id": "b355"
+  },
+  {
+   "type": "p",
+   "html": "<strong>2. Dar movimiento a lo contenido mediante la Realidad Aumentada:</strong> Las propuestas de RA de los cuatro autores coinciden en pedir que la pieza haga algo al ser escaneada: que el frasco se rompa, que suene música y cambie de color, que la pieza ayude a quien interactúa con ella o que el candado se quiebre al tocarlo. La oportunidad proyectual consiste en no dejar la obra como una imagen estática, sino utilizar la capa digital para dar movimiento a lo que cada autor describió. Como lectura del diseñador sobre el conjunto, y no sobre ninguna obra en particular, este gesto se conecta con el concepto del proyecto: el cristal que deja ver lo que contiene y el kintsugi que hace visible la grieta (ver apartado 2.2).",
+   "id": "b356"
+  },
+  {
+   "type": "p",
+   "html": "<strong>3. Resonancia mediante diseño sonoro inmersivo:</strong> Parra considera viable que un espectador resuene con la obra de un desconocido porque compartimos dolores comunes, como el duelo, el desamor o el estrés (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026), y algunos autores relacionan esta respuesta con mecanismos de simulación corporal ante las obras (Freedberg y Gallese, 2007). La oportunidad de diseño consiste en acompañar la pieza visual con audio espacializado, derivado de lo que cada autor describió (como los ritmos de Blue o los sonidos del candado de Sun), para que el lector no solo mire una ilustración, sino que también la escuche y pueda reconocer en ella algo de su propia experiencia.",
+   "id": "b357"
+  },
+  {
+   "type": "p",
+   "html": "<strong>4. Ecosistema phygital y devolución a la comunidad universitaria:</strong> En consonancia con el principio de devolución de emergentes, la investigación-creación no puede extraer información de la comunidad para archivarla en un documento académico cerrado. La oportunidad final reside en articular un ecosistema híbrido (piezas físicas expuestas en la universidad y vinculadas a la aplicación móvil <em>MetafoRA</em>), que convierta el entorno institucional cotidiano en un espacio de diálogo donde la vulnerabilidad compartida cuestione la cultura de la autoexplotación.",
+   "id": "b358"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Requerimientos de Diseño</strong>",
+   "id": "b359"
+  },
+  {
+   "type": "p",
+   "html": "Las oportunidades anteriores se traducen en los requerimientos de diseño de la Tabla 8. Siguiendo la recomendación de Blease et al. (2026), la columna \"Origen\" indica si cada requerimiento proviene de los participantes, del experto entrevistado, de la literatura o de una decisión del diseñador.",
+   "id": "b360"
+  },
+  {
+   "id": "b361",
+   "label": "Tabla 8",
+   "title": "Requerimientos de Diseño del Ecosistema Phygital",
+   "type": "table",
+   "head": [
+    [
+     "Componente",
+     "Requerimiento",
+     "Origen"
+    ]
+   ],
+   "rows": [
+    [
+     "Obra física",
+     "Cada obra parte de la figura proyectiva que su autor eligió y describió; el diseñador no le atribuye significados propios.",
+     "Participantes (hojas individuales); lineamiento 6"
+    ],
+    [
+     "Autoría",
+     "Sistema de identidad flexible: el creador firma con su nombre, un seudónimo o un código anónimo.",
+     "Participantes (debate del taller); lineamiento 9"
+    ],
+    [
+     "Capa de RA",
+     "La animación y el sonido traducen solo lo que el autor declaró por escrito o en el Círculo de la Palabra.",
+     "Experto (lineamiento 6)"
+    ],
+    [
+     "Duración",
+     "Experiencias de RA cortas y dosificadas.",
+     "Literatura (Park et al., 2021)"
+    ],
+    [
+     "Lenguaje",
+     "Lenguaje no clínico en la convocatoria, la aplicación y la exposición.",
+     "Experto (lineamiento 2)"
+    ],
+    [
+     "Biblioteca",
+     "La aplicación guarda cada obra escaneada para volver a ella después de la exposición.",
+     "Diseñador (PMV)"
+    ],
+    [
+     "Ruta de apoyo",
+     "La aplicación y la exposición indican de forma visible cómo acceder a Bienestar Universitario.",
+     "Experto (lineamiento 5)"
+    ],
+    [
+     "Devolución",
+     "Los cocreadores son invitados de honor a la muestra final.",
+     "Experto (lineamiento 10)"
+    ],
+    [
+     "Relación obra–RA",
+     "La obra física funciona por sí sola; la RA revela una capa adicional sin reemplazarla.",
+     "Diseñador (apartado 2.2); literatura (Azuma, 1997; Cabero-Almenara et al., 2022)"
+    ]
+   ],
+   "note": "<em>Nota.</em> Elaboración propia a partir de los resultados de la Fase 1. Los lineamientos corresponden a la Tabla 7."
+  },
+  {
+   "type": "heading",
+   "level": 4,
+   "html": "Fase 2 - Prototipado (Construcción del Ecosistema <em>Phygital</em>)",
+   "id": "b365"
+  },
+  {
+   "type": "p",
+   "html": "La Fase de Prototipado traduce los hallazgos de la indagación en el ecosistema <em>phygital</em>. Se desarrolla en dos momentos: un primer ejercicio, ya realizado, en el que las piezas del taller <em>Sobre lo que no dices</em> dieron lugar al primer Producto Mínimo Viable (PMV) de <em>MetafoRA</em>, desarrollado a la medida en Unity con Vuforia Engine; y los talleres de cocreación con comunidad, pendientes, de los que saldrán las obras definitivas.",
+   "id": "b366"
+  },
+  {
+   "id": "b367",
+   "type": "heading",
+   "level": 5,
+   "html": "A. Primer Ejercicio de Cocreación y PMV de MetafoRA (Realizado)"
+  },
+  {
+   "type": "p",
+   "html": "El PMV se orientó a comprobar tres capacidades técnicas:",
+   "id": "b368"
+  },
+  {
+   "type": "list",
+   "items": [
+    "Detección y seguimiento de marcadores bidimensionales: comprobación de que ilustraciones y piezas gráficas complejas (con texturas orgánicas y escalas tonales sutiles) sean reconocidas de forma instantánea y estable por la cámara del dispositivo móvil, manteniendo anclado el contenido virtual sin temblores ni desalineaciones (<em>tracking drift</em>).",
+    "Superposición multimodal en tiempo real: capacidad de desplegar simultáneamente modelos 3D animados, efectos visuales de partículas translúcidas y capas de audio espacializado sincronizadas con la animación.",
+    "Mecánica de galería y recolección de memorias: sistema funcional que registra en una biblioteca interna cada obra escaneada, permitiendo al usuario revivir las revelaciones descubiertas incluso después de abandonar el espacio físico de exhibición."
+   ],
+   "id": "b369"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Origen de las piezas:</strong> Las cuatro obras del prototipo parten de los casos del taller (Flor, Blue, Nyo y Sun). A partir de los bocetos dibujados a mano en las hojas individuales, el diseñador generó versiones refinadas con herramientas de Inteligencia Artificial generativa, procurando conservar los elementos que cada autor dibujó y describió. Los autores conocieron estas versiones durante una presentación del proyecto, pero no hubo una retroalimentación formal de su parte. Esto constituye una limitación del ejercicio: las versiones refinadas son una propuesta del diseñador y no una cocreación validada. En los talleres pendientes, cualquier intervención digital sobre las obras quedará acordada con sus autores mediante el consentimiento informado.",
+   "id": "b370"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Animaciones y capas de Realidad Aumentada:</strong> Sobre estas ilustraciones se diseñaron las capas audiovisuales. Al escanear la ilustración física con <em>MetafoRA</em>, la aplicación ancla el contenido virtual en tiempo real y reproduce la animación y el audio correspondientes. La interpretación y las animaciones de este primer prototipo son un ejercicio de prototipado rápido y una prueba de concepto: no representan la traducción definitiva de lo planteado por los autores, sino un piloto para comprobar la viabilidad técnica del ecosistema antes de llevar el modelo de cocreación a los talleres con comunidad.",
+   "id": "b371"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Iteración del software:</strong> <em>MetafoRA</em> no surgió de una compilación única, sino de un proceso de iteración técnica: resolución de incompatibilidades de hardware, calibración del seguimiento óptico y optimización del consumo de memoria en dispositivos Android. El proyecto pasó por once compilaciones internas de prueba (versiones 0.0.10, 0.0.11 y 0.0.20 a 0.0.28) hasta consolidar la versión metafora_0.0.29.apk, definida como el Prototipo V1 (PMV).",
+   "id": "b372"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Demostraciones del Prototipo V1:</strong> El PMV se mostró en tres espacios, que funcionaron como demostraciones y no como una validación formal: a) la sustentación final de noveno semestre (Proyecto de Grado 1), donde las cuatro ilustraciones se imprimieron y enmarcaron, y los jurados interactuaron con ellas usando la APK 0.0.29, lo que permitió observar en vivo la estabilidad del seguimiento de imagen, la fluidez de la animación y la sincronía del audio; b) el Festival Buenamente 2026, en una ponencia con demostraciones en vivo ante la comunidad universitaria; y c) una sesión de la asignatura Proyecto de Grado 2 (décimo semestre), con pruebas directas con docentes y estudiantes, en las que se observó la facilidad para sostener el dispositivo, la legibilidad de la interfaz y las primeras reacciones ante las metáforas.",
+   "id": "b373"
+  },
+  {
+   "type": "p",
+   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 14, y el registro de la interacción sobre una obra física, en la Figura 15.",
+   "id": "b374"
+  },
+  {
+   "id": "b375",
+   "label": "Figura 14",
+   "title": "Pruebas de Visualización del PMV de MetafoRA",
+   "type": "figure",
+   "src": "img/image23.jpeg",
+   "images": [
+    "img/image23.jpeg",
+    "img/image24.jpeg",
+    "img/image25.jpeg",
+    "img/image26.jpeg",
+    "img/image27.jpeg",
+    "img/image28.jpeg",
+    "img/image29.jpeg",
+    "img/image30.jpeg"
+   ],
+   "note": "<em>Nota.</em> Capturas de pantalla de la interfaz del PMV MetafoRA desarrollado en Unity con Vuforia Engine: biblioteca de obras, apertura de la cámara y modo de escaneo del sustrato físico."
+  },
+  {
+   "id": "b386",
+   "type": "figure",
+   "label": "Figura 15",
+   "title": "Registro de Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre Sustrato Físico",
+   "src": "img/image31.png",
+   "note": "<em>Nota. Demostración de interacción directa con el dispositivo móvil escaneando una de las obras impresas enmarcadas, que revela la capa de Realidad Aumentada y el audio en tiempo real.</em>"
+  },
+  {
+   "id": "b389",
+   "type": "heading",
+   "level": 5,
+   "html": "B. Talleres de Cocreación con Comunidad (Pendientes)"
+  },
+  {
+   "type": "p",
+   "html": "El segundo momento de esta fase, y el núcleo del propósito específico 2, son los talleres de cocreación con comunidad. Siguiendo la recomendación de Parra de contrastar grupos con perfiles distintos, se realizarán con dos comunidades: estudiantes de Diseño Gráfico y estudiantes de una o varias carreras distintas al diseño. Parra señaló que no se requieren habilidades artísticas previas y que la falta de técnica puede hacer la expresión más orgánica, por lo que la segunda comunidad no necesita formación en artes (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026).",
+   "id": "b390"
+  },
+  {
+   "type": "p",
+   "html": "El contraste no busca establecer qué grupo se expresa mejor, sino observar cómo cambian las figuras proyectivas, los temas y las propuestas de RA entre ambas comunidades. El protocolo de los talleres se resume en la Tabla 9, a partir de los lineamientos de la Tabla 7 y de las acciones 2.2 a 2.5 del proyecto: convocatoria con identidad flexible, talleres de producción artística, desarrollo de <em>MetafoRA</em> e integración del ecosistema.",
+   "id": "b391"
+  },
+  {
+   "id": "b392",
+   "label": "Tabla 9",
+   "title": "Protocolo de los Talleres de Cocreación con Comunidad",
+   "type": "table",
+   "head": [
+    [
+     "Aspecto",
+     "Descripción",
+     "Base"
+    ]
+   ],
+   "rows": [
+    [
+     "Participantes",
+     "Dos grupos de 8 a 12 personas, de 18 a 25 años. Grupo A: estudiantes de Diseño Gráfico. Grupo B: estudiantes de una o varias carreras distintas al diseño.",
+     "Recomendación de Parra (grupos focales y contraste de perfiles)"
+    ],
+    [
+     "Convocatoria",
+     "Muestreo por bola de nieve (referidos) y lenguaje no clínico, por ejemplo \"encuentro creativo desde las emociones\" o \"taller de expresión artística y tecnología\".",
+     "Lineamiento 2; acción 2.2"
+    ],
+    [
+     "Consentimiento",
+     "Firmado antes de la sesión. Autoriza el uso académico de las obras, las fotografías y grabaciones y la intervención con RA, y permite elegir la firma: nombre, seudónimo o código.",
+     "Lineamiento 9"
+    ],
+    [
+     "Estructura (120 min)",
+     "20 min de sensibilización; 75 min de producción artística; 10 min en total de pre y post-test con pósits de colores (estado físico, cognitivo y emocional); 15 min de Círculo de la Palabra.",
+     "Lineamientos 3 y 4; acción 2.3"
+    ],
+    [
+     "Acompañamiento",
+     "Presencia de un profesional en psicología (Parra ofreció acompañar las sesiones) y ruta de articulación con Bienestar Universitario.",
+     "Lineamiento 5"
+    ],
+    [
+     "Después del taller",
+     "La capa de RA se construye solo a partir de lo que cada autor declaró; las obras se integran en la versión final de MetafoRA y se producen como piezas físicas para la muestra.",
+     "Lineamiento 6; acciones 2.4 y 2.5"
+    ]
+   ],
+   "note": "<em>Nota.</em> Elaboración propia a partir de la entrevista con G. I. Parra Rosero (comunicación personal, 25 de junio de 2026) y de las acciones 2.2 a 2.5 del proyecto."
+  },
+  {
+   "type": "heading",
+   "level": 4,
+   "html": "Fase 3 - Validación (Evaluación de Usabilidad e Incidencia Emocional)",
+   "id": "b396"
+  },
+  {
+   "type": "p",
+   "html": "Esta fase corresponde al Capítulo 3 y se desarrollará al cierre del ciclo de grado. Comprenderá una muestra expositiva de las obras en la Universidad CESMAG con la versión final de <em>MetafoRA</em>; cuestionarios con escala Likert para los lectores sobre usabilidad, inmersión e identificación; entrevistas semiestructuradas y círculos de palabra con los creadores; el registro observacional de la interacción, y la triangulación de estos datos para evaluar la incidencia de la estrategia en la elaboración emocional de los participantes.",
+   "id": "b397"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "2.2 - Concepto de Diseño",
+   "id": "b398"
+  },
+  {
+   "type": "p",
+   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar.",
+   "id": "b399"
+  },
+  {
+   "type": "p",
+   "html": "Técnicamente, la Realidad Aumentada superpone contenido digital al mundo real (Azuma, 1997); conceptualmente, en este proyecto no añade información ajena a la obra: la revela. Esta distinción es el corazón del concepto. La RA funciona como una lente que hace visible lo que su autor declaró y que la materia física, por sí sola, quizás no alcanza a transmitir; no se trata de contenido nuevo, sino de contenido liberado, que estaba contenido en el soporte tangible. La obra funciona sin el teléfono, y el gesto voluntario de apuntarlo hacia ella convierte al lector en partícipe del acto de revelación. Para pensar esa lente, el diseñador propone la imagen del cristal, una superficie que deja ver lo que contiene, aunque con cierta distorsión, y que puede agrietarse sin dejar de mostrar. A ella se suma el kintsugi, que en lugar de ocultar la fractura la hace visible (Dobkin, 2022). Ambas imágenes son una lectura del diseñador sobre el proyecto en su conjunto, no una interpretación de las obras de los participantes, cuyo sentido corresponde siempre a sus autores.",
+   "id": "b400"
+  },
+  {
+   "type": "p",
+   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario.",
+   "id": "b401"
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "html": "2.3 - Estilo Gráfico",
+   "id": "b402"
+  },
+  {
+   "type": "p",
+   "html": "La dirección de arte del ecosistema (la interfaz de <em>MetafoRA</em>, la museografía de la muestra y las piezas de comunicación) se sustenta en tres pilares visuales pensados para distanciarse de la frialdad clínica. Este estilo no se aplica a las obras de los participantes, que conservan el lenguaje visual de cada autor:",
+   "id": "b403"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Glassmorfismo y Translucidez</strong>",
+   "id": "b404"
+  },
+  {
+   "type": "p",
+   "html": "La decisión estética y estilística central del proyecto es el <em>glassmorfismo</em>: superficies con efecto de cristal translúcido o vidrio esmerilado con desenfoque de fondo, que aluden, literalmente, a los lentes y a las ventanas. A través de ellos se puede adivinar formas y densidades, pero con una ligera distorsión y opacidad que sugieren que hay algo más allá, esperando ser enfocado. La Realidad Aumentada no hace otra cosa: actúa como el haz de luz que atraviesa el vidrio, aclarando aquello que la materia apenas insinúa.",
+   "id": "b405"
+  },
+  {
+   "type": "p",
+   "html": "<strong>Paleta Cromática: La Tensión entre Silencio y Revelación</strong>",
+   "id": "b406"
+  },
+  {
+   "type": "list",
+   "items": [
+    "Violeta y púrpura profundo (color dominante): evoca la introspección psicológica, la interioridad, la penumbra del secreto, la solemnidad del dolor contenido y el silencio respetuoso.",
+    "Amarillo cálido y dorado (color de acento y revelación): representa el destello de la iluminación, la catarsis, la energía liberada en la confesión y el momento exacto en que una verdad íntima sale a la luz pública.",
+    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena."
+   ],
+   "id": "b407"
+  },
+  {
+   "type": "quote",
+   "html": "<strong>Morfología Orgánica y Tipografía Contemporánea</strong>",
+   "id": "b408"
+  },
+  {
+   "type": "p",
+   "html": "Las formas propuestas son curvas y contemporáneas, con el fin de alejarse de la rigidez geométrica ortogonal de los formatos institucionales o psiquiátricos: líneas continuas, bordes redondeados y transiciones suaves inspiradas en la fluidez de los estados afectivos humanos. La interfaz busca parecer cercana al lenguaje visual que los jóvenes ya utilizan en su cotidianidad, de modo que no se imponga una nueva estética y, en su lugar, se acceda al usuario desde lo familiar. La tipografía combina fuentes sin serifa modernas de alta legibilidad en pantalla para los elementos interactivos con sutiles acentos de corte humanista o gestual para los textos confesionales: el propósito es que la app se sienta cómoda y conocida, para que las revelaciones realizadas con la RA sean la verdadera sorpresa.",
+   "id": "b409"
+  },
+  {
+   "type": "heading",
+   "level": 1,
+   "html": "Referencias",
+   "id": "b410",
+   "breakBefore": true
+  },
+  {
+   "type": "p",
+   "html": "Aplin, O. (2017). <em>MindJournal: This book will make you stronger. The guide to journalling for men</em>. Ebury Press.",
+   "id": "b411",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Artivive. (s. f.). <em>Artivive</em> [Aplicación móvil]. https://artivive.com",
+   "id": "b412",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Azuma, R. T. (1997). A survey of augmented reality. <em>Presence: Teleoperators and Virtual Environments, 6</em>(4), 355-385. https://doi.org/10.1162/pres.1997.6.4.355",
+   "id": "b413",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Blease, C., Tibbs, M., Balaskas, A., Liverpool, S., Hagström, J., &amp; Fitzgerald, A. (2026). Coproduction without youth? Closing the participation gap in digital mental health research. <em>JMIR Mental Health, 13</em>, e91739. https://doi.org/10.2196/91739",
+   "id": "b414",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Bob-Waksberg, R. (Creador). (2014-2020). <em>BoJack Horseman</em> [Serie de televisión]. The Tornante Company; ShadowMachine.",
+   "id": "b415",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Caballero, C., Bresó, E., &amp; González Gutiérrez, O. (2015). Burnout en estudiantes universitarios. <em>Psicología desde el Caribe, 32</em>(3), 424-441. https://doi.org/10.14482/psdc.32.3.6217",
+   "id": "b416",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Caballero, C., Hederich, C., &amp; Palacio, J. (2010). El burnout académico: Delimitación del síndrome y factores asociados con su aparición. <em>Revista Latinoamericana de Psicología, 42</em>(1), 131-146.",
+   "id": "b417",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Cabero-Almenara, J., Valencia-Ortiz, R., &amp; Llorente-Cejudo, C. (2022). Realidad mixta, virtual y aumentada: Tecnologías para el aprendizaje. <em>Linguagem e Tecnologia, 14</em>(1), 1-14.",
+   "id": "b418",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Cabrera-Gómez, C. C., Caldas-Luzeiro, J., Rivera-Porras, D., Carrillo-Sierra, S. M., &amp; Martínez-Banfi, M. (2019). Diseño del programa de bienestar psicológico de educación en salud online \"Florece\" para contextos universitarios. <em>Archivos Venezolanos de Farmacología y Terapéutica, 38</em>(5), 406-415.",
+   "id": "b419",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Camus, A. (1995). <em>El mito de Sísifo</em> (E. Benítez, Trad.). Alianza Editorial. (Obra original publicada en 1942)",
+   "id": "b420",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Cascales Mira, M. (2022). Efectos del trabajo emocional en el agotamiento y la satisfacción laboral de los trabajadores en España. <em>Papers. Revista de Sociologia, 107</em>(1), 5-29. https://doi.org/10.5565/rev/papers.2965",
+   "id": "b421",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Castro, C., David, O. O., &amp; Ortiz, L. (2011). Síndrome de burnout en estudiantes de pregrado de la Universidad de Nariño. <em>Revista Electrónica de Psicología Iztacala, 14</em>(4). https://www.revistas.unam.mx/index.php/repi/article/view/28903",
+   "id": "b422",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Cayambe Guzmán, D., Gordon Torres, K. L., Reyes, V. M., Lugo Bustillos, J. K., &amp; García Bustillos, M. A. (2024). Burnout académico en estudiantes universitarios: Prevalencia y relación con el rendimiento académico. <em>PROHOMINUM. Revista de Ciencias Sociales y Humanas, 6</em>(3), 279-294. https://doi.org/10.47606/ACVEN/PH0279",
+   "id": "b423",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Cerasa, A., Gaggioli, A., Pioggia, G., &amp; Riva, G. (2024). Metaverse in mental health: The beginning of a long history. <em>Current Psychiatry Reports</em>. https://doi.org/10.1007/s11920-024-01501-8",
+   "id": "b424",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Chai-Arayalert, S., Puttinaovarat, S., &amp; Saetang, W. (2025). Phygital experience platform for textile exhibitions in small local museums. <em>Heritage, 8</em>(1), 35. https://doi.org/10.3390/heritage8010035",
+   "id": "b425",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Chang, C. (s. f.). <em>Before I Die</em>. https://candychang.com/before-i-die",
+   "id": "b426",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Chen, M., Huang, L., Qin, Q., Li, J., Zhang, J., Ma, J., &amp; Song, H. (2025). Impact of expressive suppression on subthreshold depression among college students: A moderated mediation model. <em>Frontiers in Psychology, 16</em>, 1678275. https://doi.org/10.3389/fpsyg.2025.1678275",
+   "id": "b427",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Congreso de Colombia. (2013). <em>Ley 1616 de 2013</em>. Diario Oficial No. 48.680. http://www.secretariasenado.gov.co/senado/basedoc/ley_1616_2013.html",
+   "id": "b428",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Congreso de Colombia. (2025). <em>Ley 2460 de 2025</em>. Diario Oficial No. 53.153. http://www.secretariasenado.gov.co/senado/basedoc/ley_2460_2025.html",
+   "id": "b429",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Connell, R. W. (2015). <em>Masculinidades</em> (I. C. Fediakova, Trad.; 2.ª ed.). Programa Universitario de Estudios de Género, UNAM. (Obra original publicada en 2005)",
+   "id": "b430",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Del Río Diéguez, M., &amp; Navarrete Torres, R. (2025). El papel de la Subjetividad Artística en los procesos educativos y terapéuticos que utilizan el arte como soporte relacional. <em>Arteterapia. Papeles de arteterapia y educación para inclusión social, 20</em>, e97953. https://doi.org/10.5209/arte.97953",
+   "id": "b431",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Dezeen. (2022, 12 de diciembre). <em>Morag Myerscough creates \"secret garden\" for Sheffield Children's Hospital</em>. https://www.dezeen.com/2022/12/12/sheffield-childrens-hospital-morag-myerscough-joy-garden/",
+   "id": "b432",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Dobkin, P. L. (2022). Kintsugi mind: Clinicians can emerge from the pandemic whole. <em>International Journal of Whole Person Care, 9</em>(1), 18-19. https://doi.org/10.26443/ijwpc.v9i1.332",
+   "id": "b433",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Dontnod Entertainment. (2015). <em>Life is Strange</em> [Videojuego]. Square Enix.",
+   "id": "b434",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Extremely OK Games. (2018). <em>Celeste</em> [Videojuego]. Extremely OK Games.",
+   "id": "b435",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Forney, E. (2012). <em>Marbles: Mania, depression, Michelangelo, and me</em>. Gotham Books.",
+   "id": "b436",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Freedberg, D., &amp; Gallese, V. (2007). Motion, emotion and empathy in esthetic experience. <em>Trends in Cognitive Sciences, 11</em>(5), 197-203. https://doi.org/10.1016/j.tics.2007.02.003",
+   "id": "b437",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Gennari, R., Matera, M., Morra, D., Melonio, A., &amp; Rizvi, M. (2023). Design for social digital well-being with young generations: Engage them and make them reflect. <em>International Journal of Human-Computer Studies, 173</em>, 103006. https://doi.org/10.1016/j.ijhcs.2023.103006",
+   "id": "b438",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Goleman, D. (1996). <em>La inteligencia emocional: Por qué es más importante que el coeficiente intelectual</em> (E. Mateo, Trad.). Editorial Kairós. (Obra original publicada en 1995)",
+   "id": "b439",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Gross, J. J. (2002). Emotion regulation: Affective, cognitive, and social consequences. <em>Psychophysiology, 39</em>(3), 281-291. https://doi.org/10.1017/S0048577201393198",
+   "id": "b440",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Han, B.-C. (2012). <em>La sociedad del cansancio</em> (A. Saratxaga Arregi, Trad.). Herder Editorial.",
+   "id": "b441",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Han, B.-C. (2013). <em>La sociedad de la transparencia</em> (R. Gabás, Trad.). Herder Editorial.",
+   "id": "b442",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Han, B.-C. (2014). <em>Psicopolítica: Neoliberalismo y nuevas técnicas de poder</em> (A. Bergés, Trad.). Herder Editorial.",
+   "id": "b443",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Han, B.-C. (2017). <em>La expulsión de lo distinto</em> (A. Ciria, Trad.). Herder Editorial.",
+   "id": "b444",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Herman, J. (2004). <em>Trauma y recuperación: Cómo superar las consecuencias de la violencia</em> (M. P. Sánchez, Trad.). Espasa Calpe. (Obra original publicada en 1992)",
+   "id": "b445",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "It's Nice That. (2016, 24 de febrero). <em>MullenLowe London launches new Samaritans campaign with portraits by photographer Nadav Kander</em>. https://www.itsnicethat.com/news/mullenlowe-london-launches-new-samaritans-campaign-with-portraits-by-photographer-nadav-kandar-240216",
+   "id": "b446",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Kafka, F. (2023). <em>La metamorfosis</em>. Universidad Nacional Autónoma de México. (Obra original publicada en 1915)",
+   "id": "b447",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Lakoff, G., &amp; Johnson, M. (2003). <em>Metaphors we live by</em>. The University of Chicago Press. (Obra original publicada en 1980)",
+   "id": "b448",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Lancheros-Bohorquez, W. F., &amp; Vesga-Bravo, G. J. (2024). Uso de la realidad aumentada, la realidad virtual y la inteligencia artificial en educación secundaria: Una revisión sistemática. <em>Revista de Investigación, Desarrollo e Innovación, 14</em>(1), 95-110. https://doi.org/10.19053/uptc.20278306.v14.n1.2024.17643",
+   "id": "b449",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Lozano, H. (Creador). (2015-2018). <em>Merlí</em> [Serie de televisión]. Veranda TV.",
+   "id": "b450",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Madrid-Cagigal, A., Kealy, C., Potts, C., Mulvenna, M. D., Byrne, M., Barry, M. M., &amp; Donohoe, G. (2025). Digital mental health interventions for university students with mental health difficulties: A systematic review and meta-analysis. <em>Early Intervention in Psychiatry, 19</em>(1), e70017. https://doi.org/10.1111/eip.70017",
+   "id": "b451",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Moreno González, N. (2025, 8 de abril). Crisis de salud mental en Nariño: ACP alerta sobre aumento de urgencias psiquiátricas y desabastecimiento de medicamentos. <em>Consultorsalud</em>. https://consultorsalud.com/crisis-de-salud-mental-narino-urgencias-psiquia/",
+   "id": "b452",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Ninja Theory. (2017). <em>Hellblade: Senua's Sacrifice</em> [Videojuego]. Ninja Theory.",
+   "id": "b453",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Norman, D. A. (2004). <em>Emotional design: Why we love (or hate) everyday things</em>. Basic Books.",
+   "id": "b454",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "NPR. (2013, 30 de septiembre). <em>A history of love gone wrong, all in one Croatian museum</em>. https://www.npr.org/sections/parallels/2013/09/30/227738868/a-history-of-love-gone-wrong-all-in-one-croatian-museum",
+   "id": "b455",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Orbegozo, U., Matellanes, B., Estévez, A., &amp; Montero, M. (2018). Adaptación al castellano del Emotional Processing Scale-25. <em>Ansiedad y Estrés, 24</em>, 24-30. https://doi.org/10.1016/j.anyes.2017.10.006",
+   "id": "b456",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Papanek, V. (2014). <em>Diseño para el mundo real: Ecología humana y cambio social</em> (R. Polanco, Trad.; 2.ª ed.). Pol·len Edicions. (Obra original publicada en 1971)",
+   "id": "b457",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Park, Z., Lee, S., &amp; Choi, S. (2021). Cybersickness in augmented reality: Subjective and physiological changes with the course of prolonged exposure. <em>Virtual Reality, 25</em>, 923-933. https://doi.org/10.1007/s10055-020-00497-6",
+   "id": "b458",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Peñate, W., del Pino-Sedeño, T., &amp; Bethencourt, J. M. (2010). El efecto diferencial de escribir sobre un mismo trauma o sobre diferentes traumas en el bienestar psicológico y el estado de salud autoinformado. <em>Universitas Psychologica, 9</em>(2), 433-445. https://revistas.javeriana.edu.co/index.php/revPsycho/article/view/830",
+   "id": "b459",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Salazar, O. (2018). <em>El hombre que no deberíamos ser: La revolución masculina que tantas mujeres llevan siglos esperando</em>. Editorial Planeta.",
+   "id": "b460",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Sanders, E. B.-N., &amp; Stappers, P. J. (2008). Co-creation and the new landscapes of design. <em>CoDesign, 4</em>(1), 5-18. https://doi.org/10.1080/15710880701875068",
+   "id": "b461",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Slade, D. (Director). (2018). <em>Black Mirror: Bandersnatch</em> [Película interactiva]. Netflix.",
+   "id": "b462",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Sneiderman, S. (2011, octubre). <em>Investigación con herramientas diagnósticas: Problemas de confiabilidad y validez</em> [Ponencia]. VI Jornadas de Investigación en Psicología, Universidad de Ciencias Empresariales y Sociales, Buenos Aires, Argentina. https://dspace.uces.edu.ar/bitstream/123456789/1704/1/Sneiderman_2011_VI-Jornada.pdf",
+   "id": "b463",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Spahl, W., Busse, H., Fegert, J. M., &amp; Koenig, S. (2023). Gamified digital mental health interventions for young people: Scoping review of ethical aspects during development and implementation. <em>JMIR Serious Games, 11</em>, e47267. https://doi.org/10.2196/47267",
+   "id": "b464",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Sullivan, G. (2010). <em>Art practice as research: Inquiry in visual arts</em> (2.ª ed.). SAGE Publications.",
+   "id": "b465",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Timaran, J. E. (2005). <em>El impacto social que genera el Carnaval Andino de Negros y Blancos en los imaginarios de futuro en los hijos jóvenes herederos de la tradición cultural del carnaval de la Ciudad de San Juan de Pasto</em> [Tesis de pregrado, Universidad de Nariño]. Sistema Institucional de Recursos Digitales.",
+   "id": "b466",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Universidad CESMAG. (2025). <em>Perspectivas Psicológicas</em>. Recuperado el 23 de abril de 2025, de https://www.unicesmag.edu.co/grupos-investigacion/perspectivas/",
+   "id": "b467",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Urrego Aguinaga, D., Jaramillo Chavarría, G. A., Rodríguez Muñoz, J. C., &amp; Cardona Arbeláez, J. P. (2016). Sentidos de la externalización del problema en la terapia narrativa. <em>Revista Fundación Universitaria Luis Amigó, 3</em>(1), 68-80. https://revistas.ucatolicaluisamigo.edu.co/index.php/RFunlam/article/view/1895",
+   "id": "b468",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Warren, F. (2005-presente). <em>PostSecret</em> [Proyecto artístico comunitario]. https://postsecret.com",
+   "id": "b469",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Wittgenstein, L. (2009). <em>Tractatus logico-philosophicus</em> (J. Muñoz e I. Reguera, Trads.). Editorial Gredos. (Obra original publicada en 1921)",
+   "id": "b470",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "World Health Organization. (2019, 28 de mayo). <em>Burn-out an \"occupational phenomenon\": International Classification of Diseases</em>. https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases",
+   "id": "b471",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "World Health Organization. (2022). <em>World mental health report: Transforming mental health for all</em>. https://www.who.int/publications/i/item/9789240049338",
+   "id": "b472",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "World Health Organization. (2025, 1 de septiembre). <em>Mental health of adolescents</em>. https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health",
+   "id": "b473",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Yeo, J. P.-H., &amp; Teo, C.-T. (2020). Designing wellbeing: The role of design in developing open-mindedness in mental health. En K. Christer, C. Craig, &amp; P. Chamberlain (Eds.), <em>Proceedings of the 6th European Conference on Design4Health</em> (Vol. 4, pp. 766-773). Sheffield Hallam University.",
+   "id": "b474",
+   "style": "referencia"
+  }
+ ],
+ "meta": {
+  "titulo": "Sobre lo que no digo",
+  "autor": "Shamuel Woodcock Salomón",
+  "asesor": "Edward Mauricio Montenegro Córdoba",
+  "institucion": "Universidad CESMAG",
+  "programa": "Programa de Diseño Gráfico",
+  "ciudad": "San Juan de Pasto",
+  "anio": "2027"
+ }
+}
