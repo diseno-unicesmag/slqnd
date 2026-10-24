@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Documento from './Documento';
-import Paginas from './Paginas';
+import Pliegos from './Pliegos';
 import GlassRuntime from './GlassRuntime';
 import { ESTILO_BASE, FUENTES, ESTILOS_PARRAFO, TAMANOS_FIGURA, TIPOS_NUEVOS, bloqueNuevo, cssVariables, indice, pendientes, textoPlano, urlFuentes, nuevoId } from '@/lib/doc';
 import { REPO_BASE, leerDocumento, guardarDocumento, subirImagen } from '@/lib/github';
@@ -24,7 +24,7 @@ function descargar(nombre, blob) {
 
 export default function Editor() {
   const [doc, setDoc] = useState(null);
-  const [modo, setModo] = useState('editar');
+  const [modo, setModo] = useState('pliegos');
   const [sel, setSel] = useState(null);
   const [panel, setPanel] = useState('estilo');
   const [aviso, setAviso] = useState('');
@@ -34,6 +34,7 @@ export default function Editor() {
   const [menuExp, setMenuExp] = useState(false);
   const [ocupado, setOcupado] = useState(false);
   const [zoom, setZoom] = useState(1);
+  const [zoomP, setZoomP] = useState(0.62);
   const historia = useRef({ atras: [], adelante: [] });
   const blobs = useRef({});
   const paginas = useRef(null);
@@ -176,7 +177,7 @@ export default function Editor() {
   // ── Exportar ──
   const exportarPDF = () => {
     setMenuExp(false);
-    if (modo !== 'paginas') { setModo('paginas'); setAviso('Cuando terminen de componerse las páginas, pulsa otra vez Exportar › PDF. En el diálogo elige «Guardar como PDF».'); return; }
+    if (modo !== 'pliegos') { setModo('pliegos'); setAviso('Cuando terminen de componerse los pliegos, pulsa otra vez Exportar › PDF. En el diálogo elige «Guardar como PDF», tamaño 17 × 11 in, sin márgenes y con gráficos de fondo.'); return; }
     paginas.current?.imprimir();
   };
   const exportarJSON = () => { setMenuExp(false); descargar('maquetacion-' + new Date().toISOString().slice(0, 10) + '.json', new Blob([JSON.stringify(doc, null, 1)], { type: 'application/json' })); };
@@ -195,15 +196,15 @@ export default function Editor() {
   const formato = cmd => e => { e.preventDefault(); document.execCommand(cmd); };
 
   return (
-    <div className="app" style={{ '--zoom': zoom }}>
+    <div className={'app modo-' + modo} style={{ '--zoom': zoom }}>
       <link rel="stylesheet" href={urlFuentes(doc.estilo)} />
       <GlassRuntime clave={modo + ajustes + menuExp} />
 
       <header className="barra lg-r" data-lg-strength="40">
         <div className="marca"><span className="punto" />Sobre lo que no digo <em>maquetación</em></div>
         <div className="segmentado">
+          <button className={modo === 'pliegos' ? 'on' : ''} onClick={() => setModo('pliegos')}>Pliegos</button>
           <button className={modo === 'editar' ? 'on' : ''} onClick={() => setModo('editar')}>Editar</button>
-          <button className={modo === 'paginas' ? 'on' : ''} onClick={() => setModo('paginas')}>Páginas</button>
         </div>
         <div className="acciones">
           <button title="Deshacer (Ctrl+Z)" onClick={deshacer} disabled={!historia.current.atras.length}>↶</button>
@@ -250,7 +251,14 @@ export default function Editor() {
               <Documento doc={doc} editable seleccion={sel} onSeleccionar={id => { setSel(id); setPanel('bloque'); }} cambiarBloque={cambiarBloque} resolver={resolver} onImagen={ponerImagen} onTecla={onTecla} />
               <button className="agregar-final" onClick={() => insertar('p', doc.blocks[doc.blocks.length - 1].id)}>+ Añadir párrafo al final</button>
             </div>
-          : <Paginas ref={paginas} doc={doc} resolver={resolver} />}
+          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} />}
+        {modo === 'pliegos' && (
+          <div className="zoom lg-r">
+            <button onClick={() => setZoomP(z => Math.max(0.3, +(z - 0.05).toFixed(2)))}>−</button>
+            <span>{Math.round(zoomP * 100)} %</span>
+            <button onClick={() => setZoomP(z => Math.min(1.2, +(z + 0.05).toFixed(2)))}>+</button>
+          </div>
+        )}
         {modo === 'editar' && (
           <div className="zoom lg-r">
             <button onClick={() => setZoom(z => Math.max(0.5, +(z - 0.1).toFixed(1)))}>−</button>
