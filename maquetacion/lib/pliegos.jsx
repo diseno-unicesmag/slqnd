@@ -10,7 +10,8 @@ import { vidrio } from '@/lib/vidrio';
 
 const PX = 96;                      // px por pulgada
 const ALTO_CAJA = (11 - 0.8 - 0.95) * PX;
-const ESPACIO = 0.24 * PX;          // aire bajo figuras y tablas
+const ESPACIO = 0.3 * PX;           // aire bajo figuras y tablas
+const AIRE = 0.16 * PX;             // aire extra entre el texto y la figura que sigue;          // aire bajo figuras y tablas
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -132,11 +133,20 @@ export class Maquetador {
       else {
         const c = h('div', 'fig-img' + (fuentes.length > 1 ? (fuentes.length > 4 ? ' g8 foto' : fuentes.length > 2 ? ' g4 foto' : ' g2 foto') : ''));
         fuentes.forEach(s => { const im = h('img'); im.src = this.resolver(s); im.alt = b.title || ''; c.appendChild(im); });
-        if (fuentes.length === 1) c.firstChild.style.maxHeight = (b.tamano === 'pagina' ? 7.6 : 4.4) + 'in';
         // Imagen vertical: el pie va en la columna 1 y la imagen ocupa las columnas 2 a 4
         const d = fuentes.length === 1 && this.dims?.[this.resolver(fuentes[0])];
-        if (d && d[1] / d[0] > 0.85 && b.tamano !== 'pagina') f.classList.add('lateral');
-        if (fuentes.length > 4) c.querySelectorAll('img').forEach(im => { im.style.aspectRatio = '9 / 16'; });
+        const lateral = d && d[1] / d[0] > 0.85 && b.tamano !== 'pagina';
+        if (lateral) f.classList.add('lateral');
+        // Tamaño exacto en px desde las medidas reales: el marco coincide con la imagen
+        // y la página no depende de que la imagen ya haya cargado al medir
+        if (d) {
+          const maxW = (lateral ? 4.9 : 7.0) * PX, maxH = (b.tamano === 'pagina' ? 7.4 : lateral ? 5.6 : 4.4) * PX;
+          const k = Math.min(maxW / d[0], maxH / d[1]);
+          const im = c.firstChild; im.width = Math.round(d[0] * k); im.height = Math.round(d[1] * k);
+          im.style.width = im.width + 'px'; im.style.height = im.height + 'px';
+          c.classList.add('exacta');
+        } else if (fuentes.length === 1) c.firstChild.style.maxHeight = (b.tamano === 'pagina' ? 7.6 : 4.4) + 'in';
+        if (fuentes.length > 4) { const d0 = this.dims?.[this.resolver(fuentes[0])]; c.querySelectorAll('img').forEach(im => { im.style.aspectRatio = d0 ? d0[0] + ' / ' + d0[1] : '9 / 16'; }); }
         f.appendChild(c);
       }
     }
@@ -272,13 +282,14 @@ export class Maquetador {
   colocarAncho(el, alInicio = false) {
     // Se mide primero debajo del texto abierto: si no cabe y va a la página siguiente,
     // la banda sigue abierta y el texto continúa sin cortar las columnas
-    const yTent = this.banda ? this.y + this.banda.offsetHeight + 6 : this.y;
+    const habiaTexto = !!(this.banda && this.banda.children.length);
+    const yTent = this.banda ? this.y + this.banda.offsetHeight + 6 + (habiaTexto ? AIRE : 0) : this.y;
     el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = yTent + 'px';
     this.actual.caja.appendChild(el);
     const libreTent = ALTO_CAJA - yTent;
     const partirTabla = el.classList.contains('tabla') && (libreTent >= MIN_TABLA || alInicio);
     if (this.banda && el.offsetHeight > libreTent && !partirTabla) { el.remove(); el.style.top = ''; this.flotantes.push(el); return; }
-    this.cerrarBanda(); el.style.top = this.y + 'px';
+    this.cerrarBanda(); if (habiaTexto) this.y += AIRE; el.style.top = this.y + 'px';
     const alto = el.offsetHeight, libre = ALTO_CAJA - this.y;
     if (alto <= libre) { this.y += alto + ESPACIO; return; }
     if (el.classList.contains('tabla') && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
@@ -294,6 +305,11 @@ export class Maquetador {
     const nota = el.querySelector('.nota'); if (nota) nota.remove();
     let k = filas.length;
     while (k > 1 && el.offsetHeight > libre) { k--; filas[k].remove(); }
+    // Si ni el encabezado con dos filas cabe, la tabla entera pasa a la página siguiente
+    if (el.offsetHeight > libre || (k < 2 && filas.length > 2)) {
+      const tb = el.querySelector('tbody'); filas.slice(k).forEach(f => tb.appendChild(f)); if (nota) el.appendChild(nota);
+      el.remove(); el.style.top = ''; this.paginaFlujo(); this.colocarAncho(el, true); return;
+    }
     this.y += el.offsetHeight + ESPACIO;
     const sigue = h('figure', 'ancho tabla'); sigue.dataset.b = el.dataset.b; sigue.dataset.cont = '1';
     sigue.appendChild(h('span', 'rot', el.querySelector('.rot').textContent + ' (continuación)'));
