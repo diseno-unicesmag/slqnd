@@ -197,5 +197,13 @@
 .pl .pausa .revela .base { filter: grayscale(1) brightness(.4); }
 
 .pl .por-datos strong { color: var(--g); font-weight: 800; }
-.pl .portada .revela::after { content: ''; position: absolute; inset: auto 0 0 0; height: 38%; background: linear-gradient(transparent, var(--n)); }
+.pl .portada .revela::after { content: ''; position: absolute; inset: auto 0 -2px 0; height: 40%; background: linear-gradient(transparent, var(--n)); }
 .pl .portada .revela .aro { z-index: 2; }
+
+/* Logotipo «Sobre lo que no digo»: el «no» en amarillo, tachado por una barra blanca */
+.pl .por-titulo { top: 5.15in; }
+.pl .por-titulo h1.logo { font-size: 74pt; line-height: .9; letter-spacing: -.05em; }
+.pl h1.logo .no { position: relative; color: var(--g); }
+.pl h1.logo .no::after { content: ''; position: absolute; left: -.05em; right: -.02em; top: 50%; height: .11em; margin-top: -.085em; background: #fff; border-radius: 99px; }
+.pl .por-titulo .lema { margin-top: .16in; font-size: 9pt; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--l); }
+.pl .por-titulo p { margin-top: .3in; }

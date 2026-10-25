@@ -293,11 +293,13 @@ export class Maquetador {
   portada(parte) {
     const p = this.pagina('noche portada', { folio: false });
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
-    p.el.appendChild(this.revela(this.deco.portada, { x: 0.62, y: 0.27, r: 1.55, alto: '62%' }));
+    // La lente cae sobre el ojo: revela en color lo que el resto de la imagen calla
+    p.el.appendChild(this.revela(this.deco.portada, { x: 0.5, y: 0.49, r: 1.45, alto: '62%' }));
     p.el.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
     const tt = h('div', 'por-titulo');
-    const palabras = titulo.split(' ');
-    tt.appendChild(h('h1', '', palabras.slice(0, -1).join(' ') + ' <em>' + palabras.slice(-1) + '</em>'));
+    // Logotipo: el «no» silenciado con una barra
+    tt.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br><span class="no">no</span> $2')));
+    tt.appendChild(h('div', 'lema', 'Elaboración emocional'));
     tt.appendChild(h('p', '', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
     p.el.appendChild(tt);
     const datos = parte.datos.map(b => b.html);
