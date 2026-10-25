@@ -113,7 +113,7 @@
   box-shadow: inset 0 0 0 2px rgba(255,255,255,.8), inset 0 8px 14px rgba(255,255,255,.5), inset 0 -18px 30px rgba(245,197,66,.22), 0 26px 50px rgba(0,0,0,.5); }
 
 /* ── Figuras y tablas (APA 7) ── */
-.pl figure { margin: 0 0 0.24in; }
+.pl figure { margin: 0; }
 .pl .rot { display: block; font-size: 7pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--m); }
 .pl .tit { display: block; font-size: 9pt; font-style: italic; font-weight: 500; line-height: 1.35; color: var(--t); margin: 2px 0 7px; }
 .pl .nota { font-size: 7.2pt; line-height: 1.42; color: var(--gris); margin-top: 6px; text-align: left; }
@@ -220,3 +220,11 @@
 .pl figure.lateral .nota { grid-column: 1; grid-row: 3; align-self: end; margin: 0; }
 .pl figure.lateral .fig-img { grid-column: 2; grid-row: 1 / 4; }
 .pl figure.lateral .fig-img img { width: auto; height: auto; max-width: 100%; }
+
+/* Imagen única con medidas exactas: el marco redondeado es la propia imagen */
+.pl .fig-img.exacta { display: block; }
+.pl .fig-img.exacta img { max-width: 100%; object-fit: cover; border-radius: 14px; }
+.pl figure .fig-img { margin: 0.1in 0 0.1in; }
+.pl figure .nota { margin-top: 0.06in; }
+.pl figure.lateral .fig-img { margin: 0; }
+.pl .fig-img img { box-shadow: 0 0 0 1px rgba(43,23,89,.10); }
