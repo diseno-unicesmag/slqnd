@@ -204,3 +204,19 @@
 .pl .por-titulo { top: 5.4in; }
 .pl .por-titulo h1.logo { font-size: 74pt; line-height: .9; letter-spacing: -.05em; }
 .pl .por-titulo p { margin-top: .3in; }
+
+/* Preliminar recompuesto para caber en una página */
+.pl .apretado p { line-height: 1.46; margin-bottom: .42em; }
+.pl .apretado .pre-cab h2 { font-size: 26pt; }
+.pl .apretado .pre-cab { margin-bottom: .1in; }
+/* Preliminar corto: bajo, con una línea de color que lo ancla */
+.pl .pre-corto .pre-cab h2 { font-size: 34pt; }
+.pl .pre-corto .pre-cab::before { content: ''; display: block; width: .7in; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--d), var(--g)); margin-bottom: .22in; }
+
+/* Figura vertical: pie en la columna 1, imagen en las columnas 2 a 4 */
+.pl figure.lateral { display: grid; grid-template-columns: var(--col) 1fr; grid-template-rows: auto auto 1fr; column-gap: var(--gut); }
+.pl figure.lateral .rot { grid-column: 1; grid-row: 1; }
+.pl figure.lateral .tit { grid-column: 1; grid-row: 2; }
+.pl figure.lateral .nota { grid-column: 1; grid-row: 3; align-self: end; margin: 0; }
+.pl figure.lateral .fig-img { grid-column: 2; grid-row: 1 / 4; }
+.pl figure.lateral .fig-img img { width: auto; height: auto; max-width: 100%; }

@@ -106,7 +106,7 @@ export class Maquetador {
     switch (b.type) {
       case 'p': {
         const e = h('p', b.style === 'referencia' ? 'ref' : '', b.html);
-        if (primero && this.modo !== 'refs') e.classList.add('dc', 'sigue');
+        if (primero && this.modo !== 'refs' && textoPlano(b.html).length > 250) e.classList.add('dc', 'sigue');
         return e;
       }
       case 'heading': {
@@ -133,6 +133,9 @@ export class Maquetador {
         const c = h('div', 'fig-img' + (fuentes.length > 1 ? (fuentes.length > 4 ? ' g8 foto' : fuentes.length > 2 ? ' g4 foto' : ' g2 foto') : ''));
         fuentes.forEach(s => { const im = h('img'); im.src = this.resolver(s); im.alt = b.title || ''; c.appendChild(im); });
         if (fuentes.length === 1) c.firstChild.style.maxHeight = (b.tamano === 'pagina' ? 7.6 : 4.4) + 'in';
+        // Imagen vertical: el pie va en la columna 1 y la imagen ocupa las columnas 2 a 4
+        const d = fuentes.length === 1 && this.dims?.[this.resolver(fuentes[0])];
+        if (d && d[1] / d[0] > 0.85 && b.tamano !== 'pagina') f.classList.add('lateral');
         if (fuentes.length > 4) c.querySelectorAll('img').forEach(im => { im.style.aspectRatio = '9 / 16'; });
         f.appendChild(c);
       }
@@ -179,13 +182,34 @@ export class Maquetador {
     const b = this.banda; b.appendChild(el);
     if (this.y + b.offsetHeight <= ALTO_CAJA) return;
     b.style.height = (ALTO_CAJA - this.y) + 'px'; b.classList.add('llena');
-    const resto = this.partir(b);
+    let resto = this.partir(b);
+    // Comprobación: si algo quedó en una columna de desborde (oculta), se vuelve a partir
+    for (let i = 0; i < 6 && b.children.length && this.desborda(b); i++) {
+      const mas = this.partir(b);
+      if (mas.length && resto.length && this.unir(mas[mas.length - 1], resto[0])) resto.shift();
+      resto = [...mas, ...resto];
+    }
     if (!b.children.length) b.remove();
     this.banda = null;
     if (guardia > 3) { resto.forEach(r => b.appendChild(r)); return; }   // no cabe ni en página vacía: se deja
     this.paginaFlujo();
     const vacia = !this.banda && this.y === 0;
     resto.forEach((r, k) => this.agregarTexto(r, vacia && k === 0 ? guardia + 1 : 0));
+  }
+  // Junta dos pedazos seguidos del mismo párrafo o lista (para no abrir un párrafo nuevo a mitad de frase)
+  unir(a, b) {
+    if (!a.dataset.b || a.dataset.b !== b.dataset.b || a.tagName !== b.tagName) return false;
+    if (a.tagName === 'P') { a.append(...b.childNodes); return true; }
+    if (a.tagName === 'UL') {
+      const ult = a.lastElementChild, pri = b.firstElementChild;
+      if (ult && pri?.classList.contains('sigue')) { ult.append(...pri.childNodes); pri.remove(); }
+      a.append(...b.children); return true;
+    }
+    return false;
+  }
+  desborda(b) {
+    const R = b.getBoundingClientRect().right - 1, r = document.createRange(); r.selectNodeContents(b);
+    return [...r.getClientRects()].some(x => x.width && x.left >= R);
   }
   // Devuelve (desprendidos) los elementos que no caben en las dos columnas de la banda.
   partir(b) {
@@ -246,9 +270,15 @@ export class Maquetador {
 
   // ── Elementos a lo ancho (figuras y tablas) ──
   colocarAncho(el, alInicio = false) {
-    this.cerrarBanda();
-    el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = this.y + 'px';
+    // Se mide primero debajo del texto abierto: si no cabe y va a la página siguiente,
+    // la banda sigue abierta y el texto continúa sin cortar las columnas
+    const yTent = this.banda ? this.y + this.banda.offsetHeight + 6 : this.y;
+    el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = yTent + 'px';
     this.actual.caja.appendChild(el);
+    const libreTent = ALTO_CAJA - yTent;
+    const partirTabla = el.classList.contains('tabla') && (libreTent >= MIN_TABLA || alInicio);
+    if (this.banda && el.offsetHeight > libreTent && !partirTabla) { el.remove(); el.style.top = ''; this.flotantes.push(el); return; }
+    this.cerrarBanda(); el.style.top = this.y + 'px';
     const alto = el.offsetHeight, libre = ALTO_CAJA - this.y;
     if (alto <= libre) { this.y += alto + ESPACIO; return; }
     if (el.classList.contains('tabla') && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
@@ -309,15 +339,28 @@ export class Maquetador {
     parte.datos.forEach(b => c.appendChild(h('p', '', b.html)));
     p.el.appendChild(c);
   }
-  preliminar(parte) {
+  preliminar(parte, apretar = false) {
     this.modo = 'una'; this.seccionActual = parte.titulo ? textoPlano(parte.titulo.html) : this.seccionActual;
-    const p = this.pagina('p-una');
+    const desde = this.paginas.length;
+    const p = this.pagina('p-una' + (apretar ? ' apretado' : ''));
     if (parte.titulo) {
       const cab = h('div', 'pre-cab', `<span class="tag">${parte.titulo.pre ? 'Preliminares' : 'Sobre lo que no digo'}</span><h2>${textoPlano(parte.titulo.html)}</h2>`);
       this.marcar(cab, parte.titulo.id);
-      p.caja.appendChild(cab); this.y = cab.offsetHeight + 0.3 * PX;
+      p.caja.appendChild(cab); this.y = cab.offsetHeight + (apretar ? 0.14 : 0.3) * PX;
     }
     this.fluir(parte.bloques);
+    const hechas = this.paginas.slice(desde);
+    // Si solo unas líneas pasan a otra página, se recompone más ajustado para que quepa en una
+    if (!apretar && hechas.length === 2 && hechas[1].caja.innerText.length < 600) {
+      hechas.forEach(x => x.el.remove()); this.paginas.length = desde;
+      return this.preliminar(parte, true);
+    }
+    // Un preliminar corto no flota arriba en una página vacía: baja al tercio inferior
+    if (hechas.length === 1 && this.y < ALTO_CAJA * 0.45) {
+      const baja = ALTO_CAJA * 0.4;
+      [...p.caja.children].forEach(c => { c.style.position = c.style.position || 'relative'; c.style.top = (parseFloat(c.style.top) || 0) + baja + 'px'; });
+      p.el.classList.add('pre-corto');
+    }
   }
   indiceDoc() {
     this.modo = 'una'; this.seccionActual = 'Tabla de contenido';
@@ -420,7 +463,8 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   // Las imágenes deben estar cargadas para medir su alto
   const srcs = [];
   doc.blocks.forEach(b => { if (b.type === 'figure') (b.images?.length ? b.images : [b.src]).filter(Boolean).forEach(s => srcs.push(resolver(s))); });
-  await Promise.all(srcs.map(s => new Promise(ok => { const im = new Image(); im.onload = im.onerror = ok; im.src = s; })));
+  const dims = {};
+  await Promise.all(srcs.map(s => new Promise(ok => { const im = new Image(); im.onload = () => { dims[s] = [im.naturalWidth, im.naturalHeight]; ok(); }; im.onerror = ok; im.src = s; })));
   // Las fuentes web se descargan solo cuando algo las usa: se piden ya, antes de medir
   const muestra = 'AaÁáÉéÍíÓóÚúÑñÜü«»–—“”0123456789';
   await Promise.all(['400', '500', '600', '700', '800', '900', 'italic 400', 'italic 700'].map(w => document.fonts.load(`${w} 12px Montserrat`, muestra).catch(() => null)));
@@ -428,6 +472,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
 
   raiz.innerHTML = '';
   const m = new Maquetador(raiz, resolver, deco), partes = planificar(doc);
+  m.dims = dims;
   m.entradasIndice = entradasIndice(partes);
   for (const parte of partes) {
     if (parte.tipo === 'portada') m.portada(parte);
