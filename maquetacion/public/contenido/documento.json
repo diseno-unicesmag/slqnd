@@ -906,7 +906,7 @@
    "type": "figure",
    "label": "Figura R7",
    "title": "Before I Die (Candy Chang, 2011 - Presente)",
-   "src": null,
+   "src": "img/referente-r7-before-i-die.jpeg",
    "note": "<em>Nota. Muro participativo con la consigna «Antes de morir quiero ___». Fuente: Chang (s. f.).</em>"
   },
   {
@@ -1076,7 +1076,7 @@
    "type": "figure",
    "label": "Figura R12",
    "title": "Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, 2006 - Presente)",
-   "src": null,
+   "src": "img/referente-r12-relaciones-rotas.jpeg",
    "note": "<em>Nota. Objetos donados acompañados del relato de sus antiguos dueños. Fuente: NPR (2013).</em>"
   },
   {
@@ -1739,7 +1739,7 @@
    "label": "Figura 9",
    "title": "Matriz de Síntesis y Decantación Conceptual hacia el Ecosistema Phygital",
    "type": "figure",
-   "src": null
+   "src": "img/figura9-matriz.jpeg"
   },
   {
    "id": "b316",

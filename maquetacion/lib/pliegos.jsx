@@ -379,7 +379,7 @@ export class Maquetador {
     this.seccionActual = `Capítulo ${parte.num}. ${parte.nombre}`;
     if (this.siguienteEsDerecha) {        // la apertura ocupa un pliego completo: empieza en página par
       const pausa = this.pagina('noche pausa', { folio: false });
-      pausa.el.appendChild(this.revela(this.deco.intro, { x: 0.5, y: 0.55, r: 1.3 }));
+      pausa.el.appendChild(this.revela(this.deco.intro, { x: 0.63, y: 0.21, r: 1.45 }));
     }
     // Apertura a un color: el pliego entero en morado; la foto va en duotono y la lente la revela
     const izq = this.pagina('oscura ap-izq', { folio: false });
@@ -394,8 +394,8 @@ export class Maquetador {
     tt.appendChild(t1); der.el.appendChild(tt);
     // La burbuja se posa sobre las últimas letras del nombre
     const tb = 2.35 * PX, bur = h('span', 'burbuja');
-    bur.style.cssText = `left:${t1.firstChild.offsetWidth + tb * 0.34 - tb / 2}px;top:${t1.offsetHeight * 0.22 - tb / 2}px`;
-    vidrio(bur, tb, tb, { ca: 3, fuerza: Math.round(tb * 0.14), prof: Math.round(tb * 0.08) });
+    bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.3 - tb / 2}px;top:${t1.offsetHeight * 0.14 - tb / 2}px`;
+    vidrio(bur, tb, tb, { ca: 3, fuerza: Math.round(tb * 0.2), prof: Math.round(tb * 0.08) });
     t1.appendChild(bur);
     const ind = h('div', 'ap-indice'); der.el.appendChild(ind);
     this.marcar(izq.el, parte.titulo.id);
@@ -447,7 +447,7 @@ export class Maquetador {
     const R = r * PX;
     viva.style.clipPath = `circle(${R}px at ${x * 100}% ${y * 100}%)`;
     const aro = h('div', 'aro'); aro.style.cssText = `left:calc(${x * 100}% - ${R}px);top:calc(${y * 100}% - ${R}px)`;
-    vidrio(aro, 2 * R, 2 * R, { ca: 3, fondo: 'rgba(255,255,255,0.02)' });
+    vidrio(aro, 2 * R, 2 * R, { ca: 3, fuerza: Math.round(R * 0.3), fondo: 'rgba(255,255,255,0.02)' });
     c.append(base, h('div', 'tinte'), viva, aro);
     return c;
   }
