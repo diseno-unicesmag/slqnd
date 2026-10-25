@@ -39,7 +39,7 @@ function filtro({ w, h, radio, prof, fuerza, ca }) {
 // Convierte el elemento (ya con su tamaño en px) en cristal líquido.
 // Fuerza y profundidad van en proporción al tamaño (como el cursor del portafolio: 70 px → 40 y 5),
 // para que el centro quede limpio y la curvatura se concentre en el borde.
-export function vidrio(el, w, h, { radio = Math.min(w, h) / 2, prof, desenfoque = 1, fuerza, ca = 2, fondo = 'rgba(255,255,255,0.06)' } = {}) {
+export function vidrio(el, w, h, { radio = Math.min(w, h) / 2, prof, desenfoque = 1, fuerza, ca = 2, fondo = 'rgba(255,255,255,0.06)', sombra = '0px 0px 16px 0px rgba(0,0,0, 0.04)' } = {}) {
   w = Math.round(w); h = Math.round(h);
   const lado = Math.min(w, h);
   prof ??= Math.max(5, Math.round(lado * 0.07));
@@ -48,7 +48,7 @@ export function vidrio(el, w, h, { radio = Math.min(w, h) / 2, prof, desenfoque 
   el.classList.add('vidrio');
   el.style.width = w + 'px'; el.style.height = h + 'px'; el.style.borderRadius = radio + 'px';
   el.style.background = fondo;
-  el.style.boxShadow = '1px 1px 1px 0px rgba(255,255,255, 0.60) inset, -1px -1px 1px 0px rgba(255,255,255, 0.60) inset, 0px 0px 16px 0px rgba(0,0,0, 0.04)';
+  el.style.boxShadow = '1px 1px 1px 0px rgba(255,255,255, 0.60) inset, -1px -1px 1px 0px rgba(255,255,255, 0.60) inset, ' + sombra;
   el.style.backdropFilter = f; el.style.webkitBackdropFilter = f;
   return el;
 }

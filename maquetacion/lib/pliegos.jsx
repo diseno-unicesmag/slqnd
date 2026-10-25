@@ -383,7 +383,7 @@ export class Maquetador {
     }
     // Apertura a un color: el pliego entero en morado; la foto va en duotono y la lente la revela
     const izq = this.pagina('oscura ap-izq', { folio: false });
-    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.intro, { x: 0.7, y: 0.36, r: 1.75 }));
+    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.intro, { x: 0.66, y: 0.46, r: 2.05 }));
     izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
     izq.el.appendChild(h('div', 'pie-foto', parte.num === '1' ? 'Sesión de la Cartografía Digital de Percepción Silenciosa (CDPS)' : 'Taller «Sobre lo que no dices»'));
     const der = this.pagina('oscura apertura', { folio: false });
@@ -393,8 +393,9 @@ export class Maquetador {
     const t1 = h('h1', 'ap-titulo', `<span>${parte.nombre}</span>`);
     tt.appendChild(t1); der.el.appendChild(tt);
     // La burbuja se posa sobre las últimas letras del nombre
-    const bur = h('span', 'burbuja'); bur.style.cssText = `left:${t1.firstChild.offsetWidth - 1.25 * PX}px;top:${t1.offsetHeight * 0.56 - 0.85 * PX}px`;
-    vidrio(bur, 1.7 * PX, 1.7 * PX, { ca: 3 });
+    const tb = 2.35 * PX, bur = h('span', 'burbuja');
+    bur.style.cssText = `left:${t1.firstChild.offsetWidth + tb * 0.34 - tb / 2}px;top:${t1.offsetHeight * 0.22 - tb / 2}px`;
+    vidrio(bur, tb, tb, { ca: 3, fuerza: Math.round(tb * 0.14), prof: Math.round(tb * 0.08) });
     t1.appendChild(bur);
     const ind = h('div', 'ap-indice'); der.el.appendChild(ind);
     this.marcar(izq.el, parte.titulo.id);
@@ -418,10 +419,12 @@ export class Maquetador {
       // La burbuja de cristal se cruza con el final del título; solo en secciones que abren página
       if (!sigue) {
       const rs = [...cab.querySelector('h2 span').getClientRects()], ult = rs[rs.length - 1], C = cab.getBoundingClientRect();
-      const tam = [0.82, 0.68, 0.95][k % 3] * PX, dy = [-0.06, 0.04, -0.1][k % 3];
+      // Solo el borde de la burbuja roza la esquina superior de la última letra: la palabra se sigue leyendo
+      const tam = [0.78, 0.64, 0.9][k % 3] * PX;
+      const cx = ult.right - C.left + tam * 0.4, cy = ult.top - C.top + ult.height * 0.12;
       const bur = h('span', 'burbuja');
-      bur.style.cssText = `left:${Math.min(ult.right - C.left - tam * 0.62, C.width - tam)}px;top:${ult.top - C.top + ult.height / 2 - tam / 2 + dy * tam}px`;
-      vidrio(bur, tam, tam, { ca: 2 });
+      bur.style.cssText = `left:${cx - tam / 2}px;top:${cy - tam / 2}px`;
+      vidrio(bur, tam, tam, { ca: 2, fuerza: Math.round(tam * 0.2), fondo: 'rgba(116,85,194,0.06)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
       cab.appendChild(bur);
       }
       this.y += cab.offsetHeight + 0.26 * PX;
