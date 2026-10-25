@@ -6,6 +6,7 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import Grafico from '@/components/Grafico';
 import { esCapitulo, partesCapitulo, textoPlano } from '@/lib/doc';
+import { vidrio } from '@/lib/vidrio';
 
 const PX = 96;                      // px por pulgada
 const ALTO_CAJA = (11 - 0.8 - 0.95) * PX;
@@ -349,7 +350,8 @@ export class Maquetador {
     const t1 = h('h1', 'ap-titulo', `<span>${parte.nombre}</span>`);
     tt.appendChild(t1); der.el.appendChild(tt);
     // La burbuja se posa sobre las últimas letras del nombre
-    const bur = h('span', 'burbuja'); bur.style.cssText = `width:1.7in;height:1.7in;left:${t1.firstChild.offsetWidth - 1.4 * PX}px;top:-.45in`;
+    const bur = h('span', 'burbuja'); bur.style.cssText = `left:${t1.firstChild.offsetWidth - 1.25 * PX}px;top:${t1.offsetHeight * 0.56 - 0.85 * PX}px`;
+    vidrio(bur, 1.7 * PX, 1.7 * PX, { ca: 3 });
     t1.appendChild(bur);
     const ind = h('div', 'ap-indice'); der.el.appendChild(ind);
     this.marcar(izq.el, parte.titulo.id);
@@ -370,12 +372,15 @@ export class Maquetador {
       this.marcar(cab, s.titulo.id);
       cab.style.position = 'absolute'; cab.style.left = '0'; cab.style.right = '0'; cab.style.top = this.y + 'px';
       p.caja.appendChild(cab);
-      // La burbuja de cristal se cruza con el final del título (varía de tamaño y altura por sección)
+      // La burbuja de cristal se cruza con el final del título; solo en secciones que abren página
+      if (!sigue) {
       const rs = [...cab.querySelector('h2 span').getClientRects()], ult = rs[rs.length - 1], C = cab.getBoundingClientRect();
-      const tam = [0.95, 0.72, 1.12][k % 3] * PX, dy = [-0.42, -0.12, -0.3][k % 3];
+      const tam = [0.82, 0.68, 0.95][k % 3] * PX, dy = [-0.06, 0.04, -0.1][k % 3];
       const bur = h('span', 'burbuja');
-      bur.style.cssText = `width:${tam}px;height:${tam}px;left:${Math.min(ult.right - C.left - tam * 0.42, C.width - tam * 0.7)}px;top:${ult.top - C.top + ult.height / 2 - tam / 2 + dy * tam}px`;
+      bur.style.cssText = `left:${Math.min(ult.right - C.left - tam * 0.62, C.width - tam)}px;top:${ult.top - C.top + ult.height / 2 - tam / 2 + dy * tam}px`;
+      vidrio(bur, tam, tam, { ca: 2 });
       cab.appendChild(bur);
+      }
       this.y += cab.offsetHeight + 0.26 * PX;
     }
     this.fluir(s.bloques);
@@ -395,7 +400,8 @@ export class Maquetador {
     const viva = h('div', 'viva'); viva.style.backgroundImage = url;
     const R = r * PX;
     viva.style.clipPath = `circle(${R}px at ${x * 100}% ${y * 100}%)`;
-    const aro = h('div', 'aro'); aro.style.cssText = `width:${2 * R}px;height:${2 * R}px;left:calc(${x * 100}% - ${R}px);top:calc(${y * 100}% - ${R}px)`;
+    const aro = h('div', 'aro'); aro.style.cssText = `left:calc(${x * 100}% - ${R}px);top:calc(${y * 100}% - ${R}px)`;
+    vidrio(aro, 2 * R, 2 * R, { ca: 3, fondo: 'rgba(255,255,255,0.02)' });
     c.append(base, h('div', 'tinte'), viva, aro);
     return c;
   }
