@@ -297,9 +297,7 @@ export class Maquetador {
     p.el.appendChild(this.revela(this.deco.portada, { x: 0.5, y: 0.49, r: 1.45, alto: '62%' }));
     p.el.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
     const tt = h('div', 'por-titulo');
-    // Logotipo: el «no» silenciado con una barra
-    tt.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br><span class="no">no</span> $2')));
-    tt.appendChild(h('div', 'lema', 'Elaboración emocional'));
+    tt.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
     tt.appendChild(h('p', '', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
     p.el.appendChild(tt);
     const datos = parte.datos.map(b => b.html);
