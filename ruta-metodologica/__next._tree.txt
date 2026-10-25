@@ -2,4 +2,4 @@
 :HL["/slqnd/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/slqnd/_next/static/media/8800dfc60902df36-s.p.2sla2yow9-9p_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/slqnd/_next/static/chunks/22p7q0h7s6zfm.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"ruta-metodologica","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"0MqSBMYe9d1QsR4Pm79xR"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"ruta-metodologica","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"NjjrhvDtvbo0C-UZZMjT9"}
