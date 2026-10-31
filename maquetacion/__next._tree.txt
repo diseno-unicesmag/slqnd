@@ -1,5 +1,5 @@
-:HL["/slqnd/maquetacion/_next/static/chunks/2_66yxzk6bifa.css","style"]
+:HL["/slqnd/maquetacion/_next/static/chunks/3-xa0fb-kvfza.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400..900;1,400..900&display=swap","style"]
 :HL["/slqnd/maquetacion/estilos/libro.css","style"]
 :HL["/slqnd/maquetacion/estilos/pliegos.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"SdFDYSp3Jhm_Sc-6WSN31"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"70FYLbELH-5xh4bBcB9J6"}
