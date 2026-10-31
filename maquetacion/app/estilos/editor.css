@@ -174,3 +174,10 @@ label.archivo { display: inline-flex !important; flex-direction: row !important;
 .app.modo-pliegos { grid-template-columns: 250px 1fr; }
 .app.modo-pliegos .lateral.der { display: none; }
 .lienzo.pliegos { background: rgba(0, 0, 0, 0.18); }
+
+.editor-texto-fondo { position: fixed; inset: 0; z-index: 200; background: rgba(20,10,40,.35); display: grid; place-items: center; }
+.editor-texto { width: min(720px, 92vw); padding: 18px; border-radius: 18px; background: #fff; display: flex; flex-direction: column; gap: 12px; }
+.editor-texto .et-cab { display: flex; justify-content: space-between; align-items: baseline; }
+.editor-texto .et-cab span { font-size: 12px; opacity: .6; }
+.editor-texto .et-caja { min-height: 120px; max-height: 60vh; overflow: auto; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 15px; line-height: 1.5; outline: none; }
+.editor-texto .et-pie { display: flex; justify-content: flex-end; gap: 8px; }

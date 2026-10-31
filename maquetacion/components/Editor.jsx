@@ -35,6 +35,7 @@ export default function Editor() {
   const [ocupado, setOcupado] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [zoomP, setZoomP] = useState(0.62);
+  const [editarP, setEditarP] = useState(true);
   const historia = useRef({ atras: [], adelante: [] });
   const blobs = useRef({});
   const paginas = useRef(null);
@@ -252,12 +253,15 @@ export default function Editor() {
               <Documento doc={doc} editable seleccion={sel} onSeleccionar={id => { setSel(id); setPanel('bloque'); }} cambiarBloque={cambiarBloque} resolver={resolver} onImagen={ponerImagen} onTecla={onTecla} />
               <button className="agregar-final" onClick={() => insertar('p', doc.blocks[doc.blocks.length - 1].id)}>+ Añadir párrafo al final</button>
             </div>
-          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} />}
+          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} editable={editarP}
+              onCristal={(k, ov) => aplicar(d => { const c = { ...(d.cristales || {}) }; if (ov) c[k] = ov; else delete c[k]; return { ...d, cristales: c }; }, 'cristal-' + k)}
+              onEditar={(id, cambios) => cambiarBloque(id, cambios)} />}
         {modo === 'pliegos' && (
           <div className="zoom lg-r">
             <button onClick={() => setZoomP(z => Math.max(0.3, +(z - 0.05).toFixed(2)))}>−</button>
             <span>{Math.round(zoomP * 100)} %</span>
             <button onClick={() => setZoomP(z => Math.min(1.2, +(z + 0.05).toFixed(2)))}>+</button>
+            <button className={editarP ? 'on' : ''} title="Arrastra el cristal, agrándalo con la esquina o la rueda; doble clic en un texto para corregirlo" onClick={() => setEditarP(x => !x)}>✎ Editar</button>
           </div>
         )}
         {modo === 'editar' && (

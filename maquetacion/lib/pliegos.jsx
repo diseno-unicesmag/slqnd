@@ -367,7 +367,7 @@ export class Maquetador {
     const p = this.pagina('noche portada', { folio: false });
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
     // La lente cae sobre el ojo: revela en color lo que el resto de la imagen calla
-    p.el.appendChild(this.revela(this.deco.portada, { x: 0.5, y: 0.49, r: 1.45, alto: '62%' }));
+    p.el.appendChild(this.revela(this.deco.portada, { x: 0.5, y: 0.49, r: 1.45, alto: '62%', k: 'portada' }));
     p.el.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
     const tt = h('div', 'por-titulo');
     tt.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
@@ -430,11 +430,11 @@ export class Maquetador {
     this.seccionActual = `Capítulo ${parte.num}. ${parte.nombre}`;
     if (this.siguienteEsDerecha) {        // la apertura ocupa un pliego completo: empieza en página par
       const pausa = this.pagina('noche pausa', { folio: false });
-      pausa.el.appendChild(this.revela(this.deco.intro, { x: 0.63, y: 0.21, r: 1.45 }));
+      pausa.el.appendChild(this.revela(this.deco.intro, { x: 0.63, y: 0.21, r: 1.45, k: 'pausa' }));
     }
     // Apertura a un color: el pliego entero en morado; la foto va en duotono y la lente la revela
     const izq = this.pagina('oscura ap-izq', { folio: false });
-    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.intro, { x: 0.66, y: 0.46, r: 2.05 }));
+    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.intro, { x: 0.66, y: 0.46, r: 2.05, k: 'lente-cap' + parte.num }));
     izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
     izq.el.appendChild(h('div', 'pie-foto', parte.num === '1' ? 'Sesión de la Cartografía Digital de Percepción Silenciosa (CDPS)' : 'Taller «Sobre lo que no dices»'));
     const der = this.pagina('oscura apertura', { folio: false });
@@ -446,7 +446,7 @@ export class Maquetador {
     // La burbuja se posa sobre las últimas letras del nombre
     const tb = 2.35 * PX, bur = h('span', 'burbuja');
     bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.3 - tb / 2}px;top:${t1.offsetHeight * 0.14 - tb / 2}px`;
-    vidrio(bur, tb, tb, { ca: 3, fuerza: Math.round(tb * 0.2), prof: Math.round(tb * 0.08) });
+    pieza(bur, 'titulo-cap' + parte.num, tb, { ca: 3, ff: 0.2, pf: 0.08 });
     t1.appendChild(bur);
     this.marcar(izq.el, parte.titulo.id);
     // Antesala (página izquierda): el contenido del capítulo con sus pictogramas y mucho aire.
@@ -474,7 +474,7 @@ export class Maquetador {
       // La burbuja de cristal se posa sobre el pictograma, como una lente que lo amplía
       const tam = 0.95 * PX, bur = h('span', 'burbuja');
       bur.style.cssText = `right:${0.42 * PX - tam / 2}px;top:${pic.offsetTop + pic.offsetHeight * 0.42 - tam / 2}px`;
-      vidrio(bur, tam, tam, { ca: 2, fuerza: Math.round(tam * 0.22), fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
+      pieza(bur, 'sec-' + s.titulo.id, tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
       cab.appendChild(bur);
       this.y = enRenglon(cab.offsetHeight) + 2 * L;
     }
@@ -496,7 +496,7 @@ export class Maquetador {
     p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + 2 * L;
     this.fluir(parte.bloques);
   }
-  revela(src, { x, y, r, alto }) {
+  revela(src, { x, y, r, alto, k }) {
     const c = h('div', 'revela'); if (alto) c.style.bottom = 'auto', c.style.height = alto;
     const url = `url("${src}")`;
     const base = h('div', 'base'); base.style.backgroundImage = url;
@@ -504,7 +504,7 @@ export class Maquetador {
     const R = r * PX;
     viva.style.clipPath = `circle(${R}px at ${x * 100}% ${y * 100}%)`;
     const aro = h('div', 'aro'); aro.style.cssText = `left:calc(${x * 100}% - ${R}px);top:calc(${y * 100}% - ${R}px)`;
-    vidrio(aro, 2 * R, 2 * R, { ca: 3, fuerza: Math.round(R * 0.3), fondo: 'rgba(255,255,255,0.02)' });
+    pieza(aro, k, 2 * R, { ca: 3, ff: 0.15, fondo: 'rgba(255,255,255,0.02)' }); aro.dataset.cx = x; aro.dataset.cy = y;
     c.append(base, h('div', 'tinte'), viva, aro);
     return c;
   }
@@ -517,6 +517,30 @@ export class Maquetador {
       p.el.appendChild(f);
     }
   }
+}
+
+// ── Cristal editable: cada pieza lleva una clave y su tamaño base; los ajustes del documento
+// (doc.cristales[clave] = { dx, dy, s }) la mueven y escalan sin recomponer los pliegos.
+function pieza(el, k, lado, op) {
+  el.dataset.k = k; el.dataset.lado = lado; el.dataset.op = JSON.stringify(op);
+  vidrioDe(el, lado);
+}
+function vidrioDe(el, lado) {
+  const { ca, ff, pf, fondo, sombra } = JSON.parse(el.dataset.op);
+  vidrio(el, lado, lado, { ca, fuerza: Math.round(lado * ff), prof: pf ? Math.round(lado * pf) : undefined, fondo, sombra });
+}
+export function ajustarCristal(el, { dx = 0, dy = 0, s = 1 } = {}) {
+  const base = +el.dataset.lado, lado = Math.max(24, base * s), d = (lado - base) / 2;
+  vidrioDe(el, lado);
+  el.style.translate = `${dx - d}px ${dy - d}px`;
+  // La lente de una foto también corre el círculo que deja ver la imagen a color
+  if (el.dataset.cx) {
+    const viva = el.parentNode.querySelector('.viva');
+    if (viva) viva.style.clipPath = `circle(${lado / 2}px at calc(${el.dataset.cx * 100}% + ${dx}px) calc(${el.dataset.cy * 100}% + ${dy}px))`;
+  }
+}
+export function aplicarCristales(raiz, cristales = {}) {
+  raiz.querySelectorAll('[data-k]').forEach(el => ajustarCristal(el, cristales[el.dataset.k]));
 }
 
 export async function maquetar(doc, { raiz, resolver, deco }) {
