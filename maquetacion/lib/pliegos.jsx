@@ -8,6 +8,7 @@ import Grafico from '@/components/Grafico';
 import { esCapitulo, partesCapitulo, textoPlano } from '@/lib/doc';
 import { vidrio } from '@/lib/vidrio';
 import { pictograma } from '@/lib/pictos';
+import { CADENA } from '@/lib/cadena';
 
 const PX = 96;                      // px por pulgada
 const L = 0.2 * PX;                 // renglón: todo lo que se apila cae en múltiplos de esta altura
@@ -487,9 +488,31 @@ export class Maquetador {
     }
     this.fluir(s.bloques);
   }
+  // Última doble página antes de las referencias: la cadena de valor del proyecto completa,
+  // de la urgencia al proyecto, a lo ancho del pliego
+  cadenaValor() {
+    this.cerrarBanda(); this.vaciarFlotantes();
+    this.seccionActual = 'Cadena de valor';
+    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
+    const banda = m => `<div class="cv-banda" style="--c:${m.c}"><div class="cv-macro"><span class="cv-n">${m.n}</span><b>${m.t}</b><i>${m.s}</i></div>` +
+      `<div class="cv-cats">${m.cats.map(c => `<div class="cv-cat"><h5>${c.t}</h5><ul>${c.subs.map(([t, a]) => `<li><span>${t}</span><em>${a}</em></li>`).join('')}</ul></div>`).join('')}</div></div>`;
+    const izq = this.pagina('cadena cad-izq');
+    izq.caja.innerHTML = `<div class="cv-cab"><span class="tag">Síntesis del sustento teórico</span><h2>Cadena de valor</h2>` +
+      `<p>Siete macrocategorías encadenan el problema con la respuesta de diseño: de la urgencia del burnout universitario y el malestar que se calla, a la metáfora, el diseño participativo y lo phygital, siempre dentro de sus límites éticos. Cada categoría se abre en subcategorías y en los autores que la sostienen en este documento.</p>` +
+      `<div class="cv-ley"><span><i class="m"></i>Macrocategoría</span><span><i class="c"></i>Categoría</span><span><i class="s"></i>Subcategoría · autores</span></div></div>` +
+      `<div class="cv-lista">${CADENA.slice(0, 3).map(banda).join('')}</div>`;
+    const der = this.pagina('cadena cad-der');
+    der.caja.innerHTML = `<div class="cv-lista">${CADENA.slice(3).map(banda).join('')}</div>` +
+      `<div class="cv-fin"><span class="cv-n">→</span><div><b>Sobre lo que no digo</b><span>Ecosistema phygital de elaboración emocional: cartografía, taller y MetafoRA</span></div></div>`;
+    const fin = der.caja.querySelector('.cv-fin'), tam = 0.75 * PX, bur = h('span', 'burbuja');
+    bur.style.cssText = `left:${-tam * 0.25}px;top:${(fin.offsetHeight - tam) / 2}px`;
+    pieza(bur, 'cadena-fin', tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
+    fin.appendChild(bur);
+    this.trasCadena = true;
+  }
   referencias(parte) {
     this.modo = 'refs'; this.seccionActual = 'Referencias';
-    this.aDerecha();
+    if (!this.trasCadena) this.aDerecha();
     const p = this.pagina('');
     const cab = h('div', 'pre-cab', '<span class="tag">Sobre lo que no digo</span><h2>Referencias</h2>'); cab.style.marginLeft = '0';
     this.marcar(cab, parte.titulo.id);
@@ -564,7 +587,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
     else if (parte.tipo === 'preliminar') m.preliminar(parte);
     else if (parte.tipo === 'indice') m.indiceDoc();
     else if (parte.tipo === 'capitulo') m.capitulo(parte);
-    else if (parte.tipo === 'referencias') m.referencias(parte);
+    else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
   }
   m.terminar();
 
