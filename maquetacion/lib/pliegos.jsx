@@ -135,16 +135,45 @@ export class Maquetador {
       const fuentes = (b.images?.length ? b.images : [b.src]).filter(Boolean);
       if (!fuentes.length) f.appendChild(h('div', 'fig-vacia', 'Imagen pendiente'));
       else {
-        // Siempre a todo el ancho; el alto se elige en renglones para respetar la proporción
-        // original con el mínimo recorte, y se fija en px para no depender de la carga
-        const n = fuentes.length, porFila = n === 1 ? 1 : n === 2 ? 2 : n === 3 ? 3 : 4;
-        const c = h('div', 'fig-img' + (n > 1 ? ' g' + (n === 3 ? 3 : n === 2 ? 2 : n > 4 ? 8 : 4) : ''));
-        const ancho = (ANCHO_CAJA - (porFila - 1) * 0.1 * PX) / porFila;
-        const ds = fuentes.map(s => this.dims?.[this.resolver(s)]).filter(Boolean);
-        const prop = ds.length ? ds.reduce((a, d) => a + d[1] / d[0], 0) / ds.length : 0.6;
-        const maxAlto = (n > porFila ? 15 : 39) * L;
-        const alto = Math.min(maxAlto, Math.max(4 * L, Math.round(ancho * prop / L) * L));
-        fuentes.forEach(s => { const im = h('img'); im.src = this.resolver(s); im.alt = b.title || ''; im.style.height = alto + 'px'; c.appendChild(im); });
+        // Grupos: filas justificadas (todas las imágenes de una fila con el mismo alto) que juntas
+        // llenan el ancho sin recortar. Imagen suelta horizontal: a todo el ancho. Imagen suelta
+        // vertical: completa, ocupando 2 o 3 columnas de la retícula, con el pie en la columna libre.
+        const COL = 1.585 * PX, GUT = 0.22 * PX, SEP = 0.1 * PX, n = fuentes.length;
+        const ds = fuentes.map(s => this.dims?.[this.resolver(s)] || [4, 3]);
+        const r = ds.map(d => d[0] / d[1]);
+        const c = h('div', 'fig-img');
+        const filasDe = k => { const out = [], por = Math.ceil(n / k); for (let i = 0; i < n; i += por) out.push([...Array(Math.min(por, n - i)).keys()].map(x => x + i)); return out; };
+        let filas, anchoTotal = ANCHO_CAJA;
+        if (n === 1 && r[0] < 1.05) {
+          // vertical: el mayor número de columnas con el que la imagen entera cabe en alto
+          const maxAlto = 38 * L;
+          for (const cols of [3, 2]) { anchoTotal = cols * COL + (cols - 1) * GUT; if (anchoTotal / r[0] <= maxAlto) break; }
+          if (anchoTotal / r[0] > maxAlto) anchoTotal = maxAlto * r[0];
+          f.classList.add('lateral'); filas = [[0]];
+        } else {
+          // se prueba con 1, 2, 3… filas y se queda la que da un alto de fila más cercano a 3,4 in
+          let mejor = null;
+          for (let k = 1; k <= Math.min(n, 3); k++) {
+            const fs = filasDe(k), altos = fs.map(f => (ANCHO_CAJA - (f.length - 1) * SEP) / f.reduce((a, i) => a + r[i], 0));
+            const total = altos.reduce((a, x) => a + x, 0);
+            const pena = Math.abs(Math.min(...altos) - 3.4 * PX) + (total > 36 * L ? 1e4 : 0);
+            if (!mejor || pena < mejor.pena) mejor = { fs, pena };
+          }
+          filas = mejor.fs;
+        }
+        filas.forEach(fila => {
+          const ancho = anchoTotal - (fila.length - 1) * SEP, suma = fila.reduce((a, i) => a + r[i], 0);
+          const alto = Math.max(4 * L, Math.round(ancho / suma / L) * L);   // alto en renglones: el recorte es de unos px
+          const fr = h('div', 'fig-fila');
+          fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; fr.appendChild(im); });
+          c.appendChild(fr);
+        });
+        if (f.classList.contains('lateral')) {
+          // pie a la izquierda (columna 1), imagen alineada a la derecha
+          const pie = h('div', 'fig-pie'); while (f.firstChild) pie.appendChild(f.firstChild);
+          if (b.note) pie.appendChild(h('div', 'nota', b.note));
+          f.append(pie, c); return f;
+        }
         f.appendChild(c);
       }
     }
