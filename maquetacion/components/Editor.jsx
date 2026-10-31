@@ -215,7 +215,8 @@ export default function Editor() {
             <button onClick={() => setMenuExp(v => !v)}>Exportar ▾</button>
             {menuExp && (
               <div className="menu lg-r">
-                <button onClick={exportarPDF}>PDF (imprimir)</button>
+                <a href={pub('/SLQND-maquetacion.pdf')} download onClick={() => setMenuExp(false)} title="Se genera solo cada vez que se publica: incluye el cristal líquido">PDF final (alta calidad)</a>
+                <button onClick={exportarPDF}>PDF rápido (imprimir, sin cristal)</button>
                 <button onClick={exportarID}>InDesign (.zip con script)</button>
                 <button onClick={exportarJSON}>Respaldo (.json)</button>
                 <label>Importar respaldo…<input type="file" accept="application/json" hidden onChange={e => { setMenuExp(false); importarJSON(e.target.files[0]); }} /></label>

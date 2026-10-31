@@ -50,6 +50,17 @@ jobs:
           cp -r maquetacion/out/. sitio/maquetacion/
           touch sitio/.nojekyll
 
+      # PDF de pliegos con el cristal líquido visible (el cristal se fotografía antes de imprimir)
+      - name: PDF de la maquetación
+        working-directory: maquetacion
+        run: |
+          npm i --no-save playwright@1.63.0
+          npx playwright install --with-deps chromium
+          mkdir -p ../servir && ln -s "$PWD/../sitio" ../servir/slqnd
+          (cd ../servir && python3 -m http.server 8790 >/dev/null 2>&1 &)
+          sleep 2
+          node herramientas/exportar-pdf.mjs http://localhost:8790/slqnd/maquetacion/ ../sitio/maquetacion/SLQND-maquetacion.pdf
+
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

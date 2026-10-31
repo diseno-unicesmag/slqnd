@@ -56,8 +56,8 @@ button:disabled { opacity: 0.4; cursor: default; }
 button.primario { background: linear-gradient(135deg, #f0c24b, #e3a92a) !important; color: #1b1406 !important; border: 0 !important; font-weight: 650; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 4px 16px rgba(240, 194, 75, 0.25); border-radius: 99px; padding: 7px 15px; }
 .menu-caja { position: relative; }
 .menu { position: absolute; right: 0; top: calc(100% + 8px); display: flex; flex-direction: column; min-width: 230px; padding: 6px; border-radius: 18px; }
-.menu button, .menu label { text-align: left; border: 0; background: none; padding: 9px 12px; border-radius: 12px; cursor: pointer; }
-.menu button:hover, .menu label:hover { background: rgba(255, 255, 255, 0.09); }
+.menu button, .menu label, .menu a { text-align: left; color: inherit; text-decoration: none; font: inherit; border: 0; background: none; padding: 9px 12px; border-radius: 12px; cursor: pointer; }
+.menu button:hover, .menu label:hover, .menu a:hover { background: rgba(255, 255, 255, 0.09); }
 
 .aviso { position: fixed; top: 74px; left: 50%; transform: translateX(-50%); z-index: 30; padding: 10px 16px; border-radius: 16px; max-width: 560px; cursor: pointer; display: flex; gap: 14px; line-height: 1.45; }
 .aviso span { color: var(--muted); }
@@ -168,6 +168,7 @@ label.archivo { display: inline-flex !important; flex-direction: row !important;
   .lienzo { overflow: visible; border-radius: 0; }
   .lista-pliegos { zoom: 1 !important; padding: 0; gap: 0; display: block; }
   .lista-pliegos .pliego { box-shadow: none; break-after: page; margin: 0; }
+  .lista-pliegos .pliego:last-child { break-after: auto; }
 }
 
 .app.modo-pliegos { grid-template-columns: 250px 1fr; }

@@ -7,11 +7,15 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import Grafico from '@/components/Grafico';
 import { esCapitulo, partesCapitulo, textoPlano } from '@/lib/doc';
 import { vidrio } from '@/lib/vidrio';
+import { pictograma } from '@/lib/pictos';
 
 const PX = 96;                      // px por pulgada
-const ALTO_CAJA = (11 - 0.8 - 0.95) * PX;
-const ESPACIO = 0.3 * PX;           // aire bajo figuras y tablas
-const AIRE = 0.16 * PX;             // aire extra entre el texto y la figura que sigue;          // aire bajo figuras y tablas
+const L = 0.2 * PX;                 // renglón: todo lo que se apila cae en múltiplos de esta altura
+const ALTO_CAJA = 46 * L;           // 9,2 in de caja = 46 renglones
+const ANCHO_CAJA = 7 * PX;          // 4 columnas + 3 medianiles
+const ESPACIO = 2 * L;              // aire bajo figuras y tablas
+const AIRE = L;                     // aire entre el texto y la figura que sigue
+const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -131,22 +135,16 @@ export class Maquetador {
       const fuentes = (b.images?.length ? b.images : [b.src]).filter(Boolean);
       if (!fuentes.length) f.appendChild(h('div', 'fig-vacia', 'Imagen pendiente'));
       else {
-        const c = h('div', 'fig-img' + (fuentes.length > 1 ? (fuentes.length > 4 ? ' g8 foto' : fuentes.length > 2 ? ' g4 foto' : ' g2 foto') : ''));
-        fuentes.forEach(s => { const im = h('img'); im.src = this.resolver(s); im.alt = b.title || ''; c.appendChild(im); });
-        // Imagen vertical: el pie va en la columna 1 y la imagen ocupa las columnas 2 a 4
-        const d = fuentes.length === 1 && this.dims?.[this.resolver(fuentes[0])];
-        const lateral = d && d[1] / d[0] > 0.85 && b.tamano !== 'pagina';
-        if (lateral) f.classList.add('lateral');
-        // Tamaño exacto en px desde las medidas reales: el marco coincide con la imagen
-        // y la página no depende de que la imagen ya haya cargado al medir
-        if (d) {
-          const maxW = (lateral ? 4.9 : 7.0) * PX, maxH = (b.tamano === 'pagina' ? 7.4 : lateral ? 5.6 : 4.4) * PX;
-          const k = Math.min(maxW / d[0], maxH / d[1]);
-          const im = c.firstChild; im.width = Math.round(d[0] * k); im.height = Math.round(d[1] * k);
-          im.style.width = im.width + 'px'; im.style.height = im.height + 'px';
-          c.classList.add('exacta');
-        } else if (fuentes.length === 1) c.firstChild.style.maxHeight = (b.tamano === 'pagina' ? 7.6 : 4.4) + 'in';
-        if (fuentes.length > 4) { const d0 = this.dims?.[this.resolver(fuentes[0])]; c.querySelectorAll('img').forEach(im => { im.style.aspectRatio = d0 ? d0[0] + ' / ' + d0[1] : '9 / 16'; }); }
+        // Siempre a todo el ancho; el alto se elige en renglones para respetar la proporción
+        // original con el mínimo recorte, y se fija en px para no depender de la carga
+        const n = fuentes.length, porFila = n === 1 ? 1 : n === 2 ? 2 : n === 3 ? 3 : 4;
+        const c = h('div', 'fig-img' + (n > 1 ? ' g' + (n === 3 ? 3 : n === 2 ? 2 : n > 4 ? 8 : 4) : ''));
+        const ancho = (ANCHO_CAJA - (porFila - 1) * 0.1 * PX) / porFila;
+        const ds = fuentes.map(s => this.dims?.[this.resolver(s)]).filter(Boolean);
+        const prop = ds.length ? ds.reduce((a, d) => a + d[1] / d[0], 0) / ds.length : 0.6;
+        const maxAlto = (n > porFila ? 15 : 39) * L;
+        const alto = Math.min(maxAlto, Math.max(4 * L, Math.round(ancho * prop / L) * L));
+        fuentes.forEach(s => { const im = h('img'); im.src = this.resolver(s); im.alt = b.title || ''; im.style.height = alto + 'px'; c.appendChild(im); });
         f.appendChild(c);
       }
     }
@@ -182,12 +180,12 @@ export class Maquetador {
   }
   cerrarBanda() {
     if (!this.banda) return;
-    if (this.banda.children.length) this.y += this.banda.offsetHeight + (this.banda.lastElementChild ? 6 : 0);
+    if (this.banda.children.length) this.y += enRenglon(this.banda.offsetHeight);
     else this.banda.remove();
     this.banda = null;
   }
   agregarTexto(el, guardia = 0) {
-    if (!this.banda && ALTO_CAJA - this.y < 0.5 * PX && guardia < 3) this.paginaFlujo();
+    if (!this.banda && ALTO_CAJA - this.y < 3 * L && guardia < 3) this.paginaFlujo();
     if (!this.banda) this.nuevaBanda();
     const b = this.banda; b.appendChild(el);
     if (this.y + b.offsetHeight <= ALTO_CAJA) return;
@@ -283,7 +281,7 @@ export class Maquetador {
     // Se mide primero debajo del texto abierto: si no cabe y va a la página siguiente,
     // la banda sigue abierta y el texto continúa sin cortar las columnas
     const habiaTexto = !!(this.banda && this.banda.children.length);
-    const yTent = this.banda ? this.y + this.banda.offsetHeight + 6 + (habiaTexto ? AIRE : 0) : this.y;
+    const yTent = this.banda ? this.y + enRenglon(this.banda.offsetHeight) + (habiaTexto ? AIRE : 0) : this.y;
     el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = yTent + 'px';
     this.actual.caja.appendChild(el);
     const libreTent = ALTO_CAJA - yTent;
@@ -291,11 +289,11 @@ export class Maquetador {
     if (this.banda && el.offsetHeight > libreTent && !partirTabla) { el.remove(); el.style.top = ''; this.flotantes.push(el); return; }
     this.cerrarBanda(); if (habiaTexto) this.y += AIRE; el.style.top = this.y + 'px';
     const alto = el.offsetHeight, libre = ALTO_CAJA - this.y;
-    if (alto <= libre) { this.y += alto + ESPACIO; return; }
+    if (alto <= libre) { this.y += enRenglon(alto) + ESPACIO; return; }
     if (el.classList.contains('tabla') && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
     if (this.y === 0) { // ni en página vacía: se ajusta la imagen
-      el.querySelectorAll('.fig-img img').forEach(im => { im.style.maxHeight = Math.max(2 * PX, libre - (alto - im.offsetHeight) - 10) + 'px'; });
-      this.y += el.offsetHeight + ESPACIO; return;
+      el.querySelectorAll('.fig-img img').forEach(im => { im.style.height = Math.max(6 * L, Math.floor((libre - (alto - im.offsetHeight)) / L) * L) + 'px'; });
+      this.y += enRenglon(el.offsetHeight) + ESPACIO; return;
     }
     el.remove(); el.style.top = '';
     this.flotantes.push(el);   // sigue el texto; la figura abre la próxima página
@@ -310,7 +308,7 @@ export class Maquetador {
       const tb = el.querySelector('tbody'); filas.slice(k).forEach(f => tb.appendChild(f)); if (nota) el.appendChild(nota);
       el.remove(); el.style.top = ''; this.paginaFlujo(); this.colocarAncho(el, true); return;
     }
-    this.y += el.offsetHeight + ESPACIO;
+    this.y += enRenglon(el.offsetHeight) + ESPACIO;
     const sigue = h('figure', 'ancho tabla'); sigue.dataset.b = el.dataset.b; sigue.dataset.cont = '1';
     sigue.appendChild(h('span', 'rot', el.querySelector('.rot').textContent + ' (continuación)'));
     const t = h('table'); if (cab) t.appendChild(cab.cloneNode(true));
@@ -355,21 +353,29 @@ export class Maquetador {
     parte.datos.forEach(b => c.appendChild(h('p', '', b.html)));
     p.el.appendChild(c);
   }
-  preliminar(parte, apretar = false) {
+  // Si la página que sigue sería izquierda, se deja una en blanco: lo que abre empieza a la derecha
+  aDerecha() { if (!this.siguienteEsDerecha) this.pagina('blanca', { folio: false }); }
+  preliminar(parte, apretar = false, holgado = false) {
     this.modo = 'una'; this.seccionActual = parte.titulo ? textoPlano(parte.titulo.html) : this.seccionActual;
+    if (!apretar && !holgado && parte.titulo && /^Introducci/i.test(textoPlano(parte.titulo.html))) this.aDerecha();
     const desde = this.paginas.length;
     const p = this.pagina('p-una' + (apretar ? ' apretado' : ''));
     if (parte.titulo) {
       const cab = h('div', 'pre-cab', `<span class="tag">${parte.titulo.pre ? 'Preliminares' : 'Sobre lo que no digo'}</span><h2>${textoPlano(parte.titulo.html)}</h2>`);
       this.marcar(cab, parte.titulo.id);
-      p.caja.appendChild(cab); this.y = cab.offsetHeight + (apretar ? 0.14 : 0.3) * PX;
+      p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + (apretar ? 1 : 2) * L;
     }
     this.fluir(parte.bloques);
     const hechas = this.paginas.slice(desde);
     // Si solo unas líneas pasan a otra página, se recompone más ajustado para que quepa en una
-    if (!apretar && hechas.length === 2 && hechas[1].caja.innerText.length < 600) {
+    if (!apretar && !holgado && hechas.length === 2 && hechas[1].caja.innerText.length < 600) {
       hechas.forEach(x => x.el.remove()); this.paginas.length = desde;
       return this.preliminar(parte, true);
+    }
+    // Si ni ajustado cabe en una, se vuelve a la versión holgada en dos páginas
+    if (apretar && hechas.length > 1) {
+      hechas.forEach(x => x.el.remove()); this.paginas.length = desde;
+      return this.preliminar(parte, false, true);
     }
     // Un preliminar corto no flota arriba en una página vacía: baja al tercio inferior
     if (hechas.length === 1 && this.y < ALTO_CAJA * 0.45) {
@@ -382,7 +388,7 @@ export class Maquetador {
     this.modo = 'una'; this.seccionActual = 'Tabla de contenido';
     const p = this.pagina('p-una');
     const cab = h('div', 'pre-cab', '<span class="tag">Preliminares</span><h2>Tabla de contenido</h2>');
-    p.caja.appendChild(cab); this.y = cab.offsetHeight + 0.3 * PX;
+    p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + 2 * L;
     // Las filas se componen ya (para saber cuántas páginas ocupa); los números se ponen al final.
     this.filasIndice = [];
     for (const e of this.entradasIndice) {
@@ -413,46 +419,52 @@ export class Maquetador {
     bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.3 - tb / 2}px;top:${t1.offsetHeight * 0.14 - tb / 2}px`;
     vidrio(bur, tb, tb, { ca: 3, fuerza: Math.round(tb * 0.2), prof: Math.round(tb * 0.08) });
     t1.appendChild(bur);
-    const ind = h('div', 'ap-indice'); der.el.appendChild(ind);
     this.marcar(izq.el, parte.titulo.id);
+    // Antesala (página izquierda): el contenido del capítulo con sus pictogramas y mucho aire.
+    // Así el texto del capítulo arranca en página derecha.
+    const ante = this.pagina('antesala', { folio: false });
+    ante.caja.appendChild(h('div', 'an-cab', `<span>Capítulo ${parte.num}</span><b>En este capítulo</b>`));
+    const ind = h('div', 'an-lista'); ante.caja.appendChild(ind);
     parte.aperturaIndice = ind;
     this.modo = 'dos';
     parte.secciones.forEach((s, k) => this.seccion(s, k));
   }
   seccion(s, k) {
-    // Una sección 1.x abre página, salvo que en la actual quede buen espacio: ahí sigue debajo
-    this.cerrarBanda();
-    const sigue = this.actual?.flujo && !this.flotantes.length && ALTO_CAJA - this.y >= 3.6 * PX;
-    const p = sigue ? this.actual : this.pagina('');
+    // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
+    this.cerrarBanda(); this.vaciarFlotantes();
+    const p = this.pagina('');
     p.flujo = true;
-    if (sigue) this.y += 0.3 * PX;
     if (s.titulo) {
       const [n, t] = separarTitulo(s.titulo);
       const cab = h('div', 'seccion-cab', `<span class="num"><b>${n}</b>${this.seccionActual.replace(/^Capítulo \d+\. /, '')}</span><h2><span>${t}</span></h2>`);
       this.marcar(cab, s.titulo.id);
-      cab.style.position = 'absolute'; cab.style.left = '0'; cab.style.right = '0'; cab.style.top = this.y + 'px';
+      cab.style.position = 'absolute'; cab.style.left = '0'; cab.style.right = '0'; cab.style.top = '0';
+      const pic = h('div', 'sec-picto', pictograma(t));
+      cab.appendChild(pic);
       p.caja.appendChild(cab);
-      // La burbuja de cristal se cruza con el final del título; solo en secciones que abren página
-      if (!sigue) {
-      const rs = [...cab.querySelector('h2 span').getClientRects()], ult = rs[rs.length - 1], C = cab.getBoundingClientRect();
-      // Solo el borde de la burbuja roza la esquina superior de la última letra: la palabra se sigue leyendo
-      const tam = [0.78, 0.64, 0.9][k % 3] * PX;
-      const cx = ult.right - C.left + tam * 0.4, cy = ult.top - C.top + ult.height * 0.12;
-      const bur = h('span', 'burbuja');
-      bur.style.cssText = `left:${cx - tam / 2}px;top:${cy - tam / 2}px`;
-      vidrio(bur, tam, tam, { ca: 2, fuerza: Math.round(tam * 0.2), fondo: 'rgba(116,85,194,0.06)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
+      // La burbuja de cristal se posa sobre el pictograma, como una lente que lo amplía
+      const tam = 0.95 * PX, bur = h('span', 'burbuja');
+      bur.style.cssText = `right:${0.42 * PX - tam / 2}px;top:${pic.offsetTop + pic.offsetHeight * 0.42 - tam / 2}px`;
+      vidrio(bur, tam, tam, { ca: 2, fuerza: Math.round(tam * 0.22), fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
       cab.appendChild(bur);
-      }
-      this.y += cab.offsetHeight + 0.26 * PX;
+      this.y = enRenglon(cab.offsetHeight) + 2 * L;
+    }
+    // Una sección que es una sola frase (p. ej. la pregunta de investigación) se destaca en grande
+    if (s.bloques.length === 1 && s.bloques[0].type === 'p' && textoPlano(s.bloques[0].html).length < 320) {
+      const e = h('p', 'destacado', s.bloques[0].html); e.dataset.b = s.bloques[0].id;
+      e.style.cssText = `position:absolute;left:${1.585 * PX + 0.22 * PX}px;right:0;top:${this.y + 2 * L}px`;
+      this.actual.caja.appendChild(e); this.y += enRenglon(e.offsetHeight) + 4 * L;
+      return;
     }
     this.fluir(s.bloques);
   }
   referencias(parte) {
     this.modo = 'refs'; this.seccionActual = 'Referencias';
+    this.aDerecha();
     const p = this.pagina('');
     const cab = h('div', 'pre-cab', '<span class="tag">Sobre lo que no digo</span><h2>Referencias</h2>'); cab.style.marginLeft = '0';
     this.marcar(cab, parte.titulo.id);
-    p.caja.appendChild(cab); this.y = cab.offsetHeight + 0.3 * PX;
+    p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + 2 * L;
     this.fluir(parte.bloques);
   }
   revela(src, { x, y, r, alto }) {
@@ -511,7 +523,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   for (const parte of partes.filter(x => x.tipo === 'capitulo')) {
     parte.secciones.filter(s => s.titulo).forEach(s => {
       const [n, t] = separarTitulo(s.titulo);
-      parte.aperturaIndice.appendChild(h('div', '', `<b>${n}</b><span>${t}</span><span>${pagDe[s.titulo.id] ?? ''}</span>`));
+      parte.aperturaIndice.appendChild(h('div', 'an-fila', `${pictograma(t)}<b>${n}</b><span>${t}</span><i>${pagDe[s.titulo.id] ?? ''}</i>`));
     });
   }
 
