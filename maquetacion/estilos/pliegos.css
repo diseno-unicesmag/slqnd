@@ -238,3 +238,11 @@
 
 /* Sección muy breve (una sola idea): se compone como un destacado grande, con aire alrededor */
 .pl p.destacado { font-size: 19pt; line-height: calc(var(--L) * 2); font-weight: 700; letter-spacing: -.015em; color: var(--d); text-align: left; hyphens: manual; margin: 0; padding-left: 0.3in; border-left: 6px solid var(--g); }
+
+/* Filas de imágenes justificadas y figura vertical con el pie al lado */
+.pl .fig-img { display: flex; flex-direction: column; gap: calc(var(--L) / 2); }
+.pl .fig-fila { display: flex; gap: 0.1in; }
+.pl .fig-fila img { flex: none; }
+.pl figure.fig-lado { display: flex; justify-content: space-between; gap: var(--gut); }
+.pl figure.fig-lado .fig-pie { width: var(--col); display: flex; flex-direction: column; }
+.pl figure.fig-lado .fig-pie .nota { margin-top: auto; }
