@@ -255,3 +255,4 @@
   background: #f5c542; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.4); cursor: nwse-resize; z-index: 9; }
 .pl.editando [data-b]:hover, .pl.editando [data-id]:hover { outline: 1px dashed rgba(116,85,194,.45); outline-offset: 2px; cursor: text; }
 @media print { .cristal-asa { display: none !important; } .pl [data-k], .pl [data-b], .pl [data-id] { outline: none !important; } }
+.pl .editando-texto { outline: 2px solid rgba(116,85,194,.7) !important; outline-offset: 2px; background: rgba(245,197,66,.08); cursor: text; }

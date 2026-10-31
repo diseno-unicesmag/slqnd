@@ -203,10 +203,6 @@ export default function Editor() {
 
       <header className="barra lg-r" data-lg-strength="40">
         <div className="marca"><span className="punto" />Sobre lo que no digo <em>maquetación</em></div>
-        <div className="segmentado">
-          <button className={modo === 'pliegos' ? 'on' : ''} onClick={() => setModo('pliegos')}>Pliegos</button>
-          <button className={modo === 'editar' ? 'on' : ''} onClick={() => setModo('editar')}>Editar</button>
-        </div>
         <div className="acciones">
           <button title="Deshacer (Ctrl+Z)" onClick={deshacer} disabled={!historia.current.atras.length}>↶</button>
           <button title="Rehacer (Ctrl+Y)" onClick={rehacer} disabled={!historia.current.adelante.length}>↷</button>
@@ -242,7 +238,7 @@ export default function Editor() {
         {faltan.length > 0 && (<>
           <h3>Pendientes</h3>
           <div className="pend">
-            {faltan.map(b => <button key={b.id} onClick={() => { setModo('editar'); setSel(b.id); setPanel('bloque'); setTimeout(() => document.querySelector(`[data-id="${b.id}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50); }}>⚑ {b.label}: {b.title}</button>)}
+            {faltan.map(b => <button key={b.id} onClick={() => { setSel(b.id); setPanel('bloque'); setTimeout(() => document.querySelector(`[data-id="${b.id}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50); }}>⚑ {b.label}: {b.title}</button>)}
           </div>
         </>)}
       </aside>
@@ -253,7 +249,7 @@ export default function Editor() {
               <Documento doc={doc} editable seleccion={sel} onSeleccionar={id => { setSel(id); setPanel('bloque'); }} cambiarBloque={cambiarBloque} resolver={resolver} onImagen={ponerImagen} onTecla={onTecla} />
               <button className="agregar-final" onClick={() => insertar('p', doc.blocks[doc.blocks.length - 1].id)}>+ Añadir párrafo al final</button>
             </div>
-          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} editable={editarP}
+          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} editable
               onCristal={(k, ov) => aplicar(d => { const c = { ...(d.cristales || {}) }; if (ov) c[k] = ov; else delete c[k]; return { ...d, cristales: c }; }, 'cristal-' + k)}
               onEditar={(id, cambios) => cambiarBloque(id, cambios)} />}
         {modo === 'pliegos' && (
@@ -261,7 +257,6 @@ export default function Editor() {
             <button onClick={() => setZoomP(z => Math.max(0.3, +(z - 0.05).toFixed(2)))}>−</button>
             <span>{Math.round(zoomP * 100)} %</span>
             <button onClick={() => setZoomP(z => Math.min(1.2, +(z + 0.05).toFixed(2)))}>+</button>
-            <button className={editarP ? 'on' : ''} title="Arrastra el cristal, agrándalo con la esquina o la rueda; doble clic en un texto para corregirlo" onClick={() => setEditarP(x => !x)}>✎ Editar</button>
           </div>
         )}
         {modo === 'editar' && (

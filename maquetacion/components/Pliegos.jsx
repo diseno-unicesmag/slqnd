@@ -18,7 +18,7 @@ const Pliegos = forwardRef(function Pliegos({ doc, resolver, zoom, editable, onC
   // Mover el cristal no recompone los pliegos: solo cambia doc.cristales
   const base = useMemo(() => ({ ...doc, cristales: undefined }), [doc.blocks, doc.estilo, doc.meta]); // eslint-disable-line
   const cristales = doc.cristales || {};
-  const vivoRef = useRef({}); vivoRef.current = { cristales, onCristal, onEditar, zoom };
+  const vivoRef = useRef({}); vivoRef.current = { cristales, onCristal, onEditar, zoom, doc };
   const [listo, setListo] = useState(0);
   const [editor, setEditor] = useState(null);
 
@@ -97,10 +97,28 @@ const Pliegos = forwardRef(function Pliegos({ doc, resolver, zoom, editable, onC
       if (!m) return;
       e.preventDefault(); ov.dx += m[0]; ov.dy += m[1]; ajustarCristal(sel, ov); marcar(sel); guardar(k, ov);
     };
+    // Doble clic: el texto se corrige ahí mismo, en el pliego. Al salir se guarda el bloque
+    // completo (si está partido entre páginas, se unen sus partes) y los pliegos se recomponen.
     const doble = e => {
       if (e.target.closest('[data-k]')) return;
-      const el = e.target.closest('[data-b],[data-id]'); if (!el) return;
-      setEditor({ id: el.dataset.b || el.dataset.id });
+      const el = e.target.closest('[data-b],[data-id]'); if (!el || el.isContentEditable) return;
+      const id = el.dataset.b || el.dataset.id, attr = el.dataset.b ? 'b' : 'id';
+      const bloque = vivoRef.current.doc.blocks.find(b => b.id === id);
+      const enLinea = bloque && bloque.html != null && /^(P|H[1-6])$/.test(el.tagName);
+      if (!enLinea) { setEditor({ id }); return; }
+      const partes = [...v.querySelectorAll(`[data-${attr}="${id}"]`)];
+      partes.forEach(x => { x.contentEditable = 'true'; x.classList.add('editando-texto'); });
+      el.focus();
+      const salir = () => {
+        setTimeout(() => {
+          if (partes.includes(document.activeElement)) return;
+          partes.forEach(x => { x.removeAttribute('contenteditable'); x.classList.remove('editando-texto'); x.removeEventListener('blur', salir); x.removeEventListener('keydown', tec); });
+          const html = partes.map(x => x.innerHTML).join('');
+          if (html !== bloque.html) vivoRef.current.onEditar?.(id, { html });
+        }, 0);
+      };
+      const tec = k => { if (k.key === 'Escape' || (k.key === 'Enter' && !k.shiftKey)) { k.preventDefault(); document.activeElement.blur(); } };
+      partes.forEach(x => { x.addEventListener('blur', salir); x.addEventListener('keydown', tec); });
     };
     v.addEventListener('pointerdown', abajo); v.addEventListener('wheel', rueda, { passive: false });
     v.addEventListener('dblclick', doble); window.addEventListener('keydown', tecla);
