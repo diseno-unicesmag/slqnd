@@ -149,7 +149,7 @@ export class Maquetador {
           const maxAlto = 38 * L;
           for (const cols of [3, 2]) { anchoTotal = cols * COL + (cols - 1) * GUT; if (anchoTotal / r[0] <= maxAlto) break; }
           if (anchoTotal / r[0] > maxAlto) anchoTotal = maxAlto * r[0];
-          f.classList.add('lateral'); filas = [[0]];
+          f.classList.add('fig-lado'); filas = [[0]];
         } else {
           // se prueba con 1, 2, 3… filas y se queda la que da un alto de fila más cercano a 3,4 in
           let mejor = null;
@@ -168,7 +168,7 @@ export class Maquetador {
           fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; fr.appendChild(im); });
           c.appendChild(fr);
         });
-        if (f.classList.contains('lateral')) {
+        if (f.classList.contains('fig-lado')) {
           // pie a la izquierda (columna 1), imagen alineada a la derecha
           const pie = h('div', 'fig-pie'); while (f.firstChild) pie.appendChild(f.firstChild);
           if (b.note) pie.appendChild(h('div', 'nota', b.note));

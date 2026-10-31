@@ -243,6 +243,6 @@
 .pl .fig-img { display: flex; flex-direction: column; gap: calc(var(--L) / 2); }
 .pl .fig-fila { display: flex; gap: 0.1in; }
 .pl .fig-fila img { flex: none; }
-.pl figure.lateral { display: flex; justify-content: space-between; gap: var(--gut); }
-.pl figure.lateral .fig-pie { width: var(--col); display: flex; flex-direction: column; }
-.pl figure.lateral .fig-pie .nota { margin-top: auto; }
+.pl figure.fig-lado { display: flex; justify-content: space-between; gap: var(--gut); }
+.pl figure.fig-lado .fig-pie { width: var(--col); display: flex; flex-direction: column; }
+.pl figure.fig-lado .fig-pie .nota { margin-top: auto; }
