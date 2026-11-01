@@ -10,7 +10,7 @@ def txt(h): return re.sub(r"<[^>]+>", "", h or "").strip()
 def is_p(b): return b and b["type"] == "p"
 LABEL_APA = re.compile(r"^(Figura|Tabla) (\d+)$")
 LABEL_REF = re.compile(r"^Figura (R?\d+)\. (.+)$")
-CHARTS = {"8": "chart1", "9": "chart2", "10": "chart3", "14": "chart4", "18": "chart5"}
+CHARTS = {"9": "chart1", "10": "chart2", "11": "chart3", "15": "chart4", "21": "chart5"}
 charts = json.load(open(sys.argv[3]))
 
 out = []; i = 0; n = len(B)
