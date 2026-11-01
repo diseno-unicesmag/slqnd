@@ -35,7 +35,7 @@ export default function Editor() {
   const [ocupado, setOcupado] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [zoomP, setZoomP] = useState(0.62);
-  const [editarP, setEditarP] = useState(true);
+  const [editarP, setEditarP] = useState(false);
   const historia = useRef({ atras: [], adelante: [] });
   const blobs = useRef({});
   const paginas = useRef(null);
@@ -197,12 +197,13 @@ export default function Editor() {
   const formato = cmd => e => { e.preventDefault(); document.execCommand(cmd); };
 
   return (
-    <div className={'app modo-' + modo} style={{ '--zoom': zoom }}>
+    <div className={'app modo-' + modo + (editarP ? ' editando' : '')} style={{ '--zoom': zoom }}>
       <link rel="stylesheet" href={urlFuentes(doc.estilo)} />
       <GlassRuntime clave={modo + ajustes + menuExp} />
 
       <header className="barra lg-r" data-lg-strength="40">
         <div className="marca"><span className="punto" />Sobre lo que no digo <em>maquetación</em></div>
+        <button className={'boton-editar' + (editarP ? ' on' : '')} onClick={() => { setEditarP(x => !x); setPanel('bloque'); }}>{editarP ? '✓ Listo' : '✎ Editar'}</button>
         <div className="acciones">
           <button title="Deshacer (Ctrl+Z)" onClick={deshacer} disabled={!historia.current.atras.length}>↶</button>
           <button title="Rehacer (Ctrl+Y)" onClick={rehacer} disabled={!historia.current.adelante.length}>↷</button>
@@ -249,7 +250,7 @@ export default function Editor() {
               <Documento doc={doc} editable seleccion={sel} onSeleccionar={id => { setSel(id); setPanel('bloque'); }} cambiarBloque={cambiarBloque} resolver={resolver} onImagen={ponerImagen} onTecla={onTecla} />
               <button className="agregar-final" onClick={() => insertar('p', doc.blocks[doc.blocks.length - 1].id)}>+ Añadir párrafo al final</button>
             </div>
-          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} editable
+          : <Pliegos ref={paginas} doc={doc} resolver={resolver} zoom={zoomP} editable={editarP} onSeleccionar={id => { setSel(id); setPanel('bloque'); }}
               onCristal={(k, ov) => aplicar(d => { const c = { ...(d.cristales || {}) }; if (ov) c[k] = ov; else delete c[k]; return { ...d, cristales: c }; }, 'cristal-' + k)}
               onEditar={(id, cambios) => cambiarBloque(id, cambios)} />}
         {modo === 'pliegos' && (

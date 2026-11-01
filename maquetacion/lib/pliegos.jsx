@@ -10,6 +10,9 @@ import { vidrio } from '@/lib/vidrio';
 import { pictograma } from '@/lib/pictos';
 import { CADENA } from '@/lib/cadena';
 
+// Lema de cada fase de las 3i: el nombre de la fase se mantiene y el lema lo acompaña
+const LEMAS = { indagar: 'Cartografiar lo que se calla', idear: 'Darle forma a lo que no se dice', implementar: 'Habitar la metáfora' };
+
 const PX = 96;                      // px por pulgada
 const L = 0.2 * PX;                 // renglón: todo lo que se apila cae en múltiplos de esta altura
 const ALTO_CAJA = 46 * L;           // 9,2 in de caja = 46 renglones
@@ -443,7 +446,10 @@ export class Maquetador {
     const tt = h('div', ''); tt.style.cssText = 'position:absolute;left:.8in;right:.5in;top:3.6in';
     tt.appendChild(h('div', 'ap-tag', 'Capítulo ' + parte.num));
     const t1 = h('h1', 'ap-titulo', `<span>${parte.nombre}</span>`);
-    tt.appendChild(t1); der.el.appendChild(tt);
+    tt.appendChild(t1);
+    const lema = LEMAS[parte.nombre.toLowerCase()];
+    if (lema) tt.appendChild(h('div', 'ap-lema', lema));
+    der.el.appendChild(tt);
     // La burbuja se posa sobre las últimas letras del nombre
     const tb = 2.35 * PX, bur = h('span', 'burbuja');
     bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.3 - tb / 2}px;top:${t1.offsetHeight * 0.14 - tb / 2}px`;
@@ -453,7 +459,7 @@ export class Maquetador {
     // Antesala (página izquierda): el contenido del capítulo con sus pictogramas y mucho aire.
     // Así el texto del capítulo arranca en página derecha.
     const ante = this.pagina('antesala', { folio: false });
-    ante.caja.appendChild(h('div', 'an-cab', `<span>Capítulo ${parte.num}</span><b>En este capítulo</b>`));
+    ante.caja.appendChild(h('div', 'an-cab', `<span>Capítulo ${parte.num} · ${parte.nombre}</span><b>${LEMAS[parte.nombre.toLowerCase()] || 'En este capítulo'}</b><em>En este capítulo</em>`));
     const ind = h('div', 'an-lista'); ante.caja.appendChild(ind);
     parte.aperturaIndice = ind;
     this.modo = 'dos';

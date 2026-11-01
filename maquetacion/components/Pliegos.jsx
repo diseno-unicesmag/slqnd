@@ -8,7 +8,7 @@ const DECO = { portada: '/contenido/deco/portada.jpg', cap1: '/contenido/deco/ca
 
 /* Visor de pliegos: compone fuera de pantalla a escala real y muestra los pliegos (dos cartas
    enfrentadas) con el lomo marcado. Imprimir saca un pliego por hoja de 17 × 11 in. */
-const Pliegos = forwardRef(function Pliegos({ doc, resolver, zoom, editable, onCristal, onEditar }, ref) {
+const Pliegos = forwardRef(function Pliegos({ doc, resolver, zoom, editable, onCristal, onEditar, onSeleccionar }, ref) {
   const fuera = useRef(null), visor = useRef(null);
   const [estado, setEstado] = useState('Componiendo pliegos…');
   const [total, setTotal] = useState(0);
@@ -18,7 +18,7 @@ const Pliegos = forwardRef(function Pliegos({ doc, resolver, zoom, editable, onC
   // Mover el cristal no recompone los pliegos: solo cambia doc.cristales
   const base = useMemo(() => ({ ...doc, cristales: undefined }), [doc.blocks, doc.estilo, doc.meta]); // eslint-disable-line
   const cristales = doc.cristales || {};
-  const vivoRef = useRef({}); vivoRef.current = { cristales, onCristal, onEditar, zoom, doc };
+  const vivoRef = useRef({}); vivoRef.current = { cristales, onCristal, onEditar, onSeleccionar, zoom, doc };
   const [listo, setListo] = useState(0);
   const [editor, setEditor] = useState(null);
 
@@ -64,7 +64,13 @@ const Pliegos = forwardRef(function Pliegos({ doc, resolver, zoom, editable, onC
     const guardar = (k, ov) => vivoRef.current.onCristal?.(k, ov);
     const abajo = e => {
       const el = e.target.closest('[data-k]');
-      if (!el) { marcar(null); return; }
+      if (!el) {
+        marcar(null);
+        const b = e.target.closest('[data-b],[data-id]');
+        v.querySelectorAll('.bloque-sel').forEach(x => x.classList.remove('bloque-sel'));
+        if (b) { const id = b.dataset.b || b.dataset.id; v.querySelectorAll(`[data-b="${id}"],[data-id="${id}"]`).forEach(x => x.classList.add('bloque-sel')); vivoRef.current.onSeleccionar?.(id); }
+        return;
+      }
       e.preventDefault(); e.stopPropagation(); marcar(el);
       const k = el.dataset.k, z = vivoRef.current.zoom || 1;
       const ov0 = { dx: 0, dy: 0, s: 1, ...(vivoRef.current.cristales[k] || {}) };
