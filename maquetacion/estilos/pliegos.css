@@ -255,3 +255,46 @@
   background: #f5c542; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.4); cursor: nwse-resize; z-index: 9; }
 .pl.editando [data-b]:hover, .pl.editando [data-id]:hover { outline: 1px dashed rgba(116,85,194,.45); outline-offset: 2px; cursor: text; }
 @media print { .cristal-asa { display: none !important; } .pl [data-k], .pl [data-b], .pl [data-id] { outline: none !important; } }
+.pl .editando-texto { outline: 2px solid rgba(116,85,194,.7) !important; outline-offset: 2px; background: rgba(245,197,66,.08); cursor: text; }
+
+/* ── Cadena de valor (doble página antes de las referencias) ── */
+.pl .pag.cadena { background: var(--p); }
+.pl .cadena .caja { display: flex; flex-direction: column; gap: calc(var(--L) * 1); }
+.pl .cv-cab .tag { font-size: 7.5pt; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--m); line-height: var(--L); }
+.pl .cv-cab h2 { font-size: 34pt; line-height: calc(var(--L) * 2.5); margin: 0; color: var(--d); letter-spacing: -.02em; }
+.pl .cv-cab p { font-size: 9pt; line-height: var(--L); margin: calc(var(--L) / 2) 0 0; max-width: 5.6in; }
+.pl .cv-ley { display: flex; gap: 16px; margin-top: calc(var(--L) / 2); font-size: 6.5pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--m); }
+.pl .cv-ley span { display: inline-flex; align-items: center; gap: 6px; }
+.pl .cv-ley i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.pl .cv-ley .m { background: var(--d); } .pl .cv-ley .c { background: #fff; border: 1.5px solid var(--m); } .pl .cv-ley .s { background: rgba(116,85,194,.25); }
+.pl .cv-lista { display: flex; flex-direction: column; gap: calc(var(--L) * .6); position: relative; }
+.pl .cv-lista::before { content: ''; position: absolute; left: 0.17in; top: -1in; bottom: -1in; width: 2px; background: linear-gradient(var(--m), var(--m)) ; opacity: .35; }
+.pl .cad-izq .cv-lista::before { top: 0.1in; }
+.pl .cv-banda { display: flex; gap: 10px; position: relative; }
+.pl .cv-macro { flex: none; width: 1.45in; padding: 10px 10px 10px 0.48in; position: relative; border-radius: 14px; background: var(--d); color: #fff; display: flex; flex-direction: column; gap: 3px; }
+.pl .cv-macro .cv-n, .pl .cv-fin .cv-n { position: absolute; left: 0.04in; top: 9px; width: 0.27in; height: 0.27in; border-radius: 50%; background: var(--c, var(--g)); color: var(--d); font-size: 7pt; font-weight: 900; display: grid; place-items: center; }
+.pl .cv-macro b { font-size: 10pt; line-height: 1.1; }
+.pl .cv-macro i { font-style: normal; font-size: 6.5pt; letter-spacing: .14em; color: var(--c); font-weight: 800; }
+.pl .cv-cats { flex: 1; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
+.pl .cv-cat { background: #fff; border-radius: 12px; padding: 8px 10px; border-top: 4px solid var(--c); box-shadow: 0 1px 0 rgba(43,23,89,.06); }
+.pl .cv-cat h5 { margin: 0 0 5px; font-size: 8pt; line-height: 1.15; color: var(--d); }
+.pl .cv-cat ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.pl .cv-cat li { display: flex; flex-direction: column; padding: 4px 6px; border-radius: 7px; background: rgba(116,85,194,.08); }
+.pl .cv-cat li span { font-size: 7pt; font-weight: 700; line-height: 1.2; color: var(--d); }
+.pl .cv-cat li em { font-style: normal; font-size: 6.2pt; line-height: 1.25; color: var(--m); }
+.pl .cv-fin { margin-top: auto; position: relative; display: flex; align-items: center; gap: 12px; padding: 14px 16px 14px 0.62in; border-radius: 16px; background: var(--d); color: #fff; }
+.pl .cv-fin .cv-n { top: 50%; transform: translateY(-50%); left: 0.04in; background: var(--g); }
+.pl .cv-fin b { display: block; font-size: 14pt; }
+.pl .cv-fin div span { font-size: 8pt; opacity: .85; }
+.pl .cv-lista { flex: 1; }
+.pl .cv-lista::before { display: none; }
+.pl .cv-banda { flex: 1; }
+.pl .cv-cat li { flex: 1; justify-content: center; }
+.pl .cv-cat ul { height: calc(100% - 22px); }
+.pl .cv-cat li span { font-size: 7.8pt; }
+.pl .cv-cat li em { font-size: 6.8pt; }
+.pl .cv-cat h5 { font-size: 8.8pt; }
+.pl .cv-macro b { font-size: 11.5pt; }
+.pl .cv-fin { margin-top: 0; flex: none; }
+.pl .cv-macro { width: 1.55in; padding-left: 0.42in; }
+.pl .cv-macro b { font-size: 10.5pt; hyphens: manual; overflow-wrap: normal; }
