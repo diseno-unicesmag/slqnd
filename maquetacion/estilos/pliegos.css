@@ -298,3 +298,15 @@
 .pl .cv-fin { margin-top: 0; flex: none; }
 .pl .cv-macro { width: 1.55in; padding-left: 0.42in; }
 .pl .cv-macro b { font-size: 10.5pt; hyphens: manual; overflow-wrap: normal; }
+
+/* Pictogramas sin círculo de fondo: la burbuja de cristal es la única lente */
+.pl .seccion-cab .sec-picto { background: none; border-radius: 0; }
+.pl .seccion-cab .sec-picto .picto { width: 0.78in; height: 0.78in; }
+/* Lema de cada fase */
+.pl .ap-lema { margin-top: 18px; font-size: 17pt; font-weight: 600; letter-spacing: -.01em; color: rgba(255,255,255,.82); max-width: 5.4in; }
+.pl .an-cab em { display: block; font-style: normal; margin-top: var(--L); font-size: 8pt; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--m); line-height: var(--L); }
+/* Referencias: los enlaces largos se parten dentro de su columna */
+.pl .referencias p, .pl .referencias li { overflow-wrap: anywhere; }
+.pl .an-lista { top: calc(var(--L) * 19); }
+.pl:not(.editando) [data-k] { cursor: default; }
+.pl.editando .bloque-sel { outline: 2px solid rgba(116,85,194,.8); outline-offset: 2px; }
