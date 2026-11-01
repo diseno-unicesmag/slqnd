@@ -105,7 +105,7 @@ const PREGUNTAS = [
       {id:'c',emoji:'😠',label:'Me emputo / irrito muchísimo', label_acad:'Respuesta de ira / irritabilidad'},
       {id:'d',emoji:'⏳',label:'Lo dejo botado', label_acad:'Evasión de la tarea'},
       {id:'e',emoji:'🤝',label:'Pido auxilio', label_acad:'Búsqueda de apoyo externo'},
-      {id:'f',emoji:'🎭',label:'Me la trago y sigo', label_acad:'Internalización de la frustración'}
+      {id:'f',emoji:'🎭',label:'Me aguanto y sigo', label_acad:'Internalización de la frustración'}
     ]
   },
   {

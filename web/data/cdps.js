@@ -374,7 +374,7 @@ export const CDPS = {
     },
     {
      "id": "f",
-     "label": "Me la trago y sigo",
+     "label": "Me aguanto y sigo",
      "acad": "Internalización de la frustración",
      "n": 8
     }

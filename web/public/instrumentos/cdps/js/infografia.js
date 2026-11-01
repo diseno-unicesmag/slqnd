@@ -10,7 +10,7 @@ const CONCLUSIONS = [
   { num:'02', title:'La Presión es Endógena', desc:'El 47% se autoubica en el nivel máximo de autoexigencia. El principal factor estresante declarado es la propia cabeza, por encima de la carga académica objetiva.' },
   { num:'03', title:'Brecha Institucional', desc:'Menos del 20% recurre al psicólogo o bienestar universitario en crisis. La familia y los pares cubren el vacío que la institución no logra llenar.' },
   { num:'04', title:'Crisis Vocacional por Agotamiento', desc:'Múltiples respuestas revelan que la presión sostenida lleva al cuestionamiento de la carrera, no por falta de interés, sino por desgaste emocional acumulado.' },
-  { num:'05', title:'Internalización Dominante', desc:'"Me la trago y sigo" es la reacción más frecuente ante la frustración. Esta supresión emocional crónica es un predictor clave del Burnout severo en literatura científica.' },
+  { num:'05', title:'Internalización Dominante', desc:'"Me aguanto y sigo" es la reacción más frecuente ante la frustración. Esta supresión emocional crónica es un predictor clave del Burnout severo en literatura científica.' },
   { num:'06', title:'Autocompasión Latente', desc:'El ejercicio de cierre reveló recursos internos profundos. Los estudiantes saben cuidarse — lo que falta son espacios seguros que activen esa capacidad.' },
 ];
 
