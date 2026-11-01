@@ -310,3 +310,4 @@
 .pl .an-lista { top: calc(var(--L) * 19); }
 .pl:not(.editando) [data-k] { cursor: default; }
 .pl.editando .bloque-sel { outline: 2px solid rgba(116,85,194,.8); outline-offset: 2px; }
+.pl table { table-layout: fixed; } .pl table td, .pl table th { overflow-wrap: anywhere; hyphens: auto; }
