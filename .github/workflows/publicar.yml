@@ -53,6 +53,9 @@ jobs:
       # PDF de pliegos con el cristal líquido visible (el cristal se fotografía antes de imprimir)
       - name: PDF de la maquetación
         working-directory: maquetacion
+        # Si el PDF falla, el sitio se publica igual (sin PDF nuevo)
+        continue-on-error: true
+        timeout-minutes: 15
         run: |
           npm i --no-save playwright@1.63.0
           npx playwright install --with-deps chromium
