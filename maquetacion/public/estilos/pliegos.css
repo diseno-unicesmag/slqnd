@@ -500,3 +500,45 @@
 .pl .ap-uno .ap-titulo { font-size: 80pt; color: #fff; }
 .pl .ap-uno .ap-titulo .burbuja { display: none; }
 .pl .ap-uno .ap-en { margin-top: 1in; }
+/* ===== v21: propuestas avanzadas de doble página ===== */
+/* Apertura «Doble 1» */
+.pl .ap-foto { overflow: hidden; }
+.pl .ap-foto .fondo { filter: none; }
+.pl .ap-credito { position: absolute; z-index: 3; left: .5in; bottom: .5in; background: rgba(0,0,0,.55); color: #fff; font-size: 7.5pt; padding: 5px 12px; border-radius: 100px; }
+.pl .ap-lente { position: absolute; z-index: 4; right: -.2in; top: 1.3in; }
+.pl .ap-morada { background: #2b1759; overflow: hidden; }
+.pl .ap-contorno { position: absolute; right: .4in; top: .3in; font-size: 230pt; font-weight: 900; line-height: .8; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.6px rgba(255,255,255,.5); }
+.pl .ap-morada .ap-panel { position: absolute; left: .85in; right: .85in; top: 3.7in; bottom: .8in; color: #fff; }
+.pl .ap-morada .ap-tag { color: var(--g); }
+.pl .ap-morada .ap-titulo { margin: .1in 0 0; font-size: 46pt; line-height: 1; letter-spacing: -.03em; color: #fff; }
+.pl .ap-morada .ap-titulo em { font-style: normal; color: var(--g); }
+.pl .ap-morada .ap-lema { color: #ddd2fa; }
+.pl .ap-morada .ap-en { display: block; margin-top: .45in; font-style: normal; font-size: 7.5pt; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--g); }
+.pl .ap-morada .an-lista { position: static; margin-top: .12in; border-top: 1.5px solid rgba(255,255,255,.5); }
+.pl .ap-morada .an-fila { color: #fff; border-bottom-color: rgba(255,255,255,.16); }
+.pl .ap-morada .an-fila .picto, .pl .ap-morada .an-fila b { color: var(--g); }
+/* Pregunta «Doble 2» */
+.pl .pag-pregunta { background: #f5c542; }
+.pl .pq-dorada { position: absolute; inset: 0; color: #2b1759; }
+.pl .pq-tag { display: block; font-size: 7.5pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; opacity: .6; }
+.pl .pq-comillas { display: block; margin-top: .4in; font-size: 200pt; font-weight: 900; line-height: .55; opacity: .15; }
+.pl .pq-dorada p { margin-top: .1in; font-size: 30pt; font-weight: 900; line-height: 1.12; letter-spacing: -.03em; text-align: left; hyphens: none; color: #2b1759; }
+.pl .pq-dorada p u { text-decoration: none; color: #fff; background: #2b1759; padding: 0 6px; border-radius: 6px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.pl .pq-firma { display: block; margin-top: .3in; font-size: 9pt; font-weight: 700; }
+.pl .pag-pregunta .folio, .pl .pag-pregunta .folio * { color: #2b1759 !important; }
+/* 3i «Doble 3» */
+.pl .tres-i { background: #1d1a2b; }
+.pl .ti-tag { position: absolute; left: .85in; top: .9in; font-size: 7.5pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--g); }
+.pl .ti-tri { position: absolute; left: .85in; top: 1.35in; font-size: 76pt; font-weight: 900; line-height: .95; letter-spacing: -.05em; color: #fff; }
+.pl .ti-tri span { display: block; } .pl .ti-tri i { font-style: normal; color: var(--g); }
+.pl .ti-tri .o { color: transparent; -webkit-text-stroke: 1.6px rgba(255,255,255,.6); }
+.pl .ti-desc { position: absolute; left: .85in; right: .85in; bottom: 1in; display: grid; grid-template-columns: repeat(3,1fr); gap: .2in; border-top: 1px solid rgba(255,255,255,.2); padding-top: .15in; }
+.pl .ti-desc b { display: block; color: var(--g); font-size: 10pt; margin-bottom: 4px; } .pl .ti-desc span { font-size: 8pt; color: #ddd2fa; line-height: 1.4; }
+.pl .tres-i-foto { overflow: hidden; }
+.pl .ti-card { position: absolute; z-index: 3; left: .75in; right: .75in; bottom: 1in; padding: .35in; color: #fff; }
+.pl .ti-card span { font-size: 7.5pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--g); }
+.pl .ti-card h3 { margin: 6px 0 8px; font-size: 16pt; font-weight: 800; color: #fff; }
+.pl .ti-card p { margin: 0; font-size: 10pt; line-height: 1.5; color: #fff; text-align: left; }
+/* Cristal sobre papel: más presente */
+.pl .pag:not(.noche) .burbuja { filter: drop-shadow(0 6px 14px rgba(43,23,89,.25)); }
+.pl .ap-lente { right: .6in; top: 1.1in; }

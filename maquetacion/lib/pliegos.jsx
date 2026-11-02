@@ -546,29 +546,57 @@ export class Maquetador {
     // Apertura: un pliego con un solo fondo. Número a la izquierda; a la derecha, sobre cristal,
     // el título, el lema y lo que trae el capítulo. La página anterior, si sobra, queda en blanco.
     // Izquierda: la imagen del capítulo a sangre, nítida. Derecha: papel lila con título e índice.
-    const [izq, der] = this.pliegoFondo(this.deco['cap' + parte.num] || this.deco.umbral, 'apertura-pliego ap-uno');
-    izq.el.appendChild(h('div', 'ap-marca', `<b>${parte.num.padStart(2, '0')}</b><span>Capítulo ${parte.num}</span>`));
+    // Apertura (propuesta avanzada «Doble 1»): foto real del trabajo de campo a sangre a la izquierda,
+    // página morada a la derecha con el número en contorno, título con acento dorado e índice.
+    this.aIzquierda();
+    const izq = this.pagina('noche ap-foto', { folio: false });
+    izq.el.appendChild(this.fondo(this.deco['foto' + parte.num] || this.deco['cap' + parte.num]));
+    izq.el.appendChild(h('span', 'ap-credito', parte.num === '1' ? 'Sesión de la Cartografía Digital de Pensamientos Silenciados, 2026' : 'Taller de cocreación «Sobre lo que no dices», 2026'));
+    const lente = h('span', 'burbuja ap-lente'); izq.el.appendChild(lente);
+    pieza(lente, 'lente-cap' + parte.num, 2.4 * PX, { ca: 4, ff: 0.3, pf: 0.1, fondo: 'rgba(255,255,255,0.06)', sombra: '0 22px 44px rgba(0,0,0,0.45)' });
+    const der = this.pagina('noche ap-morada', { folio: false });
+    der.el.appendChild(h('div', 'ap-contorno', parte.num.padStart(2, '0')));
     const panel = h('div', 'ap-panel');
     panel.appendChild(h('div', 'ap-tag', `Capítulo ${parte.num} · ${parte.nombre}`));
-    const t1 = h('h1', 'ap-titulo', `<span>${TITULOS[parte.nombre.toLowerCase()] || parte.nombre}</span>`); panel.appendChild(t1);
-    const lema = LEMAS[parte.nombre.toLowerCase()];
-    if (lema) panel.appendChild(h('div', 'ap-lema', lema));
+    const tit = TITULOS[parte.nombre.toLowerCase()] || parte.nombre;
+    const lema = LEMAS[parte.nombre.toLowerCase()] || '';
+    const resto = lema.toLowerCase().startsWith(tit.toLowerCase()) ? lema.slice(tit.length).trim() : '';
+    panel.appendChild(h('h1', 'ap-titulo', `${tit}${resto ? ` <em>${resto}</em>` : ''}`));
+    if (lema && !resto) panel.appendChild(h('div', 'ap-lema', lema));
     panel.appendChild(h('em', 'ap-en', 'En este capítulo'));
     const ind = h('div', 'an-lista'); panel.appendChild(ind);
     der.el.appendChild(panel);
-    // La burbuja vuelve a posarse sobre el final del título
-    const tb = 1.7 * PX, bur = h('span', 'burbuja');
-    bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.35}px;top:${-tb * 0.3}px`;
-    pieza(bur, 'titulo-cap' + parte.num, tb, { ca: 3, ff: 0.2, pf: 0.08 });
-    t1.appendChild(bur);
     parte.aperturaIndice = ind;
     this.marcar(izq.el, parte.titulo.id);
     this.modo = 'dos';
     parte.secciones.forEach((s, k) => this.seccion(s, k));
   }
+  // «Doble 2»: la pregunta de investigación sola, en una página dorada con las ideas clave subrayadas
+  pregunta(s) {
+    const [n, t] = separarTitulo(s.titulo);
+    const p = this.pagina('pag-pregunta'); p.flujo = true;
+    let q = s.bloques[0].html;
+    ['estrategia de diseño participativo', 'experiencia phygital', 'elaboración emocional'].forEach(k => { q = q.replace(k, `<u>${k}</u>`); });
+    const d = h('div', 'pq-dorada', `<span class="pq-tag">${n} · ${t}</span><span class="pq-comillas">“</span><p>${q}</p><span class="pq-firma">Pregunta de investigación</span>`);
+    d.querySelector('p').dataset.b = s.bloques[0].id; this.marcar(d, s.titulo.id);
+    p.caja.appendChild(d); this.y = ALTO_CAJA;
+  }
+  // «Doble 3»: las 3i a doble página antes de la metodología
+  tresI() {
+    this.aIzquierda();
+    const izq = this.pagina('noche tres-i', { folio: false });
+    izq.el.insertAdjacentHTML('beforeend', `<span class="ti-tag">Procedimiento metodológico</span><div class="ti-tri"><span><i>I</i>ndagar</span><span class="o">Idear</span><span><i>I</i>mplementar</span></div><div class="ti-desc"><div><b>Indagar</b><span>CDPS, taller y entrevista para identificar causas, dinámicas y consecuencias del malestar.</span></div><div><b>Idear</b><span>Talleres de cocreación artística y obras piloto.</span></div><div><b>Implementar</b><span>Experiencia phygital con MetafoRA y su evaluación.</span></div></div>`);
+    const der = this.pagina('noche tres-i-foto', { folio: false });
+    der.el.appendChild(this.fondo(this.deco.foto3i));
+    const card = h('div', 'panel-vidrio ti-card', `<span>Enfoque</span><h3>Investigación-Creación cualitativa</h3><p>Diseño participativo y colaborativo, enfoque etnográfico y el procedimiento de las 3i: Indagar, Idear e Implementar.</p>`);
+    der.el.appendChild(card); this.liquido(card, 0.5 * PX);
+  }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
     this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta();
+    const sola = s.bloques.length === 1 && s.bloques[0].type === 'p' && textoPlano(s.bloques[0].html).length < 320;
+    if (s.titulo && sola) return this.pregunta(s);
+    if (s.titulo && /^2\.1\b/.test(textoPlano(s.titulo.html))) this.tresI();
     const p = this.pagina('');
     p.flujo = true;
     if (s.titulo) {
@@ -582,7 +610,7 @@ export class Maquetador {
       // La burbuja de cristal se posa sobre el pictograma, como una lente que lo amplía
       const tam = 1.55 * PX, bur = h('span', 'burbuja');
       bur.style.cssText = `left:${pic.offsetLeft + pic.offsetWidth * 0.28 - tam / 2}px;top:${pic.offsetTop + pic.offsetHeight * 0.7 - tam / 2}px`;
-      pieza(bur, 'sec-' + s.titulo.id, tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
+      pieza(bur, 'sec-' + s.titulo.id, tam, { ca: 2, ff: 0.22, fondo: 'rgba(43,23,89,0.16)', sombra: 'inset 0 0 0 1.5px rgba(43,23,89,0.25), 0 14px 30px rgba(43,23,89,0.28)' });
       cab.appendChild(bur);
       this.y = AIRE_SECCION + enRenglon(cab.offsetHeight) + 2 * L;
     }
