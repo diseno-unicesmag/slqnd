@@ -434,7 +434,7 @@ export class Maquetador {
     const panel = h('div', 'por-texto');
     const t1 = h('h1', 'logo', titulo.replace(/^Sobre\s+(.*?)\s+no\s+(.*)$/, 'Sobre<br>$1<br>no $2')); t1.style.backgroundImage = `url("${this.deco.portada}")`; p.el.appendChild(t1);
     panel.appendChild(h('p', 'por-sub', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
-    panel.appendChild(h('div', 'por-pie', `<span>${autor}</span><span>Universidad CESMAG · ${anio}</span>`));
+    panel.appendChild(h('div', 'por-pie', `<span>${autor}<br><small>Universidad CESMAG</small></span><b class="anio">${anio}</b>`));
     p.el.appendChild(panel);
   }
   // Panel de cristal líquido de verdad: refracción y aberración en los bordes, radio amplio

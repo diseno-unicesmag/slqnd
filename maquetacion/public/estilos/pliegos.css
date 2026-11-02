@@ -542,3 +542,8 @@
 /* Cristal sobre papel: más presente */
 .pl .pag:not(.noche) .burbuja { filter: drop-shadow(0 6px 14px rgba(43,23,89,.25)); }
 .pl .ap-lente { right: .6in; top: 1.1in; }
+.pl .portada.tipo > h1.logo { line-height: .9; padding-bottom: .22em; background-position: -.45in -.55in; }
+.pl .portada.tipo .por-pie { align-items: flex-end; }
+.pl .portada.tipo .por-pie small { display: block; margin-top: 5px; font-size: 7.5pt; font-weight: 700; color: rgba(255,255,255,.7); }
+.pl .portada.tipo .por-pie .anio { font-size: 22pt; font-weight: 900; letter-spacing: -.02em; color: var(--g); line-height: 1; }
+.pl .portada.tipo .por-sub { hyphens: none; -webkit-hyphens: none; }
