@@ -493,3 +493,10 @@
 .pl .ap-papel .an-fila .picto, .pl .ap-papel .an-fila b { color: #6b3fc4; }
 .pl .portada.tipo > h1.logo { font-size: 128pt; }
 .pl .ap-papel .ap-titulo .burbuja { display: none; }
+/* Apertura v20: una sola imagen nítida a lo ancho del pliego; el texto sobre una veladura en la derecha */
+.pl .ap-uno .fondo { filter: none; transform: none; }
+.pl .ap-uno.der::before { background: linear-gradient(90deg, rgba(18,13,38,0) 0%, rgba(18,13,38,.55) 30%, rgba(18,13,38,.82) 100%); }
+.pl .ap-uno .ap-panel { top: 1.6in; color: #fff; }
+.pl .ap-uno .ap-titulo { font-size: 80pt; color: #fff; }
+.pl .ap-uno .ap-titulo .burbuja { display: none; }
+.pl .ap-uno .ap-en { margin-top: 1in; }

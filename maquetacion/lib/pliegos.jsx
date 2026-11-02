@@ -546,10 +546,8 @@ export class Maquetador {
     // Apertura: un pliego con un solo fondo. Número a la izquierda; a la derecha, sobre cristal,
     // el título, el lema y lo que trae el capítulo. La página anterior, si sobra, queda en blanco.
     // Izquierda: la imagen del capítulo a sangre, nítida. Derecha: papel lila con título e índice.
-    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
-    const izq = this.pagina('noche ap-foto', { folio: false }); izq.el.appendChild(this.fondo(this.deco['cap' + parte.num] || this.deco.umbral));
+    const [izq, der] = this.pliegoFondo(this.deco['cap' + parte.num] || this.deco.umbral, 'apertura-pliego ap-uno');
     izq.el.appendChild(h('div', 'ap-marca', `<b>${parte.num.padStart(2, '0')}</b><span>Capítulo ${parte.num}</span>`));
-    const der = this.pagina('ap-papel', { folio: false });
     const panel = h('div', 'ap-panel');
     panel.appendChild(h('div', 'ap-tag', `Capítulo ${parte.num} · ${parte.nombre}`));
     const t1 = h('h1', 'ap-titulo', `<span>${TITULOS[parte.nombre.toLowerCase()] || parte.nombre}</span>`); panel.appendChild(t1);
