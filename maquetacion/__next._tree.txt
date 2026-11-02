@@ -1,5 +1,5 @@
 :HL["/slqnd/maquetacion/_next/static/chunks/2uu8bxwj805jv.css","style"]
-:HL["https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400..900;1,400..900&display=swap","style"]
+:HL["https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,400..900;1,400..900&display=swap","style"]
 :HL["/slqnd/maquetacion/estilos/libro.css","style"]
 :HL["/slqnd/maquetacion/estilos/pliegos.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"-sdFEjNR-h4u0wlQrkGtg"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"1DiFbyQQ0D3vP5vmcT_dI"}
