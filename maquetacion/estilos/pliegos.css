@@ -317,3 +317,46 @@
 .pl .cita-hueco p { margin: 0; font-weight: 800; font-size: 30pt; line-height: 1.1; letter-spacing: -0.01em; color: var(--morado, #5b2fc9); hyphens: none; }
 .pl .cita-hueco span { display: block; margin-top: var(--L); font-size: 8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a7fa8; }
 .pl .referencias .url { hyphens: manual; -webkit-hyphens: manual; overflow-wrap: anywhere; }
+
+/* ── Rediseño: fondos continuos, paneles de cristal, aire ── */
+.pl .fondo { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.pl .fondo-izq, .pl .fondo-der { background-size: 200% 100%; }
+.pl .fondo-izq { background-position: left center; }
+.pl .fondo-der { background-position: right center; }
+.pl .panel-vidrio { position: absolute; z-index: 3; border-radius: 26px; color: #fff;
+  background: linear-gradient(150deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+  backdrop-filter: blur(22px) saturate(1.5); -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.35), inset 0 10px 24px rgba(255,255,255,.12), 0 30px 70px rgba(0,0,0,.35); }
+/* Portada */
+.pl .por-panel { left: 0.6in; right: 0.6in; bottom: 0.6in; padding: 0.45in 0.5in 0.4in; }
+.pl .por-panel .por-cab { position: static; margin-bottom: 0.3in; }
+.pl .por-panel h1.logo { margin: 0; font-size: 68pt; line-height: .9; font-weight: 900; letter-spacing: -.05em; color: #fff; }
+.pl .por-panel .por-sub { margin: 0.22in 0 0.35in; font-size: 12pt; line-height: 1.4; font-weight: 500; color: rgba(255,255,255,.88); text-align: left; }
+.pl .por-panel .por-sub em { font-style: normal; color: var(--g); }
+.pl .por-panel .por-datos { position: static; }
+/* Umbral y cierre */
+.pl .umbral-panel, .pl .cierre-panel { left: 0.7in; right: 0.9in; top: 50%; transform: translateY(-50%); padding: 0.55in 0.6in; }
+.pl .umbral-panel b, .pl .cierre-panel b { display: block; font-size: 64pt; line-height: .92; font-weight: 900; letter-spacing: -.05em; }
+.pl .cierre-panel span { display: block; margin-top: 0.25in; font-size: 8pt; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--g); }
+/* Apertura de capítulo */
+.pl .apertura-pliego .ap-num { z-index: 3; }
+.pl .apertura-pliego .pie-foto { left: auto; right: 0.5in; bottom: 0.5in; background: rgba(18,13,38,.55); backdrop-filter: blur(8px); max-width: 3.4in; border-radius: 12px; }
+.pl .ap-panel { left: 0.6in; right: 0.6in; top: 0.75in; bottom: 0.75in; padding: 0.55in 0.5in; }
+.pl .ap-panel .ap-titulo { font-size: 96pt; margin-top: 0.15in; }
+.pl .ap-panel .ap-lema { margin-top: 0.12in; font-size: 16pt; }
+.pl .ap-panel .ap-en { display: block; margin-top: 0.6in; font-style: normal; font-size: 7.5pt; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; color: var(--g); }
+.pl .ap-panel .an-lista { position: static; margin-top: 0.15in; border-top: 1.5px solid rgba(255,255,255,.55); }
+.pl .ap-panel .an-fila { color: #fff; border-bottom-color: rgba(255,255,255,.2); }
+.pl .ap-panel .an-fila .picto, .pl .ap-panel .an-fila b { color: var(--g); }
+/* Fotografía de campo a sangre */
+.pl .pag-sangre { background: var(--n); }
+.pl figure.fig-sangre { position: absolute; inset: 0; margin: 0; z-index: 2; }
+.pl figure.fig-sangre > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; box-shadow: none; }
+.pl .sangre-pie { left: 0.5in; right: 0.5in; bottom: 0.5in; padding: 0.22in 0.3in; background: linear-gradient(150deg, rgba(18,13,38,.45), rgba(18,13,38,.3)); }
+.pl .sangre-pie .rot { color: var(--g); }
+.pl .sangre-pie .tit, .pl .sangre-pie .nota { color: #fff; }
+/* Cita destacada */
+.pl .cita-dest { padding: var(--L) 0 var(--L) 0.3in; border-left: 6px solid var(--g); margin: 0; }
+.pl .cita-dest p { margin: 0; font-size: 22pt; line-height: calc(var(--L) * 2); font-weight: 800; letter-spacing: -.02em; color: var(--d); text-align: left; hyphens: manual; }
+.pl .cita-dest span { display: block; margin-top: var(--L); font-size: 7.5pt; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--m); }
+/* PDF página por página */
