@@ -9,8 +9,10 @@ import { esCapitulo, partesCapitulo, textoPlano } from '@/lib/doc';
 import { vidrio } from '@/lib/vidrio';
 import { pictograma } from '@/lib/pictos';
 import { CADENA } from '@/lib/cadena';
+import { RUTA, PRINCIPIOS } from '@/lib/ruta';
 
 // Lema de cada fase de las 3i: el nombre de la fase se mantiene y el lema lo acompaña
+const TITULOS = { indagar: 'Cartografiar', idear: 'Darle forma', implementar: 'Habitar' };
 const LEMAS = { indagar: 'Cartografiar lo que se calla', idear: 'Darle forma a lo que no se dice', implementar: 'Habitar la metáfora' };
 
 const PX = 96;                      // px por pulgada
@@ -20,7 +22,7 @@ const ANCHO_CAJA = 7 * PX;          // 4 columnas + 3 medianiles
 const ESPACIO = 2 * L;              // aire bajo figuras y tablas
 const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
-const PPI_MAX = 150;
+const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 9 * L;          // blanco sobre el título de cada apartado
 const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 27']);   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
@@ -116,7 +118,8 @@ export class Maquetador {
     return p;
   }
   paginaFlujo() {
-    this.pagina(this.modo === 'una' ? 'p-una' : '').flujo = true;
+    this.emitirRuta();
+    this.pagina((this.modo === 'una' ? 'p-una ' : '') + (this.claseFlujo || '')).flujo = true;
     // Lo que quedó pendiente de la página anterior va primero
     const pend = this.flotantes; this.flotantes = [];
     for (const f of pend) this.colocarAncho(f, true);
@@ -138,7 +141,7 @@ export class Maquetador {
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': return this.figura(b);
+      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -419,13 +422,39 @@ export class Maquetador {
     const p = this.pagina('noche portada', { folio: false });
     p.el.appendChild(this.fondo(this.deco.portada));
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
-    const panel = h('div', 'panel-vidrio por-panel');
+    const panel = h('div', 'por-texto');
     panel.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
     panel.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
     panel.appendChild(h('p', 'por-sub', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
     const datos = parte.datos.map(b => b.html);
     panel.appendChild(h('div', 'por-datos', `<div>${datos.slice(0, -1).join('<br>')}</div><div><b>${textoPlano(datos[datos.length - 1] || '')}</b></div>`));
     p.el.appendChild(panel);
+  }
+  // Panel de cristal líquido de verdad: refracción y aberración en los bordes, radio amplio
+  liquido(el, radio = 0.6 * PX) {
+    el.classList.add('liquido');
+    vidrio(el, el.offsetWidth, el.offsetHeight, { radio, prof: Math.round(radio * 0.5), fuerza: Math.round(radio * 0.9), ca: 3, desenfoque: 10, fondo: 'rgba(255,255,255,0.07)', sombra: '0 40px 90px rgba(0,0,0,0.35)' });
+  }
+  // La ruta metodológica se arma como pliego propio en cuanto la página siguiente sea izquierda
+  emitirRuta() {
+    const b = this.rutaPendiente; if (!b || this.siguienteEsDerecha) return;
+    this.rutaPendiente = null;
+    const guarda = { y: this.y, banda: this.banda, actual: this.actual };
+    const izq = this.pagina('ruta ruta-izq'), der = this.pagina('ruta ruta-der');
+    izq.el.dataset.b = b.id;
+    const hito = r => `<div class="ru-fila"><div class="ru-momento m${r.n}"><div class="ru-mn"><span>Momento ${r.n}</span><b>${r.fase}</b><i>${r.n}</i></div>` +
+      `<h3>${r.nombre}</h3><p class="ru-sub">${r.sub}</p><div class="ru-estado"><span class="pill e${r.n}">${r.estado}</span><span>${r.fechas}</span></div>` +
+      `<p class="ru-prop"><b>Propósito ${r.n}</b>${r.prop}</p></div></div>`;
+    izq.caja.innerHTML = `<div class="ru-cab"><span class="rot">${b.label}</span><h2>Ruta metodológica</h2><p>Procedimiento de las 3i: indagar, idear e implementar.</p>` +
+      `<div class="ru-ley"><span><i class="hecha"></i>Actividad realizada</span><span><i class="pend"></i>Actividad por realizar</span></div></div>` +
+      `<div class="ru-lista">${RUTA.map(hito).join('')}</div>`;
+    const acts = r => `<div class="ru-fila"><div class="ru-acts">${r.acts.map(([t, d, ok], k) => `<div class="ru-act${ok ? '' : ' pend'}"><i>0${k + 1}</i><b>${t}</b><p>${d}</p></div>`).join('')}</div>` +
+      `<div class="ru-res"><b>Resultado:</b> ${r.res}</div></div>`;
+    der.caja.innerHTML = `<div class="ru-prin">${PRINCIPIOS.map(([t, d]) => `<div><b>${t}</b><p>${d}</p></div>`).join('')}</div>` +
+      `<div class="ru-lista">${RUTA.map(acts).join('')}</div>` + (b.note ? `<div class="nota ru-nota">${b.note}</div>` : '');
+    this.paginas.forEach(() => 0);
+    // el flujo sigue donde iba, en la página siguiente
+    this.actual = guarda.actual; this.y = ALTO_CAJA; this.banda = null;
   }
   fondo(src, lado) {
     const f = h('div', 'fondo' + (lado ? ' fondo-' + lado : '')); f.style.backgroundImage = `url("${src}")`; return f;
@@ -439,7 +468,7 @@ export class Maquetador {
   }
   umbral() {
     const [, der] = this.pliegoFondo(this.deco.umbral, 'umbral');
-    der.el.appendChild(h('div', 'panel-vidrio umbral-panel', '<b>Sobre lo<br>que no digo</b>'));
+    const up = h('div', 'panel-vidrio umbral-panel', '<b>Sobre lo<br>que no digo</b>'); der.el.appendChild(up); this.liquido(up, 0.75 * PX);
   }
   portadilla(parte) {
     this.aDerecha();
@@ -485,17 +514,20 @@ export class Maquetador {
   }
   indiceDoc() {
     this.modo = 'una'; this.seccionActual = 'Tabla de contenido';
-    this.aDerecha();
-    const p = this.pagina('p-una');
-    const cab = h('div', 'pre-cab', '<span class="tag">Preliminares</span><h2>Tabla de contenido</h2>');
-    p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + 2 * L;
+    // Pliego propio en morado: el título grande a la izquierda y la lista a la derecha
+    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
+    const t = this.pagina('oscura toc-izq', { folio: false });
+    t.el.appendChild(h('div', 'toc-titulo', '<span>Preliminares</span><h2>Tabla de<br>contenido</h2>'));
+    this.claseFlujo = 'oscura toc';
+    const p = this.pagina('p-una oscura toc');
+    this.y = 0;
     // Las filas se componen ya (para saber cuántas páginas ocupa); los números se ponen al final.
     this.filasIndice = [];
     for (const e of this.entradasIndice) {
       const f = h('div', 'fila n' + e.nivel, `<span class="n">${e.nivel === 1 ? '' : e.n}</span><span>${e.nivel === 1 && e.n ? e.n + ' · ' + e.t : e.t}</span><span class="p">000</span>`);
       this.filasIndice.push([f, e.id]); this.agregarTexto(f);
     }
-    this.cerrarBanda();
+    this.cerrarBanda(); this.claseFlujo = '';
   }
   capitulo(parte) {
     this.cerrarBanda(); this.vaciarFlotantes();
@@ -504,23 +536,28 @@ export class Maquetador {
     // el título, el lema y lo que trae el capítulo. La página anterior, si sobra, queda en blanco.
     const [izq, der] = this.pliegoFondo(this.deco['cap' + parte.num] || this.deco.umbral, 'apertura-pliego');
     izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
-    izq.el.appendChild(h('div', 'pie-foto', parte.num === '1' ? 'Sesión de la Cartografía Digital de Percepción Silenciosa (CDPS), vista a través de vidrio acanalado' : 'Taller «Sobre lo que no dices», visto a través de vidrio acanalado'));
     const panel = h('div', 'panel-vidrio ap-panel');
     panel.appendChild(h('div', 'ap-tag', `Capítulo ${parte.num} · ${parte.nombre}`));
-    panel.appendChild(h('h1', 'ap-titulo', `<span>${parte.nombre}</span>`));
+    const t1 = h('h1', 'ap-titulo', `<span>${TITULOS[parte.nombre.toLowerCase()] || parte.nombre}</span>`); panel.appendChild(t1);
     const lema = LEMAS[parte.nombre.toLowerCase()];
     if (lema) panel.appendChild(h('div', 'ap-lema', lema));
     panel.appendChild(h('em', 'ap-en', 'En este capítulo'));
     const ind = h('div', 'an-lista'); panel.appendChild(ind);
-    der.el.appendChild(panel);
+    der.el.appendChild(panel); this.liquido(panel, 0.7 * PX);
+    // La burbuja vuelve a posarse sobre el final del título
+    const tb = 1.7 * PX, bur = h('span', 'burbuja');
+    bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.35}px;top:${-tb * 0.3}px`;
+    pieza(bur, 'titulo-cap' + parte.num, tb, { ca: 3, ff: 0.2, pf: 0.08 });
+    t1.appendChild(bur);
     parte.aperturaIndice = ind;
     this.marcar(izq.el, parte.titulo.id);
     this.modo = 'dos';
+    this.aDerecha();   // el capítulo arranca en página derecha
     parte.secciones.forEach((s, k) => this.seccion(s, k));
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
-    this.cerrarBanda(); this.vaciarFlotantes();
+    this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta();
     const p = this.pagina('');
     p.flujo = true;
     if (s.titulo) {
@@ -559,7 +596,7 @@ export class Maquetador {
     this.cerrarBanda(); this.vaciarFlotantes();
     this.seccionActual = 'Cadena de valor';
     const [, cd] = this.pliegoFondo(this.deco.cierre, 'cierre');
-    cd.el.appendChild(h('div', 'panel-vidrio cierre-panel', '<b>Habitar<br>la metáfora</b><span>Implementar</span>'));
+    const cp = h('div', 'panel-vidrio cierre-panel', '<b>Habitar<br>la metáfora</b><span>Implementar</span>'); cd.el.appendChild(cp); this.liquido(cp, 0.75 * PX);
     const banda = m => `<div class="cv-banda" style="--c:${m.c}"><div class="cv-macro"><span class="cv-n">${m.n}</span><b>${m.t}</b><i>${m.s}</i></div>` +
       `<div class="cv-cats">${m.cats.map(c => `<div class="cv-cat"><h5>${c.t}</h5><ul>${c.subs.map(([t, a]) => `<li><span>${t}</span><em>${a}</em></li>`).join('')}</ul></div>`).join('')}</div></div>`;
     const izq = this.pagina('cadena cad-izq');
