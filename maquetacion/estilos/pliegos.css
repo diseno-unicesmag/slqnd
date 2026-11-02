@@ -241,7 +241,7 @@
 
 /* Filas de imágenes justificadas y figura vertical con el pie al lado */
 .pl .fig-img { display: flex; flex-direction: column; gap: calc(var(--L) / 2); }
-.pl .fig-fila { display: flex; gap: 0.1in; }
+.pl .fig-fila { display: flex; gap: 0.1in; justify-content: center; }
 .pl .fig-fila img { flex: none; }
 .pl figure.fig-lado { display: flex; justify-content: space-between; gap: var(--gut); }
 .pl figure.fig-lado .fig-pie { width: var(--col); display: flex; flex-direction: column; }
@@ -310,3 +310,10 @@
 .pl .an-lista { top: calc(var(--L) * 19); }
 .pl:not(.editando) [data-k] { cursor: default; }
 .pl.editando .bloque-sel { outline: 2px solid rgba(116,85,194,.8); outline-offset: 2px; }
+.pl table { table-layout: fixed; } .pl table td, .pl table th { overflow-wrap: anywhere; hyphens: auto; }
+
+/* Frase destacada en páginas casi vacías */
+.pl .cita-hueco { position: absolute; left: 0; right: 0; bottom: calc(var(--L) * 2); padding-top: var(--L); border-top: 2px solid var(--morado, #5b2fc9); }
+.pl .cita-hueco p { margin: 0; font-weight: 800; font-size: 30pt; line-height: 1.1; letter-spacing: -0.01em; color: var(--morado, #5b2fc9); hyphens: none; }
+.pl .cita-hueco span { display: block; margin-top: var(--L); font-size: 8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a7fa8; }
+.pl .referencias .url { hyphens: manual; -webkit-hyphens: manual; overflow-wrap: anywhere; }
