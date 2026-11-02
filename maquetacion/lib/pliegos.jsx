@@ -120,7 +120,7 @@ export class Maquetador {
     return p;
   }
   paginaFlujo() {
-    this.emitirRuta();
+    this.emitirRuta(); this.emitirPaleta();
     this.pagina((this.modo === 'una' ? 'p-una ' : '') + (this.claseFlujo || '')).flujo = true;
     // Lo que quedó pendiente de la página anterior va primero
     const pend = this.flotantes; this.flotantes = [];
@@ -143,7 +143,7 @@ export class Maquetador {
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } return this.figura(b);
+      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 31') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -443,6 +443,23 @@ export class Maquetador {
     vidrio(el, el.offsetWidth, el.offsetHeight, { radio, prof: Math.round(radio * 0.5), fuerza: Math.round(radio * 0.9), ca: 3, desenfoque: 10, fondo: 'rgba(255,255,255,0.07)', sombra: '0 40px 90px rgba(0,0,0,0.35)' });
   }
   // La ruta metodológica se arma como pliego propio en cuanto la página siguiente sea izquierda
+  // Figura 31 como pliego: la paleta a sangre en bandas y la tipografía en grande
+  emitirPaleta() {
+    const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
+    this.paletaPendiente = null;
+    const izq = this.pagina('noche paleta pal-izq', { folio: false }), der = this.pagina('paleta pal-der', { folio: false });
+    izq.el.dataset.b = b.id;
+    const C = [['#3b1d7a', 'Violeta profundo', 'Dominante · introspección', '#fff'], ['#7c3aed', 'Púrpura', 'Dominante · interioridad', '#fff'], ['#f0c24b', 'Dorado', 'Acento · revelación', '#2b1759'], ['#2b2a30', 'Gris asfalto', 'Soporte · sobriedad', '#fff'], ['#f6f3fb', 'Cristal blanco', 'Soporte translúcido', '#2b1759']];
+    izq.el.insertAdjacentHTML('beforeend', `<div class="pal-bandas">${C.map(([c, n, d, t]) => `<div style="background:${c};color:${t}"><b>${n}</b><span>${d}</span><i>${c.toUpperCase()}</i></div>`).join('')}</div><div class="pal-cab"><span>${b.label}</span><h2>Paleta cromática</h2></div>`);
+    der.el.insertAdjacentHTML('beforeend', `<div class="pal-tipo"><span class="pal-tag">${b.label} · ${b.title}</span>
+      <div class="pal-m"><b>Aa</b><div><h3>Montserrat</h3><p>Títulos, subtítulos, mensajes destacados e interfaz. Sin serifa contemporánea, de alta legibilidad en pantalla.</p></div></div>
+      <div class="pal-abc m">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz 0123456789</div>
+      <div class="pal-m i"><b>Aa</b><div><h3>Inter</h3><p>Texto de lectura y datos: el cuerpo de este documento.</p></div></div>
+      <div class="pal-abc i">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz 0123456789</div>
+      <p class="pal-nota">${b.note || ''}</p></div>`);
+    const len = h('span', 'burbuja pal-lente'); der.el.appendChild(len);
+    pieza(len, 'lente-paleta', 1.9 * PX, { ca: 3, ff: 0.28, pf: 0.1, fondo: 'rgba(43,23,89,0.16)', sombra: 'inset 0 0 0 1.5px rgba(43,23,89,0.25), 0 14px 30px rgba(43,23,89,0.28)' });
+  }
   emitirRuta() {
     const b = this.rutaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.rutaPendiente = null;
@@ -593,7 +610,7 @@ export class Maquetador {
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
-    this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta();
+    this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta(); this.emitirPaleta();
     const sola = s.bloques.length === 1 && s.bloques[0].type === 'p' && textoPlano(s.bloques[0].html).length < 320;
     if (s.titulo && sola) return this.pregunta(s);
     if (s.titulo && /^2\.1\b/.test(textoPlano(s.titulo.html))) this.tresI();
@@ -633,6 +650,8 @@ export class Maquetador {
   }
   cadenaValor() {
     this.cerrarBanda(); this.vaciarFlotantes();
+    if (this.paletaPendiente) { this.aIzquierda(); this.emitirPaleta(); }
+    this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa', 'Estilo gráfico');
     this.seccionActual = 'Cadena de valor';
     if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
     // La red completa a doble página, a sangre y sobre fondo oscuro
@@ -707,7 +726,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   await Promise.all(srcs.map(s => new Promise(ok => { const im = new Image(); im.onload = () => { dims[s] = [im.naturalWidth, im.naturalHeight]; ok(); }; im.onerror = ok; im.src = s; })));
   // Las fuentes web se descargan solo cuando algo las usa: se piden ya, antes de medir
   const muestra = 'AaÁáÉéÍíÓóÚúÑñÜü«»–—“”0123456789';
-  await Promise.all(['400', '500', '600', '700', '800', '900', 'italic 400', 'italic 700'].map(w => document.fonts.load(`${w} 12px Montserrat`, muestra).catch(() => null)));
+  await Promise.all(['400', '500', '600', '700', '800', '900', 'italic 400', 'italic 700'].flatMap(w => [document.fonts.load(`${w} 12px Montserrat`, muestra).catch(() => null), document.fonts.load(`${w} 12px Inter`, muestra).catch(() => null)]));
   await document.fonts.ready;
 
   raiz.innerHTML = '';
