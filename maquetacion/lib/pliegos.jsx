@@ -20,6 +20,9 @@ const ANCHO_CAJA = 7 * PX;          // 4 columnas + 3 medianiles
 const ESPACIO = 2 * L;              // aire bajo figuras y tablas
 const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
+const PPI_MAX = 150;
+const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 28', 'Figura 30', 'Figura 31']);
+const PAGINA_SOLA = new Set(['Figura 3', 'Figura 24']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -147,12 +150,19 @@ export class Maquetador {
         const r = ds.map(d => d[0] / d[1]);
         const c = h('div', 'fig-img');
         const filasDe = k => { const out = [], por = Math.ceil(n / k); for (let i = 0; i < n; i += por) out.push([...Array(Math.min(por, n - i)).keys()].map(x => x + i)); return out; };
+        // Ninguna imagen se amplía por encima de ~150 ppi efectivos
+        const maxAncho = i => ds[i][0] / PPI_MAX * PX, TRES = 3 * COL + 2 * GUT;
+        const completa = A_LO_ANCHO.has(b.label);
         let filas, anchoTotal = ANCHO_CAJA;
-        if (n === 1 && r[0] < 1.05) {
+        if (n === 1 && !completa && r[0] >= 1.05 && maxAncho(0) < ANCHO_CAJA) {
+          // horizontal de poca resolución: se reduce; si cabe en tres columnas, el pie va al lado
+          anchoTotal = Math.min(maxAncho(0), TRES); if (maxAncho(0) <= TRES + 0.4 * PX) f.classList.add('fig-lado'); filas = [[0]];
+        } else if (n === 1 && r[0] < 1.05) {
           // vertical: el mayor número de columnas con el que la imagen entera cabe en alto
           const maxAlto = 38 * L;
           for (const cols of [3, 2]) { anchoTotal = cols * COL + (cols - 1) * GUT; if (anchoTotal / r[0] <= maxAlto) break; }
           if (anchoTotal / r[0] > maxAlto) anchoTotal = maxAlto * r[0];
+          anchoTotal = Math.min(anchoTotal, maxAncho(0));
           f.classList.add('fig-lado'); filas = [[0]];
         } else {
           // se prueba con 1, 2, 3… filas y se queda la que da un alto de fila más cercano a 3,4 in
@@ -166,12 +176,15 @@ export class Maquetador {
           filas = mejor.fs;
         }
         filas.forEach(fila => {
-          const ancho = anchoTotal - (fila.length - 1) * SEP, suma = fila.reduce((a, i) => a + r[i], 0);
+          const suma = fila.reduce((a, i) => a + r[i], 0);
+          let ancho = anchoTotal - (fila.length - 1) * SEP;
+          if (!completa) ancho = Math.min(ancho, ...fila.map(i => maxAncho(i) * suma / r[i]));
           const alto = Math.max(4 * L, Math.round(ancho / suma / L) * L);   // alto en renglones: el recorte es de unos px
           const fr = h('div', 'fig-fila');
           fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; fr.appendChild(im); });
           c.appendChild(fr);
         });
+        if (PAGINA_SOLA.has(b.label)) f.classList.add('fig-pagina');
         if (f.classList.contains('fig-lado')) {
           // pie a la izquierda (columna 1), imagen alineada a la derecha
           const pie = h('div', 'fig-pie'); while (f.firstChild) pie.appendChild(f.firstChild);
@@ -218,7 +231,7 @@ export class Maquetador {
     this.banda = null;
   }
   agregarTexto(el, guardia = 0) {
-    if (!this.banda && ALTO_CAJA - this.y < 3 * L && guardia < 3) this.paginaFlujo();
+    for (let k = 0; k < 4 && !this.banda && ALTO_CAJA - this.y < 3 * L && (guardia < 3 || this.y >= ALTO_CAJA); k++) this.paginaFlujo();
     if (!this.banda) this.nuevaBanda();
     const b = this.banda; b.appendChild(el);
     if (this.y + b.offsetHeight <= ALTO_CAJA) return;
@@ -314,6 +327,13 @@ export class Maquetador {
     // Se mide primero debajo del texto abierto: si no cabe y va a la página siguiente,
     // la banda sigue abierta y el texto continúa sin cortar las columnas
     const habiaTexto = !!(this.banda && this.banda.children.length);
+    if (el.classList.contains('fig-pagina')) {
+      if (habiaTexto || this.y > 0) { this.flotantes.push(el); return; }
+      this.cerrarBanda(); el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0';
+      this.actual.caja.appendChild(el);
+      el.style.top = Math.max(0, enRenglon((ALTO_CAJA - el.offsetHeight) / 2 - L)) + 'px';
+      this.y = ALTO_CAJA; return;
+    }
     const yTent = this.banda ? this.y + enRenglon(this.banda.offsetHeight) + (habiaTexto ? AIRE : 0) : this.y;
     el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = yTent + 'px';
     this.actual.caja.appendChild(el);
@@ -434,11 +454,11 @@ export class Maquetador {
     this.seccionActual = `Capítulo ${parte.num}. ${parte.nombre}`;
     if (this.siguienteEsDerecha) {        // la apertura ocupa un pliego completo: empieza en página par
       const pausa = this.pagina('noche pausa', { folio: false });
-      pausa.el.appendChild(this.revela(this.deco.intro, { x: 0.63, y: 0.21, r: 1.45, k: 'pausa' }));
+      pausa.el.appendChild(this.revela(this.deco['pausa' + parte.num] || this.deco.portada, { x: 0.63, y: 0.21, r: 1.45, k: 'pausa' + parte.num }));
     }
     // Apertura a un color: el pliego entero en morado; la foto va en duotono y la lente la revela
     const izq = this.pagina('oscura ap-izq', { folio: false });
-    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.intro, { x: 0.66, y: 0.46, r: 2.05, k: 'lente-cap' + parte.num }));
+    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.portada, { x: 0.66, y: 0.46, r: 2.05, k: 'lente-cap' + parte.num }));
     izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
     izq.el.appendChild(h('div', 'pie-foto', parte.num === '1' ? 'Sesión de la Cartografía Digital de Percepción Silenciosa (CDPS)' : 'Taller «Sobre lo que no dices»'));
     const der = this.pagina('oscura apertura', { folio: false });
@@ -496,10 +516,19 @@ export class Maquetador {
   }
   // Última doble página antes de las referencias: la cadena de valor del proyecto completa,
   // de la urgencia al proyecto, a lo ancho del pliego
+  // Páginas casi vacías: una frase destacada abajo para que no queden en blanco
+  citaHueco(frase, firma) {
+    const html = `<p>«${frase}»</p>` + (firma ? `<span>${firma}</span>` : '');
+    if (this.actual?.flujo && ALTO_CAJA - this.y >= 14 * L) { this.actual.caja.appendChild(h('div', 'cita-hueco', html)); return true; }
+    return false;
+  }
   cadenaValor() {
     this.cerrarBanda(); this.vaciarFlotantes();
     this.seccionActual = 'Cadena de valor';
-    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
+    if (this.siguienteEsDerecha) {
+      const p = this.pagina('blanca hueco', { folio: false });
+      p.caja.appendChild(h('div', 'cita-hueco', '<p>«Habitar la metáfora»</p><span>Implementar</span>'));
+    } else this.citaHueco('Habitar la metáfora', 'Implementar');
     const banda = m => `<div class="cv-banda" style="--c:${m.c}"><div class="cv-macro"><span class="cv-n">${m.n}</span><b>${m.t}</b><i>${m.s}</i></div>` +
       `<div class="cv-cats">${m.cats.map(c => `<div class="cv-cat"><h5>${c.t}</h5><ul>${c.subs.map(([t, a]) => `<li><span>${t}</span><em>${a}</em></li>`).join('')}</ul></div>`).join('')}</div></div>`;
     const izq = this.pagina('cadena cad-izq');
@@ -523,7 +552,9 @@ export class Maquetador {
     const cab = h('div', 'pre-cab', '<span class="tag">Sobre lo que no digo</span><h2>Referencias</h2>'); cab.style.marginLeft = '0';
     this.marcar(cab, parte.titulo.id);
     p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + 2 * L;
-    this.fluir(parte.bloques);
+    // Las direcciones web no se separan con guion (se confundirían con parte de la URL)
+    const url = t => t?.replace(/(?<!["'=])(https?:\/\/[^\s<]+)/g, '<span class="url">$1</span>');
+    this.fluir(parte.bloques.map(b => b.html ? { ...b, html: url(b.html) } : b));
   }
   revela(src, { x, y, r, alto, k }) {
     const c = h('div', 'revela'); if (alto) c.style.bottom = 'auto', c.style.height = alto;
@@ -592,7 +623,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
     else if (parte.tipo === 'portadilla') m.portadilla(parte);
     else if (parte.tipo === 'preliminar') m.preliminar(parte);
     else if (parte.tipo === 'indice') m.indiceDoc();
-    else if (parte.tipo === 'capitulo') m.capitulo(parte);
+    else if (parte.tipo === 'capitulo') { if (parte.num !== '1') m.citaHueco('Me aguanto y sigo', 'Respuesta más elegida en la CDPS (P7)'); m.capitulo(parte); }
     else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
   }
   m.terminar();
