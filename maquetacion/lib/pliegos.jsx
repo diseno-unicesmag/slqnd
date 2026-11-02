@@ -9,7 +9,9 @@ import { esCapitulo, partesCapitulo, textoPlano } from '@/lib/doc';
 import { vidrio } from '@/lib/vidrio';
 import { pictograma } from '@/lib/pictos';
 import { CADENA } from '@/lib/cadena';
-import { RUTA, PRINCIPIOS } from '@/lib/ruta';
+import { redCadena } from '@/lib/redCadena';
+import { FASES } from '@/lib/rutaWeb';
+import { ICONOS_RUTA } from '@/lib/iconosRuta';
 
 // Lema de cada fase de las 3i: el nombre de la fase se mantiene y el lema lo acompaña
 const TITULOS = { indagar: 'Cartografiar', idear: 'Darle forma', implementar: 'Habitar' };
@@ -23,7 +25,7 @@ const ESPACIO = 2 * L;              // aire bajo figuras y tablas
 const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
-const AIRE_SECCION = 9 * L;          // blanco sobre el título de cada apartado
+const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
 const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 27']);   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
@@ -166,7 +168,10 @@ export class Maquetador {
         const maxAncho = i => ds[i][0] / PPI_MAX * PX, TRES = 3 * COL + 2 * GUT;
         const completa = A_LO_ANCHO.has(b.label);
         let filas, anchoTotal = ANCHO_CAJA;
-        if (n === 1 && !completa && r[0] >= 1.05 && maxAncho(0) < ANCHO_CAJA) {
+        if (n === 1 && /^Figura R/.test(b.label || '')) {
+          // Referentes: todos igual, la imagen a la derecha en tres columnas y el pie a la izquierda
+          anchoTotal = Math.min(TRES, 38 * L * r[0]); f.classList.add('fig-lado'); filas = [[0]];
+        } else if (n === 1 && !completa && r[0] >= 1.05 && maxAncho(0) < ANCHO_CAJA) {
           // horizontal de poca resolución: se reduce; si cabe en tres columnas, el pie va al lado
           anchoTotal = Math.min(maxAncho(0), TRES); if (maxAncho(0) <= TRES + 0.4 * PX) f.classList.add('fig-lado'); filas = [[0]];
         } else if (n === 1 && r[0] < 1.05) {
@@ -422,12 +427,14 @@ export class Maquetador {
     const p = this.pagina('noche portada', { folio: false });
     p.el.appendChild(this.fondo(this.deco.portada));
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
+    // Portada editorial: título y subtítulo arriba, autor y año abajo; el resto va en la portadilla
+    const datos = parte.datos.map(b => textoPlano(b.html));
+    const autor = (datos.find(d => /^Autor/i.test(d)) || '').replace(/^Autor:\s*/i, '');
+    const anio = datos[datos.length - 1] || '';
     const panel = h('div', 'por-texto');
-    panel.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
     panel.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
     panel.appendChild(h('p', 'por-sub', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
-    const datos = parte.datos.map(b => b.html);
-    panel.appendChild(h('div', 'por-datos', `<div>${datos.slice(0, -1).join('<br>')}</div><div><b>${textoPlano(datos[datos.length - 1] || '')}</b></div>`));
+    p.el.appendChild(h('div', 'por-pie', `<div><b>${autor}</b><span>Proyecto de Grado · Diseño Gráfico · Universidad CESMAG</span></div><b class="anio">${anio}</b>`));
     p.el.appendChild(panel);
   }
   // Panel de cristal líquido de verdad: refracción y aberración en los bordes, radio amplio
@@ -439,22 +446,23 @@ export class Maquetador {
   emitirRuta() {
     const b = this.rutaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.rutaPendiente = null;
-    const guarda = { y: this.y, banda: this.banda, actual: this.actual };
-    const izq = this.pagina('ruta ruta-izq'), der = this.pagina('ruta ruta-der');
+    // Póster horizontal de la web, llevado al pliego: fondo oscuro a sangre, tres momentos en columnas
+    const izq = this.pagina('noche ruta ruta-izq'), der = this.pagina('noche ruta ruta-der');
     izq.el.dataset.b = b.id;
-    const hito = r => `<div class="ru-fila"><div class="ru-momento m${r.n}"><div class="ru-mn"><span>Momento ${r.n}</span><b>${r.fase}</b><i>${r.n}</i></div>` +
-      `<h3>${r.nombre}</h3><p class="ru-sub">${r.sub}</p><div class="ru-estado"><span class="pill e${r.n}">${r.estado}</span><span>${r.fechas}</span></div>` +
-      `<p class="ru-prop"><b>Propósito ${r.n}</b>${r.prop}</p></div></div>`;
-    izq.caja.innerHTML = `<div class="ru-cab"><span class="rot">${b.label}</span><h2>Ruta metodológica</h2><p>Procedimiento de las 3i: indagar, idear e implementar.</p>` +
-      `<div class="ru-ley"><span><i class="hecha"></i>Actividad realizada</span><span><i class="pend"></i>Actividad por realizar</span></div></div>` +
-      `<div class="ru-lista">${RUTA.map(hito).join('')}</div>`;
-    const acts = r => `<div class="ru-fila"><div class="ru-acts">${r.acts.map(([t, d, ok], k) => `<div class="ru-act${ok ? '' : ' pend'}"><i>0${k + 1}</i><b>${t}</b><p>${d}</p></div>`).join('')}</div>` +
-      `<div class="ru-res"><b>Resultado:</b> ${r.res}</div></div>`;
-    der.caja.innerHTML = `<div class="ru-prin">${PRINCIPIOS.map(([t, d]) => `<div><b>${t}</b><p>${d}</p></div>`).join('')}</div>` +
-      `<div class="ru-lista">${RUTA.map(acts).join('')}</div>` + (b.note ? `<div class="nota ru-nota">${b.note}</div>` : '');
-    this.paginas.forEach(() => 0);
-    // el flujo sigue donde iba, en la página siguiente
-    this.actual = guarda.actual; this.y = ALTO_CAJA; this.banda = null;
+    const ico = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONOS_RUTA[n] || ''}</svg>`;
+    const EST = { Completa: 'check', 'En curso': 'curso', 'Por iniciar': 'reloj' };
+    const col = (f, k, dos) => `<section class="ru-col m${k + 1}${dos ? ' dos' : ''}">` +
+      `<div class="ru-fcab"><span class="ru-fico">${ico(f.icono)}</span><span class="ru-fm">Momento ${k + 1}<b>${f.i}</b></span><em>${ico(EST[f.estado])}${f.estado}</em></div>` +
+      `<h3>${f.fase}</h3><p class="ru-sub">${f.sub} · ${f.cuando}</p>` +
+      `<p class="ru-prop"><b>${ico('diana')}Propósito específico ${k + 1}</b>${f.corto}</p>` +
+      `<ol class="ru-acts">${f.acts.map(a => `<li class="${a.ok ? 'ok' : 'falta'}"><span class="dot">${ico(a.icono)}</span><span><b>${a.t}</b><i>${a.resumen}</i></span></li>`).join('')}</ol>` +
+      `<p class="ru-res">${ico('bandera')}<span><b>Resultado</b>${f.resultado}</span></p></section>`;
+    izq.el.insertAdjacentHTML('beforeend', `<div class="ru-cab"><span class="rot">${b.label} · Procedimiento de las 3i</span><h2>Ruta<br><em>metodológica</em></h2>` +
+      `<div class="ru-ley"><span><i class="ok">${ico('check')}</i>Actividad realizada</span><span><i class="p">${ico('reloj')}</i>Actividad por realizar</span></div></div>` + col(FASES[0], 0, true));
+    der.el.insertAdjacentHTML('beforeend', `<div class="ru-par">${col(FASES[1], 1)}${col(FASES[2], 2)}</div>` +
+      `<div class="ru-nota">${b.note || ''}</div>`);
+    izq.folio = der.folio = false;
+    this.y = ALTO_CAJA; this.banda = null;
   }
   fondo(src, lado) {
     const f = h('div', 'fondo' + (lado ? ' fondo-' + lado : '')); f.style.backgroundImage = `url("${src}")`; return f;
@@ -478,13 +486,16 @@ export class Maquetador {
     p.el.appendChild(c);
   }
   // Si la página que sigue sería izquierda, se deja una en blanco: lo que abre empieza a la derecha
+  aIzquierda() { if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false }); }
   aDerecha() { if (!this.siguienteEsDerecha) this.pagina('blanca', { folio: false }); }
   preliminar(parte, apretar = false, holgado = false) {
     this.modo = 'una'; this.seccionActual = parte.titulo ? textoPlano(parte.titulo.html) : this.seccionActual;
     const nom = parte.titulo ? textoPlano(parte.titulo.html) : '';
     if (!apretar && !holgado && nom) {
       if (/^Resumen/i.test(nom) && !this.umbralHecho) { this.umbralHecho = true; this.umbral(); }
-      if (!/^Dedicatoria/i.test(nom)) this.aDerecha();   // cada preliminar abre en página impar
+      // Notas y agradecimientos van por parejas enfrentadas; lo demás abre a la derecha
+      if (/^(Nota de responsabilidad|Agradecimientos)/i.test(nom)) this.aIzquierda();
+      else if (!/^(Nota de aceptación|Dedicatoria)/i.test(nom)) this.aDerecha();
     }
     const desde = this.paginas.length;
     const p = this.pagina('p-una' + (apretar ? ' apretado' : ''));
@@ -536,14 +547,14 @@ export class Maquetador {
     // el título, el lema y lo que trae el capítulo. La página anterior, si sobra, queda en blanco.
     const [izq, der] = this.pliegoFondo(this.deco['cap' + parte.num] || this.deco.umbral, 'apertura-pliego');
     izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
-    const panel = h('div', 'panel-vidrio ap-panel');
+    const panel = h('div', 'ap-panel');
     panel.appendChild(h('div', 'ap-tag', `Capítulo ${parte.num} · ${parte.nombre}`));
     const t1 = h('h1', 'ap-titulo', `<span>${TITULOS[parte.nombre.toLowerCase()] || parte.nombre}</span>`); panel.appendChild(t1);
     const lema = LEMAS[parte.nombre.toLowerCase()];
     if (lema) panel.appendChild(h('div', 'ap-lema', lema));
     panel.appendChild(h('em', 'ap-en', 'En este capítulo'));
     const ind = h('div', 'an-lista'); panel.appendChild(ind);
-    der.el.appendChild(panel); this.liquido(panel, 0.7 * PX);
+    der.el.appendChild(panel);
     // La burbuja vuelve a posarse sobre el final del título
     const tb = 1.7 * PX, bur = h('span', 'burbuja');
     bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.35}px;top:${-tb * 0.3}px`;
@@ -552,7 +563,6 @@ export class Maquetador {
     parte.aperturaIndice = ind;
     this.marcar(izq.el, parte.titulo.id);
     this.modo = 'dos';
-    this.aDerecha();   // el capítulo arranca en página derecha
     parte.secciones.forEach((s, k) => this.seccion(s, k));
   }
   seccion(s, k) {
@@ -569,8 +579,8 @@ export class Maquetador {
       cab.appendChild(pic);
       p.caja.appendChild(cab);
       // La burbuja de cristal se posa sobre el pictograma, como una lente que lo amplía
-      const tam = 0.95 * PX, bur = h('span', 'burbuja');
-      bur.style.cssText = `right:${0.42 * PX - tam / 2}px;top:${pic.offsetTop + pic.offsetHeight * 0.42 - tam / 2}px`;
+      const tam = 1.55 * PX, bur = h('span', 'burbuja');
+      bur.style.cssText = `left:${pic.offsetLeft + pic.offsetWidth * 0.28 - tam / 2}px;top:${pic.offsetTop + pic.offsetHeight * 0.7 - tam / 2}px`;
       pieza(bur, 'sec-' + s.titulo.id, tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
       cab.appendChild(bur);
       this.y = AIRE_SECCION + enRenglon(cab.offsetHeight) + 2 * L;
@@ -596,21 +606,12 @@ export class Maquetador {
     this.cerrarBanda(); this.vaciarFlotantes();
     this.seccionActual = 'Cadena de valor';
     const [, cd] = this.pliegoFondo(this.deco.cierre, 'cierre');
-    const cp = h('div', 'panel-vidrio cierre-panel', '<b>Habitar<br>la metáfora</b><span>Implementar</span>'); cd.el.appendChild(cp); this.liquido(cp, 0.75 * PX);
-    const banda = m => `<div class="cv-banda" style="--c:${m.c}"><div class="cv-macro"><span class="cv-n">${m.n}</span><b>${m.t}</b><i>${m.s}</i></div>` +
-      `<div class="cv-cats">${m.cats.map(c => `<div class="cv-cat"><h5>${c.t}</h5><ul>${c.subs.map(([t, a]) => `<li><span>${t}</span><em>${a}</em></li>`).join('')}</ul></div>`).join('')}</div></div>`;
-    const izq = this.pagina('cadena cad-izq');
-    izq.caja.innerHTML = `<div class="cv-cab"><span class="tag">Síntesis del sustento teórico</span><h2>Cadena de valor</h2>` +
-      `<p>Siete macrocategorías encadenan el problema con la respuesta de diseño: de la urgencia del burnout universitario y el malestar que se calla, a la metáfora, el diseño participativo y lo phygital, siempre dentro de sus límites éticos. Cada categoría se abre en subcategorías y en los autores que la sostienen en este documento.</p>` +
-      `<div class="cv-ley"><span><i class="m"></i>Macrocategoría</span><span><i class="c"></i>Categoría</span><span><i class="s"></i>Subcategoría · autores</span></div></div>` +
-      `<div class="cv-lista">${CADENA.slice(0, 3).map(banda).join('')}</div>`;
-    const der = this.pagina('cadena cad-der');
-    der.caja.innerHTML = `<div class="cv-lista">${CADENA.slice(3).map(banda).join('')}</div>` +
-      `<div class="cv-fin"><span class="cv-n">→</span><div><b>Sobre lo que no digo</b><span>Ecosistema phygital de elaboración emocional: cartografía, taller y MetafoRA</span></div></div>`;
-    const fin = der.caja.querySelector('.cv-fin'), tam = 0.75 * PX, bur = h('span', 'burbuja');
-    bur.style.cssText = `left:${-tam * 0.25}px;top:${(fin.offsetHeight - tam) / 2}px`;
-    pieza(bur, 'cadena-fin', tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
-    fin.appendChild(bur);
+    const cp = h('div', 'panel-vidrio cierre-panel', '<b>Cadena<br>de valor</b><span>Del malestar que se calla al ecosistema phygital</span>'); cd.el.appendChild(cp); this.liquido(cp, 0.75 * PX);
+    // La red completa a doble página, a sangre y sobre fondo oscuro
+    const svg = redCadena();
+    const izq = this.pagina('noche cadena-red red-izq', { folio: false }), der = this.pagina('noche cadena-red red-der', { folio: false });
+    izq.el.insertAdjacentHTML('beforeend', `<div class="red-lienzo">${svg}</div><div class="red-cab"><span>Síntesis del sustento teórico</span><h2>Cadena de valor</h2><p>Siete macrocategorías encadenan el problema con la respuesta de diseño. Cada una se abre en categorías, subcategorías y en los autores que las sostienen en este documento.</p></div>`);
+    der.el.insertAdjacentHTML('beforeend', `<div class="red-lienzo">${svg}</div><div class="red-ley"><span><i class="m"></i>Macrocategoría</span><span><i class="c"></i>Categoría</span><span><i class="h"></i>Subcategoría · autores</span></div>`);
   }
   referencias(parte) {
     this.modo = 'refs'; this.seccionActual = 'Referencias';
