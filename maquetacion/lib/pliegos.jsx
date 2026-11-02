@@ -383,6 +383,8 @@ export class Maquetador {
     const nota = el.querySelector('.nota'); if (nota) nota.remove();
     let k = filas.length;
     while (k > 1 && el.offsetHeight > libre) { k--; filas[k].remove(); }
+    // Si caben todas las filas pero no la nota, la última fila baja con la nota a la página siguiente
+    if (k === filas.length && nota) { el.appendChild(nota); const cabe = el.offsetHeight <= libre; nota.remove(); if (!cabe && k > 1) { k--; filas[k].remove(); } }
     // Si ni el encabezado con dos filas cabe, la tabla entera pasa a la página siguiente
     if (el.offsetHeight > libre || (k < 2 && filas.length > 2)) {
       const tb = el.querySelector('tbody'); filas.slice(k).forEach(f => tb.appendChild(f)); if (nota) el.appendChild(nota);
@@ -498,8 +500,8 @@ export class Maquetador {
   portadilla(parte) {
     this.aDerecha();
     const p = this.pagina('', { folio: false });
-    const c = h('div', 'portadilla'); c.appendChild(h('p', 'titulo', parte.titulo.html));
-    parte.datos.forEach(b => c.appendChild(h('p', '', b.html)));
+    const c = h('div', 'portadilla'); const tt = h('p', 'titulo', parte.titulo.html.replace(/\s+-\s+/, '<br><small>')); c.appendChild(tt);
+    parte.datos.forEach(b => { const q = h('p', '', b.html); const m = b.html.match(/^<strong>([^<:]+)(?::<\/strong>|<\/strong>:)\s*(.*)$/s); if (m) q.innerHTML = `<b class="fl">${m[1]}</b> <span class="fv">${m[2]}</span>`; c.appendChild(q); });
     p.el.appendChild(c);
   }
   // Si la página que sigue sería izquierda, se deja una en blanco: lo que abre empieza a la derecha
@@ -523,6 +525,11 @@ export class Maquetador {
     }
     this.fluir(parte.bloques);
     const hechas = this.paginas.slice(desde);
+    // Fichas: «Campo: valor» como tabla de datos; la nota de aceptación con líneas de firma
+    if (/^(Nota de autor|Nota de aceptación)/i.test(nom)) hechas.forEach(x => {
+      x.el.classList.add(/aceptación/i.test(nom) ? 'pre-firmas' : 'pre-ficha');
+      x.caja.querySelectorAll('p').forEach(q => { const m = q.innerHTML.match(/^([^:<]{2,40}):\s*(.*)$/s); if (m) q.innerHTML = `<b class="fl">${m[1]}:</b> <span class="fv">${m[2]}</span>`; });
+    });
     // Si solo unas líneas pasan a otra página, se recompone más ajustado para que quepa en una
     if (!apretar && !holgado && hechas.length === 2 && hechas[1].caja.innerText.length < 600) {
       hechas.forEach(x => x.el.remove()); this.paginas.length = desde;
