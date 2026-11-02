@@ -3415,5 +3415,42 @@
   "ciudad": "San Juan de Pasto",
   "anio": "2027"
  },
- "estilo": null
+ "estilo": null,
+ "cristales": {
+  "lente-cap2": {
+   "dx": -300,
+   "dy": 128,
+   "s": 1
+  },
+  "lente-cap1": {
+   "dx": -267,
+   "dy": 84,
+   "s": 1
+  },
+  "sec-b064": {
+   "dx": 73,
+   "dy": -71,
+   "s": 1
+  },
+  "sec-b073": {
+   "dx": 87,
+   "dy": -24,
+   "s": 1
+  },
+  "sec-b070": {
+   "dx": 23,
+   "dy": 5,
+   "s": 1
+  },
+  "sec-b077": {
+   "dx": 2,
+   "dy": -8,
+   "s": 1
+  },
+  "sec-b088": {
+   "dx": 74,
+   "dy": -23,
+   "s": 1
+  }
+ }
 }
