@@ -2791,22 +2791,30 @@
   },
   {
    "type": "p",
-   "html": "<strong>Iteración del software:</strong> <em>MetafoRA</em> no surgió de una compilación única, sino de un proceso de iteración técnica: resolución de incompatibilidades de hardware, calibración del seguimiento óptico y optimización del consumo de memoria en dispositivos Android. El proyecto pasó por once compilaciones internas de prueba (versiones 0.0.10, 0.0.11 y 0.0.20 a 0.0.28) hasta consolidar la versión metafora_0.0.29.apk, definida como el Prototipo V1 (PMV).",
+   "html": "<strong>Iteración del software:</strong> <em>MetafoRA</em> no surgió de una compilación única, sino de un proceso de iteración técnica: resolución de incompatibilidades de hardware, calibración del seguimiento óptico y optimización del consumo de memoria en dispositivos Android. El proyecto pasó por once compilaciones internas de prueba (versiones 0.0.10, 0.0.11 y 0.0.20 a 0.0.28) hasta consolidar la versión metafora_0.0.29.apk, definida como el Prototipo V1 (PMV). La Figura 25 muestra la secuencia de compilaciones, sus fechas y el tamaño de cada versión.",
    "id": "b449"
+  },
+  {
+   "id": "b450",
+   "label": "Figura 25",
+   "title": "Iteraciones del PMV de MetafoRA: de la Versión 0.0.10 a la 0.0.29",
+   "type": "figure",
+   "src": "img/p26-image51.png",
+   "note": "<em>Nota.</em> Elaboración propia a partir del historial de compilaciones del proyecto en Unity (archivos APK). Las notas de cada etapa resumen los cambios registrados; la versión 0.0.29 (28 de mayo de 2026) es la que se usó en todas las demostraciones."
   },
   {
    "type": "p",
    "html": "<strong>Demostraciones del Prototipo V1:</strong> El PMV se mostró en tres espacios, que funcionaron como demostraciones y no como una validación formal: a) la sustentación final de noveno semestre (Proyecto de Grado 1), donde las cuatro ilustraciones se imprimieron y enmarcaron, y los jurados interactuaron con ellas usando la APK 0.0.29, lo que permitió observar en vivo la estabilidad del seguimiento de imagen, la fluidez de la animación y la sincronía del audio; b) el Festival Buenamente 2026, en una ponencia con demostraciones en vivo ante la comunidad universitaria; y c) una sesión de la asignatura Proyecto de Grado 2 (décimo semestre), con pruebas directas con docentes y estudiantes, en las que se observó la facilidad para sostener el dispositivo, la legibilidad de la interfaz y las primeras reacciones ante las metáforas.",
-   "id": "b450"
+   "id": "b454"
   },
   {
    "type": "p",
-   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 25, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 26.",
-   "id": "b451"
+   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 26, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 27.",
+   "id": "b455"
   },
   {
-   "id": "b452",
-   "label": "Figura 25",
+   "id": "b456",
+   "label": "Figura 26",
    "title": "Pruebas de Visualización del PMV de MetafoRA",
    "type": "figure",
    "src": "img/image23.jpeg",
@@ -2823,15 +2831,15 @@
    "note": "<em>Nota.</em> Capturas de pantalla de la interfaz del PMV MetafoRA desarrollado en Unity con Vuforia Engine: biblioteca de obras, apertura de la cámara y modo de escaneo del sustrato físico."
   },
   {
-   "id": "b463",
+   "id": "b467",
    "type": "figure",
-   "label": "Figura 26",
+   "label": "Figura 27",
    "title": "Registro de Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre las Obras Enmarcadas",
    "src": "img/p26-image50.jpg",
    "note": "<em>Nota.</em> El docente Fernando Coral escanea con MetafoRA las cuatro ilustraciones impresas y enmarcadas durante una sesión de la asignatura Proyecto de Grado 2. Fotografía con ajuste de iluminación."
   },
   {
-   "id": "b466",
+   "id": "b470",
    "type": "heading",
    "level": 5,
    "html": "B. Talleres de Cocreación con Comunidad (Pendientes)"
@@ -2839,15 +2847,15 @@
   {
    "type": "p",
    "html": "El segundo momento de esta fase, y el núcleo del propósito específico 2, son los talleres de cocreación con comunidad. Siguiendo la recomendación de Parra de contrastar grupos con perfiles distintos, se realizarán con dos comunidades: estudiantes de Diseño Gráfico y estudiantes de una o varias carreras distintas al diseño. Parra señaló que no se requieren habilidades artísticas previas y que la falta de técnica puede hacer la expresión más orgánica, por lo que la segunda comunidad no necesita formación en artes (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026).",
-   "id": "b467"
+   "id": "b471"
   },
   {
    "type": "p",
    "html": "El contraste no busca establecer qué grupo se expresa mejor, sino observar cómo cambian las figuras proyectivas, los temas y las propuestas de RA entre ambas comunidades. El protocolo de los talleres se resume en la Tabla 15, a partir de los lineamientos de la Tabla 13 y de las acciones 2.2 a 2.5 del proyecto: convocatoria con identidad flexible, talleres de producción artística, desarrollo de <em>MetafoRA</em> e integración del ecosistema.",
-   "id": "b468"
+   "id": "b472"
   },
   {
-   "id": "b469",
+   "id": "b473",
    "label": "Tabla 15",
    "title": "Protocolo de los Talleres de Cocreación con Comunidad",
    "type": "table",
@@ -2894,12 +2902,12 @@
   },
   {
    "type": "p",
-   "html": "La Figura 27 representa la distribución de los 120 minutos de cada sesión.",
-   "id": "b473"
+   "html": "La Figura 28 representa la distribución de los 120 minutos de cada sesión.",
+   "id": "b477"
   },
   {
-   "id": "b474",
-   "label": "Figura 27",
+   "id": "b478",
+   "label": "Figura 28",
    "title": "Estructura Temporal de los Talleres de Cocreación",
    "type": "figure",
    "src": "img/p26-image43.png",
@@ -2909,27 +2917,27 @@
    "type": "heading",
    "level": 4,
    "html": "Fase 3 - Validación (Evaluación de Usabilidad e Incidencia Emocional)",
-   "id": "b478"
+   "id": "b482"
   },
   {
    "type": "p",
    "html": "Esta fase corresponde al Capítulo 3 y se desarrollará al cierre del ciclo de grado. Comprenderá una muestra expositiva de las obras en la Universidad CESMAG con la versión final de <em>MetafoRA</em>; cuestionarios con escala Likert para los lectores sobre usabilidad, inmersión e identificación; entrevistas semiestructuradas y círculos de palabra con los creadores; el registro observacional de la interacción, y la triangulación de estos datos para evaluar la incidencia de la estrategia en la elaboración emocional de los participantes.",
-   "id": "b479"
+   "id": "b483"
   },
   {
    "type": "heading",
    "level": 2,
    "html": "2.2 - Concepto de Diseño",
-   "id": "b480"
+   "id": "b484"
   },
   {
    "type": "p",
-   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar. La Figura 28 desarrolla estas tres ideas.",
-   "id": "b481"
+   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar. La Figura 29 desarrolla estas tres ideas.",
+   "id": "b485"
   },
   {
-   "id": "b482",
-   "label": "Figura 28",
+   "id": "b486",
+   "label": "Figura 29",
    "title": "Concepto de Diseño: Silencio, Metáfora y Revelación",
    "type": "figure",
    "src": "img/p26-image32.png",
@@ -2938,16 +2946,16 @@
   {
    "type": "p",
    "html": "Técnicamente, la Realidad Aumentada superpone contenido digital al mundo real (Azuma, 1997); conceptualmente, en este proyecto no añade información ajena a la obra: la revela. Esta distinción es el corazón del concepto. La RA funciona como una lente que hace visible lo que su autor declaró y que la materia física, por sí sola, quizás no alcanza a transmitir; no se trata de contenido nuevo, sino de contenido liberado, que estaba contenido en el soporte tangible. La obra funciona sin el teléfono, y el gesto voluntario de apuntarlo hacia ella convierte al lector en partícipe del acto de revelación. Para pensar esa lente, el diseñador propone la imagen del cristal, una superficie que deja ver lo que contiene, aunque con cierta distorsión, y que puede agrietarse sin dejar de mostrar. A ella se suma el kintsugi, que en lugar de ocultar la fractura la hace visible (Dobkin, 2022). Ambas imágenes son una lectura del diseñador sobre el proyecto en su conjunto, no una interpretación de las obras de los participantes, cuyo sentido corresponde siempre a sus autores.",
-   "id": "b486"
+   "id": "b490"
   },
   {
    "type": "p",
-   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario. La Figura 29 muestra cómo se articulan las piezas del ecosistema.",
-   "id": "b487"
+   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario. La Figura 30 muestra cómo se articulan las piezas del ecosistema.",
+   "id": "b491"
   },
   {
-   "id": "b488",
-   "label": "Figura 29",
+   "id": "b492",
+   "label": "Figura 30",
    "title": "Componentes del Ecosistema Phygital",
    "type": "figure",
    "src": "img/p26-image44.png",
@@ -2957,40 +2965,40 @@
    "type": "heading",
    "level": 2,
    "html": "2.3 - Estilo Gráfico",
-   "id": "b492"
+   "id": "b496"
   },
   {
    "type": "p",
    "html": "La dirección de arte del ecosistema (la interfaz de <em>MetafoRA</em>, la museografía de la muestra y las piezas de comunicación) se sustenta en tres pilares visuales pensados para distanciarse de la frialdad clínica. Este estilo no se aplica a las obras de los participantes, que conservan el lenguaje visual de cada autor:",
-   "id": "b493"
+   "id": "b497"
   },
   {
    "type": "p",
    "html": "<strong>Glassmorfismo y Translucidez</strong>",
-   "id": "b494"
+   "id": "b498"
   },
   {
    "type": "p",
    "html": "La decisión estética y estilística central del proyecto es el <em>glassmorfismo</em>: superficies con efecto de cristal translúcido o vidrio esmerilado con desenfoque de fondo, que aluden, literalmente, a los lentes y a las ventanas. A través de ellos se puede adivinar formas y densidades, pero con una ligera distorsión y opacidad que sugieren que hay algo más allá, esperando ser enfocado. La Realidad Aumentada no hace otra cosa: actúa como el haz de luz que atraviesa el vidrio, aclarando aquello que la materia apenas insinúa.",
-   "id": "b495"
+   "id": "b499"
   },
   {
    "type": "p",
    "html": "<strong>Paleta Cromática: La Tensión entre Silencio y Revelación</strong>",
-   "id": "b496"
+   "id": "b500"
   },
   {
    "type": "list",
    "items": [
     "Violeta y púrpura profundo (color dominante): evoca la introspección psicológica, la interioridad, la penumbra del secreto, la solemnidad del dolor contenido y el silencio respetuoso.",
     "Amarillo cálido y dorado (color de acento y revelación): representa el destello de la iluminación, la catarsis, la energía liberada en la confesión y el momento exacto en que una verdad íntima sale a la luz pública.",
-    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena. La Figura 30 presenta la paleta y la familia tipográfica propuestas."
+    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena. La Figura 31 presenta la paleta y la familia tipográfica propuestas."
    ],
-   "id": "b497"
+   "id": "b501"
   },
   {
-   "id": "b498",
-   "label": "Figura 30",
+   "id": "b502",
+   "label": "Figura 31",
    "title": "Paleta Cromática y Tipografía del Ecosistema",
    "type": "figure",
    "src": "img/p26-image45.png",
@@ -2999,402 +3007,402 @@
   {
    "type": "quote",
    "html": "<strong>Morfología Orgánica y Tipografía Contemporánea</strong>",
-   "id": "b502"
+   "id": "b506"
   },
   {
    "type": "p",
    "html": "Las formas propuestas son curvas y contemporáneas, con el fin de alejarse de la rigidez geométrica ortogonal de los formatos institucionales o psiquiátricos: líneas continuas, bordes redondeados y transiciones suaves inspiradas en la fluidez de los estados afectivos humanos. La interfaz busca parecer cercana al lenguaje visual que los jóvenes ya utilizan en su cotidianidad, de modo que no se imponga una nueva estética y, en su lugar, se acceda al usuario desde lo familiar. La tipografía combina fuentes sin serifa modernas de alta legibilidad en pantalla para los elementos interactivos con sutiles acentos de corte humanista o gestual para los textos confesionales: el propósito es que la app se sienta cómoda y conocida, para que las revelaciones realizadas con la RA sean la verdadera sorpresa.",
-   "id": "b503"
+   "id": "b507"
   },
   {
    "type": "heading",
    "level": 1,
    "html": "Referencias",
-   "id": "b504",
+   "id": "b508",
    "breakBefore": true
   },
   {
    "type": "p",
    "html": "Aplin, O. (2017). <em>MindJournal: This book will make you stronger. The guide to journalling for men</em>. Ebury Press.",
-   "id": "b505",
-   "style": "referencia"
-  },
-  {
-   "type": "p",
-   "html": "Artivive. (s. f.). <em>Artivive</em> [Aplicación móvil]. https://artivive.com",
-   "id": "b506",
-   "style": "referencia"
-  },
-  {
-   "type": "p",
-   "html": "Azuma, R. T. (1997). A survey of augmented reality. <em>Presence: Teleoperators and Virtual Environments, 6</em>(4), 355-385. https://doi.org/10.1162/pres.1997.6.4.355",
-   "id": "b507",
-   "style": "referencia"
-  },
-  {
-   "type": "p",
-   "html": "Blease, C., Tibbs, M., Balaskas, A., Liverpool, S., Hagström, J., &amp; Fitzgerald, A. (2026). Coproduction without youth? Closing the participation gap in digital mental health research. <em>JMIR Mental Health, 13</em>, e91739. https://doi.org/10.2196/91739",
-   "id": "b508",
-   "style": "referencia"
-  },
-  {
-   "type": "p",
-   "html": "Bob-Waksberg, R. (Creador). (2014-2020). <em>BoJack Horseman</em> [Serie de televisión]. The Tornante Company; ShadowMachine.",
    "id": "b509",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Caballero, C., Bresó, E., &amp; González Gutiérrez, O. (2015). Burnout en estudiantes universitarios. <em>Psicología desde el Caribe, 32</em>(3), 424-441. https://doi.org/10.14482/psdc.32.3.6217",
+   "html": "Artivive. (s. f.). <em>Artivive</em> [Aplicación móvil]. https://artivive.com",
    "id": "b510",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Caballero, C., Hederich, C., &amp; Palacio, J. (2010). El burnout académico: Delimitación del síndrome y factores asociados con su aparición. <em>Revista Latinoamericana de Psicología, 42</em>(1), 131-146.",
+   "html": "Azuma, R. T. (1997). A survey of augmented reality. <em>Presence: Teleoperators and Virtual Environments, 6</em>(4), 355-385. https://doi.org/10.1162/pres.1997.6.4.355",
    "id": "b511",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Cabero-Almenara, J., Valencia-Ortiz, R., &amp; Llorente-Cejudo, C. (2022). Realidad mixta, virtual y aumentada: Tecnologías para el aprendizaje. <em>Linguagem e Tecnologia, 14</em>(1), 1-14.",
+   "html": "Blease, C., Tibbs, M., Balaskas, A., Liverpool, S., Hagström, J., &amp; Fitzgerald, A. (2026). Coproduction without youth? Closing the participation gap in digital mental health research. <em>JMIR Mental Health, 13</em>, e91739. https://doi.org/10.2196/91739",
    "id": "b512",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Cabrera-Gómez, C. C., Caldas-Luzeiro, J., Rivera-Porras, D., Carrillo-Sierra, S. M., &amp; Martínez-Banfi, M. (2019). Diseño del programa de bienestar psicológico de educación en salud online \"Florece\" para contextos universitarios. <em>Archivos Venezolanos de Farmacología y Terapéutica, 38</em>(5), 406-415.",
+   "html": "Bob-Waksberg, R. (Creador). (2014-2020). <em>BoJack Horseman</em> [Serie de televisión]. The Tornante Company; ShadowMachine.",
    "id": "b513",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Camus, A. (1995). <em>El mito de Sísifo</em> (E. Benítez, Trad.). Alianza Editorial. (Obra original publicada en 1942)",
+   "html": "Caballero, C., Bresó, E., &amp; González Gutiérrez, O. (2015). Burnout en estudiantes universitarios. <em>Psicología desde el Caribe, 32</em>(3), 424-441. https://doi.org/10.14482/psdc.32.3.6217",
    "id": "b514",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Cascales Mira, M. (2022). Efectos del trabajo emocional en el agotamiento y la satisfacción laboral de los trabajadores en España. <em>Papers. Revista de Sociologia, 107</em>(1), 5-29. https://doi.org/10.5565/rev/papers.2965",
+   "html": "Caballero, C., Hederich, C., &amp; Palacio, J. (2010). El burnout académico: Delimitación del síndrome y factores asociados con su aparición. <em>Revista Latinoamericana de Psicología, 42</em>(1), 131-146.",
    "id": "b515",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Castro, C., David, O. O., &amp; Ortiz, L. (2011). Síndrome de burnout en estudiantes de pregrado de la Universidad de Nariño. <em>Revista Electrónica de Psicología Iztacala, 14</em>(4). https://www.revistas.unam.mx/index.php/repi/article/view/28903",
+   "html": "Cabero-Almenara, J., Valencia-Ortiz, R., &amp; Llorente-Cejudo, C. (2022). Realidad mixta, virtual y aumentada: Tecnologías para el aprendizaje. <em>Linguagem e Tecnologia, 14</em>(1), 1-14.",
    "id": "b516",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Cayambe Guzmán, D., Gordon Torres, K. L., Reyes, V. M., Lugo Bustillos, J. K., &amp; García Bustillos, M. A. (2024). Burnout académico en estudiantes universitarios: Prevalencia y relación con el rendimiento académico. <em>PROHOMINUM. Revista de Ciencias Sociales y Humanas, 6</em>(3), 279-294. https://doi.org/10.47606/ACVEN/PH0279",
+   "html": "Cabrera-Gómez, C. C., Caldas-Luzeiro, J., Rivera-Porras, D., Carrillo-Sierra, S. M., &amp; Martínez-Banfi, M. (2019). Diseño del programa de bienestar psicológico de educación en salud online \"Florece\" para contextos universitarios. <em>Archivos Venezolanos de Farmacología y Terapéutica, 38</em>(5), 406-415.",
    "id": "b517",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Cerasa, A., Gaggioli, A., Pioggia, G., &amp; Riva, G. (2024). Metaverse in mental health: The beginning of a long history. <em>Current Psychiatry Reports</em>. https://doi.org/10.1007/s11920-024-01501-8",
+   "html": "Camus, A. (1995). <em>El mito de Sísifo</em> (E. Benítez, Trad.). Alianza Editorial. (Obra original publicada en 1942)",
    "id": "b518",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Chai-Arayalert, S., Puttinaovarat, S., &amp; Saetang, W. (2025). Phygital experience platform for textile exhibitions in small local museums. <em>Heritage, 8</em>(1), 35. https://doi.org/10.3390/heritage8010035",
+   "html": "Cascales Mira, M. (2022). Efectos del trabajo emocional en el agotamiento y la satisfacción laboral de los trabajadores en España. <em>Papers. Revista de Sociologia, 107</em>(1), 5-29. https://doi.org/10.5565/rev/papers.2965",
    "id": "b519",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Chang, C. (s. f.). <em>Before I Die</em>. https://candychang.com/before-i-die",
+   "html": "Castro, C., David, O. O., &amp; Ortiz, L. (2011). Síndrome de burnout en estudiantes de pregrado de la Universidad de Nariño. <em>Revista Electrónica de Psicología Iztacala, 14</em>(4). https://www.revistas.unam.mx/index.php/repi/article/view/28903",
    "id": "b520",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Chen, M., Huang, L., Qin, Q., Li, J., Zhang, J., Ma, J., &amp; Song, H. (2025). Impact of expressive suppression on subthreshold depression among college students: A moderated mediation model. <em>Frontiers in Psychology, 16</em>, 1678275. https://doi.org/10.3389/fpsyg.2025.1678275",
+   "html": "Cayambe Guzmán, D., Gordon Torres, K. L., Reyes, V. M., Lugo Bustillos, J. K., &amp; García Bustillos, M. A. (2024). Burnout académico en estudiantes universitarios: Prevalencia y relación con el rendimiento académico. <em>PROHOMINUM. Revista de Ciencias Sociales y Humanas, 6</em>(3), 279-294. https://doi.org/10.47606/ACVEN/PH0279",
    "id": "b521",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Congreso de Colombia. (2013). <em>Ley 1616 de 2013</em>. Diario Oficial No. 48.680. http://www.secretariasenado.gov.co/senado/basedoc/ley_1616_2013.html",
+   "html": "Cerasa, A., Gaggioli, A., Pioggia, G., &amp; Riva, G. (2024). Metaverse in mental health: The beginning of a long history. <em>Current Psychiatry Reports</em>. https://doi.org/10.1007/s11920-024-01501-8",
    "id": "b522",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Congreso de Colombia. (2025). <em>Ley 2460 de 2025</em>. Diario Oficial No. 53.153. http://www.secretariasenado.gov.co/senado/basedoc/ley_2460_2025.html",
+   "html": "Chai-Arayalert, S., Puttinaovarat, S., &amp; Saetang, W. (2025). Phygital experience platform for textile exhibitions in small local museums. <em>Heritage, 8</em>(1), 35. https://doi.org/10.3390/heritage8010035",
    "id": "b523",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Connell, R. W. (2015). <em>Masculinidades</em> (I. C. Fediakova, Trad.; 2.ª ed.). Programa Universitario de Estudios de Género, UNAM. (Obra original publicada en 2005)",
+   "html": "Chang, C. (s. f.). <em>Before I Die</em>. https://candychang.com/before-i-die",
    "id": "b524",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Del Río Diéguez, M., &amp; Navarrete Torres, R. (2025). El papel de la Subjetividad Artística en los procesos educativos y terapéuticos que utilizan el arte como soporte relacional. <em>Arteterapia. Papeles de arteterapia y educación para inclusión social, 20</em>, e97953. https://doi.org/10.5209/arte.97953",
+   "html": "Chen, M., Huang, L., Qin, Q., Li, J., Zhang, J., Ma, J., &amp; Song, H. (2025). Impact of expressive suppression on subthreshold depression among college students: A moderated mediation model. <em>Frontiers in Psychology, 16</em>, 1678275. https://doi.org/10.3389/fpsyg.2025.1678275",
    "id": "b525",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Dezeen. (2022, 12 de diciembre). <em>Morag Myerscough creates \"secret garden\" for Sheffield Children's Hospital</em>. https://www.dezeen.com/2022/12/12/sheffield-childrens-hospital-morag-myerscough-joy-garden/",
+   "html": "Congreso de Colombia. (2013). <em>Ley 1616 de 2013</em>. Diario Oficial No. 48.680. http://www.secretariasenado.gov.co/senado/basedoc/ley_1616_2013.html",
    "id": "b526",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Dobkin, P. L. (2022). Kintsugi mind: Clinicians can emerge from the pandemic whole. <em>International Journal of Whole Person Care, 9</em>(1), 18-19. https://doi.org/10.26443/ijwpc.v9i1.332",
+   "html": "Congreso de Colombia. (2025). <em>Ley 2460 de 2025</em>. Diario Oficial No. 53.153. http://www.secretariasenado.gov.co/senado/basedoc/ley_2460_2025.html",
    "id": "b527",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Dontnod Entertainment. (2015). <em>Life is Strange</em> [Videojuego]. Square Enix.",
+   "html": "Connell, R. W. (2015). <em>Masculinidades</em> (I. C. Fediakova, Trad.; 2.ª ed.). Programa Universitario de Estudios de Género, UNAM. (Obra original publicada en 2005)",
    "id": "b528",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Extremely OK Games. (2018). <em>Celeste</em> [Videojuego]. Extremely OK Games.",
+   "html": "Del Río Diéguez, M., &amp; Navarrete Torres, R. (2025). El papel de la Subjetividad Artística en los procesos educativos y terapéuticos que utilizan el arte como soporte relacional. <em>Arteterapia. Papeles de arteterapia y educación para inclusión social, 20</em>, e97953. https://doi.org/10.5209/arte.97953",
    "id": "b529",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Forney, E. (2012). <em>Marbles: Mania, depression, Michelangelo, and me</em>. Gotham Books.",
+   "html": "Dezeen. (2022, 12 de diciembre). <em>Morag Myerscough creates \"secret garden\" for Sheffield Children's Hospital</em>. https://www.dezeen.com/2022/12/12/sheffield-childrens-hospital-morag-myerscough-joy-garden/",
    "id": "b530",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Freedberg, D., &amp; Gallese, V. (2007). Motion, emotion and empathy in esthetic experience. <em>Trends in Cognitive Sciences, 11</em>(5), 197-203. https://doi.org/10.1016/j.tics.2007.02.003",
+   "html": "Dobkin, P. L. (2022). Kintsugi mind: Clinicians can emerge from the pandemic whole. <em>International Journal of Whole Person Care, 9</em>(1), 18-19. https://doi.org/10.26443/ijwpc.v9i1.332",
    "id": "b531",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Gennari, R., Matera, M., Morra, D., Melonio, A., &amp; Rizvi, M. (2023). Design for social digital well-being with young generations: Engage them and make them reflect. <em>International Journal of Human-Computer Studies, 173</em>, 103006. https://doi.org/10.1016/j.ijhcs.2023.103006",
+   "html": "Dontnod Entertainment. (2015). <em>Life is Strange</em> [Videojuego]. Square Enix.",
    "id": "b532",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Goleman, D. (1996). <em>La inteligencia emocional: Por qué es más importante que el coeficiente intelectual</em> (E. Mateo, Trad.). Editorial Kairós. (Obra original publicada en 1995)",
+   "html": "Extremely OK Games. (2018). <em>Celeste</em> [Videojuego]. Extremely OK Games.",
    "id": "b533",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Gross, J. J. (2002). Emotion regulation: Affective, cognitive, and social consequences. <em>Psychophysiology, 39</em>(3), 281-291. https://doi.org/10.1017/S0048577201393198",
+   "html": "Forney, E. (2012). <em>Marbles: Mania, depression, Michelangelo, and me</em>. Gotham Books.",
    "id": "b534",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Han, B.-C. (2012). <em>La sociedad del cansancio</em> (A. Saratxaga Arregi, Trad.). Herder Editorial.",
+   "html": "Freedberg, D., &amp; Gallese, V. (2007). Motion, emotion and empathy in esthetic experience. <em>Trends in Cognitive Sciences, 11</em>(5), 197-203. https://doi.org/10.1016/j.tics.2007.02.003",
    "id": "b535",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Han, B.-C. (2013). <em>La sociedad de la transparencia</em> (R. Gabás, Trad.). Herder Editorial.",
+   "html": "Gennari, R., Matera, M., Morra, D., Melonio, A., &amp; Rizvi, M. (2023). Design for social digital well-being with young generations: Engage them and make them reflect. <em>International Journal of Human-Computer Studies, 173</em>, 103006. https://doi.org/10.1016/j.ijhcs.2023.103006",
    "id": "b536",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Han, B.-C. (2014). <em>Psicopolítica: Neoliberalismo y nuevas técnicas de poder</em> (A. Bergés, Trad.). Herder Editorial.",
+   "html": "Goleman, D. (1996). <em>La inteligencia emocional: Por qué es más importante que el coeficiente intelectual</em> (E. Mateo, Trad.). Editorial Kairós. (Obra original publicada en 1995)",
    "id": "b537",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Han, B.-C. (2017). <em>La expulsión de lo distinto</em> (A. Ciria, Trad.). Herder Editorial.",
+   "html": "Gross, J. J. (2002). Emotion regulation: Affective, cognitive, and social consequences. <em>Psychophysiology, 39</em>(3), 281-291. https://doi.org/10.1017/S0048577201393198",
    "id": "b538",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Herman, J. (2004). <em>Trauma y recuperación: Cómo superar las consecuencias de la violencia</em> (M. P. Sánchez, Trad.). Espasa Calpe. (Obra original publicada en 1992)",
+   "html": "Han, B.-C. (2012). <em>La sociedad del cansancio</em> (A. Saratxaga Arregi, Trad.). Herder Editorial.",
    "id": "b539",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "It's Nice That. (2016, 24 de febrero). <em>MullenLowe London launches new Samaritans campaign with portraits by photographer Nadav Kander</em>. https://www.itsnicethat.com/news/mullenlowe-london-launches-new-samaritans-campaign-with-portraits-by-photographer-nadav-kandar-240216",
+   "html": "Han, B.-C. (2013). <em>La sociedad de la transparencia</em> (R. Gabás, Trad.). Herder Editorial.",
    "id": "b540",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Kafka, F. (2023). <em>La metamorfosis</em>. Universidad Nacional Autónoma de México. (Obra original publicada en 1915)",
+   "html": "Han, B.-C. (2014). <em>Psicopolítica: Neoliberalismo y nuevas técnicas de poder</em> (A. Bergés, Trad.). Herder Editorial.",
    "id": "b541",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Lakoff, G., &amp; Johnson, M. (2003). <em>Metaphors we live by</em>. The University of Chicago Press. (Obra original publicada en 1980)",
+   "html": "Han, B.-C. (2017). <em>La expulsión de lo distinto</em> (A. Ciria, Trad.). Herder Editorial.",
    "id": "b542",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Lancheros-Bohorquez, W. F., &amp; Vesga-Bravo, G. J. (2024). Uso de la realidad aumentada, la realidad virtual y la inteligencia artificial en educación secundaria: Una revisión sistemática. <em>Revista de Investigación, Desarrollo e Innovación, 14</em>(1), 95-110. https://doi.org/10.19053/uptc.20278306.v14.n1.2024.17643",
+   "html": "Herman, J. (2004). <em>Trauma y recuperación: Cómo superar las consecuencias de la violencia</em> (M. P. Sánchez, Trad.). Espasa Calpe. (Obra original publicada en 1992)",
    "id": "b543",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Lozano, H. (Creador). (2015-2018). <em>Merlí</em> [Serie de televisión]. Veranda TV.",
+   "html": "It's Nice That. (2016, 24 de febrero). <em>MullenLowe London launches new Samaritans campaign with portraits by photographer Nadav Kander</em>. https://www.itsnicethat.com/news/mullenlowe-london-launches-new-samaritans-campaign-with-portraits-by-photographer-nadav-kandar-240216",
    "id": "b544",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Madrid-Cagigal, A., Kealy, C., Potts, C., Mulvenna, M. D., Byrne, M., Barry, M. M., &amp; Donohoe, G. (2025). Digital mental health interventions for university students with mental health difficulties: A systematic review and meta-analysis. <em>Early Intervention in Psychiatry, 19</em>(1), e70017. https://doi.org/10.1111/eip.70017",
+   "html": "Kafka, F. (2023). <em>La metamorfosis</em>. Universidad Nacional Autónoma de México. (Obra original publicada en 1915)",
    "id": "b545",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Moreno González, N. (2025, 8 de abril). Crisis de salud mental en Nariño: ACP alerta sobre aumento de urgencias psiquiátricas y desabastecimiento de medicamentos. <em>Consultorsalud</em>. https://consultorsalud.com/crisis-de-salud-mental-narino-urgencias-psiquia/",
+   "html": "Lakoff, G., &amp; Johnson, M. (2003). <em>Metaphors we live by</em>. The University of Chicago Press. (Obra original publicada en 1980)",
    "id": "b546",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Ninja Theory. (2017). <em>Hellblade: Senua's Sacrifice</em> [Videojuego]. Ninja Theory.",
+   "html": "Lancheros-Bohorquez, W. F., &amp; Vesga-Bravo, G. J. (2024). Uso de la realidad aumentada, la realidad virtual y la inteligencia artificial en educación secundaria: Una revisión sistemática. <em>Revista de Investigación, Desarrollo e Innovación, 14</em>(1), 95-110. https://doi.org/10.19053/uptc.20278306.v14.n1.2024.17643",
    "id": "b547",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Norman, D. A. (2004). <em>Emotional design: Why we love (or hate) everyday things</em>. Basic Books.",
+   "html": "Lozano, H. (Creador). (2015-2018). <em>Merlí</em> [Serie de televisión]. Veranda TV.",
    "id": "b548",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "NPR. (2013, 30 de septiembre). <em>A history of love gone wrong, all in one Croatian museum</em>. https://www.npr.org/sections/parallels/2013/09/30/227738868/a-history-of-love-gone-wrong-all-in-one-croatian-museum",
+   "html": "Madrid-Cagigal, A., Kealy, C., Potts, C., Mulvenna, M. D., Byrne, M., Barry, M. M., &amp; Donohoe, G. (2025). Digital mental health interventions for university students with mental health difficulties: A systematic review and meta-analysis. <em>Early Intervention in Psychiatry, 19</em>(1), e70017. https://doi.org/10.1111/eip.70017",
    "id": "b549",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Orbegozo, U., Matellanes, B., Estévez, A., &amp; Montero, M. (2018). Adaptación al castellano del Emotional Processing Scale-25. <em>Ansiedad y Estrés, 24</em>, 24-30. https://doi.org/10.1016/j.anyes.2017.10.006",
+   "html": "Moreno González, N. (2025, 8 de abril). Crisis de salud mental en Nariño: ACP alerta sobre aumento de urgencias psiquiátricas y desabastecimiento de medicamentos. <em>Consultorsalud</em>. https://consultorsalud.com/crisis-de-salud-mental-narino-urgencias-psiquia/",
    "id": "b550",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Papanek, V. (2014). <em>Diseño para el mundo real: Ecología humana y cambio social</em> (R. Polanco, Trad.; 2.ª ed.). Pol·len Edicions. (Obra original publicada en 1971)",
+   "html": "Ninja Theory. (2017). <em>Hellblade: Senua's Sacrifice</em> [Videojuego]. Ninja Theory.",
    "id": "b551",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Park, Z., Lee, S., &amp; Choi, S. (2021). Cybersickness in augmented reality: Subjective and physiological changes with the course of prolonged exposure. <em>Virtual Reality, 25</em>, 923-933. https://doi.org/10.1007/s10055-020-00497-6",
+   "html": "Norman, D. A. (2004). <em>Emotional design: Why we love (or hate) everyday things</em>. Basic Books.",
    "id": "b552",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Peñate, W., del Pino-Sedeño, T., &amp; Bethencourt, J. M. (2010). El efecto diferencial de escribir sobre un mismo trauma o sobre diferentes traumas en el bienestar psicológico y el estado de salud autoinformado. <em>Universitas Psychologica, 9</em>(2), 433-445. https://revistas.javeriana.edu.co/index.php/revPsycho/article/view/830",
+   "html": "NPR. (2013, 30 de septiembre). <em>A history of love gone wrong, all in one Croatian museum</em>. https://www.npr.org/sections/parallels/2013/09/30/227738868/a-history-of-love-gone-wrong-all-in-one-croatian-museum",
    "id": "b553",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Salazar, O. (2018). <em>El hombre que no deberíamos ser: La revolución masculina que tantas mujeres llevan siglos esperando</em>. Editorial Planeta.",
+   "html": "Orbegozo, U., Matellanes, B., Estévez, A., &amp; Montero, M. (2018). Adaptación al castellano del Emotional Processing Scale-25. <em>Ansiedad y Estrés, 24</em>, 24-30. https://doi.org/10.1016/j.anyes.2017.10.006",
    "id": "b554",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Sanders, E. B.-N., &amp; Stappers, P. J. (2008). Co-creation and the new landscapes of design. <em>CoDesign, 4</em>(1), 5-18. https://doi.org/10.1080/15710880701875068",
+   "html": "Papanek, V. (2014). <em>Diseño para el mundo real: Ecología humana y cambio social</em> (R. Polanco, Trad.; 2.ª ed.). Pol·len Edicions. (Obra original publicada en 1971)",
    "id": "b555",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Slade, D. (Director). (2018). <em>Black Mirror: Bandersnatch</em> [Película interactiva]. Netflix.",
+   "html": "Park, Z., Lee, S., &amp; Choi, S. (2021). Cybersickness in augmented reality: Subjective and physiological changes with the course of prolonged exposure. <em>Virtual Reality, 25</em>, 923-933. https://doi.org/10.1007/s10055-020-00497-6",
    "id": "b556",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Sneiderman, S. (2011, octubre). <em>Investigación con herramientas diagnósticas: Problemas de confiabilidad y validez</em> [Ponencia]. VI Jornadas de Investigación en Psicología, Universidad de Ciencias Empresariales y Sociales, Buenos Aires, Argentina. https://dspace.uces.edu.ar/bitstream/123456789/1704/1/Sneiderman_2011_VI-Jornada.pdf",
+   "html": "Peñate, W., del Pino-Sedeño, T., &amp; Bethencourt, J. M. (2010). El efecto diferencial de escribir sobre un mismo trauma o sobre diferentes traumas en el bienestar psicológico y el estado de salud autoinformado. <em>Universitas Psychologica, 9</em>(2), 433-445. https://revistas.javeriana.edu.co/index.php/revPsycho/article/view/830",
    "id": "b557",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Spahl, W., Busse, H., Fegert, J. M., &amp; Koenig, S. (2023). Gamified digital mental health interventions for young people: Scoping review of ethical aspects during development and implementation. <em>JMIR Serious Games, 11</em>, e47267. https://doi.org/10.2196/47267",
+   "html": "Salazar, O. (2018). <em>El hombre que no deberíamos ser: La revolución masculina que tantas mujeres llevan siglos esperando</em>. Editorial Planeta.",
    "id": "b558",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Sullivan, G. (2010). <em>Art practice as research: Inquiry in visual arts</em> (2.ª ed.). SAGE Publications.",
+   "html": "Sanders, E. B.-N., &amp; Stappers, P. J. (2008). Co-creation and the new landscapes of design. <em>CoDesign, 4</em>(1), 5-18. https://doi.org/10.1080/15710880701875068",
    "id": "b559",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Timaran, J. E. (2005). <em>El impacto social que genera el Carnaval Andino de Negros y Blancos en los imaginarios de futuro en los hijos jóvenes herederos de la tradición cultural del carnaval de la Ciudad de San Juan de Pasto</em> [Tesis de pregrado, Universidad de Nariño]. Sistema Institucional de Recursos Digitales.",
+   "html": "Slade, D. (Director). (2018). <em>Black Mirror: Bandersnatch</em> [Película interactiva]. Netflix.",
    "id": "b560",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Universidad CESMAG. (2025). <em>Perspectivas Psicológicas</em>. Recuperado el 23 de abril de 2025, de https://www.unicesmag.edu.co/grupos-investigacion/perspectivas/",
+   "html": "Sneiderman, S. (2011, octubre). <em>Investigación con herramientas diagnósticas: Problemas de confiabilidad y validez</em> [Ponencia]. VI Jornadas de Investigación en Psicología, Universidad de Ciencias Empresariales y Sociales, Buenos Aires, Argentina. https://dspace.uces.edu.ar/bitstream/123456789/1704/1/Sneiderman_2011_VI-Jornada.pdf",
    "id": "b561",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Urrego Aguinaga, D., Jaramillo Chavarría, G. A., Rodríguez Muñoz, J. C., &amp; Cardona Arbeláez, J. P. (2016). Sentidos de la externalización del problema en la terapia narrativa. <em>Revista Fundación Universitaria Luis Amigó, 3</em>(1), 68-80. https://revistas.ucatolicaluisamigo.edu.co/index.php/RFunlam/article/view/1895",
+   "html": "Spahl, W., Busse, H., Fegert, J. M., &amp; Koenig, S. (2023). Gamified digital mental health interventions for young people: Scoping review of ethical aspects during development and implementation. <em>JMIR Serious Games, 11</em>, e47267. https://doi.org/10.2196/47267",
    "id": "b562",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Warren, F. (2005-presente). <em>PostSecret</em> [Proyecto artístico comunitario]. https://postsecret.com",
+   "html": "Sullivan, G. (2010). <em>Art practice as research: Inquiry in visual arts</em> (2.ª ed.). SAGE Publications.",
    "id": "b563",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Wittgenstein, L. (2009). <em>Tractatus logico-philosophicus</em> (J. Muñoz e I. Reguera, Trads.). Editorial Gredos. (Obra original publicada en 1921)",
+   "html": "Timaran, J. E. (2005). <em>El impacto social que genera el Carnaval Andino de Negros y Blancos en los imaginarios de futuro en los hijos jóvenes herederos de la tradición cultural del carnaval de la Ciudad de San Juan de Pasto</em> [Tesis de pregrado, Universidad de Nariño]. Sistema Institucional de Recursos Digitales.",
    "id": "b564",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "World Health Organization. (2019, 28 de mayo). <em>Burn-out an \"occupational phenomenon\": International Classification of Diseases</em>. https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases",
+   "html": "Universidad CESMAG. (2025). <em>Perspectivas Psicológicas</em>. Recuperado el 23 de abril de 2025, de https://www.unicesmag.edu.co/grupos-investigacion/perspectivas/",
    "id": "b565",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "World Health Organization. (2022). <em>World mental health report: Transforming mental health for all</em>. https://www.who.int/publications/i/item/9789240049338",
+   "html": "Urrego Aguinaga, D., Jaramillo Chavarría, G. A., Rodríguez Muñoz, J. C., &amp; Cardona Arbeláez, J. P. (2016). Sentidos de la externalización del problema en la terapia narrativa. <em>Revista Fundación Universitaria Luis Amigó, 3</em>(1), 68-80. https://revistas.ucatolicaluisamigo.edu.co/index.php/RFunlam/article/view/1895",
    "id": "b566",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "World Health Organization. (2025, 1 de septiembre). <em>Mental health of adolescents</em>. https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health",
+   "html": "Warren, F. (2005-presente). <em>PostSecret</em> [Proyecto artístico comunitario]. https://postsecret.com",
    "id": "b567",
    "style": "referencia"
   },
   {
    "type": "p",
-   "html": "Yeo, J. P.-H., &amp; Teo, C.-T. (2020). Designing wellbeing: The role of design in developing open-mindedness in mental health. En K. Christer, C. Craig, &amp; P. Chamberlain (Eds.), <em>Proceedings of the 6th European Conference on Design4Health</em> (Vol. 4, pp. 766-773). Sheffield Hallam University.",
+   "html": "Wittgenstein, L. (2009). <em>Tractatus logico-philosophicus</em> (J. Muñoz e I. Reguera, Trads.). Editorial Gredos. (Obra original publicada en 1921)",
    "id": "b568",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "World Health Organization. (2019, 28 de mayo). <em>Burn-out an \"occupational phenomenon\": International Classification of Diseases</em>. https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases",
+   "id": "b569",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "World Health Organization. (2022). <em>World mental health report: Transforming mental health for all</em>. https://www.who.int/publications/i/item/9789240049338",
+   "id": "b570",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "World Health Organization. (2025, 1 de septiembre). <em>Mental health of adolescents</em>. https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health",
+   "id": "b571",
+   "style": "referencia"
+  },
+  {
+   "type": "p",
+   "html": "Yeo, J. P.-H., &amp; Teo, C.-T. (2020). Designing wellbeing: The role of design in developing open-mindedness in mental health. En K. Christer, C. Craig, &amp; P. Chamberlain (Eds.), <em>Proceedings of the 6th European Conference on Design4Health</em> (Vol. 4, pp. 766-773). Sheffield Hallam University.",
+   "id": "b572",
    "style": "referencia"
   }
  ],
