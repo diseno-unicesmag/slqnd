@@ -21,6 +21,15 @@ const ESPACIO = 2 * L;              // aire bajo figuras y tablas
 const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 150;
+const AIRE_SECCION = 9 * L;          // blanco sobre el título de cada apartado
+const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 27']);   // fotografías de campo a página completa
+// Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
+const CITAS = [
+  ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
+  ['ya contó su historia primero', 'Es más fácil abrirse cuando alguien más ya contó su historia primero', 'Sobre lo que no digo'],
+  ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', 'Sobre lo que no digo'],
+  ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
+];
 const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 28', 'Figura 30', 'Figura 31']);
 const PAGINA_SOLA = new Set(['Figura 3', 'Figura 24']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
@@ -185,6 +194,7 @@ export class Maquetador {
           c.appendChild(fr);
         });
         if (PAGINA_SOLA.has(b.label)) f.classList.add('fig-pagina');
+        if (SANGRE.has(b.label) && n === 1) { f.classList.add('fig-pagina', 'fig-sangre'); f.classList.remove('fig-lado'); }
         if (f.classList.contains('fig-lado')) {
           // pie a la izquierda (columna 1), imagen alineada a la derecha
           const pie = h('div', 'fig-pie'); while (f.firstChild) pie.appendChild(f.firstChild);
@@ -329,7 +339,16 @@ export class Maquetador {
     const habiaTexto = !!(this.banda && this.banda.children.length);
     if (el.classList.contains('fig-pagina')) {
       if (habiaTexto || this.y > 0) { this.flotantes.push(el); return; }
-      this.cerrarBanda(); el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0';
+      this.cerrarBanda();
+      if (el.classList.contains('fig-sangre')) {   // a sangre: la foto llena la página y el pie va sobre cristal
+        const im = el.querySelector('img'), pie = h('div', 'panel-vidrio sangre-pie');
+        [...el.children].filter(c => !c.classList.contains('fig-img')).forEach(c => pie.appendChild(c));
+        el.querySelectorAll('.fig-pie > *').forEach(c => pie.appendChild(c));
+        el.innerHTML = ''; im.removeAttribute('style'); el.append(im, pie);
+        this.actual.el.appendChild(el); this.actual.el.classList.add('pag-sangre'); this.actual.folio = false;
+        this.y = ALTO_CAJA; return;
+      }
+      el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0';
       this.actual.caja.appendChild(el);
       el.style.top = Math.max(0, enRenglon((ALTO_CAJA - el.offsetHeight) / 2 - L)) + 'px';
       this.y = ALTO_CAJA; return;
@@ -370,6 +389,13 @@ export class Maquetador {
     if (!filas.slice(k).length) { if (nota) { el.appendChild(nota); } return; }
     this.paginaFlujo(); this.colocarAncho(sigue, true);
   }
+  citaDe(b) {
+    const t = textoPlano(b.html).toLowerCase(), c = CITAS.find(c => !this.citasUsadas?.has(c[0]) && t.includes(c[0]));
+    if (!c || this.paginas.length - (this.ultimaCita ?? -9) < 4) return;
+    (this.citasUsadas ??= new Set()).add(c[0]); this.ultimaCita = this.paginas.length;
+    const e = h("div", "ancho cita-dest", `<p>«${c[1]}»</p><span>${c[2]}</span>`);
+    this.colocarAncho(e);
+  }
   vaciarFlotantes() { while (this.flotantes.length) { this.paginaFlujo(); } }
 
   fluir(bloques) {
@@ -381,6 +407,7 @@ export class Maquetador {
       if (b.type === 'p') primero = false;
       if (b.type === 'heading') primero = false;
       if (el.classList.contains('ancho')) this.colocarAncho(el); else this.agregarTexto(el);
+      if (b.type === 'p') this.citaDe(b);
     }
     this.cerrarBanda();
     this.vaciarFlotantes();
@@ -388,19 +415,34 @@ export class Maquetador {
 
   // ── Partes ──
   portada(parte) {
+    // Página sola a la derecha: la textura de vidrio a sangre y los datos sobre un panel de cristal
     const p = this.pagina('noche portada', { folio: false });
+    p.el.appendChild(this.fondo(this.deco.portada));
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
-    // La lente cae sobre el ojo: revela en color lo que el resto de la imagen calla
-    p.el.appendChild(this.revela(this.deco.portada, { x: 0.5, y: 0.49, r: 1.45, alto: '62%', k: 'portada' }));
-    p.el.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
-    const tt = h('div', 'por-titulo');
-    tt.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
-    tt.appendChild(h('p', '', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
-    p.el.appendChild(tt);
+    const panel = h('div', 'panel-vidrio por-panel');
+    panel.appendChild(h('div', 'por-cab', 'Proyecto de Grado · Diseño Gráfico'));
+    panel.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
+    panel.appendChild(h('p', 'por-sub', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
     const datos = parte.datos.map(b => b.html);
-    p.el.appendChild(h('div', 'por-datos', `<div>${datos.slice(0, -1).join('<br>')}</div><div><b>${textoPlano(datos[datos.length - 1] || '')}</b></div>`));
+    panel.appendChild(h('div', 'por-datos', `<div>${datos.slice(0, -1).join('<br>')}</div><div><b>${textoPlano(datos[datos.length - 1] || '')}</b></div>`));
+    p.el.appendChild(panel);
+  }
+  fondo(src, lado) {
+    const f = h('div', 'fondo' + (lado ? ' fondo-' + lado : '')); f.style.backgroundImage = `url("${src}")`; return f;
+  }
+  // Pliego con una sola imagen continua que cruza el lomo; empieza siempre en página par
+  pliegoFondo(src, clase = '') {
+    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
+    const izq = this.pagina('noche fondo-pliego ' + clase, { folio: false }); izq.el.appendChild(this.fondo(src, 'izq'));
+    const der = this.pagina('noche fondo-pliego ' + clase, { folio: false }); der.el.appendChild(this.fondo(src, 'der'));
+    return [izq, der];
+  }
+  umbral() {
+    const [, der] = this.pliegoFondo(this.deco.umbral, 'umbral');
+    der.el.appendChild(h('div', 'panel-vidrio umbral-panel', '<b>Sobre lo<br>que no digo</b>'));
   }
   portadilla(parte) {
+    this.aDerecha();
     const p = this.pagina('', { folio: false });
     const c = h('div', 'portadilla'); c.appendChild(h('p', 'titulo', parte.titulo.html));
     parte.datos.forEach(b => c.appendChild(h('p', '', b.html)));
@@ -410,7 +452,11 @@ export class Maquetador {
   aDerecha() { if (!this.siguienteEsDerecha) this.pagina('blanca', { folio: false }); }
   preliminar(parte, apretar = false, holgado = false) {
     this.modo = 'una'; this.seccionActual = parte.titulo ? textoPlano(parte.titulo.html) : this.seccionActual;
-    if (!apretar && !holgado && parte.titulo && /^Introducci/i.test(textoPlano(parte.titulo.html))) this.aDerecha();
+    const nom = parte.titulo ? textoPlano(parte.titulo.html) : '';
+    if (!apretar && !holgado && nom) {
+      if (/^Resumen/i.test(nom) && !this.umbralHecho) { this.umbralHecho = true; this.umbral(); }
+      if (!/^Dedicatoria/i.test(nom)) this.aDerecha();   // cada preliminar abre en página impar
+    }
     const desde = this.paginas.length;
     const p = this.pagina('p-una' + (apretar ? ' apretado' : ''));
     if (parte.titulo) {
@@ -439,6 +485,7 @@ export class Maquetador {
   }
   indiceDoc() {
     this.modo = 'una'; this.seccionActual = 'Tabla de contenido';
+    this.aDerecha();
     const p = this.pagina('p-una');
     const cab = h('div', 'pre-cab', '<span class="tag">Preliminares</span><h2>Tabla de contenido</h2>');
     p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + 2 * L;
@@ -451,37 +498,23 @@ export class Maquetador {
     this.cerrarBanda();
   }
   capitulo(parte) {
+    this.cerrarBanda(); this.vaciarFlotantes();
     this.seccionActual = `Capítulo ${parte.num}. ${parte.nombre}`;
-    if (this.siguienteEsDerecha) {        // la apertura ocupa un pliego completo: empieza en página par
-      const pausa = this.pagina('noche pausa', { folio: false });
-      pausa.el.appendChild(this.revela(this.deco['pausa' + parte.num] || this.deco.portada, { x: 0.63, y: 0.21, r: 1.45, k: 'pausa' + parte.num }));
-    }
-    // Apertura a un color: el pliego entero en morado; la foto va en duotono y la lente la revela
-    const izq = this.pagina('oscura ap-izq', { folio: false });
-    izq.el.appendChild(this.revela(this.deco['cap' + parte.num] || this.deco.portada, { x: 0.66, y: 0.46, r: 2.05, k: 'lente-cap' + parte.num }));
+    // Apertura: un pliego con un solo fondo. Número a la izquierda; a la derecha, sobre cristal,
+    // el título, el lema y lo que trae el capítulo. La página anterior, si sobra, queda en blanco.
+    const [izq, der] = this.pliegoFondo(this.deco['cap' + parte.num] || this.deco.umbral, 'apertura-pliego');
     izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
-    izq.el.appendChild(h('div', 'pie-foto', parte.num === '1' ? 'Sesión de la Cartografía Digital de Percepción Silenciosa (CDPS)' : 'Taller «Sobre lo que no dices»'));
-    const der = this.pagina('oscura apertura', { folio: false });
-    der.el.appendChild(h('div', 'ap-linea', 'Sobre lo que no digo'));
-    const tt = h('div', ''); tt.style.cssText = 'position:absolute;left:.8in;right:.5in;top:3.6in';
-    tt.appendChild(h('div', 'ap-tag', 'Capítulo ' + parte.num));
-    const t1 = h('h1', 'ap-titulo', `<span>${parte.nombre}</span>`);
-    tt.appendChild(t1);
+    izq.el.appendChild(h('div', 'pie-foto', parte.num === '1' ? 'Sesión de la Cartografía Digital de Percepción Silenciosa (CDPS), vista a través de vidrio acanalado' : 'Taller «Sobre lo que no dices», visto a través de vidrio acanalado'));
+    const panel = h('div', 'panel-vidrio ap-panel');
+    panel.appendChild(h('div', 'ap-tag', `Capítulo ${parte.num} · ${parte.nombre}`));
+    panel.appendChild(h('h1', 'ap-titulo', `<span>${parte.nombre}</span>`));
     const lema = LEMAS[parte.nombre.toLowerCase()];
-    if (lema) tt.appendChild(h('div', 'ap-lema', lema));
-    der.el.appendChild(tt);
-    // La burbuja se posa sobre las últimas letras del nombre
-    const tb = 2.35 * PX, bur = h('span', 'burbuja');
-    bur.style.cssText = `left:${t1.firstChild.offsetWidth - tb * 0.3 - tb / 2}px;top:${t1.offsetHeight * 0.14 - tb / 2}px`;
-    pieza(bur, 'titulo-cap' + parte.num, tb, { ca: 3, ff: 0.2, pf: 0.08 });
-    t1.appendChild(bur);
-    this.marcar(izq.el, parte.titulo.id);
-    // Antesala (página izquierda): el contenido del capítulo con sus pictogramas y mucho aire.
-    // Así el texto del capítulo arranca en página derecha.
-    const ante = this.pagina('antesala', { folio: false });
-    ante.caja.appendChild(h('div', 'an-cab', `<span>Capítulo ${parte.num} · ${parte.nombre}</span><b>${LEMAS[parte.nombre.toLowerCase()] || 'En este capítulo'}</b><em>En este capítulo</em>`));
-    const ind = h('div', 'an-lista'); ante.caja.appendChild(ind);
+    if (lema) panel.appendChild(h('div', 'ap-lema', lema));
+    panel.appendChild(h('em', 'ap-en', 'En este capítulo'));
+    const ind = h('div', 'an-lista'); panel.appendChild(ind);
+    der.el.appendChild(panel);
     parte.aperturaIndice = ind;
+    this.marcar(izq.el, parte.titulo.id);
     this.modo = 'dos';
     parte.secciones.forEach((s, k) => this.seccion(s, k));
   }
@@ -494,7 +527,7 @@ export class Maquetador {
       const [n, t] = separarTitulo(s.titulo);
       const cab = h('div', 'seccion-cab', `<span class="num"><b>${n}</b>${this.seccionActual.replace(/^Capítulo \d+\. /, '')}</span><h2><span>${t}</span></h2>`);
       this.marcar(cab, s.titulo.id);
-      cab.style.position = 'absolute'; cab.style.left = '0'; cab.style.right = '0'; cab.style.top = '0';
+      cab.style.position = 'absolute'; cab.style.left = '0'; cab.style.right = '0'; cab.style.top = AIRE_SECCION + 'px';
       const pic = h('div', 'sec-picto', pictograma(t));
       cab.appendChild(pic);
       p.caja.appendChild(cab);
@@ -503,7 +536,7 @@ export class Maquetador {
       bur.style.cssText = `right:${0.42 * PX - tam / 2}px;top:${pic.offsetTop + pic.offsetHeight * 0.42 - tam / 2}px`;
       pieza(bur, 'sec-' + s.titulo.id, tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
       cab.appendChild(bur);
-      this.y = enRenglon(cab.offsetHeight) + 2 * L;
+      this.y = AIRE_SECCION + enRenglon(cab.offsetHeight) + 2 * L;
     }
     // Una sección que es una sola frase (p. ej. la pregunta de investigación) se destaca en grande
     if (s.bloques.length === 1 && s.bloques[0].type === 'p' && textoPlano(s.bloques[0].html).length < 320) {
@@ -525,10 +558,8 @@ export class Maquetador {
   cadenaValor() {
     this.cerrarBanda(); this.vaciarFlotantes();
     this.seccionActual = 'Cadena de valor';
-    if (this.siguienteEsDerecha) {
-      const p = this.pagina('blanca hueco', { folio: false });
-      p.caja.appendChild(h('div', 'cita-hueco', '<p>«Habitar la metáfora»</p><span>Implementar</span>'));
-    } else this.citaHueco('Habitar la metáfora', 'Implementar');
+    const [, cd] = this.pliegoFondo(this.deco.cierre, 'cierre');
+    cd.el.appendChild(h('div', 'panel-vidrio cierre-panel', '<b>Habitar<br>la metáfora</b><span>Implementar</span>'));
     const banda = m => `<div class="cv-banda" style="--c:${m.c}"><div class="cv-macro"><span class="cv-n">${m.n}</span><b>${m.t}</b><i>${m.s}</i></div>` +
       `<div class="cv-cats">${m.cats.map(c => `<div class="cv-cat"><h5>${c.t}</h5><ul>${c.subs.map(([t, a]) => `<li><span>${t}</span><em>${a}</em></li>`).join('')}</ul></div>`).join('')}</div></div>`;
     const izq = this.pagina('cadena cad-izq');
@@ -543,11 +574,10 @@ export class Maquetador {
     bur.style.cssText = `left:${-tam * 0.25}px;top:${(fin.offsetHeight - tam) / 2}px`;
     pieza(bur, 'cadena-fin', tam, { ca: 2, ff: 0.22, fondo: 'rgba(116,85,194,0.05)', sombra: '0 10px 26px rgba(43,23,89,0.16)' });
     fin.appendChild(bur);
-    this.trasCadena = true;
   }
   referencias(parte) {
     this.modo = 'refs'; this.seccionActual = 'Referencias';
-    if (!this.trasCadena) this.aDerecha();
+    this.aDerecha();
     const p = this.pagina('');
     const cab = h('div', 'pre-cab', '<span class="tag">Sobre lo que no digo</span><h2>Referencias</h2>'); cab.style.marginLeft = '0';
     this.marcar(cab, parte.titulo.id);
@@ -623,7 +653,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
     else if (parte.tipo === 'portadilla') m.portadilla(parte);
     else if (parte.tipo === 'preliminar') m.preliminar(parte);
     else if (parte.tipo === 'indice') m.indiceDoc();
-    else if (parte.tipo === 'capitulo') { if (parte.num !== '1') m.citaHueco('Me aguanto y sigo', 'Respuesta más elegida en la CDPS (P7)'); m.capitulo(parte); }
+    else if (parte.tipo === 'capitulo') m.capitulo(parte);
     else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
   }
   m.terminar();

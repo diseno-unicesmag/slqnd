@@ -4,7 +4,7 @@ import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState }
 import { maquetar, aplicarCristales, ajustarCristal } from '@/lib/pliegos';
 import { pub } from '@/lib/base';
 
-const DECO = { portada: '/contenido/deco/portada.jpg', cap1: '/contenido/deco/cap1.jpg', cap2: '/contenido/deco/cap2.jpg', pausa1: '/contenido/deco/pausa1.jpg', pausa2: '/contenido/deco/pausa2.jpg' };
+const DECO = { portada: '/contenido/deco/portada.jpg', umbral: '/contenido/deco/umbral.jpg', cap1: '/contenido/deco/cap1.jpg', cap2: '/contenido/deco/cap2.jpg', cierre: '/contenido/deco/cierre.jpg' };
 
 /* Visor de pliegos: compone fuera de pantalla a escala real y muestra los pliegos (dos cartas
    enfrentadas) con el lomo marcado. Imprimir saca un pliego por hoja de 17 × 11 in. */
