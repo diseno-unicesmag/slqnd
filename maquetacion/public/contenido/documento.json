@@ -2801,7 +2801,7 @@
   },
   {
    "type": "p",
-   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 25, y una simulación ilustrativa de la interacción sobre una obra enmarcada, en la Figura 26.",
+   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 25, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 26.",
    "id": "b451"
   },
   {
@@ -2826,9 +2826,9 @@
    "id": "b463",
    "type": "figure",
    "label": "Figura 26",
-   "title": "Simulación de la Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre una Obra Enmarcada",
-   "src": "img/image31.png",
-   "note": "<em>Nota.</em> Imagen ilustrativa compuesta por el diseñador para representar la interacción; no es un registro fotográfico de las demostraciones. El registro real se incorporará en la versión final."
+   "title": "Registro de Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre las Obras Enmarcadas",
+   "src": "img/p26-image50.jpg",
+   "note": "<em>Nota.</em> El docente Fernando Coral escanea con MetafoRA las cuatro ilustraciones impresas y enmarcadas durante una sesión de la asignatura Proyecto de Grado 2. Fotografía con ajuste de iluminación."
   },
   {
    "id": "b466",
