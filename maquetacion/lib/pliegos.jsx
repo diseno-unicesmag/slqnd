@@ -424,7 +424,7 @@ export class Maquetador {
   // ── Partes ──
   portada(parte) {
     // Página sola a la derecha: la textura de vidrio a sangre y los datos sobre un panel de cristal
-    const p = this.pagina('noche portada', { folio: false });
+    const p = this.pagina('noche portada tipo', { folio: false });
     p.el.appendChild(this.fondo(this.deco.portada));
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
     // Portada editorial: título y subtítulo arriba, autor y año abajo; el resto va en la portadilla
@@ -432,9 +432,9 @@ export class Maquetador {
     const autor = (datos.find(d => /^Autor/i.test(d)) || '').replace(/^Autor:\s*/i, '');
     const anio = datos[datos.length - 1] || '';
     const panel = h('div', 'por-texto');
-    panel.appendChild(h('h1', 'logo', titulo.replace(/^(.*?)\s+no\s+(.*)$/, '$1<br>no $2')));
+    const t1 = h('h1', 'logo', titulo.replace(/^Sobre\s+(.*?)\s+no\s+(.*)$/, 'Sobre<br>$1<br>no $2')); t1.style.backgroundImage = `url("${this.deco.portada}")`; p.el.appendChild(t1);
     panel.appendChild(h('p', 'por-sub', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
-    p.el.appendChild(h('div', 'por-pie', `<div><b>${autor}</b><span>Proyecto de Grado · Diseño Gráfico · Universidad CESMAG</span></div><b class="anio">${anio}</b>`));
+    panel.appendChild(h('div', 'por-pie', `<span>${autor}</span><span>Universidad CESMAG · ${anio}</span>`));
     p.el.appendChild(panel);
   }
   // Panel de cristal líquido de verdad: refracción y aberración en los bordes, radio amplio
@@ -545,8 +545,11 @@ export class Maquetador {
     this.seccionActual = `Capítulo ${parte.num}. ${parte.nombre}`;
     // Apertura: un pliego con un solo fondo. Número a la izquierda; a la derecha, sobre cristal,
     // el título, el lema y lo que trae el capítulo. La página anterior, si sobra, queda en blanco.
-    const [izq, der] = this.pliegoFondo(this.deco['cap' + parte.num] || this.deco.umbral, 'apertura-pliego');
-    izq.el.appendChild(h('div', 'ap-num', parte.num.padStart(2, '0')));
+    // Izquierda: la imagen del capítulo a sangre, nítida. Derecha: papel lila con título e índice.
+    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
+    const izq = this.pagina('noche ap-foto', { folio: false }); izq.el.appendChild(this.fondo(this.deco['cap' + parte.num] || this.deco.umbral));
+    izq.el.appendChild(h('div', 'ap-marca', `<b>${parte.num.padStart(2, '0')}</b><span>Capítulo ${parte.num}</span>`));
+    const der = this.pagina('ap-papel', { folio: false });
     const panel = h('div', 'ap-panel');
     panel.appendChild(h('div', 'ap-tag', `Capítulo ${parte.num} · ${parte.nombre}`));
     const t1 = h('h1', 'ap-titulo', `<span>${TITULOS[parte.nombre.toLowerCase()] || parte.nombre}</span>`); panel.appendChild(t1);
@@ -605,8 +608,7 @@ export class Maquetador {
   cadenaValor() {
     this.cerrarBanda(); this.vaciarFlotantes();
     this.seccionActual = 'Cadena de valor';
-    const [, cd] = this.pliegoFondo(this.deco.cierre, 'cierre');
-    const cp = h('div', 'panel-vidrio cierre-panel', '<b>Cadena<br>de valor</b><span>Del malestar que se calla al ecosistema phygital</span>'); cd.el.appendChild(cp); this.liquido(cp, 0.75 * PX);
+    if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
     // La red completa a doble página, a sangre y sobre fondo oscuro
     const svg = redCadena();
     const izq = this.pagina('noche cadena-red red-izq', { folio: false }), der = this.pagina('noche cadena-red red-der', { folio: false });
