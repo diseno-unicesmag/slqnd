@@ -14,8 +14,8 @@ import { FASES } from '@/lib/rutaWeb';
 import { ICONOS_RUTA } from '@/lib/iconosRuta';
 
 // Lema de cada fase de las 3i: el nombre de la fase se mantiene y el lema lo acompaña
-const TITULOS = { indagar: 'Cartografiar', idear: 'Darle forma', implementar: 'Habitar' };
-const LEMAS = { indagar: 'Cartografiar lo que se calla', idear: 'Darle forma a lo que no se dice', implementar: 'Habitar la metáfora' };
+const TITULOS = { indagar: 'Cartografiar', idear: 'Diseñar', implementar: 'Validar' };
+const LEMAS = { indagar: 'Cartografiar el silencio', idear: 'Diseñar la metáfora', implementar: 'Validar la revelación' };
 
 const PX = 96;                      // px por pulgada
 const L = 0.2 * PX;                 // renglón: todo lo que se apila cae en múltiplos de esta altura
@@ -481,7 +481,7 @@ class Maquetador {
     der.el.insertAdjacentHTML('beforeend', `<div class="pal-tipo"><span class="pal-tag">${b.label} · ${b.title}</span>
       <div class="pal-m"><b>Aa</b><div><h3>Montserrat</h3><p>Títulos, subtítulos, mensajes destacados e interfaz. Sin serifa contemporánea, de alta legibilidad en pantalla.</p></div></div>
       <div class="pal-abc m">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz 0123456789</div>
-      <div class="pal-m i"><b>Aa</b><div><h3>Inter</h3><p>Texto de lectura y datos: el cuerpo de este documento.</p></div></div>
+      <div class="pal-m i"><b>Aa</b><div><h3>Source Serif 4</h3><p>Texto de lectura y datos: el cuerpo de este documento.</p></div></div>
       <div class="pal-abc i">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz 0123456789</div>
       <p class="pal-nota">${b.note || ''}</p></div>`);
     const len = h('span', 'burbuja pal-lente'); der.el.appendChild(len);
@@ -770,7 +770,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   await Promise.all(srcs.map(s => new Promise(ok => { const im = new Image(); im.onload = () => { dims[s] = [im.naturalWidth, im.naturalHeight]; ok(); }; im.onerror = ok; im.src = s; })));
   // Las fuentes web se descargan solo cuando algo las usa: se piden ya, antes de medir
   const muestra = 'AaÁáÉéÍíÓóÚúÑñÜü«»–—“”0123456789';
-  await Promise.all(['400', '500', '600', '700', '800', '900', 'italic 400', 'italic 700'].flatMap(w => [document.fonts.load(`${w} 12px Montserrat`, muestra).catch(() => null), document.fonts.load(`${w} 12px Inter`, muestra).catch(() => null)]));
+  await Promise.all(['400', '500', '600', '700', '800', '900', 'italic 400', 'italic 700'].flatMap(w => [document.fonts.load(`${w} 12px Montserrat`, muestra).catch(() => null), document.fonts.load(`${w} 12px "Source Serif 4"`, muestra).catch(() => null)]));
   await document.fonts.ready;
 
   raiz.innerHTML = '';
