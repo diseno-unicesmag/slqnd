@@ -574,7 +574,7 @@
 .pl .pal-lente { position: absolute; z-index: 4; right: 1.1in; top: 1.05in; }
 .pl td, .pl th, .pl figure .nota, .pl .nota { font-family: 'Source Serif 4', Georgia, serif; }
 .pl .pal-lente { right: .9in; top: auto; bottom: 1.3in; }
-.pl .pal-lente { right: auto; bottom: auto; left: .55in; top: .95in; }
+.pl .pal-lente { right: auto; bottom: auto; }
 .pl .cita-hueco p { text-align: left !important; hyphens: none; }
 .pl td { padding-top: 4px; padding-bottom: 4px; }
 /* Portadilla editorial: título arriba, ficha abajo */

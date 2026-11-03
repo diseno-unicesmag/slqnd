@@ -493,8 +493,16 @@ class Maquetador {
       <div class="pal-m i"><b>Aa</b><div><h3>Source Serif 4</h3><p>Texto de lectura y datos: el cuerpo de este documento.</p></div></div>
       <div class="pal-abc i">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz 0123456789</div>
       <p class="pal-nota">${b.note || ''}</p></div>`);
-    const len = h('span', 'burbuja pal-lente'); der.el.appendChild(len);
-    pieza(len, 'lente-paleta', 1.9 * PX, { ca: 3, ff: 0.28, pf: 0.1, fondo: 'rgba(43,23,89,0.16)', sombra: 'inset 0 0 0 1.5px rgba(43,23,89,0.25), 0 14px 30px rgba(43,23,89,0.28)' });
+    // Tres lentes pequeñas: sobre la muestra de Montserrat, sobre la de Source Serif y sobre la paleta
+    const lente = (pg, ref, dx, dy, id, oscuro) => {
+      const len = h('span', 'burbuja pal-lente'); pg.el.appendChild(len);
+      const r = ref.getBoundingClientRect(), p = pg.el.getBoundingClientRect(), z = p.width / pg.el.offsetWidth || 1;
+      len.style.left = ((r.left - p.left) / z + dx * PX) + 'px'; len.style.top = ((r.top - p.top) / z + dy * PX) + 'px';
+      pieza(len, id, 1.15 * PX, { ca: 3, ff: 0.28, pf: 0.1, fondo: oscuro ? 'rgba(255,255,255,0.08)' : 'rgba(43,23,89,0.12)', sombra: 'inset 0 0 0 1.5px rgba(43,23,89,0.22), 0 10px 22px rgba(43,23,89,0.25)' });
+    };
+    lente(der, der.el.querySelector('.pal-abc.m'), 2.2, -0.25, 'lente-mont');
+    lente(der, der.el.querySelector('.pal-abc.i'), 0.9, -0.2, 'lente-serif');
+    lente(izq, izq.el.querySelector('.pal-bandas > div:nth-child(3)'), 1.15, 5.2, 'lente-paleta', true);
   }
   emitirFotos() {
     if (!this.fotosPend?.length || this.siguienteEsDerecha) return;
