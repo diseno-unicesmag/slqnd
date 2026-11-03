@@ -2809,7 +2809,7 @@
   },
   {
    "type": "p",
-   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 26, la secuencia de una obra que reacciona al escaneo en la Figura 27, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 28.",
+   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 26, la secuencia de una obra que reacciona al escaneo en la Figura 27, el rediseño de la interfaz para la versión 0.0.30 en la Figura 28, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 29.",
    "id": "b455"
   },
   {
@@ -2847,10 +2847,25 @@
   {
    "id": "b467",
    "type": "figure",
-   "label": "Figura 28",
+   "label": "Figura 29",
    "title": "Registro de Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre las Obras Enmarcadas",
    "src": "img/p26-image50.jpg",
    "note": "<em>Nota.</em> El docente Fernando Coral escanea con MetafoRA las cuatro ilustraciones impresas y enmarcadas durante una sesión de la asignatura Proyecto de Grado 2. Fotografía con ajuste de iluminación."
+  },
+  {
+   "id": "b467r",
+   "type": "figure",
+   "label": "Figura 28",
+   "title": "Interfaz Rediseñada de MetafoRA, Versión 0.0.30",
+   "images": [
+    "img/metafora-030-01.jpg",
+    "img/metafora-030-04.jpg",
+    "img/metafora-030-07.jpg",
+    "img/metafora-030-09.jpg",
+    "img/metafora-030-11.jpg",
+    "img/metafora-030-14.jpg"
+   ],
+   "note": "<em>Nota.</em> Render de la interfaz, versión 0.0.30 (rediseño en curso), con paneles de cristal líquido: inicio (1), ruta de apoyo (2), biblioteca (3), obras reveladas y por revelar (4), ficha de la obra «El frasco» (5) y cámara tras revelar la obra (6). Los renders se generaron con una réplica del sombreador de la app; las vistas de cámara usan fotogramas reales del prototipo. Elaboración propia."
   },
   {
    "id": "b470",
@@ -2916,12 +2931,12 @@
   },
   {
    "type": "p",
-   "html": "La Figura 29 representa la distribución de los 120 minutos de cada sesión.",
+   "html": "La Figura 30 representa la distribución de los 120 minutos de cada sesión.",
    "id": "b477"
   },
   {
    "id": "b478",
-   "label": "Figura 29",
+   "label": "Figura 30",
    "title": "Estructura Temporal de los Talleres de Cocreación",
    "type": "figure",
    "src": "img/p26-image43.png",
@@ -2946,12 +2961,12 @@
   },
   {
    "type": "p",
-   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar. La Figura 30 desarrolla estas tres ideas.",
+   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar. La Figura 31 desarrolla estas tres ideas.",
    "id": "b485"
   },
   {
    "id": "b486",
-   "label": "Figura 30",
+   "label": "Figura 31",
    "title": "Concepto de Diseño: Silencio, Metáfora y Revelación",
    "type": "figure",
    "src": "img/p26-image32.png",
@@ -2964,12 +2979,12 @@
   },
   {
    "type": "p",
-   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario. La Figura 31 muestra cómo se articulan las piezas del ecosistema.",
+   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario. La Figura 32 muestra cómo se articulan las piezas del ecosistema.",
    "id": "b491"
   },
   {
    "id": "b492",
-   "label": "Figura 31",
+   "label": "Figura 32",
    "title": "Componentes del Ecosistema Phygital",
    "type": "figure",
    "src": "img/p26-image44.png",
@@ -3006,13 +3021,13 @@
    "items": [
     "Violeta y púrpura profundo (color dominante): evoca la introspección psicológica, la interioridad, la penumbra del secreto, la solemnidad del dolor contenido y el silencio respetuoso.",
     "Amarillo cálido y dorado (color de acento y revelación): representa el destello de la iluminación, la catarsis, la energía liberada en la confesión y el momento exacto en que una verdad íntima sale a la luz pública.",
-    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena. La Figura 32 presenta la paleta y la familia tipográfica propuestas."
+    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena. La Figura 33 presenta la paleta y la familia tipográfica propuestas."
    ],
    "id": "b501"
   },
   {
    "id": "b502",
-   "label": "Figura 32",
+   "label": "Figura 33",
    "title": "Paleta Cromática y Tipografía del Ecosistema",
    "type": "figure",
    "src": "img/p26-image45.png",

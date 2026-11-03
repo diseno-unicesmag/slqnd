@@ -26,7 +26,7 @@ const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
-const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 28']);   // fotografías de campo a página completa
+const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 29']);   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
@@ -34,7 +34,7 @@ const CITAS = [
   ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', 'Sobre lo que no digo'],
   ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
 ];
-const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 29', 'Figura 31', 'Figura 32']);
+const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 30', 'Figura 32', 'Figura 33']);
 const PAGINA_SOLA = new Set(['Figura 3', 'Figura 24']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
@@ -143,7 +143,7 @@ export class Maquetador {
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 32') { this.paletaPendiente = b; return null; } return this.figura(b);
+      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 33') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -445,7 +445,7 @@ export class Maquetador {
     vidrio(el, el.offsetWidth, el.offsetHeight, { radio, prof: Math.round(radio * 0.5), fuerza: Math.round(radio * 0.9), ca: 3, desenfoque: 10, fondo: 'rgba(255,255,255,0.07)', sombra: '0 40px 90px rgba(0,0,0,0.35)' });
   }
   // La ruta metodológica se arma como pliego propio en cuanto la página siguiente sea izquierda
-  // Figura 31 como pliego: la paleta a sangre en bandas y la tipografía en grande
+  // Figura 32 como pliego: la paleta a sangre en bandas y la tipografía en grande
   emitirPaleta() {
     const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.paletaPendiente = null;
