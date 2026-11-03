@@ -782,7 +782,8 @@
    "title": "Studio Myerscough (Morag Myerscough, 2022)",
    "src": "img/p26-image52.jpg",
    "note": "<em>Nota.</em> Jardín y pabellón del Sheffield Children’s Hospital, con patrones geométricos a gran escala. Fuente: Studio Myerscough (Dezeen, 2022).",
-   "referente": true
+   "referente": true,
+   "foto": true
   },
   {
    "type": "p",
@@ -874,7 +875,8 @@
    "title": "Exhibición Interactiva con Artivive (Sergiu Ardelean &amp; Codin Popescu, 2017)",
    "src": "img/referente-r6-artivive.jpg",
    "note": "<em>Nota.</em> Dispositivo móvil actuando como ventana de revelación aumentada sobre el soporte físico. Fuente: Artivive (s. f.).",
-   "referente": true
+   "referente": true,
+   "foto": true
   },
   {
    "type": "p",
@@ -923,7 +925,8 @@
    "title": "Before I Die (Candy Chang, 2011 - Presente)",
    "src": "img/referente-r7-before-i-die.jpeg",
    "note": "<em>Nota.</em> Muro participativo con la consigna «Antes de morir quiero ___». Fuente: Chang (s. f.). Fotografía: Tony Webster, Wikimedia Commons (CC BY 2.0).",
-   "referente": true
+   "referente": true,
+   "foto": true
   },
   {
    "type": "p",
@@ -955,9 +958,10 @@
    "type": "figure",
    "label": "Figura 11",
    "title": "Programa de Bienestar Psicológico \"Florece\" (Universidad CESMAG, 2019)",
-   "src": "img/image8.png",
-   "note": "<em>Nota.</em> Plataforma y modelo institucional de educación en salud mental universitaria en San Juan de Pasto. Fuente: Cabrera-Gómez et al. (2019).",
-   "referente": true
+   "src": "img/cesmag-campus.jpg",
+   "note": "<em>Nota.</em> Sede de la Universidad CESMAG en San Juan de Pasto, donde Bienestar Universitario ofrece el programa «Florece». Fotografía aérea institucional. Fuente: Universidad CESMAG (2026).",
+   "referente": true,
+   "foto": true
   },
   {
    "type": "p",
@@ -1098,7 +1102,8 @@
    "title": "Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, 2006 - Presente)",
    "src": "img/referente-r12-relaciones-rotas.jpeg",
    "note": "<em>Nota.</em> Objetos donados acompañados del relato de sus antiguos dueños. Fuente: NPR (2013). Fotografía: Robert Nyman, Wikimedia Commons (CC BY 2.0).",
-   "referente": true
+   "referente": true,
+   "foto": true
   },
   {
    "type": "p",
@@ -1234,7 +1239,8 @@
    "title": "Registro Fotográfico de la Sesión de la CDPS",
    "type": "figure",
    "src": "img/p26-image47.jpg",
-   "note": "<em>Nota.</em> Laboratorio de Creación Digital 1, Campus Centro de la Universidad CESMAG, 24 de abril de 2026. Cada participante responde de forma anónima desde su equipo mientras el visualizador proyecta los resultados."
+   "note": "<em>Nota.</em> Laboratorio de Creación Digital 1, Campus Centro de la Universidad CESMAG, 24 de abril de 2026. Cada participante responde de forma anónima desde su equipo mientras el visualizador proyecta los resultados.",
+   "foto": true
   },
   {
    "type": "p",
@@ -1406,8 +1412,55 @@
    "label": "Figura 20",
    "title": "Motivación Vocacional y Satisfacción con los Resultados (P2 y P3)",
    "type": "figure",
-   "src": "img/p26-image39.png",
-   "note": "<em>Nota.</em> Elaboración propia con los datos de la CDPS (N = 15). En dorado, la opción más elegida en cada pregunta."
+   "note": "<em>Nota.</em> Elaboración propia con los datos de la CDPS (N = 15). En dorado, la opción más elegida en cada pregunta.",
+   "chart": {
+    "type": "bar",
+    "dir": "bar",
+    "groups": [
+     {
+      "title": "Motivación para estudiar Diseño Gráfico (P2, n = 15)",
+      "categories": [
+       "Le agarré cariño en el camino",
+       "Porque me apasiona",
+       "No sabía qué más hacer",
+       "Por obligación o mis papás"
+      ],
+      "values": [
+       60.0,
+       26.7,
+       13.3,
+       0.0
+      ],
+      "n": [
+       9,
+       4,
+       2,
+       0
+      ]
+     },
+     {
+      "title": "Satisfacción con los propios resultados (P3, n = 15)",
+      "categories": [
+       "Casi nunca",
+       "A veces",
+       "Seguido",
+       "Siempre"
+      ],
+      "values": [
+       26.7,
+       33.3,
+       26.7,
+       13.3
+      ],
+      "n": [
+       4,
+       5,
+       4,
+       2
+      ]
+     }
+    ]
+   }
   },
   {
    "type": "list",
@@ -1512,7 +1565,7 @@
      }
     ]
    },
-   "note": "<em>Nota.</em> Distribución porcentual de las respuestas de la pregunta P4 de la CDPS (N = 15). El nivel 5, destacado en amarillo, concentra el 46,7 % de la muestra."
+   "note": "<em>Nota.</em> Distribución porcentual de las respuestas de la pregunta P4 de la CDPS (N = 15). El nivel 5, destacado en dorado, concentra el 46,7 % de la muestra."
   },
   {
    "type": "p",
@@ -1966,8 +2019,40 @@
    "label": "Figura 24",
    "title": "Afirmaciones de Hiperexigencia con las que se Identifican los Participantes (P14)",
    "type": "figure",
-   "src": "img/p26-image40.png",
-   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada afirmación (N = 15; selección múltiple)."
+   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada afirmación (N = 15; selección múltiple).",
+   "chart": {
+    "type": "bar",
+    "dir": "bar",
+    "groups": [
+     {
+      "title": "",
+      "categories": [
+       "Siento que nunca es suficiente",
+       "Si descanso, siento culpa",
+       "Equivocarme me destruye",
+       "Vivo comparándome",
+       "Me siento en control",
+       "No puedo parar de trabajar («camellar»)"
+      ],
+      "values": [
+       46.7,
+       33.3,
+       33.3,
+       26.7,
+       20.0,
+       6.7
+      ],
+      "n": [
+       7,
+       5,
+       5,
+       4,
+       3,
+       1
+      ]
+     }
+    ]
+   }
   },
   {
    "type": "list",
@@ -1986,8 +2071,61 @@
    "label": "Figura 25",
    "title": "Factores de Presión y Momentos de Mayor Carga en el Semestre (P16 y P16b)",
    "type": "figure",
-   "src": "img/p26-image41.png",
-   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada opción (selección múltiple). P16: 14 participantes respondieron; P16b: 15."
+   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada opción (selección múltiple). P16: 14 participantes respondieron; P16b: 15.",
+   "chart": {
+    "type": "bar",
+    "dir": "bar",
+    "groups": [
+     {
+      "title": "¿Qué genera más presión? (P16, n = 14)",
+      "categories": [
+       "La avalancha de entregas",
+       "Mi propia cabeza exigiéndome",
+       "El pánico a fracasar",
+       "No decepcionar a mi familia",
+       "El nivel de mis compañeros"
+      ],
+      "values": [
+       50.0,
+       42.9,
+       28.6,
+       28.6,
+       14.3
+      ],
+      "n": [
+       7,
+       6,
+       4,
+       4,
+       2
+      ]
+     },
+     {
+      "title": "¿En qué momento del semestre? (P16b, n = 15)",
+      "categories": [
+       "En las entregas finales",
+       "Cuando todo se cruza",
+       "En semana de parciales",
+       "Siempre estoy colapsado/a",
+       "Desde la semana 1"
+      ],
+      "values": [
+       66.7,
+       60.0,
+       20.0,
+       6.7,
+       6.7
+      ],
+      "n": [
+       10,
+       9,
+       3,
+       1,
+       1
+      ]
+     }
+    ]
+   }
   },
   {
    "id": "b346",
@@ -2100,8 +2238,37 @@
    "label": "Figura 26",
    "title": "Reacciones ante el Agotamiento Profundo (P17)",
    "type": "figure",
-   "src": "img/p26-image42.png",
-   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada reacción (N = 15; selección múltiple)."
+   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada reacción (N = 15; selección múltiple).",
+   "chart": {
+    "type": "bar",
+    "dir": "bar",
+    "groups": [
+     {
+      "title": "",
+      "categories": [
+       "Pierdo las ganas de todo",
+       "Me encierro y me aíslo",
+       "Dejo todo para última hora",
+       "Se me daña el sueño",
+       "Me exijo el triple"
+      ],
+      "values": [
+       60.0,
+       53.3,
+       26.7,
+       26.7,
+       20.0
+      ],
+      "n": [
+       9,
+       8,
+       4,
+       4,
+       3
+      ]
+     }
+    ]
+   }
   },
   {
    "type": "p",
@@ -2391,7 +2558,8 @@
    "title": "Registro Fotográfico del Taller «Sobre lo que no dices»",
    "type": "figure",
    "src": "img/p26-image48.jpg",
-   "note": "<em>Nota.</em> Participantes marcando la Cartelera Grupal y diligenciando sus hojas individuales durante el taller del 11 de mayo de 2026."
+   "note": "<em>Nota.</em> Participantes marcando la Cartelera Grupal y diligenciando sus hojas individuales durante el taller del 11 de mayo de 2026.",
+   "foto": true
   },
   {
    "type": "p",
@@ -2488,7 +2656,8 @@
    "title": "Registro Fotográfico de la Cartelera Grupal",
    "type": "figure",
    "src": "img/image17.jpeg",
-   "note": "<em>Nota.</em> Pliego físico de 100 × 70 cm marcado por los cuatro participantes durante el taller del 11 de mayo de 2026."
+   "note": "<em>Nota.</em> Pliego físico de 100 × 70 cm marcado por los cuatro participantes durante el taller del 11 de mayo de 2026.",
+   "foto": true
   },
   {
    "id": "b402",
@@ -2554,7 +2723,8 @@
     "img/image20.jpeg",
     "img/image21.jpeg"
    ],
-   "note": "<em>Nota.</em> Registro fotográfico de las cuatro hojas individuales (del 01 al 04), con la confesión escrita, el boceto de la obra conceptual y la definición de su capa de Realidad Aumentada."
+   "note": "<em>Nota.</em> Registro fotográfico de las cuatro hojas individuales (del 01 al 04), con la confesión escrita, el boceto de la obra conceptual y la definición de su capa de Realidad Aumentada.",
+   "foto": true
   },
   {
    "type": "p",
@@ -2649,7 +2819,8 @@
    "title": "Registro de la Sesión de Trabajo con Gabriel Iván Parra Rosero",
    "type": "figure",
    "src": "img/image22.png",
-   "note": "<em>Nota.</em> Captura de la sesión virtual con Gabriel Iván Parra Rosero, realizada el 25 de junio de 2026."
+   "note": "<em>Nota.</em> Captura de la sesión virtual con Gabriel Iván Parra Rosero, realizada el 25 de junio de 2026.",
+   "foto": true
   },
   {
    "type": "p",
@@ -2862,7 +3033,8 @@
    "label": "Figura 41",
    "title": "Registro de Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre las Obras Enmarcadas",
    "src": "img/p26-image50.jpg",
-   "note": "<em>Nota.</em> El docente Fernando Coral escanea con MetafoRA las cuatro ilustraciones impresas y enmarcadas durante una sesión de la asignatura Proyecto de Grado 2. Fotografía con ajuste de iluminación."
+   "note": "<em>Nota.</em> El docente Fernando Coral escanea con MetafoRA las cuatro ilustraciones impresas y enmarcadas durante una sesión de la asignatura Proyecto de Grado 2. Fotografía con ajuste de iluminación.",
+   "foto": true
   },
   {
    "id": "b467r",

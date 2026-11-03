@@ -26,7 +26,8 @@ const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
-const SANGRE = new Set(['Figura 18', 'Figura 31', 'Figura 41']);   // fotografías de campo a página completa
+const SANGRE = new Set(['Figura 41']);
+const PLIEGO_FOTO = new Set(['Figura 18', 'Figura 31']);   // fotografías de campo a doble página, a sangre   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
@@ -136,7 +137,7 @@ class Maquetador {
     return p;
   }
   paginaFlujo() {
-    this.emitirRuta(); this.emitirPaleta();
+    this.emitirRuta(); this.emitirPaleta(); this.emitirFotos();
     this.pagina((this.modo === 'una' ? 'p-una ' : '') + (this.claseFlujo || '')).flujo = true;
     // Lo que quedó pendiente de la página anterior va primero
     const pend = this.flotantes; this.flotantes = [];
@@ -155,11 +156,19 @@ class Maquetador {
         const [n, t] = separarTitulo(b), lv = Math.min(b.level, 5);
         if (lv <= 3) { const e = h('h3', 't3' + (/^Propósitos Específicos/i.test(t) ? ' salto-col' : ''), (n ? `<span class="n">${n}</span>` : '') + t); e.dataset.id = b.id; return e; }
         if (lv === 4) return h('h4', 't4', (n ? `<span class="n">${n}</span>` : '') + t);
-        return h('h5', 't5', (n ? `<span class="n">${n}</span>` : '') + t);
+        // Ejercicio: letra en círculo concéntrico con la tarjeta, nombre en negrita, detalle en regular
+        // y una etiqueta (ejercicio de clase, trabajo de campo…) en lugar del paréntesis
+        let tag = '', cuerpo = t;
+        const mt = cuerpo.match(/\s*\((Ejercicio de Clase|Trabajo de Campo|Realizado|Pendientes?)\)\s*$/i);
+        if (mt) { tag = mt[1].charAt(0).toUpperCase() + mt[1].slice(1).toLowerCase(); cuerpo = cuerpo.slice(0, mt.index); }
+        const k = cuerpo.indexOf(': ');
+        const tit = k > 0 ? `<b>${cuerpo.slice(0, k)}</b><span class="det">${cuerpo.slice(k + 2)}</span>` : `<b>${cuerpo}</b>`;
+        const cls = /campo/i.test(tag) ? 'campo' : /clase/i.test(tag) ? 'clase' : /realizado/i.test(tag) ? 'hecho' : 'pend';
+        return h('h5', 't5 ej', (n ? `<span class="n">${n.replace(/\.$/, '')}</span>` : '') + `<span class="tx">${tit}${tag ? `<i class="tag ${cls}">${tag}</i>` : ''}</span>`);
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (b.label === 'Figura 16') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 45') { this.paletaPendiente = b; return null; } return this.figura(b);
+      case 'figure': if (PLIEGO_FOTO.has(b.label)) { (this.fotosPend ??= []).push(b); return null; } if (b.label === 'Figura 16') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 45') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -186,7 +195,7 @@ class Maquetador {
         let filas, anchoTotal = ANCHO_CAJA;
         if (n === 1 && b.referente) {
           // Referentes: todos igual, la imagen a la derecha en tres columnas y el pie a la izquierda
-          anchoTotal = Math.min(TRES, 22 * L * r[0]); f.classList.add('fig-lado'); filas = [[0]];
+          anchoTotal = Math.min(TRES, 19 * L * r[0]); f.classList.add('fig-lado'); filas = [[0]];
         } else if (n === 1 && !completa && r[0] >= 1.05 && maxAncho(0) < ANCHO_CAJA) {
           // horizontal de poca resolución: se reduce; si cabe en tres columnas, el pie va al lado
           anchoTotal = Math.min(maxAncho(0), TRES); if (maxAncho(0) <= TRES + 0.4 * PX) f.classList.add('fig-lado'); filas = [[0]];
@@ -280,6 +289,7 @@ class Maquetador {
     if (!b.children.length) b.remove();
     this.banda = null;
     if (guardia > 3) { resto.forEach(r => b.appendChild(r)); return; }   // no cabe ni en página vacía: se deja
+    if (!resto.length) { this.y = ALTO_CAJA; return; }   // todo cupo: no se abre una página vacía
     this.paginaFlujo();
     const vacia = !this.banda && this.y === 0;
     resto.forEach((r, k) => this.agregarTexto(r, vacia && k === 0 ? guardia + 1 : 0));
@@ -431,7 +441,7 @@ class Maquetador {
       // fortalezas y aporte); la categoría va encima del primero de su grupo
       const cat = b.type === 'p' && /^<strong>Referentes de /.test(b.html || '');
       const nom = b.type === 'p' && /^<em><strong>[A-L]\. /.test(b.html || '');
-      if (cat || (nom && !trasCategoria)) { this.cerrarBanda(); this.vaciarFlotantes(); this.modo = 'una'; this.paginaFlujo(); }
+      if (cat || (nom && !trasCategoria)) { this.cerrarBanda(); this.vaciarFlotantes(); this.modo = 'una'; const vacia = this.y === 0 && !this.actual.caja.children.length; if (!vacia) this.paginaFlujo(); else this.actual.el.classList.add('p-una'); }
       trasCategoria = cat;
       const el = this.crear(b, primero && b.type === 'p');
       if (!el) continue;
@@ -451,16 +461,15 @@ class Maquetador {
   portada(parte) {
     // Página sola a la derecha: la textura de vidrio a sangre y los datos sobre un panel de cristal
     const p = this.pagina('noche portada tipo', { folio: false });
-    p.el.appendChild(this.fondo(this.deco.portada));
+    p.el.appendChild(this.fondo(this.deco.umbral));
     const t = textoPlano(parte.titulo.html), [titulo, ...sub] = t.split(/\s+[-–]\s+/);
     // Portada editorial: título y subtítulo arriba, autor y año abajo; el resto va en la portadilla
     const datos = parte.datos.map(b => textoPlano(b.html));
     const autor = (datos.find(d => /^Autor/i.test(d)) || '').replace(/^Autor:\s*/i, '');
     const anio = datos[datos.length - 1] || '';
     const panel = h('div', 'por-texto');
-    const t1 = h('h1', 'logo', titulo.replace(/^Sobre\s+(.*?)\s+no\s+(.*)$/, 'Sobre<br>$1<br>no $2')); t1.style.backgroundImage = `url("${this.deco.portada}")`; p.el.appendChild(t1);
+    const t1 = h('h1', 'logo', titulo.replace(/^Sobre\s+(.*?)\s+no\s+(.*)$/, 'Sobre<br>$1<br>no $2')); t1.style.backgroundImage = `url("${this.deco.umbral}")`; p.el.appendChild(t1);
     p.el.appendChild(h('p', 'por-sub por-sub-top', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
-    p.el.appendChild(grietas());
     panel.appendChild(h('div', 'por-pie', `<span class="autor"><b>${autor}</b><small>Universidad CESMAG</small></span><b class="anio">${anio}</b>`));
     p.el.appendChild(panel);
   }
@@ -487,25 +496,33 @@ class Maquetador {
     const len = h('span', 'burbuja pal-lente'); der.el.appendChild(len);
     pieza(len, 'lente-paleta', 1.9 * PX, { ca: 3, ff: 0.28, pf: 0.1, fondo: 'rgba(43,23,89,0.16)', sombra: 'inset 0 0 0 1.5px rgba(43,23,89,0.25), 0 14px 30px rgba(43,23,89,0.28)' });
   }
-  emitirRuta() {
-    const b = this.rutaPendiente; if (!b || this.siguienteEsDerecha) return;
-    this.rutaPendiente = null;
-    // Póster horizontal de la web, llevado al pliego: fondo oscuro a sangre, tres momentos en columnas
-    const izq = this.pagina('noche ruta ruta-izq'), der = this.pagina('noche ruta ruta-der');
+  emitirFotos() {
+    if (!this.fotosPend?.length || this.siguienteEsDerecha) return;
+    const b = this.fotosPend.shift();
+    const src = this.resolver((b.images?.length ? b.images : [b.src])[0]);
+    const [izq, der] = this.pliegoFondo(src, 'foto-pliego');
     izq.el.dataset.b = b.id;
+    const pie = h('div', 'panel-vidrio pliego-pie', `<span class="rot">${b.label}</span><span class="tit">${b.title}</span><div class="nota">${b.note || ''}</div>`);
+    der.el.appendChild(pie); this.liquido(pie, 0.3 * PX);
+    this.y = ALTO_CAJA; this.banda = null;
+  }
+  emitirRuta() {
+    const b = this.rutaPendiente; if (!b) return;
+    this.rutaPendiente = null;
+    // Póster vertical en una sola página: título arriba y los tres momentos como tiras horizontales
+    const pg = this.pagina('noche ruta ruta-una', { folio: false });
+    pg.el.dataset.b = b.id;
     const ico = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICONOS_RUTA[n] || ''}</svg>`;
     const EST = { Completa: 'check', 'En curso': 'curso', 'Por iniciar': 'reloj' };
-    const col = (f, k, dos) => `<section class="ru-col m${k + 1}${dos ? ' dos' : ''}">` +
-      `<div class="ru-fcab"><span class="ru-fico">${ico(f.icono)}</span><span class="ru-fm">Momento ${k + 1}<b>${f.i}</b></span><em>${ico(EST[f.estado])}${f.estado}</em></div>` +
-      `<h3>${f.fase}</h3><p class="ru-sub">${f.sub} · ${f.cuando}</p>` +
-      `<p class="ru-prop"><b>${ico('diana')}Propósito específico ${k + 1}</b>${f.corto}</p>` +
-      `<ol class="ru-acts">${f.acts.map(a => `<li class="${a.ok ? 'ok' : 'falta'}"><span class="dot">${ico(a.icono)}</span><span><b>${a.t}</b><i>${a.resumen}</i></span></li>`).join('')}</ol>` +
-      `<p class="ru-res">${ico('bandera')}<span><b>Resultado</b>${f.resultado}</span></p></section>`;
-    izq.el.insertAdjacentHTML('beforeend', `<div class="ru-cab"><span class="rot">${b.label} · Procedimiento de las 3i</span><h2>Ruta<br><em>metodológica</em></h2>` +
-      `<div class="ru-ley"><span><i class="ok">${ico('check')}</i>Actividad realizada</span><span><i class="p">${ico('reloj')}</i>Actividad por realizar</span></div></div>` + col(FASES[0], 0, true));
-    der.el.insertAdjacentHTML('beforeend', `<div class="ru-par">${col(FASES[1], 1)}${col(FASES[2], 2)}</div>` +
-      `<div class="ru-nota">${b.note || ''}</div>`);
-    izq.folio = der.folio = false;
+    const tira = (f, k) => `<section class="r1-tira m${k + 1}">` +
+      `<div class="r1-izq"><div class="r1-cab"><span class="ru-fico">${ico(f.icono)}</span><span class="ru-fm">Momento ${k + 1}<b>${f.i}</b></span></div>` +
+      `<h3>${f.fase}</h3><p class="r1-sub">${f.sub} · ${f.cuando}</p><em class="r1-est">${ico(EST[f.estado])}${f.estado}</em>` +
+      `<p class="r1-prop"><b>Propósito específico ${k + 1}</b>${f.corto}</p></div>` +
+      `<div class="r1-der"><ol class="r1-acts">${f.acts.map(a => `<li class="${a.ok ? 'ok' : 'falta'}"><span class="dot">${ico(a.icono)}</span><span><b>${a.t}</b><i>${a.resumen}</i></span></li>`).join('')}</ol>` +
+      `<p class="r1-res">${ico('bandera')}<span><b>Resultado</b>${f.resultado}</span></p></div></section>`;
+    pg.el.insertAdjacentHTML('beforeend', `<div class="r1"><div class="r1-top"><span class="rot">${b.label} · Procedimiento de las 3i</span><h2>Ruta <em>metodológica</em></h2>` +
+      `<div class="ru-ley"><span><i class="ok">${ico('check')}</i>Actividad realizada</span><span><i class="p">${ico('reloj')}</i>Actividad por realizar</span></div></div>` +
+      FASES.map(tira).join('') + `<div class="r1-nota">${b.note || ''}</div></div>`);
     this.y = ALTO_CAJA; this.banda = null;
   }
   fondo(src, lado) {
@@ -523,12 +540,21 @@ class Maquetador {
     const up = h('div', 'panel-vidrio umbral-panel', '<b>Sobre lo<br>que no digo</b>'); der.el.appendChild(up); this.liquido(up, 0.75 * PX);
   }
   portadilla(parte) {
+    // Como en el Word: título y subtítulo; autor (y asesor); institución (y modalidad); ciudad y año
     this.aDerecha();
     const p = this.pagina('', { folio: false });
-    const c = h('div', 'portadilla'); const tt = h('p', 'titulo', parte.titulo.html.replace(/\s+-\s+/, '<br><small>')); c.appendChild(tt);
-    parte.datos.forEach(b => { const q = h('p', '', b.html); const m = b.html.match(/^<strong>([^<:]+)(?::<\/strong>|<\/strong>:)\s*(.*)$/s); if (m) q.innerHTML = `<b class="fl">${m[1]}:</b> <span class="fv">${m[2]}</span>`; c.appendChild(q); });
+    const c = h('div', 'portadilla'); c.appendChild(h('p', 'titulo', parte.titulo.html.replace(/\s+-\s+/, '<br><small>')));
+    const g = { per: h('div', 'pd-g pd-per'), inst: h('div', 'pd-g pd-inst'), lugar: h('div', 'pd-g pd-lugar') };
+    parte.datos.forEach(b => {
+      const t = textoPlano(b.html), q = h('p', '', b.html);
+      const m = b.html.match(/^<strong>([^<:]+)(?::<\/strong>|<\/strong>:)\s*(.*)$/s);
+      if (m) q.innerHTML = `<b class="fl">${m[1]}:</b> <span class="fv">${m[2]}</span>`;
+      (/^(Autor|Asesor)/i.test(t) ? g.per : /^(San Juan|\d{4}$)/.test(t) ? g.lugar : g.inst).appendChild(q);
+    });
+    Object.values(g).forEach(x => c.appendChild(x));
     p.el.appendChild(c);
   }
+
   // Si la página que sigue sería izquierda, se deja una en blanco: lo que abre empieza a la derecha
   aIzquierda() { if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false }); }
   aDerecha() { if (!this.siguienteEsDerecha) this.pagina('blanca', { folio: false }); }
@@ -538,7 +564,7 @@ class Maquetador {
     if (!apretar && !holgado && nom) {
       if (/^Resumen/i.test(nom) && !this.umbralHecho) { this.umbralHecho = true; this.umbral(); }
       // Notas y agradecimientos van por parejas enfrentadas; lo demás abre a la derecha
-      if (/^(Nota de responsabilidad|Agradecimientos)/i.test(nom)) this.aIzquierda();
+      if (/^(Nota de responsabilidad|Agradecimientos|Introducción)/i.test(nom)) this.aIzquierda();
       else if (!/^(Nota de aceptación|Dedicatoria)/i.test(nom)) this.aDerecha();
     }
     this.sinCapitular = /^Agradecimientos/i.test(nom);
@@ -589,7 +615,7 @@ class Maquetador {
       this.filasIndice.push([f, e.id]); this.agregarTexto(f);
     }
     // Listas de figuras y de tablas (APA): cada una abre página dentro del mismo pliego morado
-    for (const [titulo, tipo, pre] of [['Lista de figuras', 'figure', 'Figura'], ['Lista de tablas', 'table', 'Tabla']]) {
+    for (const [titulo, tipo, pre] of [['Lista de figuras', 'figure', 'Figura'], ['Lista de fotografías', 'foto', 'Figura'], ['Lista de tablas', 'table', 'Tabla']]) {
       const items = (this.listas?.[tipo] || []).slice().sort((a, b) => parseInt(a.label.replace(/\D+/g, '')) - parseInt(b.label.replace(/\D+/g, '')));
       if (!items.length) continue;
       this.cerrarBanda(); this.paginaFlujo();
@@ -650,7 +676,7 @@ class Maquetador {
     const der = this.pagina('noche tres-i-foto', { folio: false });
     der.el.appendChild(this.fondo(this.deco.foto3i));
     const card = h('div', 'panel-vidrio ti-card', `<span>Enfoque</span><h3>Investigación-Creación cualitativa</h3><p>Diseño participativo y colaborativo, enfoque etnográfico y el procedimiento de las 3i: Indagar, Idear e Implementar.</p>`);
-    card.classList.add('esmerilado'); der.el.appendChild(card);
+    der.el.appendChild(card); this.liquido(card, Math.min(card.offsetHeight / 2, 0.75 * PX));
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
@@ -777,9 +803,12 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   const m = new Maquetador(raiz, resolver, deco), partes = planificar(doc);
   m.dims = dims;
   m.entradasIndice = entradasIndice(partes);
-  m.listas = { figure: doc.blocks.filter(b => b.type === 'figure' && b.label), table: doc.blocks.filter(b => b.type === 'table' && b.label) };
+  // Fotografías: figuras hechas de fotos (jpg); el resto son gráficos, esquemas o capturas
+  const esFoto = b => !!b.foto;
+  const figs = doc.blocks.filter(b => b.type === 'figure' && b.label);
+  m.listas = { figure: figs.filter(b => !esFoto(b)), foto: figs.filter(esFoto), table: doc.blocks.filter(b => b.type === 'table' && b.label) };
   for (const parte of partes) {
-    if (parte.tipo === 'portada') m.portada(parte);
+    if (parte.tipo === 'portada') { m.portada(parte); m.portadilla(parte); }
     else if (parte.tipo === 'portadilla') m.portadilla(parte);
     else if (parte.tipo === 'preliminar') m.preliminar(parte);
     else if (parte.tipo === 'indice') m.indiceDoc();
