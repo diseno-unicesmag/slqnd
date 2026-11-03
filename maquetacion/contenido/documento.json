@@ -122,12 +122,12 @@
   },
   {
    "type": "p",
-   "html": "Universidad CESMAG / Facultad de Arquitectura y Bellas Artes / Programa de Diseño Gráfico.",
+   "html": "Universidad CESMAG / Facultad de Arquitectura y Bellas Artes /<br>Programa de Diseño Gráfico.",
    "id": "b020"
   },
   {
    "type": "p",
-   "html": "Título: Sobre lo que no digo – Estrategia de diseño participativo para fomentar la elaboración emocional mediante una experiencia phygital",
+   "html": "Título: Sobre lo que no digo – Estrategia de diseño participativo para fomentar la elaboración emocional mediante una experiencia <em>phygital</em>",
    "id": "b021"
   },
   {
@@ -232,7 +232,7 @@
   },
   {
    "type": "p",
-   "html": "<em>Palabras clave:</em> elaboración emocional, diseño participativo, experiencia phygital, realidad aumentada, burnout académico.",
+   "html": "<em>Palabras clave:</em> elaboración emocional, diseño participativo, experiencia <em>phygital</em>, realidad aumentada, burnout académico.",
    "id": "b039"
   },
   {
@@ -456,7 +456,7 @@
    "label": "Figura 1",
    "title": "Los Tres Momentos de la Elaboración Emocional en el Proyecto",
    "type": "figure",
-   "src": "img/p26-image36.png",
+   "src": "img/fig-momentos.png",
    "note": "<em>Nota.</em> Elaboración propia a partir de Orbegozo et al. (2018), Urrego Aguinaga et al. (2016) y Del Río Diéguez y Navarrete Torres (2025)."
   },
   {
@@ -577,7 +577,7 @@
    "label": "Figura 2",
    "title": "La Figura Proyectiva en Dos Momentos: Creador y Lector",
    "type": "figure",
-   "src": "img/p26-image37.png",
+   "src": "img/fig-proyectiva.png",
    "note": "<em>Nota.</em> Elaboración propia a partir de Sanders y Stappers (2008) y Freedberg y Gallese (2007)."
   },
   {
@@ -679,7 +679,7 @@
    "label": "Figura 3",
    "title": "Matriz de Análisis de Referentes Proyectuales",
    "type": "figure",
-   "src": "img/p26-image38.png",
+   "src": "img/matriz-referentes.png",
    "note": "<em>Nota.</em> Elaboración propia. Cada celda resume el aporte del referente al proyecto."
   },
   {
@@ -689,8 +689,17 @@
   },
   {
    "type": "p",
-   "html": "<em><strong>A. PostSecret (Frank Warren, Estados Unidos, 2005 - Presente).</strong></em> Plataforma comunitaria donde personas anónimas plasman secretos y dolores jamás revelados en postales físicas hechas a mano, enviadas por correo tradicional para ser exhibidas públicamente en libros, galerías y web.",
+   "html": "<em><strong>A. PostSecret (Frank Warren, Estados Unidos, 2005 - Presente).</strong></em> Plataforma comunitaria donde personas anónimas plasman secretos y dolores jamás revelados en postales físicas hechas a mano, enviadas por correo tradicional para ser exhibidas públicamente en libros, galerías y web. Véase la Figura 4.",
    "id": "b146"
+  },
+  {
+   "id": "b150",
+   "type": "figure",
+   "label": "Figura 4",
+   "title": "PostSecret (Frank Warren, 2005 - Presente)",
+   "src": "img/image1.png",
+   "note": "<em>Nota.</em> Muro digital y postales anónimas de confesión personal. Fuente: Warren (2005-presente).",
+   "referente": true
   },
   {
    "type": "p",
@@ -708,17 +717,18 @@
    "id": "b149"
   },
   {
-   "id": "b150",
-   "type": "figure",
-   "label": "Figura R1",
-   "title": "PostSecret (Frank Warren, 2005 - Presente)",
-   "src": "img/image1.png",
-   "note": "<em>Nota. Muro digital y postales anónimas de confesión personal. Fuente: Warren (2005-presente).</em>"
+   "type": "p",
+   "html": "<em><strong>B. Campaña \"We Listen\" – Samaritans (MullenLowe, Reino Unido, 2016).</strong></em> Campaña gráfica desplegada en carteles, medios digitales y estaciones de tren, con retratos sin rostro de personas de espaldas acompañados de la palabra <em>fine</em> (\"bien\"), para sugerir lo que alguien quiere decir realmente cuando afirma que está bien (It's Nice That, 2016), evidenciando que detrás de la máscara de estabilidad subyace una petición de escucha. Véase la Figura 5.",
+   "id": "b153"
   },
   {
-   "type": "p",
-   "html": "<em><strong>B. Campaña \"We Listen\" – Samaritans (MullenLowe, Reino Unido, 2016).</strong></em> Campaña gráfica desplegada en carteles, medios digitales y estaciones de tren, con retratos sin rostro de personas de espaldas acompañados de la palabra <em>fine</em> (\"bien\"), para sugerir lo que alguien quiere decir realmente cuando afirma que está bien (It's Nice That, 2016), evidenciando que detrás de la máscara de estabilidad subyace una petición de escucha.",
-   "id": "b153"
+   "id": "b157",
+   "type": "figure",
+   "label": "Figura 5",
+   "title": "Campaña \"We Listen\" – Samaritans (MullenLowe, 2016)",
+   "src": "img/image2.png",
+   "note": "<em>Nota.</em> Retrato de espaldas del fotógrafo Nadav Kander para la campaña. Fuente: Samaritans y MullenLowe London (It's Nice That, 2016).",
+   "referente": true
   },
   {
    "type": "p",
@@ -734,14 +744,6 @@
    "type": "p",
    "html": "<em>Aporte.</em> Aporta la estrategia discursiva para interpelar a los estudiantes en la convocatoria y el diagnóstico: desmantelar el discurso del \"no pasa nada\" desarmando las frases automáticas con las que encubren el burnout.",
    "id": "b156"
-  },
-  {
-   "id": "b157",
-   "type": "figure",
-   "label": "Figura R2",
-   "title": "Campaña \"We Listen\" – Samaritans (MullenLowe, 2016)",
-   "src": "img/image2.png",
-   "note": "<em>Nota. Retrato de espaldas del fotógrafo Nadav Kander para la campaña. Fuente: Samaritans y MullenLowe London (It's Nice That, 2016).</em>"
   },
   {
    "type": "p",
@@ -770,8 +772,17 @@
   },
   {
    "type": "p",
-   "html": "<em><strong>A. Studio Myerscough (Morag Myerscough, Reino Unido, 2022).</strong></em> Intervenciones espaciales en hospitales y centros educativos, como el jardín y pabellón del Sheffield Children's Hospital (Dezeen, 2022), con geometrías envolventes, patrones gráficos a gran escala y paletas cromáticas contrastantes de alto impacto.",
+   "html": "<em><strong>A. Studio Myerscough (Morag Myerscough, Reino Unido, 2022).</strong></em> Intervenciones espaciales en hospitales y centros educativos, como el jardín y pabellón del Sheffield Children's Hospital (Dezeen, 2022), con geometrías envolventes, patrones gráficos a gran escala y paletas cromáticas contrastantes de alto impacto. Véase la Figura 6.",
    "id": "b165"
+  },
+  {
+   "id": "b169",
+   "type": "figure",
+   "label": "Figura 6",
+   "title": "Studio Myerscough (Morag Myerscough, 2022)",
+   "src": "img/p26-image52.jpg",
+   "note": "<em>Nota.</em> Jardín y pabellón del Sheffield Children’s Hospital, con patrones geométricos a gran escala. Fuente: Studio Myerscough (Dezeen, 2022).",
+   "referente": true
   },
   {
    "type": "p",
@@ -789,17 +800,18 @@
    "id": "b168"
   },
   {
-   "id": "b169",
-   "type": "figure",
-   "label": "Figura R3",
-   "title": "Studio Myerscough (Morag Myerscough, 2022)",
-   "src": "img/p26-image52.jpg",
-   "note": "<em>Nota. Jardín y pabellón del Sheffield Children’s Hospital, con patrones geométricos a gran escala. Fuente: Studio Myerscough (Dezeen, 2022).</em>"
+   "type": "p",
+   "html": "<em><strong>B. Marbles: Mania, Depression, Michelangelo, and Me (Ellen Forney, Estados Unidos, 2012).</strong></em> Novela gráfica autobiográfica que traduce episodios de trastorno bipolar y sufrimiento psíquico mediante el lenguaje del cómic, distorsiones anatómicas y contrastes gestuales en blanco y negro. Véase la Figura 7.",
+   "id": "b172"
   },
   {
-   "type": "p",
-   "html": "<em><strong>B. Marbles: Mania, Depression, Michelangelo, and Me (Ellen Forney, Estados Unidos, 2012).</strong></em> Novela gráfica autobiográfica que traduce episodios de trastorno bipolar y sufrimiento psíquico mediante el lenguaje del cómic, distorsiones anatómicas y contrastes gestuales en blanco y negro.",
-   "id": "b172"
+   "id": "b176",
+   "type": "figure",
+   "label": "Figura 7",
+   "title": "Marbles: Mania, Depression, Michelangelo, and Me (Ellen Forney, 2012)",
+   "src": "img/referente-r4-marbles.png",
+   "note": "<em>Nota.</em> Portada y exploración gráfica de la subjetividad emocional en formato cómic. Fuente: Forney (2012).",
+   "referente": true
   },
   {
    "type": "p",
@@ -817,17 +829,18 @@
    "id": "b175"
   },
   {
-   "id": "b176",
-   "type": "figure",
-   "label": "Figura R4",
-   "title": "Marbles: Mania, Depression, Michelangelo, and Me (Ellen Forney, 2012)",
-   "src": "img/referente-r4-marbles.png",
-   "note": "<em>Nota. Portada y exploración gráfica de la subjetividad emocional en formato cómic. Fuente: Forney (2012).</em>"
+   "type": "p",
+   "html": "<em><strong>C. BoJack Horseman (Raphael Bob-Waksberg, Estados Unidos, 2014 - 2020).</strong></em> Serie animada que explora el vacío existencial, la autoexplotación y el autosabotaje a través de un universo antropomórfico, recursos surrealistas y un tratamiento plástico de vanguardia. Véase la Figura 8.",
+   "id": "b179"
   },
   {
-   "type": "p",
-   "html": "<em><strong>C. BoJack Horseman (Raphael Bob-Waksberg, Estados Unidos, 2014 - 2020).</strong></em> Serie animada que explora el vacío existencial, la autoexplotación y el autosabotaje a través de un universo antropomórfico, recursos surrealistas y un tratamiento plástico de vanguardia.",
-   "id": "b179"
+   "id": "b183",
+   "type": "figure",
+   "label": "Figura 8",
+   "title": "BoJack Horseman (Raphael Bob-Waksberg, 2014 - 2020)",
+   "src": "img/p26-image53.jpg",
+   "note": "<em>Nota.</em> Lenguaje visual que conjuga el absurdo estético con el vacío existencial y la sátira contemporánea. Fuente: The Tornante Company / Netflix.",
+   "referente": true
   },
   {
    "type": "p",
@@ -845,22 +858,23 @@
    "id": "b182"
   },
   {
-   "id": "b183",
-   "type": "figure",
-   "label": "Figura R5",
-   "title": "BoJack Horseman (Raphael Bob-Waksberg, 2014 - 2020)",
-   "src": "img/p26-image53.jpg",
-   "note": "<em>Nota. Lenguaje visual que conjuga el absurdo estético con el vacío existencial y la sátira contemporánea. Fuente: The Tornante Company / Netflix.</em>"
-  },
-  {
    "type": "p",
    "html": "<strong>Referentes de Funcionalidad.</strong> La interacción y la tecnología phygital.",
    "id": "b186"
   },
   {
    "type": "p",
-   "html": "<em><strong>A. Artivive y Exhibiciones de Arte Aumentado (Sergiu Ardelean &amp; Codin Popescu, Austria, 2017 - Presente).</strong></em> Ecosistema tecnológico que transforma ilustraciones y pinturas impresas en marcadores ópticos, superponiendo animaciones digitales sincronizadas con diseño sonoro al ser escaneadas mediante un dispositivo móvil.",
+   "html": "<em><strong>A. Artivive y Exhibiciones de Arte Aumentado (Sergiu Ardelean &amp; Codin Popescu, Austria, 2017 - Presente).</strong></em> Ecosistema tecnológico que transforma ilustraciones y pinturas impresas en marcadores ópticos, superponiendo animaciones digitales sincronizadas con diseño sonoro al ser escaneadas mediante un dispositivo móvil. Véase la Figura 9.",
    "id": "b187"
+  },
+  {
+   "id": "b191",
+   "type": "figure",
+   "label": "Figura 9",
+   "title": "Exhibición Interactiva con Artivive (Sergiu Ardelean &amp; Codin Popescu, 2017)",
+   "src": "img/referente-r6-artivive.jpg",
+   "note": "<em>Nota.</em> Dispositivo móvil actuando como ventana de revelación aumentada sobre el soporte físico. Fuente: Artivive (s. f.).",
+   "referente": true
   },
   {
    "type": "p",
@@ -876,14 +890,6 @@
    "type": "p",
    "html": "<em>Aporte.</em> Constituye la solución técnica de la capa digital: la obra física custodia el silencio material, mientras que la Realidad Aumentada actúa como la lente interactiva que decodifica y revela la carga narrativa interior.",
    "id": "b190"
-  },
-  {
-   "id": "b191",
-   "type": "figure",
-   "label": "Figura R6",
-   "title": "Exhibición Interactiva con Artivive (Sergiu Ardelean &amp; Codin Popescu, 2017)",
-   "src": "img/referente-r6-artivive.jpg",
-   "note": "<em>Nota. Dispositivo móvil actuando como ventana de revelación aumentada sobre el soporte físico. Fuente: Artivive (s. f.).</em>"
   },
   {
    "type": "p",
@@ -907,8 +913,17 @@
   },
   {
    "type": "p",
-   "html": "<em><strong>C. Before I Die (Candy Chang, Estados Unidos, 2011 - Presente).</strong></em> Intervención participativa en el espacio público: una pared de una casa abandonada en Nueva Orleans se cubrió con pintura de pizarra y la frase «Antes de morir quiero ___», para que cualquier transeúnte la completara con tiza. Nació del duelo de la artista por la muerte de una persona cercana y hoy se ha replicado en más de 5.000 muros en más de 75 países.",
+   "html": "<em><strong>C. Before I Die (Candy Chang, Estados Unidos, 2011 - Presente).</strong></em> Intervención participativa en el espacio público: una pared de una casa abandonada en Nueva Orleans se cubrió con pintura de pizarra y la frase «Antes de morir quiero ___», para que cualquier transeúnte la completara con tiza. Nació del duelo de la artista por la muerte de una persona cercana y hoy se ha replicado en más de 5.000 muros en más de 75 países. Véase la Figura 10.",
    "id": "b198"
+  },
+  {
+   "id": "b202",
+   "type": "figure",
+   "label": "Figura 10",
+   "title": "Before I Die (Candy Chang, 2011 - Presente)",
+   "src": "img/referente-r7-before-i-die.jpeg",
+   "note": "<em>Nota.</em> Muro participativo con la consigna «Antes de morir quiero ___». Fuente: Chang (s. f.). Fotografía: Tony Webster, Wikimedia Commons (CC BY 2.0).",
+   "referente": true
   },
   {
    "type": "p",
@@ -926,22 +941,23 @@
    "id": "b201"
   },
   {
-   "id": "b202",
-   "type": "figure",
-   "label": "Figura R7",
-   "title": "Before I Die (Candy Chang, 2011 - Presente)",
-   "src": "img/referente-r7-before-i-die.jpeg",
-   "note": "<em>Nota. Muro participativo con la consigna «Antes de morir quiero ___». Fuente: Chang (s. f.). Fotografía: Tony Webster, Wikimedia Commons (CC BY 2.0).</em>"
-  },
-  {
    "type": "p",
    "html": "<strong>Referentes de Contexto.</strong> El entorno universitario y la salud mental local.",
    "id": "b205"
   },
   {
    "type": "p",
-   "html": "<em><strong>A. Programa Florece y grupo Perspectivas Psicológicas (Universidad CESMAG, Pasto, 2019 - Presente).</strong></em> Iniciativas asociadas a la Universidad CESMAG: Florece es un programa virtual de bienestar psicológico para universitarios, planteado como un curso de 16 semanas, y Perspectivas Psicológicas es un grupo de investigación que trabaja en promoción y prevención en salud mental, con estudios como el de riesgo suicida en estudiantes de la institución.",
+   "html": "<em><strong>A. Programa Florece y grupo Perspectivas Psicológicas (Universidad CESMAG, Pasto, 2019 - Presente).</strong></em> Iniciativas asociadas a la Universidad CESMAG: Florece es un programa virtual de bienestar psicológico para universitarios, planteado como un curso de 16 semanas, y Perspectivas Psicológicas es un grupo de investigación que trabaja en promoción y prevención en salud mental, con estudios como el de riesgo suicida en estudiantes de la institución. Véase la Figura 11.",
    "id": "b206"
+  },
+  {
+   "id": "b210",
+   "type": "figure",
+   "label": "Figura 11",
+   "title": "Programa de Bienestar Psicológico \"Florece\" (Universidad CESMAG, 2019)",
+   "src": "img/image8.png",
+   "note": "<em>Nota.</em> Plataforma y modelo institucional de educación en salud mental universitaria en San Juan de Pasto. Fuente: Cabrera-Gómez et al. (2019).",
+   "referente": true
   },
   {
    "type": "p",
@@ -957,14 +973,6 @@
    "type": "p",
    "html": "<em>Aporte.</em> Delimita la oportunidad del proyecto: la propuesta no busca competir con los servicios de bienestar de la universidad, sino operar como una puerta de entrada empática y artística que acerque al estudiante a ellos.",
    "id": "b209"
-  },
-  {
-   "id": "b210",
-   "type": "figure",
-   "label": "Figura R8",
-   "title": "Programa de Bienestar Psicológico \"Florece\" (Universidad CESMAG, 2019)",
-   "src": "img/image8.png",
-   "note": "<em>Nota. Plataforma y modelo institucional de educación en salud mental universitaria en San Juan de Pasto. Fuente: Cabrera-Gómez et al. (2019).</em>"
   },
   {
    "type": "p",
@@ -988,8 +996,17 @@
   },
   {
    "type": "p",
-   "html": "<em><strong>C. Merlí (Héctor Lozano, España, 2015 - 2018).</strong></em> Ficción televisiva que retrata a un docente que desmonta la rigidez del aula tradicional para abrir debates filosóficos dialógicos en círculo, conectando dilemas clásicos con las vivencias silenciadas de sus alumnos.",
+   "html": "<em><strong>C. Merlí (Héctor Lozano, España, 2015 - 2018).</strong></em> Ficción televisiva que retrata a un docente que desmonta la rigidez del aula tradicional para abrir debates filosóficos dialógicos en círculo, conectando dilemas clásicos con las vivencias silenciadas de sus alumnos. Véase la Figura 12.",
    "id": "b217"
+  },
+  {
+   "id": "b221",
+   "type": "figure",
+   "label": "Figura 12",
+   "title": "Merlí (Héctor Lozano, 2015 - 2018)",
+   "src": "img/referente-r9-merli.jpg",
+   "note": "<em>Nota.</em> Mediación pedagógica horizontal y desarticulación del juicio formal a través del diálogo colectivo. Fuente: TV3 / Netflix.",
+   "referente": true
   },
   {
    "type": "p",
@@ -1007,22 +1024,23 @@
    "id": "b220"
   },
   {
-   "id": "b221",
-   "type": "figure",
-   "label": "Figura R9",
-   "title": "Merlí (Héctor Lozano, 2015 - 2018)",
-   "src": "img/referente-r9-merli.jpg",
-   "note": "<em>Nota. Mediación pedagógica horizontal y desarticulación del juicio formal a través del diálogo colectivo. Fuente: TV3 / Netflix.</em>"
-  },
-  {
    "type": "p",
    "html": "<strong>Referentes de Emoción.</strong> La resonancia empática y el impacto vivencial.",
    "id": "b224"
   },
   {
    "type": "p",
-   "html": "<em><strong>A. Celeste (Extremely OK Games, Canadá, 2018).</strong></em> Obra interactiva donde la protagonista escala una montaña mientras lidia con la personificación física de su ansiedad (\"Badeline\"), aprendiendo que su fragilidad no debe aniquilarse sino integrarse y comprenderse.",
+   "html": "<em><strong>A. Celeste (Extremely OK Games, Canadá, 2018).</strong></em> Obra interactiva donde la protagonista escala una montaña mientras lidia con la personificación física de su ansiedad (\"Badeline\"), aprendiendo que su fragilidad no debe aniquilarse sino integrarse y comprenderse. Véase la Figura 13.",
    "id": "b225"
+  },
+  {
+   "id": "b229",
+   "type": "figure",
+   "label": "Figura 13",
+   "title": "Celeste (Extremely OK Games, 2018)",
+   "src": "img/image10.png",
+   "note": "<em>Nota.</em> Metáfora plástica del ascenso y mecánicas interactivas de regulación ante la ansiedad. Fuente: Extremely OK Games.",
+   "referente": true
   },
   {
    "type": "p",
@@ -1040,17 +1058,18 @@
    "id": "b228"
   },
   {
-   "id": "b229",
-   "type": "figure",
-   "label": "Figura R10",
-   "title": "Celeste (Extremely OK Games, 2018)",
-   "src": "img/image10.png",
-   "note": "<em>Nota. Metáfora plástica del ascenso y mecánicas interactivas de regulación ante la ansiedad. Fuente: Extremely OK Games.</em>"
+   "type": "p",
+   "html": "<em><strong>B. Hellblade: Senua’s Sacrifice (Ninja Theory, Reino Unido, 2017).</strong></em> Obra interactiva desarrollada con la asesoría de neurocientíficos, que emplea audio binaural 3D y distorsiones visuales para sumergir al usuario en la mente de una guerrera con psicosis. Véase la Figura 14.",
+   "id": "b232"
   },
   {
-   "type": "p",
-   "html": "<em><strong>B. Hellblade: Senua’s Sacrifice (Ninja Theory, Reino Unido, 2017).</strong></em> Obra interactiva desarrollada con la asesoría de neurocientíficos, que emplea audio binaural 3D y distorsiones visuales para sumergir al usuario en la mente de una guerrera con psicosis.",
-   "id": "b232"
+   "id": "b236",
+   "type": "figure",
+   "label": "Figura 14",
+   "title": "Hellblade: Senua’s Sacrifice (Ninja Theory, 2017)",
+   "src": "img/p26-image55.jpg",
+   "note": "<em>Nota.</em> Construcción inmersiva de la vulnerabilidad psicológica mediante diseño sonoro binaural espacializado. Fuente: Ninja Theory.",
+   "referente": true
   },
   {
    "type": "p",
@@ -1068,17 +1087,18 @@
    "id": "b235"
   },
   {
-   "id": "b236",
-   "type": "figure",
-   "label": "Figura R11",
-   "title": "Hellblade: Senua’s Sacrifice (Ninja Theory, 2017)",
-   "src": "img/p26-image55.jpg",
-   "note": "<em>Nota. Construcción inmersiva de la vulnerabilidad psicológica mediante diseño sonoro binaural espacializado. Fuente: Ninja Theory.</em>"
+   "type": "p",
+   "html": "<em><strong>C. Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, Croacia, 2006 - Presente).</strong></em> Museo construido con objetos donados por personas anónimas tras una ruptura, cada uno acompañado por el relato breve de quien lo entrega. Surgió de la ruptura de sus propios fundadores, comenzó en 2006 como una exposición temporal que recorrió varios países y desde 2010 tiene sede permanente en Zagreb. Véase la Figura 15.",
+   "id": "b239"
   },
   {
-   "type": "p",
-   "html": "<em><strong>C. Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, Croacia, 2006 - Presente).</strong></em> Museo construido con objetos donados por personas anónimas tras una ruptura, cada uno acompañado por el relato breve de quien lo entrega. Surgió de la ruptura de sus propios fundadores, comenzó en 2006 como una exposición temporal que recorrió varios países y desde 2010 tiene sede permanente en Zagreb.",
-   "id": "b239"
+   "id": "b243",
+   "type": "figure",
+   "label": "Figura 15",
+   "title": "Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, 2006 - Presente)",
+   "src": "img/referente-r12-relaciones-rotas.jpeg",
+   "note": "<em>Nota.</em> Objetos donados acompañados del relato de sus antiguos dueños. Fuente: NPR (2013). Fotografía: Robert Nyman, Wikimedia Commons (CC BY 2.0).",
+   "referente": true
   },
   {
    "type": "p",
@@ -1094,14 +1114,6 @@
    "type": "p",
    "html": "<em>Aporte.</em> Es el modelo más cercano a la relación creador–obra–lector del proyecto: cada pieza viaja con el relato de su autor, y el espectador descubre que detrás de cada obra hay alguien que vivió algo parecido a lo suyo, lo que diluye la sensación de aislamiento.",
    "id": "b242"
-  },
-  {
-   "id": "b243",
-   "type": "figure",
-   "label": "Figura R12",
-   "title": "Museo de las Relaciones Rotas (Olinka Vištica y Dražen Grubišić, 2006 - Presente)",
-   "src": "img/referente-r12-relaciones-rotas.jpeg",
-   "note": "<em>Nota. Objetos donados acompañados del relato de sus antiguos dueños. Fuente: NPR (2013). Fotografía: Robert Nyman, Wikimedia Commons (CC BY 2.0).</em>"
   },
   {
    "type": "heading",
@@ -1148,7 +1160,7 @@
   },
   {
    "type": "p",
-   "html": "Cada momento de las 3i se recorre en una fase de la ruta y responde a uno de los propósitos específicos: la indagación corresponde a la Fase 1, Cartografía; la ideación, a la Fase 2, Prototipado; y la implementación, a la Fase 3, Validación (Figura 4). El proceso es recursivo: lo que se valida regresa a la indagación y al prototipo.",
+   "html": "Cada momento de las 3i se recorre en una fase de la ruta y responde a uno de los propósitos específicos: la indagación corresponde a la Fase 1, Cartografía; la ideación, a la Fase 2, Prototipado; y la implementación, a la Fase 3, Validación (Figura 16). El proceso es recursivo: lo que se valida regresa a la indagación y al prototipo.",
    "id": "b253"
   },
   {
@@ -1159,12 +1171,12 @@
   },
   {
    "type": "p",
-   "html": "La ruta metodológica del proyecto se recorre en tres fases secuenciales e interdependientes: Cartografía, Prototipado y Validación, cada una con propósitos, instrumentos y entregables propios que alimentan directamente a la siguiente. Con el fin de responder a las dinámicas contemporáneas de interacción y registro, cada actividad se articula con un artefacto web o digital interactivo que consolida la información recopilada: bajo esta lógica, la investigación se vincula con un ecosistema digital en construcción permanente que sirve como herramienta de análisis, memoria documental y evidencia viva del proceso proyectual. La Figura 4 sintetiza este recorrido.",
+   "html": "La ruta metodológica del proyecto se recorre en tres fases secuenciales e interdependientes: Cartografía, Prototipado y Validación, cada una con propósitos, instrumentos y entregables propios que alimentan directamente a la siguiente. Con el fin de responder a las dinámicas contemporáneas de interacción y registro, cada actividad se articula con un artefacto web o digital interactivo que consolida la información recopilada: bajo esta lógica, la investigación se vincula con un ecosistema digital en construcción permanente que sirve como herramienta de análisis, memoria documental y evidencia viva del proceso proyectual. La Figura 16 sintetiza este recorrido.",
    "id": "b255"
   },
   {
    "id": "b256",
-   "label": "Figura 4",
+   "label": "Figura 16",
    "title": "Ruta Metodológica del Proyecto",
    "type": "figure",
    "src": "img/image14.png",
@@ -1194,12 +1206,12 @@
   },
   {
    "type": "p",
-   "html": "Se construyó una matriz digital tipo hoja de cálculo, denominada <em>Cadena de Valor</em>, en la que se organizaron y relacionaron los conceptos teóricos y autores clave en torno al <em>burnout</em> académico, el trabajo emocional (Cascales Mira, 2022) y el diseño participativo como vehículo de elaboración simbólica, en el marco de la sociedad del rendimiento (Han, 2012, 2014). El contenido de la matriz se exportó como una red conceptual navegable e interactiva publicada en la plataforma web del proyecto, que sirve como marco referencial abierto (Figura 5).",
+   "html": "Se construyó una matriz digital tipo hoja de cálculo, denominada <em>Cadena de Valor</em>, en la que se organizaron y relacionaron los conceptos teóricos y autores clave en torno al <em>burnout</em> académico, el trabajo emocional (Cascales Mira, 2022) y el diseño participativo como vehículo de elaboración simbólica, en el marco de la sociedad del rendimiento (Han, 2012, 2014). El contenido de la matriz se exportó como una red conceptual navegable e interactiva publicada en la plataforma web del proyecto, que sirve como marco referencial abierto (Figura 17).",
    "id": "b264"
   },
   {
    "id": "b265",
-   "label": "Figura 5",
+   "label": "Figura 17",
    "title": "Red conceptual interactiva de la Cadena de Valor",
    "type": "figure",
    "src": "img/image13.png",
@@ -1213,12 +1225,12 @@
   },
   {
    "type": "p",
-   "html": "Se diseñó y programó a medida la <em>Cartografía Digital de Percepción Silenciosa</em> (en adelante, <em>CDPS</em>), una aplicación web de preguntas interactivas a modo de encuesta viva que opera sobre una red local en una sala de cómputo. El sistema cuenta con tres interfaces sincronizadas en tiempo real: un panel de control para el administrador, una interfaz anónima donde cada estudiante vota espacialmente arrastrando un avatar único sobre un lienzo digital, y un visualizador proyectado en una pantalla compartida. Al cerrar cada pregunta, las respuestas se revelan de forma simultánea y el grupo lee y comenta en vivo el mapa de calor resultante. El instrumento se aplicó el 24 de abril de 2026 en el Laboratorio de Creación Digital 1 del Campus Centro de la Universidad CESMAG, con una muestra de N = 15 estudiantes de pregrado del programa de Diseño Gráfico. El cuestionario constó de 24 ítems organizados en ocho bloques temáticos, entre ellos la carga académica, la autoexigencia, la vivencia del <em>burnout</em>, las redes de apoyo y el silenciamiento emocional. La dinámica permitió responder de forma anónima y comentar los resultados en grupo; los datos se presentan a continuación en cuatro dimensiones, seguidas de las respuestas abiertas. La Figura 6 registra la sesión.",
+   "html": "Se diseñó y programó a medida la <em>Cartografía Digital de Percepción Silenciosa</em> (en adelante, <em>CDPS</em>), una aplicación web de preguntas interactivas a modo de encuesta viva que opera sobre una red local en una sala de cómputo. El sistema cuenta con tres interfaces sincronizadas en tiempo real: un panel de control para el administrador, una interfaz anónima donde cada estudiante vota espacialmente arrastrando un avatar único sobre un lienzo digital, y un visualizador proyectado en una pantalla compartida. Al cerrar cada pregunta, las respuestas se revelan de forma simultánea y el grupo lee y comenta en vivo el mapa de calor resultante. El instrumento se aplicó el 24 de abril de 2026 en el Laboratorio de Creación Digital 1 del Campus Centro de la Universidad CESMAG, con una muestra de N = 15 estudiantes de pregrado del programa de Diseño Gráfico. El cuestionario constó de 24 ítems organizados en ocho bloques temáticos, entre ellos la carga académica, la autoexigencia, la vivencia del <em>burnout</em>, las redes de apoyo y el silenciamiento emocional. La dinámica permitió responder de forma anónima y comentar los resultados en grupo; los datos se presentan a continuación en cuatro dimensiones, seguidas de las respuestas abiertas. La Figura 18 registra la sesión.",
    "id": "b270"
   },
   {
    "id": "b271",
-   "label": "Figura 6",
+   "label": "Figura 18",
    "title": "Registro Fotográfico de la Sesión de la CDPS",
    "type": "figure",
    "src": "img/p26-image47.jpg",
@@ -1233,7 +1245,7 @@
    "type": "list",
    "items": [
     "<strong>Estado de entrada (P0):</strong> Antes del cuestionario, la pregunta rompehielo P0 («Siendo sinceros, ¿cómo te sientes ahora mismo?») recogió 37 frases libres. Junto a respuestas ligeras sobre el hambre, el café o el calor, aparecieron con frecuencia el cansancio y el sueño («estoy cansada», «tengo sueño», «me siento dormida»), la confusión y la soledad («confundida y solita») y la preocupación académica («asustada por el proyecto de grado»). Desde el primer minuto, el agotamiento se coló entre las bromas.",
-    "<strong>Carga académica y ocupación del espacio vital:</strong> Los datos revelan una absorción casi total del tiempo del estudiante por parte de la dinámica académica. El 86,7 % (n = 13) permanece entre 4 y 6 horas diarias de forma presencial en las instalaciones universitarias (Tabla 1). Lo más llamativo apareció con respecto al trabajo autónomo en el hogar: el 100 % de la muestra destina horas de la noche o la madrugada a continuar con los encargos de diseño; ningún estudiante reportó lograr desconectarse al llegar a su casa. El 40,0 % (n = 6) le dedica entre 4 y 6 horas (\"le sigo dando parejo\") y un 20,0 % (n = 3) trabaja de forma continua \"hasta la madrugada\". Esto muestra que, para este grupo, la frontera entre el espacio formativo y el tiempo de descanso se encuentra desdibujada, como se aprecia en la Tabla 1 y en el mapa de calor de la Figura 7."
+    "<strong>Carga académica y ocupación del espacio vital:</strong> Los datos revelan una absorción casi total del tiempo del estudiante por parte de la dinámica académica. El 86,7 % (n = 13) permanece entre 4 y 6 horas diarias de forma presencial en las instalaciones universitarias (Tabla 1). Lo más llamativo apareció con respecto al trabajo autónomo en el hogar: el 100 % de la muestra destina horas de la noche o la madrugada a continuar con los encargos de diseño; ningún estudiante reportó lograr desconectarse al llegar a su casa. El 40,0 % (n = 6) le dedica entre 4 y 6 horas (\"le sigo dando parejo\") y un 20,0 % (n = 3) trabaja de forma continua \"hasta la madrugada\". Esto muestra que, para este grupo, la frontera entre el espacio formativo y el tiempo de descanso se encuentra desdibujada, como se aprecia en la Tabla 1 y en el mapa de calor de la Figura 19."
    ],
    "id": "b276"
   },
@@ -1310,7 +1322,7 @@
   },
   {
    "id": "b281",
-   "label": "Figura 7",
+   "label": "Figura 19",
    "title": "Mapa de Calor de la CDPS: Distribución del Tiempo Académico Presencial y Autónomo (P1)",
    "type": "figure",
    "src": "img/image15.png",
@@ -1319,7 +1331,7 @@
   {
    "type": "list",
    "items": [
-    "<strong>Motivación vocacional y satisfacción:</strong> Las preguntas P2 y P3 matizan esa carga. Ningún participante dijo estudiar Diseño Gráfico por obligación: el 60,0 % (n = 9) le «agarró cariño en el camino» y el 26,7 % (n = 4) la estudia porque le apasiona; solo el 13,3 % (n = 2) señaló que no sabía qué más hacer. La satisfacción con los propios resultados, en cambio, es baja: el 60,0 % (n = 9) se siente satisfecho «casi nunca» o «a veces», y apenas el 13,3 % (n = 2) lo está siempre (Tabla 2 y Figura 8). Para este grupo, el malestar no parece nacer del rechazo a la carrera, sino de la distancia entre lo que se logra y lo que se espera de sí mismo."
+    "<strong>Motivación vocacional y satisfacción:</strong> Las preguntas P2 y P3 matizan esa carga. Ningún participante dijo estudiar Diseño Gráfico por obligación: el 60,0 % (n = 9) le «agarró cariño en el camino» y el 26,7 % (n = 4) la estudia porque le apasiona; solo el 13,3 % (n = 2) señaló que no sabía qué más hacer. La satisfacción con los propios resultados, en cambio, es baja: el 60,0 % (n = 9) se siente satisfecho «casi nunca» o «a veces», y apenas el 13,3 % (n = 2) lo está siempre (Tabla 2 y Figura 20). Para este grupo, el malestar no parece nacer del rechazo a la carrera, sino de la distancia entre lo que se logra y lo que se espera de sí mismo."
    ],
    "id": "b285"
   },
@@ -1391,7 +1403,7 @@
   },
   {
    "id": "b290",
-   "label": "Figura 8",
+   "label": "Figura 20",
    "title": "Motivación Vocacional y Satisfacción con los Resultados (P2 y P3)",
    "type": "figure",
    "src": "img/p26-image39.png",
@@ -1400,7 +1412,7 @@
   {
    "type": "list",
    "items": [
-    "<strong>Autoexigencia, perfeccionismo y silenciamiento:</strong> Al indagar sobre la relación de los estudiantes consigo mismos, la autoexigencia apareció como una presión interna muy alta. En la pregunta P4 (escala Likert del 1 al 5), el promedio se situó en M = 4,07, con un 46,7 % (n = 7) que eligió la opción \"mi peor enemigo/a\" y un 20,0 % adicional que se autoexige al máximo (Tabla 3 y Figura 9). Esto conecta con la pregunta P5, donde el 73,3 % (n = 11) se reconoció como perfeccionista."
+    "<strong>Autoexigencia, perfeccionismo y silenciamiento:</strong> Al indagar sobre la relación de los estudiantes consigo mismos, la autoexigencia apareció como una presión interna muy alta. En la pregunta P4 (escala Likert del 1 al 5), el promedio se situó en M = 4,07, con un 46,7 % (n = 7) que eligió la opción \"mi peor enemigo/a\" y un 20,0 % adicional que se autoexige al máximo (Tabla 3 y Figura 21). Esto conecta con la pregunta P5, donde el 73,3 % (n = 11) se reconoció como perfeccionista."
    ],
    "id": "b294"
   },
@@ -1473,7 +1485,7 @@
   },
   {
    "id": "b299",
-   "label": "Figura 9",
+   "label": "Figura 21",
    "title": "Distribución de la Autoexigencia Autorreportada (Pregunta P4)",
    "type": "figure",
    "src": null,
@@ -1585,7 +1597,7 @@
   },
   {
    "type": "p",
-   "html": "Frente a la frustración académica profunda (pregunta P7, 17 respuestas registradas), el 47,1 % (n = 8) manifestó que su respuesta principal es \"Me aguanto y sigo\", mientras que el 41,2 % (n = 7) experimenta una irritación que no exterioriza (Tabla 5 y Figura 10). Resultó llamativo que ningún estudiante eligiera abandonar el proyecto: en este grupo, renunciar no apareció como opción, incluso en momentos de saturación.",
+   "html": "Frente a la frustración académica profunda (pregunta P7, 17 respuestas registradas), el 47,1 % (n = 8) manifestó que su respuesta principal es \"Me aguanto y sigo\", mientras que el 41,2 % (n = 7) experimenta una irritación que no exterioriza (Tabla 5 y Figura 22). Resultó llamativo que ningún estudiante eligiera abandonar el proyecto: en este grupo, renunciar no apareció como opción, incluso en momentos de saturación.",
    "id": "b307"
   },
   {
@@ -1657,7 +1669,7 @@
   },
   {
    "id": "b312",
-   "label": "Figura 10",
+   "label": "Figura 22",
    "title": "Reacciones ante la Frustración Académica Profunda (Pregunta P7)",
    "type": "figure",
    "src": null,
@@ -1690,7 +1702,7 @@
   },
   {
    "type": "p",
-   "html": "<strong>La paradoja del burnout, desconocimiento del término frente a vivencia frecuente:</strong> El cruce de las preguntas P8 a P11 dejó el hallazgo más llamativo de la fase, que la investigación denomina La Paradoja del <em>Burnout</em> (Tabla 6 y Figura 11). En la pregunta P8, el 93,3 % (n = 14) declaró que nunca había escuchado el término <em>burnout</em> o síndrome del quemado, y el 6,7 % restante (n = 1) afirmó haberlo oído sin comprender su significado; sin embargo, en la pregunta P9 el 93,3 % (n = 14) reconoció haberse sentido quemado por la carrera (66,7 % \"sí, sin duda\", 6,7 % \"creo que sí\" y 20,0 % \"solo en picos de estrés\"). Además, el 66,7 % (n = 10) afirmó en la pregunta P10 que se encuentra viviendo esa situación en este momento, y el 80,0 % (n = 12) manifestó en la pregunta P11 que este agotamiento es un \"ciclo sin fin que se repite cada semestre\".",
+   "html": "<strong>La paradoja del burnout, desconocimiento del término frente a vivencia frecuente:</strong> El cruce de las preguntas P8 a P11 dejó el hallazgo más llamativo de la fase, que la investigación denomina La Paradoja del <em>Burnout</em> (Tabla 6 y Figura 23). En la pregunta P8, el 93,3 % (n = 14) declaró que nunca había escuchado el término <em>burnout</em> o síndrome del quemado, y el 6,7 % restante (n = 1) afirmó haberlo oído sin comprender su significado; sin embargo, en la pregunta P9 el 93,3 % (n = 14) reconoció haberse sentido quemado por la carrera (66,7 % \"sí, sin duda\", 6,7 % \"creo que sí\" y 20,0 % \"solo en picos de estrés\"). Además, el 66,7 % (n = 10) afirmó en la pregunta P10 que se encuentra viviendo esa situación en este momento, y el 80,0 % (n = 12) manifestó en la pregunta P11 que este agotamiento es un \"ciclo sin fin que se repite cada semestre\".",
    "id": "b315"
   },
   {
@@ -1741,7 +1753,7 @@
   },
   {
    "id": "b320",
-   "label": "Figura 11",
+   "label": "Figura 23",
    "title": "La Paradoja del Burnout: Desconocimiento Conceptual frente a Vivencia Empírica",
    "type": "figure",
    "src": null,
@@ -1869,7 +1881,7 @@
   {
    "type": "list",
    "items": [
-    "<strong>Identificación con la hiperexigencia y peso de la mirada externa:</strong> En la P14, los participantes eligieron, entre seis afirmaciones, aquellas con las que se identificaban. La más elegida fue «siento que nunca es suficiente» (7 de 15, 46,7 %), seguida de «equivocarme me destruye» y «si descanso, siento culpa» (5 de 15, 33,3 % cada una) y de «vivo comparándome» (4 de 15, 26,7 %); solo 3 participantes (20,0 %) dijeron sentirse en control (Figura 12). La culpa por descansar es especialmente relevante para este proyecto: sugiere que la pausa misma se vive como una falta. En la P15, el 80,0 % (n = 12) reconoció que los comentarios sobre su trabajo afectan la percepción que tiene de sí mismo, el 20,0 % (n = 3) «muchísimo, me ahogo» y el 60,0 % (n = 9) «depende de quién venga»; el 20,0 % restante (n = 3) dijo que le resbalan (Tabla 8)."
+    "<strong>Identificación con la hiperexigencia y peso de la mirada externa:</strong> En la P14, los participantes eligieron, entre seis afirmaciones, aquellas con las que se identificaban. La más elegida fue «siento que nunca es suficiente» (7 de 15, 46,7 %), seguida de «equivocarme me destruye» y «si descanso, siento culpa» (5 de 15, 33,3 % cada una) y de «vivo comparándome» (4 de 15, 26,7 %); solo 3 participantes (20,0 %) dijeron sentirse en control (Figura 24). La culpa por descansar es especialmente relevante para este proyecto: sugiere que la pausa misma se vive como una falta. En la P15, el 80,0 % (n = 12) reconoció que los comentarios sobre su trabajo afectan la percepción que tiene de sí mismo, el 20,0 % (n = 3) «muchísimo, me ahogo» y el 60,0 % (n = 9) «depende de quién venga»; el 20,0 % restante (n = 3) dijo que le resbalan (Tabla 8)."
    ],
    "id": "b331"
   },
@@ -1951,7 +1963,7 @@
   },
   {
    "id": "b336",
-   "label": "Figura 12",
+   "label": "Figura 24",
    "title": "Afirmaciones de Hiperexigencia con las que se Identifican los Participantes (P14)",
    "type": "figure",
    "src": "img/p26-image40.png",
@@ -1960,18 +1972,18 @@
   {
    "type": "list",
    "items": [
-    "<strong>Cartografía de la presión: factores, momentos y reacciones:</strong> El bloque final de la cartografía preguntó de dónde viene la presión, cuándo se intensifica y cómo se reacciona ante ella. Entre los factores (P16, 14 participantes), la avalancha de entregas fue la más señalada (7, 50,0 %), seguida de cerca por «mi propia cabeza exigiéndome» (6, 42,9 %); el pánico a fracasar y no decepcionar a la familia reunieron a 4 participantes cada uno (28,6 %). Las fuentes internas de presión pesan casi tanto como las externas, lo que coincide con la lectura de Han (2012) sobre la autoexplotación y con la de Caballero et al. (2015) sobre las demandas del contexto académico: en este grupo, ambas conviven. En cuanto al momento (P16b), la carga se concentra en las entregas finales (10 de 15, 66,7 %) y cuando todo se cruza (9 de 15, 60,0 %) (Figura 13)."
+    "<strong>Cartografía de la presión: factores, momentos y reacciones:</strong> El bloque final de la cartografía preguntó de dónde viene la presión, cuándo se intensifica y cómo se reacciona ante ella. Entre los factores (P16, 14 participantes), la avalancha de entregas fue la más señalada (7, 50,0 %), seguida de cerca por «mi propia cabeza exigiéndome» (6, 42,9 %); el pánico a fracasar y no decepcionar a la familia reunieron a 4 participantes cada uno (28,6 %). Las fuentes internas de presión pesan casi tanto como las externas, lo que coincide con la lectura de Han (2012) sobre la autoexplotación y con la de Caballero et al. (2015) sobre las demandas del contexto académico: en este grupo, ambas conviven. En cuanto al momento (P16b), la carga se concentra en las entregas finales (10 de 15, 66,7 %) y cuando todo se cruza (9 de 15, 60,0 %) (Figura 25)."
    ],
    "id": "b340"
   },
   {
    "type": "p",
-   "html": "Ante el agotamiento profundo (P17), las reacciones más frecuentes fueron perder las ganas de todo (9 de 15, 60,0 %) y encerrarse o aislarse (8 de 15, 53,3 %); les siguen el daño en el sueño y dejar todo para última hora (4 de 15 cada una) y exigirse el triple (3 de 15) (Tabla 9 y Figura 14). La retirada, más que la búsqueda de ayuda, aparece como la respuesta habitual al límite, lo que refuerza la necesidad de canales que no le exijan al joven pedir apoyo de forma directa.",
+   "html": "Ante el agotamiento profundo (P17), las reacciones más frecuentes fueron perder las ganas de todo (9 de 15, 60,0 %) y encerrarse o aislarse (8 de 15, 53,3 %); les siguen el daño en el sueño y dejar todo para última hora (4 de 15 cada una) y exigirse el triple (3 de 15) (Tabla 9 y Figura 26). La retirada, más que la búsqueda de ayuda, aparece como la respuesta habitual al límite, lo que refuerza la necesidad de canales que no le exijan al joven pedir apoyo de forma directa.",
    "id": "b341"
   },
   {
    "id": "b342",
-   "label": "Figura 13",
+   "label": "Figura 25",
    "title": "Factores de Presión y Momentos de Mayor Carga en el Semestre (P16 y P16b)",
    "type": "figure",
    "src": "img/p26-image41.png",
@@ -2085,7 +2097,7 @@
   },
   {
    "id": "b350",
-   "label": "Figura 14",
+   "label": "Figura 26",
    "title": "Reacciones ante el Agotamiento Profundo (P17)",
    "type": "figure",
    "src": "img/p26-image42.png",
@@ -2093,12 +2105,12 @@
   },
   {
    "type": "p",
-   "html": "Las consecuencias de esta carga (pregunta P18, 31 respuestas registradas) se reflejaron en el cuerpo y en lo psicosocial. Como muestra la Figura 15, el cansancio crónico lideró con el 32,3 % (n = 10), seguido por la ansiedad permanente (22,6 %, n = 7), la depresión o sensación de vacío (19,4 %, n = 6) y el bloqueo creativo (16,1 %, n = 5). Para un estudiante de una carrera proyectual, el bloqueo creativo no es un simple retraso: puede afectar directamente su identidad vocacional. El registro original del instrumento se conserva en el mapa de calor de la Figura 16.",
+   "html": "Las consecuencias de esta carga (pregunta P18, 31 respuestas registradas) se reflejaron en el cuerpo y en lo psicosocial. Como muestra la Figura 27, el cansancio crónico lideró con el 32,3 % (n = 10), seguido por la ansiedad permanente (22,6 %, n = 7), la depresión o sensación de vacío (19,4 %, n = 6) y el bloqueo creativo (16,1 %, n = 5). Para un estudiante de una carrera proyectual, el bloqueo creativo no es un simple retraso: puede afectar directamente su identidad vocacional. El registro original del instrumento se conserva en el mapa de calor de la Figura 28.",
    "id": "b354"
   },
   {
    "id": "b355",
-   "label": "Figura 15",
+   "label": "Figura 27",
    "title": "Manifestaciones del Costo Vital del Burnout Académico",
    "type": "figure",
    "src": null,
@@ -2129,7 +2141,7 @@
   },
   {
    "id": "b358",
-   "label": "Figura 16",
+   "label": "Figura 28",
    "title": "Mapa de Calor de la CDPS: Afectaciones Corporales y Creativas del Burnout (P18)",
    "type": "figure",
    "src": "img/image16.png",
@@ -2260,7 +2272,7 @@
     [
      "Marco teórico en texto",
      "Red de conceptos interactiva",
-     "Realizado: red de la Cadena de Valor (Figura 5)"
+     "Realizado: red de la Cadena de Valor (Figura 17)"
     ],
     [
      "Informe diagnóstico",
@@ -2338,17 +2350,17 @@
   },
   {
    "type": "p",
-   "html": "Durante la sesión grupal coordinada por la docente Caroll Suárez se asignó al proyecto el tema de la Arquitectura como referente de las Industrias Culturales y Creativas; por iniciativa propia, el ejercicio se extendió a cuatro temas adicionales (Música, Escultura, Museos y Videojuegos), produciendo cinco matrices en formato de mapa mental con ideas calificadas en tres niveles: inviable, buena idea y prioritaria. Las ideas prioritarias de las cinco matrices se reunieron y analizaron comparativamente en una matriz de síntesis proyectual, de la que emergió la propuesta central del proyecto: un ecosistema <em>phygital</em> que articula obras conceptuales físicas con una aplicación móvil de Realidad Aumentada que opera como lente reveladora. Todas las matrices fueron publicadas como mapas navegables e interactivos en la plataforma web (Figura 18). Junto con el Match Creativo, este ejercicio marca el paso de la indagación a la ideación.",
+   "html": "Durante la sesión grupal coordinada por la docente Caroll Suárez se asignó al proyecto el tema de la Arquitectura como referente de las Industrias Culturales y Creativas; por iniciativa propia, el ejercicio se extendió a cuatro temas adicionales (Música, Escultura, Museos y Videojuegos), produciendo cinco matrices en formato de mapa mental con ideas calificadas en tres niveles: inviable, buena idea y prioritaria. Las ideas prioritarias de las cinco matrices se reunieron y analizaron comparativamente en una matriz de síntesis proyectual, de la que emergió la propuesta central del proyecto: un ecosistema <em>phygital</em> que articula obras conceptuales físicas con una aplicación móvil de Realidad Aumentada que opera como lente reveladora. Todas las matrices fueron publicadas como mapas navegables e interactivos en la plataforma web (Figura 30). Junto con el Match Creativo, este ejercicio marca el paso de la indagación a la ideación.",
    "id": "b375"
   },
   {
    "type": "p",
-   "html": "Antes de llegar a esa síntesis, las ideas prioritarias se concretaron en seis propuestas de producto, que se evaluaron frente a cinco pilares definidos para MetafoRA: la connotación editorial (que el producto tuviera cuerpo físico, curaduría y narrativa), la Realidad Aumentada como revelación y no como adorno, un abordaje metafórico y no clínico del burnout, la excelencia visual y que el producto resultara atractivo y funcional por sí mismo (Figura 17). La aplicación de hábitos con mascota virtual y los minijuegos se descartaron por ser exclusivamente digitales y no justificar la RA; los coleccionables y el juego de mesa con RA se conservaron como formatos posibles de pieza dentro del ecosistema, y los artefactos de pausa no avanzaron como propuesta central porque se limitan a una experiencia individual que no genera comunidad. Solo el ecosistema phygital de piezas autorales cumplió los cinco pilares.",
+   "html": "Antes de llegar a esa síntesis, las ideas prioritarias se concretaron en seis propuestas de producto, que se evaluaron frente a cinco pilares definidos para MetafoRA: la connotación editorial (que el producto tuviera cuerpo físico, curaduría y narrativa), la Realidad Aumentada como revelación y no como adorno, un abordaje metafórico y no clínico del burnout, la excelencia visual y que el producto resultara atractivo y funcional por sí mismo (Figura 29). La aplicación de hábitos con mascota virtual y los minijuegos se descartaron por ser exclusivamente digitales y no justificar la RA; los coleccionables y el juego de mesa con RA se conservaron como formatos posibles de pieza dentro del ecosistema, y los artefactos de pausa no avanzaron como propuesta central porque se limitan a una experiencia individual que no genera comunidad. Solo el ecosistema phygital de piezas autorales cumplió los cinco pilares.",
    "id": "b376"
   },
   {
    "id": "b377",
-   "label": "Figura 17",
+   "label": "Figura 29",
    "title": "Evaluación de las Propuestas de la Lluvia de Ideas frente a los Pilares de MetafoRA",
    "type": "figure",
    "src": "img/p26-image49.png",
@@ -2356,7 +2368,7 @@
   },
   {
    "id": "b381",
-   "label": "Figura 18",
+   "label": "Figura 30",
    "title": "Matriz de Síntesis y Decantación Conceptual hacia el Ecosistema Phygital",
    "type": "figure",
    "src": "img/figura9-matriz.jpeg",
@@ -2370,12 +2382,12 @@
   },
   {
    "type": "p",
-   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre del programa de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. La participación fue activa: cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego físico de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>, un formato impreso en el que escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con Realidad Aumentada y definió lo que espera que sienta quien la vea. La sesión generó dos corpus de información, uno cuantitativo y uno cualitativo. Por esta doble naturaleza, el taller cierra la indagación de la Fase 1 y, a la vez, constituye el primer ejercicio de cocreación del proyecto: las piezas propuestas en las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2). La Figura 19 registra la sesión.",
+   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre del programa de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. La participación fue activa: cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego físico de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>, un formato impreso en el que escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con Realidad Aumentada y definió lo que espera que sienta quien la vea. La sesión generó dos corpus de información, uno cuantitativo y uno cualitativo. Por esta doble naturaleza, el taller cierra la indagación de la Fase 1 y, a la vez, constituye el primer ejercicio de cocreación del proyecto: las piezas propuestas en las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2). La Figura 31 registra la sesión.",
    "id": "b386"
   },
   {
    "id": "b387",
-   "label": "Figura 19",
+   "label": "Figura 31",
    "title": "Registro Fotográfico del Taller «Sobre lo que no dices»",
    "type": "figure",
    "src": "img/p26-image48.jpg",
@@ -2388,7 +2400,7 @@
   },
   {
    "type": "p",
-   "html": "Análisis cuantitativo de la cartelera grupal: El análisis descriptivo de las votaciones (Tabla 12 y Figura 21) ofrece un primer respaldo, exploratorio, a las premisas del proyecto, con dos consensos unánimes en el máximo de la escala.",
+   "html": "Análisis cuantitativo de la cartelera grupal: El análisis descriptivo de las votaciones (Tabla 12 y Figura 33) ofrece un primer respaldo, exploratorio, a las premisas del proyecto, con dos consensos unánimes en el máximo de la escala.",
    "id": "b392"
   },
   {
@@ -2467,12 +2479,12 @@
   },
   {
    "type": "p",
-   "html": "Con la cautela que impone un grupo de cuatro personas, se desprenden tres lecturas de esta matriz. Primero, el arte como canal de expresión (M = 5,00, unánime): los cuatro participantes estuvieron totalmente de acuerdo en que el arte puede comunicar cosas que las palabras no logran expresar. Segundo, la disposición a encontrarse con la obra de otro (M = 5,00, unánime): todos interactuarían con la obra emocional de otro creador si tuvieran acceso a ella. Tercero, el interés por la Realidad Aumentada (M = 4,75): la capa digital les resultó atractiva como forma de expresión de la pieza. A la vez, la afirmación sobre el efecto del agotamiento en la vida cotidiana obtuvo la media más baja (M = 3,25), y la comodidad con que desconocidos interactúen con la propia obra (M = 3,75) fue menor que la disposición a crearla y publicarla (M = 4,75), una tensión que reaparece en el debate sobre autoría y anonimato. Las Figuras 20 y 21 complementan este análisis con el registro fotográfico del pliego marcado y la comparación radial de las medias.",
+   "html": "Con la cautela que impone un grupo de cuatro personas, se desprenden tres lecturas de esta matriz. Primero, el arte como canal de expresión (M = 5,00, unánime): los cuatro participantes estuvieron totalmente de acuerdo en que el arte puede comunicar cosas que las palabras no logran expresar. Segundo, la disposición a encontrarse con la obra de otro (M = 5,00, unánime): todos interactuarían con la obra emocional de otro creador si tuvieran acceso a ella. Tercero, el interés por la Realidad Aumentada (M = 4,75): la capa digital les resultó atractiva como forma de expresión de la pieza. A la vez, la afirmación sobre el efecto del agotamiento en la vida cotidiana obtuvo la media más baja (M = 3,25), y la comodidad con que desconocidos interactúen con la propia obra (M = 3,75) fue menor que la disposición a crearla y publicarla (M = 4,75), una tensión que reaparece en el debate sobre autoría y anonimato. Las Figuras 32 y 33 complementan este análisis con el registro fotográfico del pliego marcado y la comparación radial de las medias.",
    "id": "b397"
   },
   {
    "id": "b398",
-   "label": "Figura 20",
+   "label": "Figura 32",
    "title": "Registro Fotográfico de la Cartelera Grupal",
    "type": "figure",
    "src": "img/image17.jpeg",
@@ -2480,7 +2492,7 @@
   },
   {
    "id": "b402",
-   "label": "Figura 21",
+   "label": "Figura 33",
    "title": "Medias por Afirmación de la Cartelera Grupal",
    "type": "figure",
    "src": null,
@@ -2517,7 +2529,7 @@
   },
   {
    "type": "p",
-   "html": "Análisis cualitativo de las hojas individuales de prototipado: Los cuatro formatos individuales (Figura 22) se presentan a continuación sin interpretar los dibujos. Para cada caso se recoge, con las palabras de su autor, lo que escribió que calla, la pieza que dibujó, lo que propuso para la capa de Realidad Aumentada y lo que espera que sienta quien la vea. Los nombres corresponden a los alias elegidos por los participantes, y las citas se transcriben de las hojas con ajustes mínimos de ortografía.",
+   "html": "Análisis cualitativo de las hojas individuales de prototipado: Los cuatro formatos individuales (Figura 34) se presentan a continuación sin interpretar los dibujos. Para cada caso se recoge, con las palabras de su autor, lo que escribió que calla, la pieza que dibujó, lo que propuso para la capa de Realidad Aumentada y lo que espera que sienta quien la vea. Los nombres corresponden a los alias elegidos por los participantes, y las citas se transcriben de las hojas con ajustes mínimos de ortografía.",
    "id": "b405"
   },
   {
@@ -2532,7 +2544,7 @@
   },
   {
    "id": "b407",
-   "label": "Figura 22",
+   "label": "Figura 34",
    "title": "Hojas Individuales de Prototipado Diligenciadas por los Participantes",
    "type": "figure",
    "src": "img/image18.jpeg",
@@ -2562,7 +2574,7 @@
   },
   {
    "type": "p",
-   "html": "Para orientar ética y metodológicamente el proyecto, el 25 de junio de 2026 se llevó a cabo una entrevista en profundidad de 2 horas y 20 minutos con Gabriel Iván Parra Rosero, diseñador gráfico y psicólogo de la Universidad de Nariño y líder del proyecto comunitario <em>Comunarte</em>. Sus orientaciones permitieron establecer diez lineamientos que rigen el proyecto, sintetizados en la Tabla 13. El registro de la sesión se documenta en la Figura 23.",
+   "html": "Para orientar ética y metodológicamente el proyecto, el 25 de junio de 2026 se llevó a cabo una entrevista en profundidad de 2 horas y 20 minutos con Gabriel Iván Parra Rosero, diseñador gráfico y psicólogo de la Universidad de Nariño y líder del proyecto comunitario <em>Comunarte</em>. Sus orientaciones permitieron establecer diez lineamientos que rigen el proyecto, sintetizados en la Tabla 13. El registro de la sesión se documenta en la Figura 35.",
    "id": "b417"
   },
   {
@@ -2633,7 +2645,7 @@
   },
   {
    "id": "b422",
-   "label": "Figura 23",
+   "label": "Figura 35",
    "title": "Registro de la Sesión de Trabajo con Gabriel Iván Parra Rosero",
    "type": "figure",
    "src": "img/image22.png",
@@ -2773,12 +2785,12 @@
   },
   {
    "type": "p",
-   "html": "<strong>Origen de las piezas:</strong> Las cuatro obras del prototipo parten de los casos del taller (Flor, Blue, Nyo y Sun). A partir de los bocetos dibujados a mano en las hojas individuales, el diseñador generó versiones refinadas con herramientas de Inteligencia Artificial generativa, procurando conservar los elementos que cada autor dibujó y describió. Los autores conocieron estas versiones durante una presentación del proyecto, pero no hubo una retroalimentación formal de su parte. Esto constituye una limitación del ejercicio: las versiones refinadas son una propuesta del diseñador y no una cocreación validada. En los talleres pendientes, cualquier intervención digital sobre las obras quedará acordada con sus autores mediante el consentimiento informado. La Figura 24 muestra cada boceto junto a su versión refinada.",
+   "html": "<strong>Origen de las piezas:</strong> Las cuatro obras del prototipo parten de los casos del taller (Flor, Blue, Nyo y Sun). A partir de los bocetos dibujados a mano en las hojas individuales, el diseñador generó versiones refinadas con herramientas de Inteligencia Artificial generativa, procurando conservar los elementos que cada autor dibujó y describió. Los autores conocieron estas versiones durante una presentación del proyecto, pero no hubo una retroalimentación formal de su parte. Esto constituye una limitación del ejercicio: las versiones refinadas son una propuesta del diseñador y no una cocreación validada. En los talleres pendientes, cualquier intervención digital sobre las obras quedará acordada con sus autores mediante el consentimiento informado. La Figura 36 muestra cada boceto junto a su versión refinada.",
    "id": "b443"
   },
   {
    "id": "b444",
-   "label": "Figura 24",
+   "label": "Figura 36",
    "title": "Del Boceto del Autor a la Ilustración del PMV: los Cuatro Casos del Taller",
    "type": "figure",
    "src": "img/p26-image46.png",
@@ -2791,12 +2803,12 @@
   },
   {
    "type": "p",
-   "html": "<strong>Iteración del software:</strong> <em>MetafoRA</em> no surgió de una compilación única, sino de un proceso de iteración técnica: resolución de incompatibilidades de hardware, calibración del seguimiento óptico y optimización del consumo de memoria en dispositivos Android. El proyecto pasó por once compilaciones internas de prueba (versiones 0.0.10, 0.0.11 y 0.0.20 a 0.0.28) hasta consolidar la versión metafora_0.0.29.apk, definida como el Prototipo V1 (PMV). La Figura 25 muestra la secuencia de compilaciones, sus fechas y el tamaño de cada versión.",
+   "html": "<strong>Iteración del software:</strong> <em>MetafoRA</em> no surgió de una compilación única, sino de un proceso de iteración técnica: resolución de incompatibilidades de hardware, calibración del seguimiento óptico y optimización del consumo de memoria en dispositivos Android. El proyecto pasó por once compilaciones internas de prueba (versiones 0.0.10, 0.0.11 y 0.0.20 a 0.0.28) hasta consolidar la versión metafora_0.0.29.apk, definida como el Prototipo V1 (PMV). La Figura 37 muestra la secuencia de compilaciones, sus fechas y el tamaño de cada versión.",
    "id": "b449"
   },
   {
    "id": "b450",
-   "label": "Figura 25",
+   "label": "Figura 37",
    "title": "Iteraciones del PMV de MetafoRA: de la Versión 0.0.10 a la 0.0.29",
    "type": "figure",
    "src": "img/p26-image51.png",
@@ -2809,12 +2821,12 @@
   },
   {
    "type": "p",
-   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 26, la secuencia de una obra que reacciona al escaneo en la Figura 27, el rediseño de la interfaz para la versión 0.0.30 en la Figura 28, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 29.",
+   "html": "El PMV permitió comprobar que la Realidad Aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 38, la secuencia de una obra que reacciona al escaneo en la Figura 39, el rediseño de la interfaz para la versión 0.0.30 en la Figura 40, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 41.",
    "id": "b455"
   },
   {
    "id": "b456",
-   "label": "Figura 26",
+   "label": "Figura 38",
    "title": "Pruebas de Visualización del PMV de MetafoRA",
    "type": "figure",
    "src": "img/image23.jpeg",
@@ -2833,7 +2845,7 @@
   {
    "id": "b456s",
    "type": "figure",
-   "label": "Figura 27",
+   "label": "Figura 39",
    "title": "Secuencia de Interacción del PMV de MetafoRA: la Obra Reacciona al Escaneo",
    "images": [
     "img/metafora-reaccion-01.jpg",
@@ -2847,7 +2859,7 @@
   {
    "id": "b467",
    "type": "figure",
-   "label": "Figura 29",
+   "label": "Figura 41",
    "title": "Registro de Interacción con el Prototipo V1 (MetafoRA 0.0.29) sobre las Obras Enmarcadas",
    "src": "img/p26-image50.jpg",
    "note": "<em>Nota.</em> El docente Fernando Coral escanea con MetafoRA las cuatro ilustraciones impresas y enmarcadas durante una sesión de la asignatura Proyecto de Grado 2. Fotografía con ajuste de iluminación."
@@ -2855,7 +2867,7 @@
   {
    "id": "b467r",
    "type": "figure",
-   "label": "Figura 28",
+   "label": "Figura 40",
    "title": "Interfaz Rediseñada de MetafoRA, Versión 0.0.30",
    "images": [
     "img/metafora-030-01.jpg",
@@ -2931,12 +2943,12 @@
   },
   {
    "type": "p",
-   "html": "La Figura 30 representa la distribución de los 120 minutos de cada sesión.",
+   "html": "La Figura 42 representa la distribución de los 120 minutos de cada sesión.",
    "id": "b477"
   },
   {
    "id": "b478",
-   "label": "Figura 30",
+   "label": "Figura 42",
    "title": "Estructura Temporal de los Talleres de Cocreación",
    "type": "figure",
    "src": "img/p26-image43.png",
@@ -2961,12 +2973,12 @@
   },
   {
    "type": "p",
-   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar. La Figura 31 desarrolla estas tres ideas.",
+   "html": "El concepto de diseño se sostiene en tres ideas encadenadas: silencio, metáfora y revelación. El silencio es el punto de partida: aquello que existe y se calla. La metáfora es la forma que ese silencio toma cuando un creador lo deposita en una figura proyectiva, un objeto o personaje que lo carga sin tener que decirlo. La revelación es lo que ocurre cuando alguien apunta la aplicación hacia esa obra y descubre lo que su autor quiso comunicar. La Figura 43 desarrolla estas tres ideas.",
    "id": "b485"
   },
   {
    "id": "b486",
-   "label": "Figura 31",
+   "label": "Figura 43",
    "title": "Concepto de Diseño: Silencio, Metáfora y Revelación",
    "type": "figure",
    "src": "img/p26-image32.png",
@@ -2979,12 +2991,12 @@
   },
   {
    "type": "p",
-   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario. La Figura 32 muestra cómo se articulan las piezas del ecosistema.",
+   "html": "Dicha idea con respecto a la amplificación y revelación de mensajes emocionales se extiende desde la tecnología hasta el nombre. <em>MetafoRA</em> fusiona la metáfora como figura retórica central del proyecto con las siglas RA de Realidad Aumentada. De esta forma, tanto el concepto como la tecnología ejecutan una misma operación: ambas trabajan con aquello que no se ve a simple vista bajo el régimen del rendimiento universitario. La Figura 44 muestra cómo se articulan las piezas del ecosistema.",
    "id": "b491"
   },
   {
    "id": "b492",
-   "label": "Figura 32",
+   "label": "Figura 44",
    "title": "Componentes del Ecosistema Phygital",
    "type": "figure",
    "src": "img/p26-image44.png",
@@ -3021,13 +3033,13 @@
    "items": [
     "Violeta y púrpura profundo (color dominante): evoca la introspección psicológica, la interioridad, la penumbra del secreto, la solemnidad del dolor contenido y el silencio respetuoso.",
     "Amarillo cálido y dorado (color de acento y revelación): representa el destello de la iluminación, la catarsis, la energía liberada en la confesión y el momento exacto en que una verdad íntima sale a la luz pública.",
-    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena. La Figura 33 presenta la paleta y la familia tipográfica propuestas."
+    "Neutros oscuros y blancos translúcidos (colores de soporte): fondos en gris asfalto y superficies de cristal blanco con baja opacidad que aportan sobriedad y permiten que las obras de los estudiantes protagonicen la escena. La Figura 45 presenta la paleta y la familia tipográfica propuestas."
    ],
    "id": "b501"
   },
   {
    "id": "b502",
-   "label": "Figura 33",
+   "label": "Figura 45",
    "title": "Paleta Cromática y Tipografía del Ecosistema",
    "type": "figure",
    "src": "img/p26-image45.png",
