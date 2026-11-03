@@ -525,8 +525,6 @@ export class Maquetador {
     }
     this.fluir(parte.bloques);
     const hechas = this.paginas.slice(desde);
-    // Notas muy breves (responsabilidad, dedicatoria): la frase en grande, como pieza editorial
-    if (/^(Nota de responsabilidad|Dedicatoria)/i.test(nom) && hechas.length === 1) hechas[0].el.classList.add('pre-frase');
     // Fichas: «Campo: valor» como tabla de datos; la nota de aceptación con líneas de firma
     if (/^(Nota de autor|Nota de aceptación)/i.test(nom)) hechas.forEach(x => {
       x.el.classList.add(/aceptación/i.test(nom) ? 'pre-firmas' : 'pre-ficha');
