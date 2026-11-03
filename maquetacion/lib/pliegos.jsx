@@ -15,7 +15,7 @@ import { ICONOS_RUTA } from '@/lib/iconosRuta';
 
 // Lema de cada fase de las 3i: el nombre de la fase se mantiene y el lema lo acompaña
 const TITULOS = { indagar: 'Cartografiar', idear: 'Diseñar', implementar: 'Validar' };
-const LEMAS = { indagar: 'Cartografiar el silencio', idear: 'Diseñar la metáfora', implementar: 'Validar la revelación' };
+const LEMAS = { indagar: 'Cartografiar el silencio', idear: 'Diseñar lo reprimido', implementar: 'Validar la revelación' };
 
 const PX = 96;                      // px por pulgada
 const L = 0.2 * PX;                 // renglón: todo lo que se apila cae en múltiplos de esta altura
