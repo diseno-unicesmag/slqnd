@@ -191,7 +191,7 @@ class Maquetador {
         const filasDe = k => { const out = [], por = Math.ceil(n / k); for (let i = 0; i < n; i += por) out.push([...Array(Math.min(por, n - i)).keys()].map(x => x + i)); return out; };
         // Ninguna imagen se amplía por encima de ~150 ppi efectivos
         const maxAncho = i => ds[i][0] / PPI_MAX * PX, TRES = 3 * COL + 2 * GUT;
-        const completa = A_LO_ANCHO.has(b.label);
+        const completa = A_LO_ANCHO.has(b.label) || b.label === 'Figura 40';
         let filas, anchoTotal = ANCHO_CAJA;
         if (n === 1 && b.referente) {
           // Referentes: todos igual, la imagen a la derecha en tres columnas y el pie a la izquierda
@@ -215,7 +215,7 @@ class Maquetador {
             const pena = Math.abs(Math.min(...altos) - 3.4 * PX) + (total > 36 * L ? 1e4 : 0);
             if (!mejor || pena < mejor.pena) mejor = { fs, pena };
           }
-          filas = mejor.fs;
+          filas = b.label === 'Figura 40' ? filasDe(2) : mejor.fs;
         }
         filas.forEach(fila => {
           const suma = fila.reduce((a, i) => a + r[i], 0);

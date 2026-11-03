@@ -2980,10 +2980,10 @@
   {
    "id": "b450",
    "label": "Figura 37",
-   "title": "Iteraciones del PMV de MetafoRA: de la Versión 0.0.10 a la 0.0.29",
+   "title": "Iteraciones del PMV de MetafoRA: de la Versión 0.0.10 a la 0.0.30",
    "type": "figure",
-   "src": "img/p26-image51.png",
-   "note": "<em>Nota.</em> Elaboración propia a partir del historial de compilaciones del proyecto en Unity (archivos APK). Las notas de cada etapa resumen los cambios registrados; la versión 0.0.29 (28 de mayo de 2026) es la que se usó en todas las demostraciones."
+   "src": "img/fig-pmv.png",
+   "note": "<em>Nota.</em> Elaboración propia a partir del historial de compilaciones del proyecto en Unity (archivos APK). Las notas de cada etapa resumen los cambios registrados; la versión 0.0.29 (28 de mayo de 2026) es la que se usó en todas las demostraciones. La 0.0.30 (etapa 4) sigue en desarrollo."
   },
   {
    "type": "p",
@@ -3153,7 +3153,7 @@
    "label": "Figura 43",
    "title": "Concepto de Diseño: Silencio, Metáfora y Revelación",
    "type": "figure",
-   "src": "img/p26-image32.png",
+   "src": "img/fig-concepto.png",
    "note": "<em>Nota.</em> Elaboración propia."
   },
   {
@@ -3171,7 +3171,7 @@
    "label": "Figura 44",
    "title": "Componentes del Ecosistema Phygital",
    "type": "figure",
-   "src": "img/p26-image44.png",
+   "src": "img/fig-ecosistema.png",
    "note": "<em>Nota.</em> Elaboración propia."
   },
   {
