@@ -3229,6 +3229,97 @@
   },
   {
    "type": "heading",
+   "level": 2,
+   "html": "2.4 - Trayectoria del Proyecto",
+   "id": "t001"
+  },
+  {
+   "type": "p",
+   "id": "t002",
+   "html": "Antes de su cierre, <em>Sobre lo que no digo</em> se presentó en siete escenarios académicos, nacionales e internacionales, entre octubre de 2025 y septiembre de 2026 (Figura 46 y Tabla 16). En el IV Encuentro Interinstitucional de Semilleros de Investigación (IV EISI 2025, Universidad Ean, Bogotá) el póster del proyecto obtuvo la calificación máxima (5,0) y resultó ganador de su mesa temática. Luego fue ponencia en el 6.° Congreso Internacional de Semilleros de Investigación de REDARTYC (Cali, 13 al 15 de noviembre de 2025), en el Semillero Internacional REDSIIN 2026 (UNIPAZ, 25 y 26 de junio de 2026) y en el Festival Buenamente 2026 (10 y 11 de septiembre de 2026), después de haberse mostrado como póster en el Festival Buenamente 2025."
+  },
+  {
+   "type": "p",
+   "id": "t003",
+   "html": "En el V Encuentro de Semilleros de Investigación CESMAG (ESIC 2026, 11 y 12 de mayo de 2026) la ponencia obtuvo una evaluación excelente, lo que le valió un reconocimiento institucional. La trayectoria cierra con la Convocatoria de Semilleros de Estudiantes Investigadores reglamentada por el Acuerdo 027 de 2026 del Consejo Académico: el proyecto fue seleccionado para ser financiado por la Vicerrectoría de Investigación y Extensión, como el único del programa de Diseño Gráfico, lo que marca el cierre de su segunda fase y el paso a la siguiente."
+  },
+  {
+   "type": "figure",
+   "id": "t004",
+   "label": "Figura 46",
+   "title": "Trayectoria del Proyecto en Eventos Académicos y Convocatorias (2025–2026)",
+   "src": "img/fig-trayectoria.png",
+   "note": "<em>Nota.</em> Elaboración propia a partir de los certificados de participación de cada evento. En dorado, los reconocimientos obtenidos."
+  },
+  {
+   "type": "table",
+   "id": "t005",
+   "label": "Tabla 16",
+   "title": "Participación del Proyecto en Eventos Académicos y Convocatorias",
+   "rows": [
+    [
+     "21 oct. 2025",
+     "IV EISI 2025",
+     "Bogotá · Universidad Ean",
+     "Ponente · póster",
+     "Ganador de mesa (5,0)"
+    ],
+    [
+     "2025",
+     "Festival Buenamente 2025",
+     "Pasto · Universidad CESMAG",
+     "Póster",
+     "Participación"
+    ],
+    [
+     "13–15 nov. 2025",
+     "6.° Congreso Internacional de Semilleros de Investigación REDARTYC",
+     "Cali · Bellas Artes, Institución Universitaria del Valle",
+     "Ponencia",
+     "Participación"
+    ],
+    [
+     "11–12 may. 2026",
+     "V ESIC 2026",
+     "Pasto · Universidad CESMAG",
+     "Ponencia",
+     "Evaluación excelente"
+    ],
+    [
+     "25–26 jun. 2026",
+     "Semillero Internacional REDSIIN 2026",
+     "UNIPAZ · REDARTYC",
+     "Ponencia",
+     "Participación"
+    ],
+    [
+     "10–11 sep. 2026",
+     "Festival Buenamente 2026",
+     "Pasto · Universidad CESMAG",
+     "Ponencia",
+     "Participación"
+    ],
+    [
+     "2026",
+     "Convocatoria de Semilleros · Acuerdo 027 de 2026",
+     "Universidad CESMAG · VIE",
+     "Proyecto de semillero",
+     "Seleccionado y financiado"
+    ]
+   ],
+   "note": "<em>Nota.</em> Elaboración propia a partir de los certificados de cada evento.",
+   "head": [
+    [
+     "<strong>Fecha</strong>",
+     "<strong>Evento</strong>",
+     "<strong>Lugar / organizador</strong>",
+     "<strong>Modalidad</strong>",
+     "<strong>Resultado</strong>"
+    ]
+   ]
+  },
+  {
+   "type": "heading",
    "level": 1,
    "html": "Referencias",
    "id": "b508",
