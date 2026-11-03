@@ -635,3 +635,69 @@
 .pl a.fila { display: grid; text-decoration: none; color: inherit; }
 .pl .toc h2.lista-tit { margin: 0 0 calc(var(--L) * 2); font-size: 30pt; line-height: 1; font-weight: 900; letter-spacing: -.03em; color: #fff; }
 .pl .ti-card.esmerilado { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.32); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 30px 70px rgba(0,0,0,.4); backdrop-filter: blur(18px) saturate(1.4) brightness(.9); -webkit-backdrop-filter: blur(18px) saturate(1.4) brightness(.9); border-radius: 22px; }
+/* Portada con el fondo de vidrio morado y dorado (el mismo de las páginas 10-11), sin velo que apague el amarillo */
+.pl .portada.tipo > .fondo { filter: brightness(.82) saturate(1.15); }
+.pl .portada.tipo > .fondo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,8,22,.15) 0%, rgba(11,8,22,.1) 45%, rgba(11,8,22,.75) 100%); }
+.pl .portada.tipo > h1.logo { color: #fff; background: none !important; -webkit-background-clip: border-box; background-clip: border-box; filter: none; text-shadow: 0 6px 40px rgba(18,13,38,.45); }
+/* Portadillas en el orden del Word */
+.pl .portadilla { justify-content: space-between; }
+.pl .portadilla .pd-g p { margin: 0; text-align: center; font-size: 11.5pt; line-height: 1.6; color: #2b1759; }
+.pl .portadilla .pd-g p:nth-child(2) { margin-top: 0; padding-top: 0; border-top: 0; }
+.pl .portadilla .pd-lugar p { font-size: 12pt; font-weight: 600; }
+.pl .portadilla .pd-lugar p:last-child { margin-top: 0; font-size: 12pt; font-weight: 800; color: #2b1759; }
+.pl .portadilla p.titulo { margin-bottom: 0; }
+.pl .portadilla .pd-per p:last-child, .pl .portadilla .pd-inst p:last-child { margin-top: 0; font-size: 11.5pt; font-weight: 400; color: #2b1759; }
+.pl .portadilla .pd-g .fv { font-weight: 400; }
+.pl .ti-card { padding: .32in .55in; }
+/* Tarjetas de ejercicio: color plano, sin sombra ni borde; círculo concéntrico con la esquina */
+.pl h5.t5.ej { display: flex; align-items: flex-start; gap: 9px; width: auto; padding: 6px 14px 6px 6px; border-radius: 18px; background: #ece6fa; box-shadow: none; font-weight: 400; }
+.pl h5.t5.ej .n { flex: 0 0 24px; display: grid; place-items: center; width: 24px; height: 24px; margin: 0; border-radius: 50%; background: #2b1759; color: var(--g); font: 900 10.5px/1 'Montserrat', sans-serif; text-align: center; vertical-align: 0; padding: 0; }
+.pl h5.t5.ej .tx { padding: 3px 0; font-size: 8.6pt; line-height: 1.35; color: #2b1759; }
+.pl h5.t5.ej .tx b { font-weight: 800; }
+.pl h5.t5.ej .tx .det { font-weight: 400; }
+.pl h5.t5.ej .tx .det::before { content: ' · '; font-weight: 400; }
+.pl h5.t5.ej .tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 99px; font: 700 6.6pt/1.5 'Montserrat', sans-serif; font-style: normal; letter-spacing: .06em; text-transform: uppercase; vertical-align: 1px; white-space: nowrap; }
+.pl h5.t5.ej .tag.clase { background: #6b3fc4; color: #fff; }
+.pl h5.t5.ej .tag.campo { background: var(--g); color: #2b1759; }
+.pl h5.t5.ej .tag.hecho { background: #2b1759; color: #fff; }
+.pl h5.t5.ej .tag.pend { background: #d9cff3; color: #2b1759; }
+/* Ruta metodológica en una página: tres tiras horizontales */
+.pl .ruta-una .r1 { position: absolute; inset: .6in .6in .55in; display: flex; flex-direction: column; gap: .14in; }
+.pl .r1-top { position: relative; padding-bottom: .05in; }
+.pl .r1-top .rot { font-size: 7.5pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--g); }
+.pl .r1-top h2 { margin: .06in 0 0; font-size: 40pt; line-height: 1; font-weight: 900; letter-spacing: -.04em; color: #fff; }
+.pl .r1-top h2 em { font-style: normal; color: #c9b6ff; }
+.pl .r1-top .ru-ley { right: 0; bottom: .08in; }
+.pl .r1-tira { flex: 1; display: grid; grid-template-columns: 2.25in 1fr; gap: .22in; padding: .2in; border-radius: .26in; background: rgba(255,255,255,.06); }
+.pl .r1-tira.m1 { background: rgba(245,197,66,.10); }
+.pl .r1-cab { display: flex; gap: .1in; align-items: center; }
+.pl .r1-izq h3 { margin: .1in 0 0; font-size: 20pt; line-height: 1; font-weight: 900; letter-spacing: -.03em; color: #fff; }
+.pl .r1-sub { margin: .05in 0 0; font-size: 7.3pt; line-height: 1.35; color: rgba(255,255,255,.7); text-align: left; }
+.pl .r1-est { display: inline-flex; gap: 5px; align-items: center; margin-top: .07in; padding: 2px 8px; border-radius: 99px; background: rgba(255,255,255,.12); font: 700 6.8pt/1.5 'Montserrat', sans-serif; font-style: normal; color: #fff; }
+.pl .r1-est svg { width: 10px; height: 10px; }
+.pl .r1-prop { margin: .1in 0 0; font-size: 7.6pt; line-height: 1.35; color: #fff; text-align: left; }
+.pl .r1-prop b { display: block; font: 800 6.6pt/1.4 'Montserrat', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--g); }
+.pl .r1-der { display: flex; flex-direction: column; justify-content: space-between; gap: .1in; }
+.pl .r1-acts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .09in .18in; }
+.pl .r1-acts li { display: flex; gap: .09in; align-items: flex-start; }
+.pl .r1-acts .dot { flex: none; display: grid; place-items: center; width: .3in; height: .3in; border-radius: .1in; background: var(--g); color: var(--d); }
+.pl .r1-acts li.falta .dot { background: rgba(255,255,255,.12); color: #fff; }
+.pl .r1-acts .dot svg { width: .16in; height: .16in; }
+.pl .r1-acts b { display: block; font-size: 7.8pt; line-height: 1.2; font-weight: 800; color: #fff; }
+.pl .r1-acts i { display: block; font-style: normal; font-size: 6.8pt; line-height: 1.3; color: rgba(255,255,255,.72); margin-top: 1px; }
+.pl .r1-res { margin: 0; display: flex; gap: .1in; align-items: center; background: rgba(245,197,66,.16); border-radius: .16in; padding: .07in .14in; font-size: 7.6pt; color: #fff; text-align: left; }
+.pl .r1-res svg { width: .18in; height: .18in; color: var(--g); flex: none; }
+.pl .r1-res b { display: block; font: 800 6.4pt/1.4 'Montserrat', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--g); }
+.pl .r1-nota { font-size: 7pt; color: rgba(255,255,255,.6); }
+.pl .ru-ley i.p { border: 0; background: rgba(255,255,255,.12); }
+/* Fotografías de campo a doble página */
+.pl .foto-pliego { overflow: hidden; }
+.pl .foto-pliego .fondo-izq, .pl .foto-pliego .fondo-der { inset: 0 auto 0 auto; width: 200%; background-size: cover; background-position: center; }
+.pl .foto-pliego .fondo-izq { left: 0; }
+.pl .foto-pliego .fondo-der { left: -100%; }
+.pl .pliego-pie { position: absolute; z-index: 3; right: .6in; bottom: .6in; width: 3.6in; padding: .2in .26in; color: #fff; }
+.pl .pliego-pie .rot { display: block; font: 800 7pt/1.4 'Montserrat', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--g); }
+.pl .pliego-pie .tit { display: block; margin-top: 2px; font: italic 600 9.5pt/1.3 'Montserrat', sans-serif; }
+.pl .pliego-pie .nota { margin-top: 5px; font-size: 7.4pt; line-height: 1.4; color: rgba(255,255,255,.88); }
+.pl .g-tit{font:700 13px Montserrat,sans-serif;fill:var(--d)}
+.pl .g-n{font-weight:500;fill:#8a8597}
