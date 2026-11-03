@@ -26,7 +26,7 @@ const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
-const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 27']);   // fotografías de campo a página completa
+const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 28']);   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
@@ -34,7 +34,7 @@ const CITAS = [
   ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', 'Sobre lo que no digo'],
   ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
 ];
-const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 28', 'Figura 30', 'Figura 31']);
+const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 29', 'Figura 31', 'Figura 32']);
 const PAGINA_SOLA = new Set(['Figura 3', 'Figura 24']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
@@ -143,7 +143,7 @@ export class Maquetador {
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 31') { this.paletaPendiente = b; return null; } return this.figura(b);
+      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 32') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -575,7 +575,7 @@ export class Maquetador {
     this.aIzquierda();
     const izq = this.pagina('noche ap-foto', { folio: false });
     izq.el.appendChild(this.fondo(this.deco['foto' + parte.num] || this.deco['cap' + parte.num]));
-    izq.el.appendChild(h('span', 'ap-credito', parte.num === '1' ? 'Sesión de la Cartografía Digital de Pensamientos Silenciados, 2026' : 'Taller de cocreación «Sobre lo que no dices», 2026'));
+    izq.el.appendChild(h('span', 'ap-credito', parte.num === '1' ? 'Imagen generada con IA (Google Flow), 2026' : 'Taller de cocreación «Sobre lo que no dices», 2026'));
     const lente = h('span', 'burbuja ap-lente'); izq.el.appendChild(lente);
     pieza(lente, 'lente-cap' + parte.num, 2.4 * PX, { ca: 4, ff: 0.3, pf: 0.1, fondo: 'rgba(255,255,255,0.06)', sombra: '0 22px 44px rgba(0,0,0,0.45)' });
     const der = this.pagina('noche ap-morada', { folio: false });
