@@ -26,16 +26,16 @@ const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
-const SANGRE = new Set(['Figura 6', 'Figura 19', 'Figura 29']);   // fotografías de campo a página completa
+const SANGRE = new Set(['Figura 18', 'Figura 31', 'Figura 41']);   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
-  ['ya contó su historia primero', 'Es más fácil abrirse cuando alguien más ya contó su historia primero', 'Sobre lo que no digo'],
-  ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', 'Sobre lo que no digo'],
+  ['ya contó su historia primero', 'Es más fácil abrirse cuando alguien más ya contó su historia primero', ''],
+  ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', ''],
   ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
 ];
-const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 24', 'Figura 25', 'Figura 30', 'Figura 32', 'Figura 33']);
-const PAGINA_SOLA = new Set(['Figura 3', 'Figura 24']);   // van solas, centradas en su página
+const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 36', 'Figura 37', 'Figura 42', 'Figura 44', 'Figura 45']);
+const PAGINA_SOLA = new Set(['Figura 36']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -102,7 +102,23 @@ function entradasIndice(partes) {
   return out;
 }
 
-export class Maquetador {
+export 
+// Grietas doradas irregulares para la portada (deterministas: mismo dibujo en web y PDF)
+function grietas() {
+  let sem = 7; const r = () => { sem = (sem * 9301 + 49297) % 233280; return sem / 233280; };
+  const W = 816, H = 1056; let d = '';
+  const rama = (x, y, ang, largo, grosor, nivel) => {
+    let pts = [[x, y]];
+    const pasos = 6 + Math.floor(r() * 6);
+    for (let i = 0; i < pasos; i++) { ang += (r() - .5) * .9; x += Math.cos(ang) * largo / pasos; y += Math.sin(ang) * largo / pasos; pts.push([x, y]); }
+    d += `<path d="M${pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L')}" stroke-width="${grosor.toFixed(2)}"/>`;
+    if (nivel < 3) { const n = 1 + Math.floor(r() * 2); for (let k = 0; k < n; k++) { const q = pts[1 + Math.floor(r() * (pts.length - 1))]; rama(q[0], q[1], ang + (r() - .5) * 2.2, largo * (.35 + r() * .3), grosor * .55, nivel + 1); } }
+  };
+  [[-10, 60, .25, 520], [W + 10, 30, Math.PI - .35, 430], [300, -10, 1.25, 260], [W + 10, 330, Math.PI + .15, 300], [-10, 260, -.15, 240]].forEach(([x, y, a, l]) => rama(x, y, a, l, 2.6, 0));
+  const el = h('div', 'por-grietas', `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><g fill="none" stroke="#f2c230" stroke-linecap="round" stroke-linejoin="round">${d}</g></svg>`);
+  return el;
+}
+class Maquetador {
   constructor(raiz, resolver, deco) {
     this.raiz = raiz; this.resolver = resolver; this.deco = deco;
     this.paginas = []; this.flotantes = []; this.indice = []; this.seccionActual = '';
@@ -132,18 +148,18 @@ export class Maquetador {
     switch (b.type) {
       case 'p': {
         const e = h('p', b.style === 'referencia' ? 'ref' : '', b.html);
-        if (primero && this.modo !== 'refs' && textoPlano(b.html).length > 250) e.classList.add('dc', 'sigue');
+        if (primero && this.modo !== 'refs' && !this.sinCapitular && textoPlano(b.html).length > 250) e.classList.add('dc', 'sigue');
         return e;
       }
       case 'heading': {
         const [n, t] = separarTitulo(b), lv = Math.min(b.level, 5);
-        if (lv <= 3) { const e = h('h3', 't3', (n ? `<span class="n">${n}</span>` : '') + t); e.dataset.id = b.id; return e; }
+        if (lv <= 3) { const e = h('h3', 't3' + (/^Propósitos Específicos/i.test(t) ? ' salto-col' : ''), (n ? `<span class="n">${n}</span>` : '') + t); e.dataset.id = b.id; return e; }
         if (lv === 4) return h('h4', 't4', (n ? `<span class="n">${n}</span>` : '') + t);
         return h('h5', 't5', (n ? `<span class="n">${n}</span>` : '') + t);
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (b.label === 'Figura 4') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 33') { this.paletaPendiente = b; return null; } return this.figura(b);
+      case 'figure': if (b.label === 'Figura 16') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 45') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -168,9 +184,9 @@ export class Maquetador {
         const maxAncho = i => ds[i][0] / PPI_MAX * PX, TRES = 3 * COL + 2 * GUT;
         const completa = A_LO_ANCHO.has(b.label);
         let filas, anchoTotal = ANCHO_CAJA;
-        if (n === 1 && /^Figura R/.test(b.label || '')) {
+        if (n === 1 && b.referente) {
           // Referentes: todos igual, la imagen a la derecha en tres columnas y el pie a la izquierda
-          anchoTotal = Math.min(TRES, 38 * L * r[0]); f.classList.add('fig-lado'); filas = [[0]];
+          anchoTotal = Math.min(TRES, 22 * L * r[0]); f.classList.add('fig-lado'); filas = [[0]];
         } else if (n === 1 && !completa && r[0] >= 1.05 && maxAncho(0) < ANCHO_CAJA) {
           // horizontal de poca resolución: se reduce; si cabe en tres columnas, el pie va al lado
           anchoTotal = Math.min(maxAncho(0), TRES); if (maxAncho(0) <= TRES + 0.4 * PX) f.classList.add('fig-lado'); filas = [[0]];
@@ -403,16 +419,23 @@ export class Maquetador {
     const t = textoPlano(b.html).toLowerCase(), c = CITAS.find(c => !this.citasUsadas?.has(c[0]) && t.includes(c[0]));
     if (!c || this.paginas.length - (this.ultimaCita ?? -9) < 4) return;
     (this.citasUsadas ??= new Set()).add(c[0]); this.ultimaCita = this.paginas.length;
-    const e = h("div", "ancho cita-dest", `<p>«${c[1]}»</p><span>${c[2]}</span>`);
+    const e = h("div", "ancho cita-dest", `<p>«${c[1]}»</p>` + (c[2] ? `<span>${c[2]}</span>` : ''));
     this.colocarAncho(e);
   }
   vaciarFlotantes() { while (this.flotantes.length) { this.paginaFlujo(); } }
 
   fluir(bloques) {
-    let primero = true;
+    let primero = true, modoAntes = this.modo, trasCategoria = false;
     for (const b of bloques) {
+      // Referentes: cada uno abre página a una columna (nombre, descripción, figura, debilidades,
+      // fortalezas y aporte); la categoría va encima del primero de su grupo
+      const cat = b.type === 'p' && /^<strong>Referentes de /.test(b.html || '');
+      const nom = b.type === 'p' && /^<em><strong>[A-L]\. /.test(b.html || '');
+      if (cat || (nom && !trasCategoria)) { this.cerrarBanda(); this.vaciarFlotantes(); this.modo = 'una'; this.paginaFlujo(); }
+      trasCategoria = cat;
       const el = this.crear(b, primero && b.type === 'p');
       if (!el) continue;
+      if (cat) el.classList.add('ref-cat'); if (nom) el.classList.add('ref-nom');
       el.dataset.b = b.id;
       if (b.type === 'p') primero = false;
       if (b.type === 'heading') primero = false;
@@ -421,6 +444,7 @@ export class Maquetador {
     }
     this.cerrarBanda();
     this.vaciarFlotantes();
+    this.modo = modoAntes;
   }
 
   // ── Partes ──
@@ -435,8 +459,9 @@ export class Maquetador {
     const anio = datos[datos.length - 1] || '';
     const panel = h('div', 'por-texto');
     const t1 = h('h1', 'logo', titulo.replace(/^Sobre\s+(.*?)\s+no\s+(.*)$/, 'Sobre<br>$1<br>no $2')); t1.style.backgroundImage = `url("${this.deco.portada}")`; p.el.appendChild(t1);
-    panel.appendChild(h('p', 'por-sub', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
-    panel.appendChild(h('div', 'por-pie', `<span>${autor}<br><small>Universidad CESMAG</small></span><b class="anio">${anio}</b>`));
+    p.el.appendChild(h('p', 'por-sub por-sub-top', sub.join(' – ').replace(/phygital/i, '<em>phygital</em>')));
+    p.el.appendChild(grietas());
+    panel.appendChild(h('div', 'por-pie', `<span class="autor"><b>${autor}</b><small>Universidad CESMAG</small></span><b class="anio">${anio}</b>`));
     p.el.appendChild(panel);
   }
   // Panel de cristal líquido de verdad: refracción y aberración en los bordes, radio amplio
@@ -445,7 +470,7 @@ export class Maquetador {
     vidrio(el, el.offsetWidth, el.offsetHeight, { radio, prof: Math.round(radio * 0.5), fuerza: Math.round(radio * 0.9), ca: 3, desenfoque: 10, fondo: 'rgba(255,255,255,0.07)', sombra: '0 40px 90px rgba(0,0,0,0.35)' });
   }
   // La ruta metodológica se arma como pliego propio en cuanto la página siguiente sea izquierda
-  // Figura 32 como pliego: la paleta a sangre en bandas y la tipografía en grande
+  // Figura 44 como pliego: la paleta a sangre en bandas y la tipografía en grande
   emitirPaleta() {
     const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.paletaPendiente = null;
@@ -501,7 +526,7 @@ export class Maquetador {
     this.aDerecha();
     const p = this.pagina('', { folio: false });
     const c = h('div', 'portadilla'); const tt = h('p', 'titulo', parte.titulo.html.replace(/\s+-\s+/, '<br><small>')); c.appendChild(tt);
-    parte.datos.forEach(b => { const q = h('p', '', b.html); const m = b.html.match(/^<strong>([^<:]+)(?::<\/strong>|<\/strong>:)\s*(.*)$/s); if (m) q.innerHTML = `<b class="fl">${m[1]}</b> <span class="fv">${m[2]}</span>`; c.appendChild(q); });
+    parte.datos.forEach(b => { const q = h('p', '', b.html); const m = b.html.match(/^<strong>([^<:]+)(?::<\/strong>|<\/strong>:)\s*(.*)$/s); if (m) q.innerHTML = `<b class="fl">${m[1]}:</b> <span class="fv">${m[2]}</span>`; c.appendChild(q); });
     p.el.appendChild(c);
   }
   // Si la página que sigue sería izquierda, se deja una en blanco: lo que abre empieza a la derecha
@@ -516,6 +541,7 @@ export class Maquetador {
       if (/^(Nota de responsabilidad|Agradecimientos)/i.test(nom)) this.aIzquierda();
       else if (!/^(Nota de aceptación|Dedicatoria)/i.test(nom)) this.aDerecha();
     }
+    this.sinCapitular = /^Agradecimientos/i.test(nom);
     const desde = this.paginas.length;
     const p = this.pagina('p-una' + (apretar ? ' apretado' : ''));
     if (parte.titulo) {
@@ -523,7 +549,7 @@ export class Maquetador {
       this.marcar(cab, parte.titulo.id);
       p.caja.appendChild(cab); this.y = enRenglon(cab.offsetHeight) + (apretar ? 1 : 2) * L;
     }
-    this.fluir(parte.bloques);
+    this.fluir(parte.bloques); this.sinCapitular = false;
     const hechas = this.paginas.slice(desde);
     // Fichas: «Campo: valor» como tabla de datos; la nota de aceptación con líneas de firma
     if (/^(Nota de autor|Nota de aceptación)/i.test(nom)) hechas.forEach(x => {
@@ -559,8 +585,19 @@ export class Maquetador {
     // Las filas se componen ya (para saber cuántas páginas ocupa); los números se ponen al final.
     this.filasIndice = [];
     for (const e of this.entradasIndice) {
-      const f = h('div', 'fila n' + e.nivel, `<span class="n">${e.nivel === 1 ? '' : e.n}</span><span>${e.nivel === 1 && e.n ? e.n + ' · ' + e.t : e.t}</span><span class="p">000</span>`);
+      const f = h('a', 'fila n' + e.nivel, `<span class="n">${e.nivel === 1 ? '' : e.n}</span><span>${e.nivel === 1 && e.n ? e.n + ' · ' + e.t : e.t}</span><span class="p">000</span>`);
       this.filasIndice.push([f, e.id]); this.agregarTexto(f);
+    }
+    // Listas de figuras y de tablas (APA): cada una abre página dentro del mismo pliego morado
+    for (const [titulo, tipo, pre] of [['Lista de figuras', 'figure', 'Figura'], ['Lista de tablas', 'table', 'Tabla']]) {
+      const items = (this.listas?.[tipo] || []).slice().sort((a, b) => parseInt(a.label.replace(/\D+/g, '')) - parseInt(b.label.replace(/\D+/g, '')));
+      if (!items.length) continue;
+      this.cerrarBanda(); this.paginaFlujo();
+      const cab = h('h2', 'lista-tit', titulo); this.agregarTexto(cab);
+      for (const it of items) {
+        const f = h('a', 'fila n2', `<span class="n">${it.label.replace(pre + ' ', '')}</span><span>${textoPlano(it.title || '')}</span><span class="p">000</span>`);
+        this.filasIndice.push([f, it.id]); this.agregarTexto(f);
+      }
     }
     this.cerrarBanda(); this.claseFlujo = '';
   }
@@ -609,11 +646,11 @@ export class Maquetador {
   tresI() {
     this.aIzquierda();
     const izq = this.pagina('noche tres-i', { folio: false });
-    izq.el.insertAdjacentHTML('beforeend', `<span class="ti-tag">Procedimiento metodológico</span><div class="ti-tri"><span><i>I</i>ndagar</span><span class="o">Idear</span><span><i>I</i>mplementar</span></div><div class="ti-desc"><div><b>Indagar</b><span>CDPS, taller y entrevista para identificar causas, dinámicas y consecuencias del malestar.</span></div><div><b>Idear</b><span>Talleres de cocreación artística y obras piloto.</span></div><div><b>Implementar</b><span>Experiencia phygital con MetafoRA y su evaluación.</span></div></div>`);
+    izq.el.insertAdjacentHTML('beforeend', `<span class="ti-tag">Procedimiento metodológico</span><div class="ti-tri"><span><i>I</i>ndagar</span><span><i>I</i>dear</span><span><i>I</i>mplementar</span></div><div class="ti-desc"><div><b>Indagar</b><span>Cartografía digital, taller y entrevista para identificar causas, dinámicas y consecuencias del malestar.</span></div><div><b>Idear</b><span>Talleres de cocreación artística y obras piloto.</span></div><div><b>Implementar</b><span>Experiencia phygital con MetafoRA y su evaluación.</span></div></div>`);
     const der = this.pagina('noche tres-i-foto', { folio: false });
     der.el.appendChild(this.fondo(this.deco.foto3i));
     const card = h('div', 'panel-vidrio ti-card', `<span>Enfoque</span><h3>Investigación-Creación cualitativa</h3><p>Diseño participativo y colaborativo, enfoque etnográfico y el procedimiento de las 3i: Indagar, Idear e Implementar.</p>`);
-    der.el.appendChild(card); this.liquido(card, 0.5 * PX);
+    card.classList.add('esmerilado'); der.el.appendChild(card);
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
@@ -740,6 +777,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   const m = new Maquetador(raiz, resolver, deco), partes = planificar(doc);
   m.dims = dims;
   m.entradasIndice = entradasIndice(partes);
+  m.listas = { figure: doc.blocks.filter(b => b.type === 'figure' && b.label), table: doc.blocks.filter(b => b.type === 'table' && b.label) };
   for (const parte of partes) {
     if (parte.tipo === 'portada') m.portada(parte);
     else if (parte.tipo === 'portadilla') m.portadilla(parte);
@@ -754,7 +792,9 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   const pagDe = {};
   m.paginas.forEach(p => p.el.querySelectorAll('[data-id]').forEach(e => { pagDe[e.dataset.id] ??= p.n; }));
   m.paginas.forEach(p => { if (p.el.dataset.id) pagDe[p.el.dataset.id] = p.n; });
-  (m.filasIndice || []).forEach(([f, id]) => { f.querySelector('.p').textContent = pagDe[id] ?? ''; });
+  m.paginas.forEach(p => p.el.querySelectorAll('[data-b]').forEach(e => { pagDe[e.dataset.b] ??= p.n; }));
+  m.paginas.forEach(p => { p.el.id = 'pag' + p.n; });
+  (m.filasIndice || []).forEach(([f, id]) => { const n = pagDe[id]; f.querySelector('.p').textContent = n ?? ''; if (n) f.href = '#pag' + n; });
   for (const parte of partes.filter(x => x.tipo === 'capitulo')) {
     parte.secciones.filter(s => s.titulo).forEach(s => {
       const [n, t] = separarTitulo(s.titulo);

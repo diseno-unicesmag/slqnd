@@ -36,8 +36,8 @@
 .pl .pliego.solo-der::after { display: none; }
 .pl .pag { position: relative; width: 8.5in; height: 11in; overflow: hidden; background: #fff; flex: none; }
 .pl .pag.vacia { background: transparent; }
-.pl .pag.izq { --int: 0.8in; --ext: 0.7in; }
-.pl .pag.der { --int: 0.8in; --ext: 0.7in; }
+.pl .pag.izq { --int: 0.75in; --ext: 0.75in; }
+.pl .pag.der { --int: 0.75in; --ext: 0.75in; }
 .pl .caja { position: absolute; top: 0.8in; bottom: 1in; }   /* 9,2 in = 46 renglones de 0,2 in */
 .pl .izq .caja { left: var(--ext); right: var(--int); }
 .pl .der .caja { left: var(--int); right: var(--ext); }
@@ -595,3 +595,43 @@
 .pl .portadilla p.titulo small { display: block; margin-top: .2in; font-size: 15pt; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; color: #6b3fc4; }
 .pl .portadilla p.titulo small strong { font-weight: 600; }
 .pl .pre-firmas .caja p { margin-bottom: .2in; padding-top: .4in; }
+/* Portada: grietas doradas, subtítulo bajo el título, autor sin interletrado */
+.pl .portada .por-grietas { position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: screen; opacity: .85; -webkit-mask-image: linear-gradient(#000 0%, #000 35%, transparent 70%); mask-image: linear-gradient(#000 0%, #000 35%, transparent 70%); }
+.pl .portada .por-grietas svg { width: 100%; height: 100%; filter: drop-shadow(0 0 3px rgba(242,194,48,.7)); }
+.pl .portada.tipo > h1.logo { z-index: 3; }
+.pl .portada.tipo .por-sub-top { position: absolute; z-index: 3; left: .45in; right: 2.2in; top: 6.05in; margin: 0; font-size: 13pt; line-height: 1.35; font-weight: 500; color: rgba(255,255,255,.9); }
+.pl .portada.tipo .por-sub-top em { color: #fff; font-style: italic; }
+.pl .portada.tipo .por-pie { left: .45in; }
+.pl .portada.tipo .por-pie .autor { display: block; text-transform: none; letter-spacing: 0; color: #fff; }
+.pl .portada.tipo .por-pie .autor b { display: block; font-size: 13pt; font-weight: 700; letter-spacing: 0; color: #fff; }
+.pl .portada.tipo .por-pie .autor small { display: block; margin-top: 3px; font-size: 11pt; font-weight: 300; letter-spacing: 0; text-transform: none; color: #fff; }
+.pl .portada.tipo .por-texto { left: .45in; }
+.pl .portada.tipo .por-sub-top { text-align: left; hyphens: none; -webkit-hyphens: none; right: 1.6in; }
+.pl .portada .por-grietas { opacity: .7; }
+/* Portadilla formal, centrada (como en el documento académico) */
+.pl .portadilla { inset: 1.1in 1in 1in; align-items: center; text-align: center; }
+.pl .portadilla p { text-align: center; font-size: 11pt; line-height: 1.5; color: #2b1759; }
+.pl .portadilla p.titulo { text-align: center; font-size: 30pt; text-wrap: balance; margin-bottom: .1in; }
+.pl .portadilla p.titulo small { font-size: 13pt; font-weight: 500; color: #4a4560; text-wrap: balance; }
+.pl .portadilla p.titulo small em { font-style: italic; }
+.pl .portadilla p:nth-child(2) { margin-top: auto; padding-top: 0; border-top: 0; }
+.pl .portadilla .fl { display: inline; min-width: 0; font-family: inherit; font-size: inherit; font-weight: 600; letter-spacing: 0; text-transform: none; color: #2b1759; }
+.pl .portadilla p:last-child { margin-top: .5in; font-size: 14pt; font-weight: 800; color: #2b1759; }
+.pl .pre-ficha .caja p:has(> .fl) { display: flex; gap: 0; }
+.pl .pre-ficha .caja p > .fl { flex: 0 0 1.4in; }
+.pl .pre-ficha .caja p > .fv { flex: 1; }
+/* Referentes: uno por página */
+.pl .caja p.ref-cat { text-indent: 0; margin: 0 0 calc(var(--L) * 1); font-family: 'Montserrat', sans-serif; font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #6b3fc4; }
+.pl .caja p.ref-cat strong { font-weight: 800; }
+.pl .caja p.ref-nom { text-indent: 0; }
+.pl .caja p.ref-nom > em:first-child { display: block; font-style: normal; font-family: 'Montserrat', sans-serif; font-size: 15pt; line-height: 1.2; color: #2b1759; margin-bottom: calc(var(--L) * .5); }
+.pl .caja p.ref-nom > em:first-child strong { font-weight: 800; }
+.pl .caja p.ref-cat { text-align: left; hyphens: none; letter-spacing: 0; text-transform: none; font-family: inherit; font-size: 9.5pt; font-weight: 400; font-style: italic; color: #4a4560; }
+.pl .caja p.ref-cat strong { display: block; font-family: 'Montserrat', sans-serif; font-style: normal; font-size: 8pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #6b3fc4; margin-bottom: 2px; }
+.pl .caja p.ref-nom > em:first-child { text-align: left; hyphens: none; -webkit-hyphens: none; }
+.pl .ap-morada .ap-titulo em { display: block; }
+.pl .salto-col { break-before: column; -webkit-column-break-before: always; }
+.pl h3.salto-col { margin-top: 0 !important; }
+.pl a.fila { display: grid; text-decoration: none; color: inherit; }
+.pl .toc h2.lista-tit { margin: 0 0 calc(var(--L) * 2); font-size: 30pt; line-height: 1; font-weight: 900; letter-spacing: -.03em; color: #fff; }
+.pl .ti-card.esmerilado { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.32); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 30px 70px rgba(0,0,0,.4); backdrop-filter: blur(18px) saturate(1.4) brightness(.9); -webkit-backdrop-filter: blur(18px) saturate(1.4) brightness(.9); border-radius: 22px; }

@@ -11,7 +11,7 @@ const [url = 'http://localhost:8790/', salida = 'SLQND-maquetacion.pdf'] = proce
 const ESCALA = 4;   // 96 px/in × 4 ≈ 384 ppp para cada pieza de cristal
 
 const nav = await chromium.launch();
-const p = await nav.newPage({ viewport: { width: 1800, height: 1200 }, deviceScaleFactor: ESCALA });
+const p = await nav.newPage({ viewport: { width: 2400, height: 1400 }, deviceScaleFactor: ESCALA });
 await p.goto(url, { waitUntil: 'load' });
 await p.waitForFunction(() => /pliegos$|Error/.test(document.querySelector('.pliegos-estado')?.textContent || ''), null, { timeout: 300000 });
 const estado = await p.textContent('.pliegos-estado');
@@ -31,18 +31,24 @@ for (let k = 0; k < n; k++) {
   const sel = `[data-cristal="${k}"]`;
   await p.locator(sel).scrollIntoViewIfNeeded();
   await p.waitForTimeout(60);
+  // Se fotografía con margen: el cristal desplaza píxeles de su alrededor, y si la toma se recorta
+  // al borde exacto, lo que queda fuera sale negro (la «barra negra» de las lentes)
   const r = await p.evaluate(s => { const b = document.querySelector(s).getBoundingClientRect(); return { x: b.left, y: b.top, width: b.width, height: b.height }; }, sel);
-  const foto = await p.screenshot({ clip: r, type: 'jpeg', quality: 92 });
-  await p.evaluate(([s, datos]) => {
+  const M = 48, cx = Math.max(0, r.x - M), cy = Math.max(0, r.y - M);
+  const clip = { x: cx, y: cy, width: r.width + (r.x - cx) + M, height: r.height + (r.y - cy) + M };
+  const foto = await p.screenshot({ clip, type: 'png' });
+  const off = { l: r.x - cx, t: r.y - cy, w: clip.width, h: clip.height };
+  await p.evaluate(([s, datos, off]) => {
     const e = document.querySelector(s), im = document.createElement('img');
-    im.src = 'data:image/jpeg;base64,' + datos;
-    im.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border-radius:inherit;pointer-events:none;z-index:1';
+    im.src = 'data:image/png;base64,' + datos;
+    im.style.cssText = `position:absolute;left:${-off.l}px;top:${-off.t}px;width:${off.w}px;height:${off.h}px;max-width:none;pointer-events:none;z-index:1`;
+    e.style.overflow = 'hidden'; e.style.filter = 'none';
     // Lo que tenía dentro (texto de una cápsula) ya está en la foto
     [...e.children].forEach(c => { c.style.visibility = 'hidden'; });
     e.style.backdropFilter = 'none'; e.style.webkitBackdropFilter = 'none'; e.style.background = 'transparent';
     if (getComputedStyle(e).position === 'static') e.style.position = 'relative';
     e.appendChild(im);
-  }, [sel, foto.toString('base64')]);
+  }, [sel, foto.toString('base64'), off]);
 }
 await p.evaluate(() => Promise.all([...document.querySelectorAll('[data-cristal] > img')].map(im => im.decode().catch(() => 0))));
 
