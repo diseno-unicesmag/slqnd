@@ -599,7 +599,7 @@
 .pl .portada .por-grietas { position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: screen; opacity: .85; -webkit-mask-image: linear-gradient(#000 0%, #000 35%, transparent 70%); mask-image: linear-gradient(#000 0%, #000 35%, transparent 70%); }
 .pl .portada .por-grietas svg { width: 100%; height: 100%; filter: drop-shadow(0 0 3px rgba(242,194,48,.7)); }
 .pl .portada.tipo > h1.logo { z-index: 3; }
-.pl .portada.tipo .por-sub-top { position: absolute; z-index: 3; left: .45in; right: 2.2in; top: 6.05in; margin: 0; font-size: 13pt; line-height: 1.35; font-weight: 500; color: rgba(255,255,255,.9); }
+.pl .portada.tipo .por-sub-top { position: absolute; z-index: 3; left: .45in; right: 2.2in; top: 6.05in; margin: 0; font-size: 13pt; line-height: 1.35; font-weight: 500; color: #fff; }
 .pl .portada.tipo .por-sub-top em { color: #fff; font-style: italic; }
 .pl .portada.tipo .por-pie { left: .45in; }
 .pl .portada.tipo .por-pie .autor { display: block; text-transform: none; letter-spacing: 0; color: #fff; }
@@ -636,10 +636,9 @@
 .pl .toc h2.lista-tit { margin: 0 0 calc(var(--L) * 2); font-size: 30pt; line-height: 1; font-weight: 900; letter-spacing: -.03em; color: #fff; }
 .pl .ti-card.esmerilado { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.32); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 30px 70px rgba(0,0,0,.4); backdrop-filter: blur(18px) saturate(1.4) brightness(.9); -webkit-backdrop-filter: blur(18px) saturate(1.4) brightness(.9); border-radius: 22px; }
 /* Portada con el fondo de vidrio morado y dorado (el mismo de las páginas 10-11), sin velo que apague el amarillo */
-/* la portada con la textura tan viva como en el umbral (págs. 12-13); solo una sombra abajo para leer el pie */
+/* la portada con la textura tan viva como en el umbral (págs. 12-13), sin sombras */
 .pl .portada.tipo > .fondo { filter: none; }
-.pl .portada.tipo > .fondo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, transparent 40%, rgba(11,8,22,.55) 56%, rgba(11,8,22,.72) 100%); }
-.pl .portada.tipo .por-sub { text-shadow: 0 1px 12px rgba(11,8,22,.6); }
+.pl .portada.tipo > .fondo::after { content: none; }
 .pl .portada.tipo > h1.logo { color: #2b1759; background: none !important; -webkit-background-clip: border-box; background-clip: border-box; filter: none; text-shadow: none; mix-blend-mode: multiply; }
 /* Portadillas en el orden del Word */
 .pl .portadilla { justify-content: space-between; }
@@ -719,3 +718,4 @@
 .pl .red-nucleo { position: absolute; z-index: 2; border-radius: 50%; pointer-events: none; }
 /* Etiqueta de ejercicio: en su propio renglón, con aire sobre ella */
 .pl h5.t5.ej .tag.hueco { display: block; width: fit-content; margin: 9px 0 0; }
+.pl .portada.tipo .por-pie .anio { color: #2b1759; mix-blend-mode: multiply; }   /* como el título: se lee sobre la textura sin sombra */

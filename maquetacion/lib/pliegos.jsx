@@ -488,6 +488,8 @@ class Maquetador {
   emitirPaleta() {
     const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.paletaPendiente = null;
+    // La página que cierra el apartado de estilo gráfico queda casi vacía: la frase que lo resume va ahí
+    this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa');
     const izq = this.pagina('noche paleta pal-izq', { folio: false }), der = this.pagina('paleta pal-der', { folio: false });
     izq.el.dataset.b = b.id;
     const C = [['#3b1d7a', 'Violeta profundo', 'Dominante · introspección', '#fff'], ['#7c3aed', 'Púrpura', 'Dominante · interioridad', '#fff'], ['#f0c24b', 'Dorado', 'Acento · revelación', '#2b1759'], ['#2b2a30', 'Gris asfalto', 'Soporte · sobriedad', '#fff'], ['#f6f3fb', 'Cristal blanco', 'Soporte translúcido', '#2b1759']];
@@ -735,7 +737,6 @@ class Maquetador {
   cadenaValor() {
     this.cerrarBanda(); this.vaciarFlotantes();
     if (this.paletaPendiente) { this.aIzquierda(); this.emitirPaleta(); }
-    this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa');
     this.seccionActual = 'Cadena de valor';
     if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
     // La red completa a doble página, a sangre y sobre fondo oscuro
