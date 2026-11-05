@@ -26,8 +26,8 @@ const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
-const SANGRE = new Set(['Figura 41']);
-const PLIEGO_FOTO = new Set(['Figura 18', 'Figura 31']);   // fotografías de campo a doble página, a sangre   // fotografías de campo a página completa
+const SANGRE = new Set(['Figura 43']);
+const PLIEGO_FOTO = new Set(['Figura 20', 'Figura 33']);   // fotografías de campo a doble página, a sangre   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
@@ -35,8 +35,8 @@ const CITAS = [
   ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', ''],
   ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
 ];
-const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 36', 'Figura 37', 'Figura 42', 'Figura 44', 'Figura 45']);
-const PAGINA_SOLA = new Set(['Figura 36']);   // van solas, centradas en su página
+const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 38', 'Figura 39', 'Figura 44', 'Figura 46', 'Figura 47']);
+const PAGINA_SOLA = new Set(['Figura 38']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -168,7 +168,7 @@ class Maquetador {
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (PLIEGO_FOTO.has(b.label)) { (this.fotosPend ??= []).push(b); return null; } if (b.label === 'Figura 16') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 45') { this.paletaPendiente = b; return null; } return this.figura(b);
+      case 'figure': if (PLIEGO_FOTO.has(b.label)) { (this.fotosPend ??= []).push(b); return null; } if (b.label === 'Figura 18') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 47') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -191,7 +191,7 @@ class Maquetador {
         const filasDe = k => { const out = [], por = Math.ceil(n / k); for (let i = 0; i < n; i += por) out.push([...Array(Math.min(por, n - i)).keys()].map(x => x + i)); return out; };
         // Ninguna imagen se amplía por encima de ~150 ppi efectivos
         const maxAncho = i => ds[i][0] / PPI_MAX * PX, TRES = 3 * COL + 2 * GUT;
-        const completa = A_LO_ANCHO.has(b.label) || b.label === 'Figura 40';
+        const completa = A_LO_ANCHO.has(b.label) || b.label === 'Figura 42';
         let filas, anchoTotal = ANCHO_CAJA;
         if (n === 1 && b.referente) {
           // Referentes: todos igual, la imagen a la derecha en tres columnas y el pie a la izquierda
@@ -215,7 +215,7 @@ class Maquetador {
             const pena = Math.abs(Math.min(...altos) - 3.4 * PX) + (total > 36 * L ? 1e4 : 0);
             if (!mejor || pena < mejor.pena) mejor = { fs, pena };
           }
-          filas = b.label === 'Figura 40' ? filasDe(2) : mejor.fs;
+          filas = b.label === 'Figura 42' ? filasDe(2) : mejor.fs;
         }
         filas.forEach(fila => {
           const suma = fila.reduce((a, i) => a + r[i], 0);
@@ -479,7 +479,7 @@ class Maquetador {
     vidrio(el, el.offsetWidth, el.offsetHeight, { radio, prof: Math.round(radio * 0.5), fuerza: Math.round(radio * 0.9), ca: 3, desenfoque: 10, fondo: 'rgba(255,255,255,0.07)', sombra: '0 40px 90px rgba(0,0,0,0.35)' });
   }
   // La ruta metodológica se arma como pliego propio en cuanto la página siguiente sea izquierda
-  // Figura 44 como pliego: la paleta a sangre en bandas y la tipografía en grande
+  // Figura 46 como pliego: la paleta a sangre en bandas y la tipografía en grande
   emitirPaleta() {
     const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.paletaPendiente = null;
