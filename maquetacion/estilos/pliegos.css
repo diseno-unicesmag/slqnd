@@ -650,13 +650,16 @@
 .pl .portadilla .pd-g .fv { font-weight: 400; }
 .pl .ti-card { padding: .32in .55in; }
 /* Tarjetas de ejercicio: color plano, sin sombra ni borde; círculo concéntrico con la esquina */
-.pl h5.t5.ej { display: flex; align-items: flex-start; gap: 9px; width: auto; padding: 6px 14px 6px 6px; border-radius: 18px; background: #ece6fa; box-shadow: none; font-weight: 400; }
+.pl h5.t5.ej { position: relative; display: flex; align-items: flex-start; gap: 9px; width: auto; padding: 6px 14px 6px 6px; border-radius: 18px; background: #ece6fa; box-shadow: none; font-weight: 400; }
 .pl h5.t5.ej .n { flex: 0 0 24px; display: grid; place-items: center; width: 24px; height: 24px; margin: 0; border-radius: 50%; background: #2b1759; color: var(--g); font: 900 10.5px/1 'Montserrat', sans-serif; text-align: center; vertical-align: 0; padding: 0; }
 .pl h5.t5.ej .tx { padding: 3px 0; font-size: 8.6pt; line-height: 1.35; color: #2b1759; }
 .pl h5.t5.ej .tx b { font-weight: 800; }
 .pl h5.t5.ej .tx .det { font-weight: 400; }
 .pl h5.t5.ej .tx .det::before { content: ' · '; font-weight: 400; }
 .pl h5.t5.ej .tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 99px; font: 700 6.6pt/1.5 'Montserrat', sans-serif; font-style: normal; letter-spacing: .06em; text-transform: uppercase; vertical-align: 1px; white-space: nowrap; }
+.pl h5.t5.ej .tag.hueco { visibility: hidden; }
+/* radio de la tarjeta 18px = radio de la etiqueta + margen: el margen va a juego (concéntrico) */
+.pl h5.t5.ej .tag.fijo { position: absolute; right: 10.5px; bottom: 10.5px; margin: 0; }
 .pl h5.t5.ej .tag.clase { background: #6b3fc4; color: #fff; }
 .pl h5.t5.ej .tag.campo { background: var(--g); color: #2b1759; }
 .pl h5.t5.ej .tag.hecho { background: #2b1759; color: #fff; }
