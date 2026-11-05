@@ -60,24 +60,32 @@ function Columnas({ c }) {
   );
 }
 
+// Sector de anillo con separación de ancho constante y esquinas apenas redondeadas (como las barras)
+function sector(cx, cy, r, R, a1, a2, g = 4, cr = 5) {
+  const P = (rho, a) => `${(cx + rho * Math.cos(a)).toFixed(2)} ${(cy + rho * Math.sin(a)).toFixed(2)}`;
+  const e = rho => (g / 2) / rho, q = rho => (g / 2 + cr) / rho, gran = (a2 - a1) > Math.PI ? 1 : 0;
+  return `M${P(R, a1 + q(R))}A${R} ${R} 0 ${gran} 1 ${P(R, a2 - q(R))}` +
+    `Q${P(R, a2 - e(R))} ${P(R - cr, a2 - e(R - cr))}L${P(r + cr, a2 - e(r + cr))}Q${P(r, a2 - e(r))} ${P(r, a2 - q(r))}` +
+    `A${r} ${r} 0 ${gran} 0 ${P(r, a1 + q(r))}` +
+    `Q${P(r, a1 + e(r))} ${P(r + cr, a1 + e(r + cr))}L${P(R - cr, a1 + e(R - cr))}Q${P(R, a1 + e(R))} ${P(R, a1 + q(R))}Z`;
+}
+
 function Dona({ c }) {
   const vals = c.series[0].values, cats = c.categories, total = vals.reduce((a, b) => a + b, 0), d = destacados(vals);
-  const R = 74, cx = 130, cy = 130, grosor = 30, hueco = 0.2; let a0 = -Math.PI / 2, k = 0;
+  const R = 92, r = 54, cx = 130, cy = 130; let a0 = -Math.PI / 2, k = 0;
   const color = i => d[i] ? ORO : MORADOS[k++ % MORADOS.length];
   const cols = vals.map((_, i) => color(i));
-  const p = a => [cx + R * Math.cos(a), cy + R * Math.sin(a)];
   return (
     <svg viewBox="0 0 560 260" className="grafico" role="img">
       {vals.map((v, i) => {
-        const span = (v / total) * Math.PI * 2, a1 = a0 + hueco / 2, a2 = a0 + Math.max(span - hueco / 2, hueco / 2 + 0.001);
-        a0 += span; const [x1, y1] = p(a1), [x2, y2] = p(a2);
-        return <path key={i} d={`M${x1} ${y1}A${R} ${R} 0 ${a2 - a1 > Math.PI ? 1 : 0} 1 ${x2} ${y2}`} fill="none" stroke={cols[i]} strokeWidth={grosor} strokeLinecap="round" />;
+        const span = (v / total) * Math.PI * 2, a1 = a0; a0 += span;
+        return <path key={i} d={sector(cx, cy, r, R, a1, a1 + span)} fill={cols[i]} />;
       })}
       <text x={cx} y={cy + 6} textAnchor="middle" className="g-total">{cats.length}</text>
       <text x={cx} y={cy + 22} textAnchor="middle" className="g-cat g-cat-s">afectaciones</text>
       {cats.map((cat, i) => (
         <g key={cat} transform={`translate(270 ${50 + i * 34})`}>
-          <rect width="14" height="14" rx="7" fill={cols[i]} />
+          <rect width="14" height="14" rx="4" fill={cols[i]} />
           <text x="24" y="12" className="g-cat">{cat}</text>
           <text x="270" y="12" textAnchor="end" className="g-val">{fmt(vals[i])} %</text>
         </g>

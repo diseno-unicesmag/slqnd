@@ -158,14 +158,15 @@ class Maquetador {
         if (lv <= 3) { const e = h('h3', 't3' + (/^Propósitos Específicos/i.test(t) ? ' salto-col' : ''), (n ? `<span class="n">${n}</span>` : '') + t); e.dataset.id = b.id; return e; }
         if (lv === 4) return h('h4', 't4', (n ? `<span class="n">${n}</span>` : '') + t);
         // Ejercicio: letra en círculo concéntrico con la tarjeta, nombre en negrita, detalle en regular
-        // y una etiqueta (ejercicio de clase, trabajo de campo…) en lugar del paréntesis
+        // y una etiqueta (ejercicio de clase, trabajo de campo…) en lugar del paréntesis, fija abajo a la
+        // derecha con margen concéntrico; una copia invisible al final del texto le guarda el sitio
         let tag = '', cuerpo = t;
         const mt = cuerpo.match(/\s*\((Ejercicio de Clase|Trabajo de Campo|Realizado|Pendientes?)\)\s*$/i);
         if (mt) { tag = mt[1].charAt(0).toUpperCase() + mt[1].slice(1).toLowerCase(); cuerpo = cuerpo.slice(0, mt.index); }
         const k = cuerpo.indexOf(': ');
         const tit = k > 0 ? `<b>${cuerpo.slice(0, k)}</b><span class="det">${cuerpo.slice(k + 2)}</span>` : `<b>${cuerpo}</b>`;
         const cls = /campo/i.test(tag) ? 'campo' : /clase/i.test(tag) ? 'clase' : /realizado/i.test(tag) ? 'hecho' : 'pend';
-        return h('h5', 't5 ej', (n ? `<span class="n">${n.replace(/\.$/, '')}</span>` : '') + `<span class="tx">${tit}${tag ? `<i class="tag ${cls}">${tag}</i>` : ''}</span>`);
+        return h('h5', 't5 ej', (n ? `<span class="n">${n.replace(/\.$/, '')}</span>` : '') + `<span class="tx">${tit}${tag ? `<i class="tag hueco" aria-hidden="true">${tag}</i>` : ''}</span>${tag ? `<i class="tag fijo ${cls}">${tag}</i>` : ''}`);
       }
       case 'quote': return h('blockquote', 'cita', b.html);
       case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
@@ -733,7 +734,7 @@ class Maquetador {
   cadenaValor() {
     this.cerrarBanda(); this.vaciarFlotantes();
     if (this.paletaPendiente) { this.aIzquierda(); this.emitirPaleta(); }
-    this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa', 'Estilo gráfico');
+    this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa');
     this.seccionActual = 'Cadena de valor';
     if (this.siguienteEsDerecha) this.pagina('blanca', { folio: false });
     // La red completa a doble página, a sangre y sobre fondo oscuro
