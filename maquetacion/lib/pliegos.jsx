@@ -679,6 +679,7 @@ class Maquetador {
     ['estrategia de diseño participativo', 'experiencia phygital', 'elaboración emocional'].forEach(k => { q = q.replace(k, `<u>${k}</u>`); });
     const d = h('div', 'pq-dorada', `<span class="pq-tag">${n} · ${t}</span><span class="pq-comillas">“</span><p>${q}</p><span class="pq-firma">Pregunta de investigación</span><span class="pq-comillas pq-cierre">”</span>`);
     d.querySelector('p').dataset.b = s.bloques[0].id; this.marcar(d, s.titulo.id);
+    d.style.height = ALTO_CAJA + 'px';   // alto de la caja completo: las comillas de cierre van a la esquina de abajo
     p.caja.appendChild(d); this.y = ALTO_CAJA;
   }
   // «Doble 3»: las 3i a doble página antes de la metodología
