@@ -2,7 +2,7 @@
 // subcategorías con sus autores, en dos abanicos que dejan el lomo libre.
 import { CADENA } from './cadena';
 
-const W = 1632, H = 1056, CX = W / 2, CY = H / 2 + 48;
+export const W = 1632, H = 1056, CX = W / 2, CY = H / 2 + 48;
 // color sólido mezclado con el fondo: cada nivel de la red un poco más oscuro, sin transparencias
 const tono = (hex, t) => '#' + [1, 3, 5].map(i => { const a = parseInt(hex.slice(i, i + 2), 16), b = parseInt('120d26'.slice(i - 1, i + 1), 16); return Math.round(a + (b - a) * t).toString(16).padStart(2, '0'); }).join('');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
@@ -15,7 +15,7 @@ export function redCadena() {
   let acc = 0, corte = 1, mejor = Infinity;
   CADENA.forEach((m, i) => { acc += hojas(m); const d = Math.abs(total - 2 * acc); if (d < mejor) { mejor = d; corte = i + 1; } });
   const lados = [CADENA.slice(0, corte), CADENA.slice(corte)];
-  const nodos = [], lazos = [], textos = [];
+  const nodos = [], lazos = [], textos = [], nucleo = [];
   const pos = (ang, rx, ry) => [CX + Math.cos(ang) * rx, CY + Math.sin(ang) * ry];
   lados.forEach((ms, li) => {
     const n = ms.reduce((a, m) => a + hojas(m), 0) + (ms.length - 1) * 0.8;
@@ -52,7 +52,7 @@ export function redCadena() {
       const am = angsM.reduce((a, x) => a + x, 0) / angsM.length;
       const [mx, my] = pos(am, 228, 182);
       m.cats.forEach(c => lazos.push({ a: [mx, my], b: c._p, c: tono(m.c, 0.28), w: 2 }));
-      lazos.push({ a: [CX, CY], b: [mx, my], c: m.c, w: 3.2 });
+      lazos.push({ a: [CX, CY], b: [mx, my], c: m.c, w: 3.2 }); nucleo.push([Math.atan2(my - CY, mx - CX), m.c]);
       nodos.push({ x: mx, y: my, r: 17, c: m.c, t: 'm', n: m.n });
       const der = li === 0;
       const lx = mx + (der ? -46 : 46); // el rótulo se corre hacia el núcleo para no tocar las categorías
@@ -62,12 +62,14 @@ export function redCadena() {
   const curva = ({ a: [x1, y1], b: [x2, y2] }) => { const mx = (x1 + x2) / 2; return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; };
   // telaraña de fondo: anillos punteados
   const anillos = [[215, 165], [410, 300], [600, 430], [790, 560]].map(([rx, ry], i) => `<ellipse cx="${CX}" cy="${CY}" rx="${rx}" ry="${ry}" fill="none" stroke="rgba(255,255,255,${i === 3 ? .14 : .24})" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="0.1 7"/>`).join('');
-  // lupa en el núcleo: lo que se mira de cerca
-  const lupa = `<g fill="none" stroke="#120d26" stroke-width="4.2" stroke-linecap="round"><circle cx="${CX - 4}" cy="${CY - 4}" r="11"/><path d="M${CX + 4},${CY + 4} L${CX + 14},${CY + 14}"/></g><path d="M${CX - 10},${CY - 7} a7,7 0 0 1 5,-5" fill="none" stroke="#120d26" stroke-width="2" stroke-linecap="round" opacity=".55"/>`;
+  // núcleo: sin pictograma; debajo, un halo con los colores de cada macrocategoría para que el
+  // cristal líquido que va encima (en pliegos.jsx) los refleje y los doble
+  const halo = `<defs><filter id="rn-halo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter></defs><g filter="url(#rn-halo)">` +
+    nucleo.map(([a, c]) => `<circle cx="${(CX + Math.cos(a) * 34).toFixed(1)}" cy="${(CY + Math.sin(a) * 34).toFixed(1)}" r="22" fill="${c}"/>`).join('') + '</g>';
   return `<svg class="red-cadena" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">` +
     `<style>.rh{font:700 9.5px Montserrat;fill:#fff}.ra{font:500 8px Montserrat;fill:rgba(255,255,255,.6)}.rc{font:800 10.5px Montserrat;fill:#fff}.rm{font:900 13px Montserrat;fill:#fff}.rs{font:700 8px Montserrat;fill:#f5c542;letter-spacing:.08em}.rn{font:900 11px Montserrat;fill:#120d26}</style>` +
     anillos + lazos.map(l => `<path d="${curva(l)}" fill="none" stroke="${l.c}" stroke-width="${l.w}"/>`).join('') +
-    `<circle cx="${CX}" cy="${CY}" r="50" fill="none" stroke="${tono('#f5c542', 0.55)}" stroke-width="1.2"/><circle cx="${CX}" cy="${CY}" r="34" fill="#f5c542"/>` + lupa +
+    halo +
     nodos.map(n => `<circle cx="${n.x}" cy="${n.y}" r="${n.r}" fill="${n.t === 'h' ? '#120d26' : n.c}" stroke="${n.c}" stroke-width="${n.t === 'h' ? 1.5 : 0}"/>` + (n.n ? `<text x="${n.x}" y="${n.y + 4}" text-anchor="middle" class="rn">${n.n}</text>` : '')).join('') +
     textos.join('') + '</svg>';
 }

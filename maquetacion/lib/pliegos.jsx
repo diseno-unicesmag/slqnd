@@ -9,7 +9,7 @@ import { esCapitulo, partesCapitulo, textoPlano } from '@/lib/doc';
 import { vidrio } from '@/lib/vidrio';
 import { pictograma } from '@/lib/pictos';
 import { CADENA } from '@/lib/cadena';
-import { redCadena } from '@/lib/redCadena';
+import { redCadena, CX as RED_CX, CY as RED_CY } from '@/lib/redCadena';
 import { FASES } from '@/lib/rutaWeb';
 import { ICONOS_RUTA } from '@/lib/iconosRuta';
 
@@ -677,7 +677,7 @@ class Maquetador {
     const p = this.pagina('pag-pregunta'); p.flujo = true;
     let q = s.bloques[0].html;
     ['estrategia de diseño participativo', 'experiencia phygital', 'elaboración emocional'].forEach(k => { q = q.replace(k, `<u>${k}</u>`); });
-    const d = h('div', 'pq-dorada', `<span class="pq-tag">${n} · ${t}</span><span class="pq-comillas">“</span><p>${q}</p><span class="pq-firma">Pregunta de investigación</span>`);
+    const d = h('div', 'pq-dorada', `<span class="pq-tag">${n} · ${t}</span><span class="pq-comillas">“</span><p>${q}</p><span class="pq-firma">Pregunta de investigación</span><span class="pq-comillas pq-cierre">”</span>`);
     d.querySelector('p').dataset.b = s.bloques[0].id; this.marcar(d, s.titulo.id);
     p.caja.appendChild(d); this.y = ALTO_CAJA;
   }
@@ -728,7 +728,7 @@ class Maquetador {
   // Páginas casi vacías: una frase destacada abajo para que no queden en blanco
   citaHueco(frase, firma) {
     const html = `<p>«${frase}»</p>` + (firma ? `<span>${firma}</span>` : '');
-    if (this.actual?.flujo && ALTO_CAJA - this.y >= 14 * L) { this.actual.caja.appendChild(h('div', 'cita-hueco', html)); return true; }
+    if (this.actual?.flujo && ALTO_CAJA - this.y >= 14 * L) { this.actual.caja.appendChild(h('div', 'cita-hueco cita-dest', html)); return true; }
     return false;
   }
   cadenaValor() {
@@ -742,6 +742,14 @@ class Maquetador {
     const izq = this.pagina('noche cadena-red red-izq', { folio: false }), der = this.pagina('noche cadena-red red-der', { folio: false });
     izq.el.insertAdjacentHTML('beforeend', `<div class="red-lienzo">${svg}</div><div class="red-cab"><span>Síntesis del sustento teórico</span><h2>Cadena de valor</h2><p>Siete macrocategorías encadenan el problema con la respuesta de diseño. Cada una se abre en categorías, subcategorías y en los autores que las sostienen en este documento.</p></div>`);
     der.el.insertAdjacentHTML('beforeend', `<div class="red-lienzo">${svg}</div><div class="red-ley"><span><i class="m"></i>Macrocategoría</span><span><i class="c"></i>Categoría</span><span><i class="h"></i>Subcategoría · autores</span></div>`);
+    // Núcleo de cristal líquido sobre el lomo: una mitad en cada página, con el mismo mapa,
+    // refracta las líneas y el halo de colores que convergen en el centro
+    const D = 112;
+    [[izq, RED_CX - D / 2], [der, RED_CX - 8.5 * PX - D / 2]].forEach(([pg, x]) => {
+      const n = h('span', 'red-nucleo'); n.style.cssText = `left:${x}px;top:${RED_CY - D / 2}px`;
+      pg.el.appendChild(n);
+      vidrio(n, D, D, { radio: D / 2, ca: 5, fuerza: Math.round(D * 0.4), prof: Math.round(D * 0.14), desenfoque: 0.6, fondo: 'rgba(255,255,255,0.015)', sombra: '0 22px 44px rgba(0,0,0,0.4)' });
+    });
   }
   referencias(parte) {
     this.modo = 'refs'; this.seccionActual = 'Referencias';
@@ -852,6 +860,8 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
     else if (parte.tipo === 'capitulo') m.capitulo(parte);
     else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
   }
+  // Cierre: un pliego en blanco completo después de las referencias
+  m.aIzquierda(); m.pagina('blanca cierre', { folio: false }); m.pagina('blanca cierre', { folio: false });
   m.terminar();
   await contrastar(raiz);
 
