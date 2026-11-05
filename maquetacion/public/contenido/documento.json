@@ -699,7 +699,8 @@
    "title": "PostSecret (Frank Warren, 2005 - Presente)",
    "src": "img/referente-r1-postsecret.jpg",
    "note": "<em>Nota.</em> Postal anónima de la colección PostSecret en exhibición. Fuente: Warren (2005-presente). Fotografía: kelly bell photography, Flickr (CC BY 2.0).",
-   "referente": true
+   "referente": true,
+   "foto": true
   },
   {
    "type": "p",

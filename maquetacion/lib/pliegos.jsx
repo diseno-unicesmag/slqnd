@@ -38,6 +38,7 @@ const CITAS = [
 const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 38', 'Figura 39', 'Figura 44', 'Figura 46', 'Figura 47']);
 const PAGINA_SOLA = new Set(['Figura 38']);   // van solas, centradas en su página
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
+const RADIO_PANEL = 0.3 * PX;       // mismo radio para todas las tarjetas de cristal sobre foto
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
 const partirNum = (t, re) => { const m = t.match(re); return m ? [m[1], m[2]] : ['', t]; };
@@ -380,11 +381,12 @@ class Maquetador {
         el.querySelectorAll('.fig-pie > *').forEach(c => pie.appendChild(c));
         el.innerHTML = ''; im.removeAttribute('style'); el.append(im, pie);
         this.actual.el.appendChild(el); this.actual.el.classList.add('pag-sangre'); this.actual.folio = false;
+        this.liquido(pie, RADIO_PANEL); pie.dataset.luz = JSON.stringify({ src: im.src, pliego: false });
         this.y = ALTO_CAJA; return;
       }
       el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0';
       this.actual.caja.appendChild(el);
-      el.style.top = Math.max(0, enRenglon((ALTO_CAJA - el.offsetHeight) / 2 - L)) + 'px';
+      el.style.top = '0px';   // arriba, alineada con la caja como el resto de páginas
       this.y = ALTO_CAJA; return;
     }
     const yTent = this.banda ? this.y + enRenglon(this.banda.offsetHeight) + (habiaTexto ? AIRE : 0) : this.y;
@@ -511,7 +513,7 @@ class Maquetador {
     const [izq, der] = this.pliegoFondo(src, 'foto-pliego');
     izq.el.dataset.b = b.id;
     const pie = h('div', 'panel-vidrio pliego-pie', `<span class="rot">${b.label}</span><span class="tit">${b.title}</span><div class="nota">${b.note || ''}</div>`);
-    der.el.appendChild(pie); this.liquido(pie, 0.3 * PX);
+    der.el.appendChild(pie); this.liquido(pie, RADIO_PANEL); pie.dataset.luz = JSON.stringify({ src, pliego: true });
     this.y = ALTO_CAJA; this.banda = null;
   }
   emitirRuta() {
@@ -684,7 +686,7 @@ class Maquetador {
     const der = this.pagina('noche tres-i-foto', { folio: false });
     der.el.appendChild(this.fondo(this.deco.foto3i));
     const card = h('div', 'panel-vidrio ti-card', `<span>Enfoque</span><h3>Investigación-Creación cualitativa</h3><p>Diseño participativo y colaborativo, enfoque etnográfico y el procedimiento de las 3i: Indagar, Idear e Implementar.</p>`);
-    der.el.appendChild(card); this.liquido(card, Math.min(card.offsetHeight / 2, 0.75 * PX));
+    der.el.appendChild(card); this.liquido(card, RADIO_PANEL); card.dataset.luz = JSON.stringify({ src: this.deco.foto3i, pliego: false });
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
@@ -796,6 +798,30 @@ export function aplicarCristales(raiz, cristales = {}) {
   raiz.querySelectorAll('[data-k]').forEach(el => ajustarCristal(el, cristales[el.dataset.k]));
 }
 
+// Tarjetas sobre foto: se mide la luz de la parte de la imagen que queda debajo (la foto va en
+// «cover» sobre la página o sobre el pliego) y, si es clara, el texto pasa a oscuro.
+async function contrastar(raiz) {
+  const W = 8.5 * PX, H = 11 * PX;
+  for (const el of raiz.querySelectorAll('[data-luz]')) {
+    const { src, pliego } = JSON.parse(el.dataset.luz);
+    try {
+      const im = new Image(); im.src = src; await im.decode();
+      const BW = pliego ? 2 * W : W, s = Math.max(BW / im.naturalWidth, H / im.naturalHeight);
+      const ox = (BW - im.naturalWidth * s) / 2, oy = (H - im.naturalHeight * s) / 2;
+      const x = el.offsetLeft + (pliego ? W : 0), y = el.offsetTop;
+      const c = document.createElement('canvas'); c.width = c.height = 24;
+      const g = c.getContext('2d', { willReadFrequently: true });
+      g.drawImage(im, (x - ox) / s, (y - oy) / s, el.offsetWidth / s, el.offsetHeight / s, 0, 0, 24, 24);
+      const d = g.getImageData(0, 0, 24, 24).data; let luz = 0;
+      for (let i = 0; i < d.length; i += 4) luz += (0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255;
+      const claro = luz / (d.length / 4) > 0.55;
+      el.classList.toggle('pie-claro', claro);
+      // un velo dentro del cristal asegura la lectura aunque la foto cambie de luz bajo la tarjeta
+      el.style.background = claro ? 'rgba(255,255,255,0.42)' : 'rgba(18,13,38,0.42)';
+    } catch { /* sin acceso a la imagen: se queda con texto claro */ }
+  }
+}
+
 export async function maquetar(doc, { raiz, resolver, deco }) {
   // Las imágenes deben estar cargadas para medir su alto
   const srcs = [];
@@ -824,11 +850,14 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
     else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
   }
   m.terminar();
+  await contrastar(raiz);
 
   // Página de cada título (por su id), para el índice y las aperturas
   const pagDe = {};
   m.paginas.forEach(p => p.el.querySelectorAll('[data-id]').forEach(e => { pagDe[e.dataset.id] ??= p.n; }));
   m.paginas.forEach(p => { if (p.el.dataset.id) pagDe[p.el.dataset.id] = p.n; });
+  // Figuras que son la página misma (ruta, paleta, pliegos de foto)
+  m.paginas.forEach(p => { if (p.el.dataset.b) pagDe[p.el.dataset.b] ??= p.n; });
   m.paginas.forEach(p => p.el.querySelectorAll('[data-b]').forEach(e => { pagDe[e.dataset.b] ??= p.n; }));
   m.paginas.forEach(p => { p.el.id = 'pag' + p.n; });
   (m.filasIndice || []).forEach(([f, id]) => { const n = pagDe[id]; f.querySelector('.p').textContent = n ?? ''; if (n) f.href = '#pag' + n; });
