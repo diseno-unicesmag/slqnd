@@ -714,7 +714,7 @@
 /* Frase de la RA: como las demás citas destacadas (barra dorada a la izquierda), abajo en la página */
 .pl .cita-hueco.cita-dest { border-top: 0; padding: var(--L) 0 var(--L) 0.3in; }
 /* Pregunta de investigación: las comillas que abren arriba cierran abajo a la derecha */
-.pl .pq-comillas.pq-cierre { position: absolute; right: 0; bottom: .55in; margin: 0; }
+.pl .pq-comillas.pq-cierre { position: absolute; right: 0; bottom: -.55in; margin: 0; }
 /* Núcleo de la cadena de valor: cristal líquido partido por el lomo */
 .pl .red-nucleo { position: absolute; z-index: 2; border-radius: 50%; pointer-events: none; }
 /* Etiqueta de ejercicio: en su propio renglón, con aire sobre ella */
