@@ -59,7 +59,9 @@ if (!porPliegos) await p.addStyleTag({ content: `@media print { @page { size: 8.
   .lista-pliegos .pliego { display: contents !important; }
   .lista-pliegos .pliego::after, .lista-pliegos .pliego::before { display: none !important; }
   .lista-pliegos .pag { break-after: page; position: relative !important; overflow: hidden !important; }
-  .lista-pliegos .pag.vacia { display: none !important; } }` });
+  .lista-pliegos .pag.vacia { display: none !important; }  }` });
+// La última página no fuerza salto: así no sale una hoja en blanco de más al final
+if (!porPliegos) await p.evaluate(() => { const ps = document.querySelectorAll('.lista-pliegos .pag:not(.vacia)'); const ultima = ps[ps.length - 1]; if (ultima) ultima.style.breakAfter = 'auto'; });
 await p.pdf({ path: salida, width: porPliegos ? '17in' : '8.5in', height: '11in', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
 await nav.close();
 console.log(`PDF listo: ${salida} (${n} piezas de cristal fotografiadas)`);
