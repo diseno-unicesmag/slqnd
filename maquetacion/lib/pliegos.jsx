@@ -36,7 +36,7 @@ const CITAS = [
   ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
 ];
 const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 38', 'Figura 39', 'Figura 44', 'Figura 46', 'Figura 47']);
-const PAGINA_SOLA = new Set(['Figura 38']);   // van solas, centradas en su página
+const PAGINA_SOLA = new Set([]);   // van solas en su página (la Figura 38 ya no: el texto sigue debajo)
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 const RADIO_PANEL = 0.3 * PX;       // mismo radio para todas las tarjetas de cristal sobre foto
 
@@ -445,6 +445,8 @@ class Maquetador {
       const nom = b.type === 'p' && /^<em><strong>[A-L]\. /.test(b.html || '');
       if (cat || (nom && !trasCategoria)) { this.cerrarBanda(); this.vaciarFlotantes(); this.modo = 'una'; const vacia = this.y === 0 && !this.actual.caja.children.length; if (!vacia) this.paginaFlujo(); else this.actual.el.classList.add('p-una'); }
       trasCategoria = cat;
+      // Salto de página pedido en el documento: lo pendiente (figuras) abre la página nueva
+      if (b.saltoAntes) { this.cerrarBanda(); this.paginaFlujo(); }
       const el = this.crear(b, primero && b.type === 'p');
       if (!el) continue;
       if (cat) el.classList.add('ref-cat'); if (nom) el.classList.add('ref-nom');
