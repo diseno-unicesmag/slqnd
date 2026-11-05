@@ -697,8 +697,8 @@
    "type": "figure",
    "label": "Figura 4",
    "title": "PostSecret (Frank Warren, 2005 - Presente)",
-   "src": "img/image1.png",
-   "note": "<em>Nota.</em> Muro digital y postales anónimas de confesión personal. Fuente: Warren (2005-presente).",
+   "src": "img/referente-r1-postsecret.jpg",
+   "note": "<em>Nota.</em> Postal anónima de la colección PostSecret en exhibición. Fuente: Warren (2005-presente). Fotografía: kelly bell photography, Flickr (CC BY 2.0).",
    "referente": true
   },
   {
@@ -839,7 +839,7 @@
    "type": "figure",
    "label": "Figura 8",
    "title": "BoJack Horseman (Raphael Bob-Waksberg, 2014 - 2020)",
-   "src": "img/p26-image53.jpg",
+   "src": "img/referente-r5-bojack.jpg",
    "note": "<em>Nota.</em> Lenguaje visual que conjuga el absurdo estético con el vacío existencial y la sátira contemporánea. Fuente: The Tornante Company / Netflix.",
    "referente": true
   },
@@ -1028,7 +1028,7 @@
    "type": "figure",
    "label": "Figura 14",
    "title": "Merlí (Héctor Lozano, 2015 - 2018)",
-   "src": "img/referente-r9-merli.jpg",
+   "src": "img/referente-r9-merli-aula.jpg",
    "note": "<em>Nota.</em> Mediación pedagógica horizontal y desarticulación del juicio formal a través del diálogo colectivo. Fuente: TV3 / Netflix.",
    "referente": true
   },
@@ -1091,7 +1091,7 @@
    "type": "figure",
    "label": "Figura 16",
    "title": "Hellblade: Senua’s Sacrifice (Ninja Theory, 2017)",
-   "src": "img/p26-image55.jpg",
+   "src": "img/referente-r11-hellblade.jpg",
    "note": "<em>Nota.</em> Construcción inmersiva de la vulnerabilidad psicológica mediante diseño sonoro binaural espacializado. Fuente: Ninja Theory.",
    "referente": true
   },
