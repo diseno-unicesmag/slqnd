@@ -2839,7 +2839,7 @@
    "label": "Figura 37",
    "title": "Registro de la Sesión de Trabajo con Gabriel Iván Parra Rosero",
    "type": "figure",
-   "src": "img/image22.png",
+   "src": "img/fig37-sesion-parra.png",
    "note": "<em>Nota.</em> Captura de la sesión virtual con Gabriel Iván Parra Rosero, realizada el 25 de junio de 2026.",
    "foto": true
   },
@@ -2850,13 +2850,14 @@
   },
   {
    "type": "p",
-   "html": "El recorrido de la Fase 1, articulado a través de la CDPS (n = 15), el taller <em>Sobre lo que no dices</em> con sus cuatro hojas individuales (Flor, Blue, Nyo y Sun) y la entrevista con el diseñador y psicólogo Gabriel Iván Parra Rosero, consolidó una base exploratoria sobre la vivencia del agotamiento y el silenciamiento en estudiantes de diseño. Los hallazgos sugieren que la sobrecarga académica se vive también en el cuerpo (cansancio, ansiedad, bloqueo creativo) y que muchos jóvenes tienden a guardarse lo que sienten. A partir de esta base se identifican cuatro oportunidades de diseño que orientan el paso hacia la creación y el prototipado del ecosistema <em>phygital</em>:",
+   "html": "El recorrido de la Fase 1, articulado a través de la CDPS (n = 15), el taller <em>Sobre lo que no dices</em> con sus cuatro hojas individuales (Flor, Blue, Nyo y Sun) y la entrevista con el diseñador y psicólogo Gabriel Iván Parra Rosero, consolidó una base exploratoria sobre la vivencia del agotamiento y el silenciamiento en estudiantes de diseño. Los hallazgos sugieren que la sobrecarga académica se vive también en el cuerpo (cansancio, ansiedad, bloqueo creativo) y que muchos jóvenes tienden a guardarse lo que sienten. A partir de esta base se identifican cuatro oportunidades de diseño que orientan la creación y el prototipado del ecosistema <em>phygital</em>:",
    "id": "b427"
   },
   {
    "type": "p",
    "html": "<strong>1. Expresión indirecta y desahogo simbólico:</strong> En la CDPS, el 53,3 % de los participantes indicó que casi nunca verbaliza sus emociones o que prefiere guardárselas, y acudir a un psicólogo reunió solo 3 de las 23 respuestas sobre a quién acudir en un momento de colapso. La primera oportunidad de diseño reside en ofrecer un canal indirecto y protegido, donde el participante pueda proyectar lo que siente a través de una metáfora visual. En este sentido, Parra recomendó el método biográfico narrativo, que invita a contar las propias vivencias en tercera persona, como si le ocurrieran a un alterego (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026); la figura proyectiva cumple una función similar en el plano visual.",
-   "id": "b428"
+   "id": "b428",
+   "saltoAntes": true
   },
   {
    "type": "p",
@@ -3009,7 +3010,8 @@
   {
    "type": "p",
    "html": "<strong>Demostraciones del Prototipo V1:</strong> El PMV se mostró en tres espacios, que funcionaron como demostraciones y no como una validación formal: a) la sustentación final de noveno semestre (Proyecto de Grado 1), donde las cuatro ilustraciones se imprimieron y enmarcaron, y los jurados interactuaron con ellas usando la APK 0.0.29, lo que permitió observar en vivo la estabilidad del seguimiento de imagen, la fluidez de la animación y la sincronía del audio; b) el Festival Buenamente 2026, en una ponencia con demostraciones en vivo ante la comunidad universitaria; y c) una sesión de la asignatura Proyecto de Grado 2 (décimo semestre), con pruebas directas con docentes y estudiantes, en las que se observó la facilidad para sostener el dispositivo, la legibilidad de la interfaz y las primeras reacciones ante las metáforas.",
-   "id": "b454"
+   "id": "b454",
+   "saltoAntes": true
   },
   {
    "type": "p",
