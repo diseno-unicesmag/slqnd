@@ -746,3 +746,7 @@
 .pl .portada.tipo .por-sub-top, .pl .portada.tipo .por-sub-top em, .pl .portada.tipo .por-pie .anio,
 .pl .portada.tipo .por-pie .autor, .pl .portada.tipo .por-pie .autor b, .pl .portada.tipo .por-pie .autor small,
 .pl .portada.tipo .por-pie span { color: #2b1759; mix-blend-mode: normal; }
+
+/* Portada: la textura refractada como cristal hacia arriba-derecha y abajo-izquierda
+   (herramientas/refraccion.py umbral.jpg portada-refraccion.jpg 0.55) */
+.pl .portada.tipo > .fondo { background-image: url(../contenido/deco/portada-refraccion.jpg) !important; background-size: cover; }
