@@ -505,6 +505,8 @@ class Maquetador {
       if (b.type === 'heading') primero = false;
       if (el.classList.contains('ancho')) this.colocarAncho(el); else this.agregarTexto(el);
       if (b.type === 'p') this.citaDe(b);
+      // Síntesis diagnóstica: la página queda a medias; la frase que la resume la cierra abajo
+      if (b.id === 'b427') { this.cerrarBanda(); if (this.citaHueco('Muchos jóvenes tienden a guardarse lo que sienten', '', 9)) this.y = ALTO_CAJA; }
     }
     this.cerrarBanda();
     this.vaciarFlotantes();
@@ -787,9 +789,9 @@ class Maquetador {
   // Última doble página antes de las referencias: la cadena de valor del proyecto completa,
   // de la urgencia al proyecto, a lo ancho del pliego
   // Páginas casi vacías: una frase destacada abajo para que no queden en blanco
-  citaHueco(frase, firma) {
+  citaHueco(frase, firma, min = 14) {
     const html = `<p>«${frase}»</p>` + (firma ? `<span>${firma}</span>` : '');
-    if (this.actual?.flujo && ALTO_CAJA - this.y >= 14 * L) { this.actual.caja.appendChild(h('div', 'cita-hueco cita-dest', html)); return true; }
+    if (this.actual?.flujo && ALTO_CAJA - this.y >= min * L) { this.actual.caja.appendChild(h('div', 'cita-hueco cita-dest', html)); return true; }
     return false;
   }
   cadenaValor() {
