@@ -242,6 +242,8 @@ class Maquetador {
             if (!mejor || pena < mejor.pena) mejor = { fs, pena };
           }
           filas = (b.id === 'b467r' || b.id === 'b456s') ? filasDe(2) : mejor.fs;   // en dos filas, como la Fig. 43
+          // Fig. 42: los fotogramas enteros y lo más altos posible; dos filas que llenan la página con su pie
+          if (b.id === 'b456s') { const fila = 20 * L; anchoTotal = fila * filas[0].reduce((a, i) => a + r[i], 0) + (filas[0].length - 1) * SEP; }
         }
         filas.forEach(fila => {
           const suma = fila.reduce((a, i) => a + r[i], 0);
