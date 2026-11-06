@@ -735,3 +735,7 @@
 .pl .portada.tipo .por-sub-top, .pl .portada.tipo .por-sub-top em { color: #fff; mix-blend-mode: normal; font-weight: 600; }
 .pl .portada.tipo .por-pie .anio { color: #fff; mix-blend-mode: normal; }
 .pl .tabla.compacta td { padding-top: 3px; padding-bottom: 3px; line-height: 1.27; }
+/* La cita de la RA sola en su página, a media altura */
+.pl .cita-dest.cita-sola { top: 3.6in !important; }
+/* Portada: la capa oscura más suave */
+.pl .portada.tipo > .fondo::after { background: linear-gradient(180deg, rgba(18,13,38,0) 0%, rgba(18,13,38,.10) 45%, rgba(18,13,38,.42) 100%); }

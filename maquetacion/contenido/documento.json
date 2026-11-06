@@ -1361,13 +1361,13 @@
    "label": "Figura 22",
    "title": "Mapa de Calor de la CDPS: Distribución del Tiempo Académico Presencial y Autónomo (P1)",
    "type": "figure",
-   "src": "img/image15.png",
+   "src": "img/fig22-v2.png",
    "note": "<em>Nota.</em> Visualizador de la CDPS durante la sesión del 24 de abril de 2026. La densidad de cada zona corresponde a la concentración de los votos anónimos de los 15 participantes sobre el lienzo digital."
   },
   {
    "type": "list",
    "items": [
-    "<strong>Motivación vocacional y satisfacción:</strong> Las preguntas P2 y P3 matizan esa carga. Ningún participante dijo estudiar Diseño Gráfico por obligación: el 60,0 % (n = 9) le «agarró cariño en el camino» y el 26,7 % (n = 4) la estudia porque le apasiona; solo el 13,3 % (n = 2) señaló que no sabía qué más hacer. La satisfacción con los propios resultados, en cambio, es baja: el 60,0 % (n = 9) se siente satisfecho «casi nunca» o «a veces», y apenas el 13,3 % (n = 2) lo está siempre (Tabla 2 y Figura 23). Para este grupo, el malestar no parece nacer del rechazo a la carrera, sino de la distancia entre lo que se logra y lo que se espera de sí mismo."
+    "<strong>Motivación vocacional y satisfacción:</strong> Ningún participante estudia Diseño Gráfico por obligación (P2): el 60,0 % (n = 9) le «agarró cariño en el camino» y el 26,7 % (n = 4) la estudia porque le apasiona; el 13,3 % (n = 2), porque no sabía qué más hacer. La satisfacción con los propios resultados (P3) es baja: el 60,0 % (n = 9) se siente satisfecho «casi nunca» o «a veces», y solo el 13,3 % (n = 2) lo está siempre (Tabla 2 y Figura 23). El malestar no parece nacer del rechazo a la carrera, sino de la distancia entre lo que se logra y lo que se espera de sí mismo."
    ],
    "id": "b285"
   },
@@ -2087,7 +2087,7 @@
   {
    "type": "list",
    "items": [
-    "<strong>Cartografía de la presión: factores, momentos y reacciones:</strong> El bloque final de la cartografía preguntó de dónde viene la presión, cuándo se intensifica y cómo se reacciona ante ella. Entre los factores (P16, 14 participantes), la avalancha de entregas fue la más señalada (7, 50,0 %), seguida de cerca por «mi propia cabeza exigiéndome» (6, 42,9 %); el pánico a fracasar y no decepcionar a la familia reunieron a 4 participantes cada uno (28,6 %). Las fuentes internas de presión pesan casi tanto como las externas, lo que coincide con la lectura de Han (2012) sobre la autoexplotación y con la de Caballero et al. (2015) sobre las demandas del contexto académico: en este grupo, ambas conviven. En cuanto al momento (P16b), la carga se concentra en las entregas finales (10 de 15, 66,7 %) y cuando todo se cruza (9 de 15, 60,0 %) (Figura 28)."
+    "<strong>Cartografía de la presión: factores, momentos y reacciones:</strong> Entre los factores (P16, 14 participantes), la avalancha de entregas fue la más señalada (7, 50,0 %), seguida de cerca por «mi propia cabeza exigiéndome» (6, 42,9 %); el pánico a fracasar y no decepcionar a la familia reunieron a 4 participantes cada uno (28,6 %). Las fuentes internas de presión pesan casi tanto como las externas, lo que coincide con la lectura de Han (2012) sobre la autoexplotación y con la de Caballero et al. (2015) sobre las demandas del contexto académico: en este grupo, ambas conviven. En cuanto al momento (P16b), la carga se concentra en las entregas finales (10 de 15, 66,7 %) y cuando todo se cruza (9 de 15, 60,0 %) (Figura 28)."
    ],
    "id": "b340"
   },
@@ -2341,7 +2341,7 @@
    "label": "Figura 31",
    "title": "Mapa de Calor de la CDPS: Afectaciones Corporales y Creativas del Burnout (P18)",
    "type": "figure",
-   "src": "img/image16.png",
+   "src": "img/fig31-v2.png",
    "note": "<em>Nota.</em> Visualizador de la CDPS en el momento de cierre de la pregunta P18, con la votación simultánea de los 15 participantes sobre el lienzo digital."
   },
   {
@@ -2445,7 +2445,7 @@
   },
   {
    "type": "p",
-   "html": "Se estructuró una matriz comparativa, denominada <em>Match Creativo</em>, para someter a crítica las propuestas preliminares de producto. El ejercicio llevó a descartar las propuestas convencionales de diseño frente a la salud mental (folletos informativos, afiches con frases motivacionales o aplicaciones de registro del estado de ánimo), por considerar que podían reproducir el estigma y abordar al estudiante desde la frialdad instrumental, lo que orientó el proyecto hacia una experiencia inmersiva y artística. La versión final de la matriz quedó alojada en la plataforma web. La Tabla 11 resume los productos convencionales identificados y su alternativa propuesta.",
+   "html": "Se estructuró una matriz comparativa, denominada <em>Match Creativo</em>, para someter a crítica las propuestas preliminares de producto. El ejercicio llevó a descartar las propuestas convencionales de diseño frente a la salud mental (folletos informativos, afiches con frases motivacionales o aplicaciones de registro del estado de ánimo), por considerar que podían reproducir el estigma y abordar al estudiante desde la frialdad instrumental, lo que orientó el proyecto hacia una experiencia inmersiva y artística. La Tabla 11 resume los productos convencionales identificados y su alternativa propuesta.",
    "id": "b369"
   },
   {
@@ -2547,7 +2547,7 @@
   },
   {
    "type": "p",
-   "html": "Durante la sesión grupal coordinada por la docente Caroll Suárez se asignó al proyecto el tema de la Arquitectura como referente de las Industrias Culturales y Creativas; por iniciativa propia, el ejercicio se extendió a cuatro temas adicionales (Música, Escultura, Museos y Videojuegos), produciendo cinco matrices en formato de mapa mental con ideas calificadas en tres niveles: inviable, buena idea y prioritaria. Las ideas prioritarias de las cinco matrices se reunieron y analizaron comparativamente en una matriz de síntesis proyectual, de la que emergió la propuesta central del proyecto: un ecosistema <em>phygital</em> que articula obras conceptuales físicas con una aplicación móvil de realidad aumentada que opera como lente reveladora. Todas las matrices fueron publicadas como mapas navegables e interactivos en la plataforma web (Figura 33). Junto con el Match Creativo, este ejercicio marca el paso de la indagación a la ideación.",
+   "html": "Durante la sesión grupal coordinada por la docente Caroll Suárez se asignó al proyecto el tema de la Arquitectura como referente de las Industrias Culturales y Creativas; por iniciativa propia, el ejercicio se extendió a cuatro temas más (Música, Escultura, Museos y Videojuegos): cinco matrices en formato de mapa mental con ideas calificadas como inviables, buenas o prioritarias. Las prioritarias se reunieron en una matriz de síntesis proyectual, de la que emergió la propuesta central: un ecosistema <em>phygital</em> que articula obras conceptuales físicas con una aplicación móvil de realidad aumentada que opera como lente reveladora. Todas las matrices se publicaron como mapas navegables en la plataforma web (Figura 33). Junto con el Match Creativo, este ejercicio marca el paso de la indagación a la ideación.",
    "id": "b375"
   },
   {
@@ -2579,7 +2579,7 @@
   },
   {
    "type": "p",
-   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre del programa de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. La participación fue activa: cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego físico de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>, un formato impreso en el que escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con realidad aumentada y definió lo que espera que sienta quien la vea. La sesión generó dos corpus de información, uno cuantitativo y uno cualitativo. Por esta doble naturaleza, el taller cierra la indagación de la Fase 1 y, a la vez, constituye el primer ejercicio de cocreación del proyecto: las piezas propuestas en las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2). La Figura 34 registra la sesión.",
+   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. Cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>: escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con realidad aumentada y definió lo que espera que sienta quien la vea. La sesión generó un corpus cuantitativo y uno cualitativo. Así, el taller cierra la indagación de la Fase 1 y es, a la vez, el primer ejercicio de cocreación: las piezas de las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2). La Figura 34 registra la sesión.",
    "id": "b386"
   },
   {
@@ -2964,7 +2964,7 @@
   },
   {
    "type": "p",
-   "html": "El PMV se orientó a comprobar tres capacidades técnicas:",
+   "html": "El PMV se orientó a comprobar tres capacidades técnicas específicas:",
    "id": "b441"
   },
   {
@@ -3046,7 +3046,8 @@
     "img/fig42-02.jpg",
     "img/fig42-03.jpg",
     "img/fig42-04.jpg",
-    "img/fig42-05.jpg"
+    "img/fig42-05.jpg",
+    "img/fig42-01.jpg"
    ],
    "note": "<em>Nota.</em> Fotogramas de un registro en video de la pantalla del prototipo: la cámara reconoce la ilustración enmarcada (1–2), la capa de realidad aumentada agrieta el frasco (3), lo quiebra (4) y libera su contenido (5). Elaboración propia."
   },
