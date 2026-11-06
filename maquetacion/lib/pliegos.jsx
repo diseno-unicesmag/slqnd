@@ -33,7 +33,7 @@ const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
   ['ya contó su historia primero', 'Es más fácil abrirse cuando alguien más ya contó su historia primero', ''],
   ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', ''],
-  ['no añade información ajena a la obra', 'La realidad aumentada no<br>añade: revela', 'MetafoRA'],
+  ['no añade información ajena a la obra', 'La realidad aumentada no<br>añade: revela', '', 'sola'],   // va sola en su página
 ];
 const A_LO_ANCHO = new Set(['b093', 'b119', 'b141', 'b444', 'b450', 'b478', 'b492', 'b502']);
 const PAGINA_SOLA = new Set([]);   // van solas en su página (la Figura 38 ya no: el texto sigue debajo)
@@ -241,7 +241,7 @@ class Maquetador {
             const pena = Math.abs(Math.min(...altos) - 3.4 * PX) + (total > 36 * L ? 1e4 : 0);
             if (!mejor || pena < mejor.pena) mejor = { fs, pena };
           }
-          filas = b.id === 'b467r' ? filasDe(2) : mejor.fs;
+          filas = (b.id === 'b467r' || b.id === 'b456s') ? filasDe(2) : mejor.fs;   // en dos filas, como la Fig. 43
         }
         filas.forEach(fila => {
           const suma = fila.reduce((a, i) => a + r[i], 0);
@@ -476,6 +476,8 @@ class Maquetador {
     if (!c || this.paginas.length - (this.ultimaCita ?? -9) < 4) return;
     (this.citasUsadas ??= new Set()).add(c[0]); this.ultimaCita = this.paginas.length;
     const e = h("div", "ancho cita-dest", `<p>«${c[1]}»</p>` + (c[2] ? `<span>${c[2]}</span>` : ''));
+    // sola: espera al final del apartado (después de sus figuras) y ocupa su propia página
+    if (c[3] === 'sola') { e.classList.add('fig-pagina', 'cita-sola'); this.citaSola = e; return; }
     this.colocarAncho(e);
   }
   vaciarFlotantes() { while (this.flotantes.length) { this.paginaFlujo(); } }
@@ -741,7 +743,9 @@ class Maquetador {
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
-    this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta();
+    this.cerrarBanda(); this.vaciarFlotantes();
+    if (this.citaSola) { this.flotantes.push(this.citaSola); this.citaSola = null; this.vaciarFlotantes(); }
+    this.emitirRuta();
     // La paleta va justo después de Estilo Gráfico, antes de la sección siguiente: si le toca a una
     // página derecha, esa derecha cierra el apartado con la frase que lo resume
     if (this.paletaPendiente && this.siguienteEsDerecha) {
