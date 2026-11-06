@@ -728,3 +728,10 @@
 .pl .decl-ia { position: absolute; left: 0.9in; right: 3.4in; bottom: 0.9in; padding-top: 0.14in; border-top: 1px solid rgba(43,23,89,.18); color: #4a4560; }
 .pl .decl-ia .decl-tag { display: block; margin-bottom: 6px; font: 800 6.8pt/1.3 'Montserrat', sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #6a4bd1; }
 .pl .decl-ia p { margin: 0; font-size: 7.6pt; line-height: 1.5; text-align: left; hyphens: manual; }
+
+/* Portada: una capa que oscurece la textura hacia abajo, para que el subtítulo, el nombre, la universidad
+   y el año se lean en blanco */
+.pl .portada.tipo > .fondo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,13,38,.08) 0%, rgba(18,13,38,.22) 40%, rgba(18,13,38,.62) 100%); }
+.pl .portada.tipo .por-sub-top, .pl .portada.tipo .por-sub-top em { color: #fff; mix-blend-mode: normal; font-weight: 600; }
+.pl .portada.tipo .por-pie .anio { color: #fff; mix-blend-mode: normal; }
+.pl .tabla.compacta td { padding-top: 3px; padding-bottom: 3px; line-height: 1.27; }
