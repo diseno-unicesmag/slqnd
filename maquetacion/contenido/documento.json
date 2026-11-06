@@ -2588,7 +2588,7 @@
    "label": "Figura 33",
    "title": "Matriz de Síntesis y Decantación Conceptual hacia el Ecosistema Phygital",
    "type": "figure",
-   "src": "img/fig-decantacion-v2.png",
+   "src": "img/fig33-v3.png",
    "note": "<em>Nota.</em> Elaboración propia a partir del ejercicio de clase Lluvia de Ideas: de 48 ideas en cinco industrias culturales y creativas, seis prioritarias pasaron a la matriz de síntesis."
   },
   {
@@ -2599,8 +2599,13 @@
   },
   {
    "type": "p",
-   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. Cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>: escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con realidad aumentada y definió lo que espera que sienta quien la vea. La sesión generó un corpus cuantitativo y uno cualitativo. Así, el taller cierra la indagación de la Fase 1 y es, a la vez, el primer ejercicio de cocreación: las piezas de las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2). La Figura 34 registra la sesión.",
+   "html": "El 11 de mayo de 2026 se realizó el taller presencial <em>Sobre lo que no dices</em> con cuatro estudiantes de noveno semestre de Diseño Gráfico, en el doble rol de jóvenes que viven la presión académica y de creadores potenciales de las obras del ecosistema. Cada participante marcó sus posiciones en la <em>Cartelera Grupal</em> (pliego de 100 × 70 cm con 8 afirmaciones en escala Likert del 1 al 5) mientras comentaba en voz alta, y diligenció su <em>Hoja Individual de Prototipado</em>: escribió lo que calla, boceteó la pieza que crearía para decirlo, describió qué pasaría al escanearla con realidad aumentada y definió lo que espera que sienta quien la vea. La sesión generó un corpus cuantitativo y uno cualitativo.",
    "id": "b386"
+  },
+  {
+   "id": "b386b",
+   "type": "p",
+   "html": "Así, el taller cierra la indagación de la Fase 1 y es, a la vez, el primer ejercicio de cocreación: las piezas de las hojas individuales son la base de las obras del PMV de <em>MetafoRA</em> (Fase 2). La Figura 34 registra la sesión."
   },
   {
    "id": "b387",
