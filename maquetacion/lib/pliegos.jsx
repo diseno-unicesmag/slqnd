@@ -36,7 +36,7 @@ const CITAS = [
   ['no añade información ajena a la obra', 'La realidad aumentada no<br>añade: revela', '', 'sola'],   // va sola en su página
 ];
 const A_LO_ANCHO = new Set(['b093', 'b119', 'b141', 'b444', 'b450', 'b478', 'b492', 'b502']);
-const PAGINA_SOLA = new Set([]);   // van solas en su página (la Figura 38 ya no: el texto sigue debajo)
+const PAGINA_SOLA = new Set(['b456']);   // Fig. 41: página propia, sin columnas cortas debajo   // van solas en su página (la Figura 38 ya no: el texto sigue debajo)
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 const RADIO_PANEL = 0.3 * PX;       // mismo radio para todas las tarjetas de cristal sobre foto
 
@@ -477,7 +477,7 @@ class Maquetador {
     (this.citasUsadas ??= new Set()).add(c[0]); this.ultimaCita = this.paginas.length;
     const e = h("div", "ancho cita-dest", `<p>«${c[1]}»</p>` + (c[2] ? `<span>${c[2]}</span>` : ''));
     // sola: espera al final del apartado (después de sus figuras) y ocupa su propia página
-    if (c[3] === 'sola') { e.classList.add('fig-pagina', 'cita-sola'); this.citaSola = e; return; }
+    if (c[3] === 'sola') { e.classList.add('fig-pagina', 'cita-sola', 'cita-hueco'); this.citaSola = e; return; }
     this.colocarAncho(e);
   }
   vaciarFlotantes() { while (this.flotantes.length) { this.paginaFlujo(); } }
@@ -910,23 +910,29 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   const esFoto = b => !!b.foto;
   const figs = doc.blocks.filter(b => b.type === 'figure' && b.label);
   m.listas = { figure: figs.filter(b => !esFoto(b)), foto: figs.filter(esFoto), table: doc.blocks.filter(b => b.type === 'table' && b.label) };
+  const decl = partes.find(p => p.tipo === 'declaracion');
+  let declarada = false;
+  const declarar = pg => {
+    const d = h('div', 'decl-ia', `<span class="decl-tag">${textoPlano(decl.titulo.html)}</span>` + decl.bloques.filter(b => b.type === 'p').map(b => `<p>${b.html}</p>`).join(''));
+    d.querySelectorAll('p').forEach(sinViuda); pg.el.appendChild(d); m.marcar(d, decl.titulo.id); declarada = true;
+  };
   for (const parte of partes) {
     if (parte.tipo === 'portada') { m.portada(parte); m.portadilla(parte); }
     else if (parte.tipo === 'portadilla') m.portadilla(parte);
     else if (parte.tipo === 'preliminar') m.preliminar(parte);
     else if (parte.tipo === 'indice') m.indiceDoc();
     else if (parte.tipo === 'capitulo') m.capitulo(parte);
-    else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
+    else if (parte.tipo === 'referencias') {
+      m.cadenaValor();
+      // La declaración de IA va en la página izquierda que queda libre frente al inicio de las referencias
+      if (decl && !m.siguienteEsDerecha) { const pg = m.pagina('blanca decl-pag', { folio: false }); declarar(pg); }
+      m.referencias(parte);
+    }
   }
   // Cierre: un pliego en blanco después de las referencias; en la página izquierda, discreta al pie,
   // la declaración de uso de inteligencia artificial
   m.aIzquierda(); const cierre = m.pagina('blanca cierre', { folio: false });
-  const decl = partes.find(p => p.tipo === 'declaracion');
-  if (decl) {
-    const d = h('div', 'decl-ia', `<span class="decl-tag">${textoPlano(decl.titulo.html)}</span>` + decl.bloques.filter(b => b.type === 'p').map(b => `<p>${b.html}</p>`).join(''));
-    d.querySelectorAll('p').forEach(sinViuda);
-    cierre.el.appendChild(d); m.marcar(d, decl.titulo.id);
-  }
+  if (decl && !declarada) declarar(cierre);   // si no hubo página libre antes de las referencias
   m.pagina('blanca cierre', { folio: false });
   m.terminar();
   await contrastar(raiz);

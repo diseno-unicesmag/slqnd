@@ -1870,7 +1870,7 @@
   },
   {
    "type": "p",
-   "html": "Un cruce descriptivo de las respuestas individuales, que con 15 participantes solo tiene valor ilustrativo, apunta en la misma dirección: de los 11 estudiantes que se reconocen perfeccionistas (P5), 8 dicen estar viviendo el agotamiento en este momento (P10); y de los 7 que se ubicaron en el nivel máximo de autoexigencia (P4), 6 lo describen como un ciclo que se repite cada semestre (P11).",
+   "html": "Un cruce descriptivo de las respuestas individuales, solo ilustrativo con 15 participantes, apunta en la misma dirección: de los 11 estudiantes que se reconocen perfeccionistas (P5), 8 dicen estar viviendo el agotamiento en este momento (P10); y de los 7 que se ubicaron en el nivel máximo de autoexigencia (P4), 6 lo describen como un ciclo que se repite cada semestre (P11).",
    "id": "b324"
   },
   {
@@ -1958,7 +1958,7 @@
   },
   {
    "type": "p",
-   "html": "Leídas por persona y no por número de marcas, las respuestas de la P13 son más elocuentes: 6 de los 14 estudiantes que la respondieron (42,9 %) marcaron «nadie, trato de salir solo/a», y 3 (21,4 %) mencionaron a un psicólogo. El cruce por género, de nuevo solo ilustrativo (11 mujeres y 4 hombres), resuena con lo planteado en el apartado 1.7.3 de este documento (La Sociedad del Rendimiento y el Mandato de Invulnerabilidad): ninguno de los cuatro hombres eligió «sí, me desahogo» en la P12, dos de ellos dijeron que casi nunca verbalizan lo que sienten, dos de los tres que respondieron la P13 indicaron que no acuden a nadie y ninguno marcó la opción del psicólogo.",
+   "html": "Leídas por persona y no por número de marcas, las respuestas de la P13 son más elocuentes: 6 de los 14 estudiantes que la respondieron (42,9 %) marcaron «nadie, trato de salir solo/a», y 3 (21,4 %) mencionaron a un psicólogo. El cruce por género, de nuevo solo ilustrativo (11 mujeres y 4 hombres), resuena con lo planteado en el apartado 1.7.3 de este documento: ninguno de los cuatro hombres eligió «sí, me desahogo» en la P12, dos de ellos dijeron que casi nunca verbalizan lo que sienten, dos de los tres que respondieron la P13 indicaron que no acuden a nadie y ninguno marcó la opción del psicólogo.",
    "id": "b330"
   },
   {
@@ -2778,6 +2778,15 @@
    "id": "b417"
   },
   {
+   "id": "b422",
+   "label": "Figura 38",
+   "title": "Registro de la Sesión de Trabajo con Gabriel Iván Parra Rosero",
+   "type": "figure",
+   "src": "img/fig37-sesion-parra.png",
+   "note": "<em>Nota.</em> Captura de la sesión virtual con Gabriel Iván Parra Rosero, realizada el 25 de junio de 2026.",
+   "foto": true
+  },
+  {
    "id": "b418",
    "label": "Tabla 13",
    "title": "Lineamientos Éticos y Operativos Derivados de la Entrevista con el Experto",
@@ -2843,15 +2852,6 @@
    ],
    "note": "<em>Nota.</em> Síntesis de la entrevista en profundidad con Gabriel Iván Parra Rosero del 25 de junio de 2026 (2 horas y 20 minutos).",
    "compacta": true
-  },
-  {
-   "id": "b422",
-   "label": "Figura 38",
-   "title": "Registro de la Sesión de Trabajo con Gabriel Iván Parra Rosero",
-   "type": "figure",
-   "src": "img/fig37-sesion-parra.png",
-   "note": "<em>Nota.</em> Captura de la sesión virtual con Gabriel Iván Parra Rosero, realizada el 25 de junio de 2026.",
-   "foto": true
   },
   {
    "type": "p",
@@ -3009,13 +3009,13 @@
   },
   {
    "type": "p",
-   "html": "<strong>Demostraciones del Prototipo V1:</strong> El PMV se mostró en tres espacios, que funcionaron como demostraciones y no como una validación formal: a) la sustentación final de noveno semestre (Proyecto de Grado 1), donde las cuatro ilustraciones se imprimieron y enmarcaron, y los jurados interactuaron con ellas usando la APK 0.0.29, lo que permitió observar en vivo la estabilidad del seguimiento de imagen, la fluidez de la animación y la sincronía del audio; b) el Festival Buenamente 2026, en una ponencia con demostraciones en vivo ante la comunidad universitaria; y c) una sesión de la asignatura Proyecto de Grado 2 (décimo semestre), con pruebas directas con docentes y estudiantes, en las que se observó la facilidad para sostener el dispositivo, la legibilidad de la interfaz y las primeras reacciones ante las metáforas.",
+   "html": "<strong>Demostraciones del Prototipo V1:</strong> El PMV se mostró en tres espacios, como demostraciones y no como validación formal: a) la sustentación final de noveno semestre (Proyecto de Grado 1), donde los jurados interactuaron con las cuatro ilustraciones impresas y enmarcadas usando la APK 0.0.29, lo que permitió observar en vivo el seguimiento de imagen, la animación y el audio; b) el Festival Buenamente 2026, con demostraciones en vivo; y c) una sesión de Proyecto de Grado 2 (décimo semestre), con pruebas con docentes y estudiantes que mostraron la facilidad de uso, la legibilidad de la interfaz y las primeras reacciones ante las metáforas.",
    "id": "b454",
    "saltoAntes": true
   },
   {
    "type": "p",
-   "html": "El PMV permitió comprobar que la realidad aumentada móvil puede operar como la lente que propone el concepto del proyecto. Las capturas de la interfaz se presentan en la Figura 41, la secuencia de una obra que reacciona al escaneo en la Figura 42, el rediseño de la interfaz para la versión 0.0.30 en la Figura 43, y el registro de la interacción del docente Fernando Coral con las obras enmarcadas, en la Figura 44.",
+   "html": "El PMV comprobó que la realidad aumentada móvil puede operar como la lente que propone el concepto del proyecto. La Figura 41 muestra la interfaz; la Figura 42, una obra que reacciona al escaneo; la Figura 43, el rediseño para la versión 0.0.30, y la Figura 44, la interacción del docente Fernando Coral con las obras enmarcadas.",
    "id": "b455"
   },
   {
@@ -3083,7 +3083,7 @@
   },
   {
    "type": "p",
-   "html": "El segundo momento de esta fase, y el núcleo del propósito específico 2, son los talleres de cocreación con comunidad. Siguiendo la recomendación de Parra de contrastar grupos con perfiles distintos, se realizarán con dos comunidades: estudiantes de Diseño Gráfico y estudiantes de una o varias carreras distintas al diseño. Parra señaló que no se requieren habilidades artísticas previas y que la falta de técnica puede hacer la expresión más orgánica, por lo que la segunda comunidad no necesita formación en artes (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026).",
+   "html": "El segundo momento de esta fase, núcleo del propósito específico 2, son los talleres de cocreación con comunidad. Por recomendación de Parra, se realizarán con dos comunidades de perfil distinto: estudiantes de Diseño Gráfico y de otras carreras. Según Parra, no hacen falta habilidades artísticas: la falta de técnica puede hacer la expresión más orgánica, así que la segunda comunidad no necesita formación en artes (G. I. Parra Rosero, comunicación personal, 25 de junio de 2026).",
    "id": "b471"
   },
   {
