@@ -739,3 +739,10 @@
 .pl .portada.tipo > .fondo::after { background: linear-gradient(180deg, rgba(18,13,38,0) 0%, rgba(18,13,38,.10) 45%, rgba(18,13,38,.42) 100%); }
 /* La cita de la RA, sola en su página, abajo como la de cierre de Estilo Gráfico */
 .pl .cita-dest.cita-sola { top: auto !important; bottom: calc(var(--L) * 2); }
+
+/* Portada (propuesta A): fondo un poco quemado y todos los textos en morado */
+.pl .portada.tipo > .fondo { filter: brightness(1.18) saturate(.85); }
+.pl .portada.tipo > .fondo::after { background: rgba(255,255,255,.28); }
+.pl .portada.tipo .por-sub-top, .pl .portada.tipo .por-sub-top em, .pl .portada.tipo .por-pie .anio,
+.pl .portada.tipo .por-pie .autor, .pl .portada.tipo .por-pie .autor b, .pl .portada.tipo .por-pie .autor small,
+.pl .portada.tipo .por-pie span { color: #2b1759; mix-blend-mode: normal; }
