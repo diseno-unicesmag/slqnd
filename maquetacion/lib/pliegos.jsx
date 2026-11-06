@@ -33,7 +33,7 @@ const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
   ['ya contó su historia primero', 'Es más fácil abrirse cuando alguien más ya contó su historia primero', ''],
   ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', ''],
-  ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
+  ['no añade información ajena a la obra', 'La realidad aumentada no<br>añade: revela', 'MetafoRA'],
 ];
 const A_LO_ANCHO = new Set(['b093', 'b119', 'b141', 'b444', 'b450', 'b478', 'b492', 'b502']);
 const PAGINA_SOLA = new Set([]);   // van solas en su página (la Figura 38 ya no: el texto sigue debajo)
@@ -91,6 +91,7 @@ export function planificar(doc) {
     if (esH1(b)) {
       const t = textoPlano(b.html);
       if (/^Referencias/i.test(t)) { partes.push({ tipo: 'referencias', titulo: b, bloques: hasta(esH1) }); continue; }
+      if (/^Declaración de uso de inteligencia artificial/i.test(t)) { partes.push({ tipo: 'declaracion', titulo: b, bloques: hasta(esH1) }); continue; }
       partes.push({ tipo: 'preliminar', titulo: b, bloques: hasta(esH1) });
       if (t === 'Abstract') partes.push({ tipo: 'indice' });
       continue;
@@ -108,6 +109,7 @@ function entradasIndice(partes) {
     if (!tras) continue;
     if (p.tipo === 'preliminar' && p.titulo) out.push({ id: p.titulo.id, nivel: 1, n: '', t: textoPlano(p.titulo.html) });
     if (p.tipo === 'referencias') out.push({ id: p.titulo.id, nivel: 1, n: '', t: 'Referencias' });
+    if (p.tipo === 'declaracion') out.push({ id: p.titulo.id, nivel: 1, n: '', t: textoPlano(p.titulo.html) });
     if (p.tipo === 'capitulo') {
       out.push({ id: p.titulo.id, nivel: 1, n: 'Capítulo ' + p.num, t: p.nombre });
       for (const s of p.secciones) {
@@ -157,7 +159,8 @@ class Maquetador {
     this.pagina((this.modo === 'una' ? 'p-una ' : '') + (this.claseFlujo || '')).flujo = true;
     // Lo que quedó pendiente de la página anterior va primero
     const pend = this.flotantes; this.flotantes = [];
-    for (const f of pend) this.colocarAncho(f, true);
+    // en orden: si una no cabe y vuelve a esperar, las que siguen esperan detrás de ella
+    for (const f of pend) { if (this.flotantes.length) this.flotantes.push(f); else this.colocarAncho(f, true); }
   }
 
   // ── Bloques → elementos ──
@@ -406,6 +409,8 @@ class Maquetador {
     // Se mide primero debajo del texto abierto: si no cabe y va a la página siguiente,
     // la banda sigue abierta y el texto continúa sin cortar las columnas
     const habiaTexto = !!(this.banda && this.banda.children.length);
+    // Figuras y tablas salen en su orden: si hay alguna esperando la página siguiente, esta va detrás
+    if (!alInicio && this.flotantes.length) { this.flotantes.push(el); return; }
     if (el.classList.contains('fig-pagina')) {
       if (habiaTexto || this.y > 0) { this.flotantes.push(el); return; }
       this.cerrarBanda();
@@ -427,12 +432,13 @@ class Maquetador {
     el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = yTent + 'px';
     this.actual.caja.appendChild(el);
     const libreTent = ALTO_CAJA - yTent;
-    const partirTabla = el.classList.contains('tabla') && (libreTent >= MIN_TABLA || alInicio);
+    const entera = el.classList.contains('tabla') && el.offsetHeight <= ALTO_CAJA - ESPACIO;   // cabe en una página: no se parte
+    const partirTabla = el.classList.contains('tabla') && !entera && (libreTent >= MIN_TABLA || alInicio);
     if (this.banda && el.offsetHeight > libreTent && !partirTabla) { el.remove(); el.style.top = ''; this.flotantes.push(el); return; }
     this.cerrarBanda(); if (habiaTexto) this.y += AIRE; el.style.top = this.y + 'px';
     const alto = el.offsetHeight, libre = ALTO_CAJA - this.y;
     if (alto <= libre) { this.y += enRenglon(alto) + ESPACIO; return; }
-    if (el.classList.contains('tabla') && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
+    if (el.classList.contains('tabla') && !entera && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
     if (this.y === 0) { // ni en página vacía: se ajusta la imagen
       el.querySelectorAll('.fig-img img').forEach(im => { im.style.height = Math.max(6 * L, Math.floor((libre - (alto - im.offsetHeight)) / L) * L) + 'px'; });
       this.y += enRenglon(el.offsetHeight) + ESPACIO; return;
@@ -895,8 +901,15 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
     else if (parte.tipo === 'capitulo') m.capitulo(parte);
     else if (parte.tipo === 'referencias') { m.cadenaValor(); m.referencias(parte); }
   }
-  // Cierre: un pliego en blanco completo después de las referencias
-  m.aIzquierda(); m.pagina('blanca cierre', { folio: false }); m.pagina('blanca cierre', { folio: false });
+  // Cierre: un pliego en blanco después de las referencias; en la página izquierda, discreta al pie,
+  // la declaración de uso de inteligencia artificial
+  m.aIzquierda(); const cierre = m.pagina('blanca cierre', { folio: false });
+  const decl = partes.find(p => p.tipo === 'declaracion');
+  if (decl) {
+    const d = h('div', 'decl-ia', `<span class="decl-tag">${textoPlano(decl.titulo.html)}</span>` + decl.bloques.filter(b => b.type === 'p').map(b => `<p>${b.html}</p>`).join(''));
+    cierre.el.appendChild(d); m.marcar(d, decl.titulo.id);
+  }
+  m.pagina('blanca cierre', { folio: false });
   m.terminar();
   await contrastar(raiz);
 

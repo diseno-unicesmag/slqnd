@@ -1,6 +1,6 @@
 // Ruta metodológica (Figura 4) recreada a doble página: tres momentos de las 3i con sus actividades
 export const RUTA = [
-  { n: 1, fase: 'Indagar', nombre: 'Cartografía', sub: 'Diagnóstico y cocreación', estado: 'Completa', fechas: 'Abril a junio de 2026',
+  { n: 1, fase: 'Indagar', nombre: 'Cartografía', sub: 'Diagnóstico y cocreación', estado: 'Completa', fechas: 'Marzo de 2025 a junio de 2026',
     prop: 'Identificar las causas, dinámicas y consecuencias del malestar que callan.',
     acts: [['Cadena de Valor', 'Matriz que relaciona los conceptos y autores que sostienen el proyecto.', 1],
       ['CDPS', 'Encuesta en vivo y anónima a 15 estudiantes sobre carga, exigencia y silencio.', 1],
