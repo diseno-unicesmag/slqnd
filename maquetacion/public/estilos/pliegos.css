@@ -718,4 +718,8 @@
 .pl .red-nucleo { position: absolute; z-index: 2; border-radius: 50%; pointer-events: none; }
 /* Etiqueta de ejercicio: en su propio renglón, con aire sobre ella */
 .pl h5.t5.ej .tag.hueco { display: block; width: fit-content; margin: 9px 0 0; }
-.pl .portada.tipo .por-pie .anio { color: #2b1759; mix-blend-mode: multiply; }   /* como el título: se lee sobre la textura sin sombra */
+/* Portada: el año en blanco como el nombre; el subtítulo en morado (multiplicar) para leerse sobre la textura clara;
+   el título un tono más claro para que la textura respire a través de las letras */
+.pl .portada.tipo .por-pie .anio { color: #fff; mix-blend-mode: normal; }
+.pl .portada.tipo .por-sub-top, .pl .portada.tipo .por-sub-top em { color: #2b1759; mix-blend-mode: multiply; font-weight: 600; }
+.pl .portada.tipo > h1.logo { color: #3d2391; }
