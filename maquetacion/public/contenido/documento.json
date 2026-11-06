@@ -1249,7 +1249,7 @@
    "label": "Figura 20",
    "title": "Red conceptual interactiva de la Cadena de Valor",
    "type": "figure",
-   "src": "img/image13.png",
+   "src": "img/fig20-v2.png",
    "note": "<em>Nota.</em> Captura de pantalla extraída de la plataforma web del proyecto."
   },
   {
@@ -1260,8 +1260,14 @@
   },
   {
    "type": "p",
-   "html": "Se diseñó y programó a medida la <em>Cartografía Digital de Percepción Silenciosa</em> (en adelante, <em>CDPS</em>), una aplicación web de preguntas interactivas a modo de encuesta viva que opera sobre una red local en una sala de cómputo. El sistema cuenta con tres interfaces sincronizadas en tiempo real: un panel de control para el administrador, una interfaz anónima donde cada estudiante vota espacialmente arrastrando un avatar único sobre un lienzo digital, y un visualizador proyectado en una pantalla compartida. Al cerrar cada pregunta, las respuestas se revelan de forma simultánea y el grupo lee y comenta en vivo el mapa de calor resultante. El instrumento se aplicó el 24 de abril de 2026 en el Laboratorio de Creación Digital 1 del Campus Centro de la Universidad CESMAG, con una muestra de N = 15 estudiantes de pregrado del programa de Diseño Gráfico. El cuestionario constó de 24 ítems organizados en ocho bloques temáticos, entre ellos la carga académica, la autoexigencia, la vivencia del <em>burnout</em>, las redes de apoyo y el silenciamiento emocional. La dinámica permitió responder de forma anónima y comentar los resultados en grupo; los datos se presentan a continuación en cuatro dimensiones, seguidas de las respuestas abiertas. La Figura 21 registra la sesión.",
+   "html": "Se diseñó y programó a medida la <em>Cartografía Digital de Percepción Silenciosa</em> (en adelante, <em>CDPS</em>), una aplicación web de preguntas interactivas a modo de encuesta viva que opera sobre una red local en una sala de cómputo. El sistema cuenta con tres interfaces sincronizadas en tiempo real: un panel de control para el administrador, una interfaz anónima donde cada estudiante vota espacialmente arrastrando un avatar único sobre un lienzo digital, y un visualizador proyectado en una pantalla compartida. Al cerrar cada pregunta, las respuestas se revelan de forma simultánea y el grupo lee y comenta en vivo el mapa de calor resultante. El instrumento se aplicó el 24 de abril de 2026 en el Laboratorio de Creación Digital 1 del Campus Centro de la Universidad CESMAG, con una muestra de N = 15 estudiantes de pregrado del programa de Diseño Gráfico.",
    "id": "b270"
+  },
+  {
+   "id": "b270b",
+   "type": "p",
+   "html": "El cuestionario constó de 24 ítems organizados en ocho bloques temáticos, entre ellos la carga académica, la autoexigencia, la vivencia del <em>burnout</em>, las redes de apoyo y el silenciamiento emocional. La dinámica permitió responder de forma anónima y comentar los resultados en grupo; los datos se presentan a continuación en cuatro dimensiones, seguidas de las respuestas abiertas. La Figura 21 registra la sesión.",
+   "saltoAntes": true
   },
   {
    "id": "b271",
@@ -1274,16 +1280,23 @@
   },
   {
    "type": "p",
-   "html": "Los 15 participantes cursaban séptimo semestre: 11 mujeres y 4 hombres, con edades entre 20 y 30 años (13 de ellos dentro del rango de 18 a 25 años que delimita el proyecto). En cuanto a su situación, 8 se dedicaban solo al estudio, 6 estudiaban y trabajaban, y 1 combinaba el estudio, el trabajo y otras responsabilidades. Se trata de una muestra pequeña y no probabilística, por lo que sus resultados se leen como hallazgos exploratorios del grupo participante y no como generalizaciones.",
+   "html": "Los 15 participantes cursaban séptimo semestre: 11 mujeres y 4 hombres, con edades entre 20 y 30 años (13 de ellos dentro del rango de 18 a 25 años que delimita el proyecto). En cuanto a su situación, 8 se dedicaban solo al estudio, 6 estudiaban y trabajaban, y 1 combinaba el estudio, el trabajo y otras responsabilidades. Al ser una muestra pequeña y no probabilística, sus resultados son hallazgos exploratorios del grupo, no generalizaciones.",
    "id": "b275"
   },
   {
    "type": "list",
    "items": [
-    "<strong>Estado de entrada (P0):</strong> Antes del cuestionario, la pregunta rompehielo P0 («Siendo sinceros, ¿cómo te sientes ahora mismo?») recogió 37 frases libres. Junto a respuestas ligeras sobre el hambre, el café o el calor, aparecieron con frecuencia el cansancio y el sueño («estoy cansada», «tengo sueño», «me siento dormida»), la confusión y la soledad («confundida y solita») y la preocupación académica («asustada por el proyecto de grado»). Desde el primer minuto, el agotamiento se coló entre las bromas.",
-    "<strong>Carga académica y ocupación del espacio vital:</strong> Los datos revelan una absorción casi total del tiempo del estudiante por parte de la dinámica académica. El 86,7 % (n = 13) permanece entre 4 y 6 horas diarias de forma presencial en las instalaciones universitarias (Tabla 1). Lo más llamativo apareció con respecto al trabajo autónomo en el hogar: el 100 % de la muestra destina horas de la noche o la madrugada a continuar con los encargos de diseño; ningún estudiante reportó lograr desconectarse al llegar a su casa. El 40,0 % (n = 6) le dedica entre 4 y 6 horas (\"le sigo dando parejo\") y un 20,0 % (n = 3) trabaja de forma continua \"hasta la madrugada\". Esto muestra que, para este grupo, la frontera entre el espacio formativo y el tiempo de descanso se encuentra desdibujada, como se aprecia en la Tabla 1 y en el mapa de calor de la Figura 22."
+    "<strong>Estado de entrada (P0):</strong> Antes del cuestionario, la pregunta rompehielo P0 («Siendo sinceros, ¿cómo te sientes ahora mismo?») recogió 37 frases libres. Junto a respuestas ligeras sobre el hambre, el café o el calor, aparecieron con frecuencia el cansancio y el sueño («estoy cansada», «tengo sueño», «me siento dormida»), la confusión y la soledad («confundida y solita») y la preocupación académica («asustada por el proyecto de grado»). Desde el primer minuto, el agotamiento se coló entre las bromas."
    ],
    "id": "b276"
+  },
+  {
+   "id": "b276b",
+   "type": "list",
+   "items": [
+    "<strong>Carga académica y ocupación del espacio vital:</strong> Los datos revelan una absorción casi total del tiempo del estudiante por parte de la dinámica académica. El 86,7 % (n = 13) permanece entre 4 y 6 horas diarias de forma presencial en las instalaciones universitarias (Tabla 1). Lo más llamativo apareció con respecto al trabajo autónomo en el hogar: el 100 % de la muestra destina horas de la noche o la madrugada a continuar con los encargos de diseño; ningún estudiante reportó lograr desconectarse al llegar a su casa. El 40,0 % (n = 6) le dedica entre 4 y 6 horas (\"le sigo dando parejo\") y un 20,0 % (n = 3) trabaja de forma continua \"hasta la madrugada\". Esto muestra que, para este grupo, la frontera entre el espacio formativo y el tiempo de descanso se encuentra desdibujada, como se aprecia en la Tabla 1 y en el mapa de calor de la Figura 22."
+   ],
+   "saltoAntes": true
   },
   {
    "id": "b277",
@@ -2441,7 +2454,8 @@
    "id": "b368",
    "type": "heading",
    "level": 5,
-   "html": "C. Match Creativo: Depuración Conceptual (Ejercicio de Clase)"
+   "html": "C. Match Creativo: Depuración Conceptual (Ejercicio de Clase)",
+   "saltoAntes": true
   },
   {
    "type": "p",
