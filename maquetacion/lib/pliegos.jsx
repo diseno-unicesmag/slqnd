@@ -154,13 +154,18 @@ class Maquetador {
     this.paginas.push(p); this.actual = p; this.y = 0; this.banda = null;
     return p;
   }
-  paginaFlujo() {
-    this.emitirRuta(); this.emitirPaleta(); this.emitirFotos();
+  paginaFlujo(primero = null) {
+    // con una tabla a medias, los pliegos especiales (ruta, paleta, fotos) esperan a que termine
+    if (!primero) { this.emitirRuta(); this.emitirPaleta(); this.emitirFotos(); }
     this.pagina((this.modo === 'una' ? 'p-una ' : '') + (this.claseFlujo || '')).flujo = true;
     // Lo que quedó pendiente de la página anterior va primero
     const pend = this.flotantes; this.flotantes = [];
-    // en orden: si una no cabe y vuelve a esperar, las que siguen esperan detrás de ella
-    for (const f of pend) { if (this.flotantes.length) this.flotantes.push(f); else this.colocarAncho(f, true); }
+    if (primero) this.colocarAncho(primero, true);   // la continuación de una tabla va antes que lo pendiente
+    // si una figura vuelve a esperar, las figuras que venían detrás esperan con ella (no se adelantan)
+    for (const f of pend) {
+      if (this.flotantes.some(x => !x.classList.contains('tabla'))) this.flotantes.push(f);
+      else this.colocarAncho(f, true);
+    }
   }
 
   // ── Bloques → elementos ──
@@ -409,8 +414,8 @@ class Maquetador {
     // Se mide primero debajo del texto abierto: si no cabe y va a la página siguiente,
     // la banda sigue abierta y el texto continúa sin cortar las columnas
     const habiaTexto = !!(this.banda && this.banda.children.length);
-    // Figuras y tablas salen en su orden: si hay alguna esperando la página siguiente, esta va detrás
-    if (!alInicio && this.flotantes.length) { this.flotantes.push(el); return; }
+    // Una figura no se adelanta a otra figura que espera la página siguiente: va detrás de ella
+    if (!alInicio && this.flotantes.some(f => !f.classList.contains('tabla'))) { this.flotantes.push(el); return; }
     if (el.classList.contains('fig-pagina')) {
       if (habiaTexto || this.y > 0) { this.flotantes.push(el); return; }
       this.cerrarBanda();
@@ -432,13 +437,12 @@ class Maquetador {
     el.style.position = 'absolute'; el.style.left = '0'; el.style.right = '0'; el.style.top = yTent + 'px';
     this.actual.caja.appendChild(el);
     const libreTent = ALTO_CAJA - yTent;
-    const entera = el.classList.contains('tabla') && el.offsetHeight <= ALTO_CAJA - ESPACIO;   // cabe en una página: no se parte
-    const partirTabla = el.classList.contains('tabla') && !entera && (libreTent >= MIN_TABLA || alInicio);
+    const partirTabla = el.classList.contains('tabla') && (libreTent >= MIN_TABLA || alInicio);
     if (this.banda && el.offsetHeight > libreTent && !partirTabla) { el.remove(); el.style.top = ''; this.flotantes.push(el); return; }
     this.cerrarBanda(); if (habiaTexto) this.y += AIRE; el.style.top = this.y + 'px';
     const alto = el.offsetHeight, libre = ALTO_CAJA - this.y;
     if (alto <= libre) { this.y += enRenglon(alto) + ESPACIO; return; }
-    if (el.classList.contains('tabla') && !entera && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
+    if (el.classList.contains('tabla') && (libre >= MIN_TABLA || alInicio)) { this.partirTabla(el, libre); return; }
     if (this.y === 0) { // ni en página vacía: se ajusta la imagen
       el.querySelectorAll('.fig-img img').forEach(im => { im.style.height = Math.max(6 * L, Math.floor((libre - (alto - im.offsetHeight)) / L) * L) + 'px'; });
       this.y += enRenglon(el.offsetHeight) + ESPACIO; return;
@@ -465,7 +469,7 @@ class Maquetador {
     const tb = h('tbody'); filas.slice(k).forEach(f => tb.appendChild(f)); t.appendChild(tb); sigue.appendChild(t);
     if (nota) sigue.appendChild(nota);
     if (!filas.slice(k).length) { if (nota) { el.appendChild(nota); } return; }
-    this.paginaFlujo(); this.colocarAncho(sigue, true);
+    this.paginaFlujo(sigue);   // la tabla continúa arriba de la página siguiente, antes que cualquier figura
   }
   citaDe(b) {
     const t = textoPlano(b.html).toLowerCase(), c = CITAS.find(c => !this.citasUsadas?.has(c[0]) && t.includes(c[0]));
@@ -487,6 +491,8 @@ class Maquetador {
       trasCategoria = cat;
       // Salto de página pedido en el documento: lo pendiente (figuras) abre la página nueva
       if (b.saltoAntes) { this.cerrarBanda(); this.paginaFlujo(); }
+      // Una fase nueva no empieza mientras queden figuras o tablas de la anterior por colocar
+      if (b.type === 'heading' && /^Fase \d/.test(textoPlano(b.html)) && this.flotantes.length) { this.cerrarBanda(); this.vaciarFlotantes(); }
       const el = this.crear(b, primero && b.type === 'p');
       if (!el) continue;
       if (cat) el.classList.add('ref-cat'); if (nom) el.classList.add('ref-nom');
@@ -528,7 +534,7 @@ class Maquetador {
     const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.paletaPendiente = null;
     // La página que cierra el apartado de estilo gráfico queda casi vacía: la frase que lo resume va ahí
-    this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa');
+    if (!this.citaPaleta) this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa');
     const izq = this.pagina('noche paleta pal-izq', { folio: false }), der = this.pagina('paleta pal-der', { folio: false });
     izq.el.dataset.b = b.id;
     const C = [['#3b1d7a', 'Violeta profundo', 'Dominante · introspección', '#fff'], ['#7c3aed', 'Púrpura', 'Dominante · interioridad', '#fff'], ['#f0c24b', 'Dorado', 'Acento · revelación', '#2b1759'], ['#2b2a30', 'Gris asfalto', 'Soporte · sobriedad', '#fff'], ['#f6f3fb', 'Cristal blanco', 'Soporte translúcido', '#2b1759']];
@@ -735,7 +741,14 @@ class Maquetador {
   }
   seccion(s, k) {
     // Cada sección 1.x abre página: cabecera amplia con número, título, pictograma y cristal
-    this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta(); this.emitirPaleta();
+    this.cerrarBanda(); this.vaciarFlotantes(); this.emitirRuta();
+    // La paleta va justo después de Estilo Gráfico, antes de la sección siguiente: si le toca a una
+    // página derecha, esa derecha cierra el apartado con la frase que lo resume
+    if (this.paletaPendiente && this.siguienteEsDerecha) {
+      const f = this.pagina(''); f.flujo = true; this.y = 0;
+      this.citaHueco('Que la revelación con realidad aumentada sea la verdadera sorpresa'); this.citaPaleta = true;
+    }
+    this.emitirPaleta();
     const sola = s.bloques.length === 1 && s.bloques[0].type === 'p' && textoPlano(s.bloques[0].html).length < 320;
     if (s.titulo && sola) return this.pregunta(s);
     if (s.titulo && /^2\.1\b/.test(textoPlano(s.titulo.html))) this.tresI();
@@ -907,6 +920,7 @@ export async function maquetar(doc, { raiz, resolver, deco }) {
   const decl = partes.find(p => p.tipo === 'declaracion');
   if (decl) {
     const d = h('div', 'decl-ia', `<span class="decl-tag">${textoPlano(decl.titulo.html)}</span>` + decl.bloques.filter(b => b.type === 'p').map(b => `<p>${b.html}</p>`).join(''));
+    d.querySelectorAll('p').forEach(sinViuda);
     cierre.el.appendChild(d); m.marcar(d, decl.titulo.id);
   }
   m.pagina('blanca cierre', { folio: false });
