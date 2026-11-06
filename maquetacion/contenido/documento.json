@@ -1230,7 +1230,7 @@
   },
   {
    "type": "p",
-   "html": "Esta fase buscó definir los cimientos conceptuales del proyecto y mapear las experiencias asociadas al <em>burnout</em> y al silenciamiento emocional con jóvenes universitarios del Programa de Diseño Gráfico de la Universidad CESMAG, en San Juan de Pasto. Se desarrolló entre abril y junio de 2026 y se encuentra prácticamente completa: solo queda pendiente, como cierre, la documentación del proceso en el <em>Portal de Memorias</em>, que es el sitio web del proyecto (https://diseno-unicesmag.github.io/slqnd/). Las tareas realizadas y lo que se obtuvo en cada una se exponen a continuación.",
+   "html": "Esta fase buscó definir los cimientos conceptuales del proyecto y mapear las experiencias asociadas al <em>burnout</em> y al silenciamiento emocional con jóvenes universitarios del Programa de Diseño Gráfico de la Universidad CESMAG, en San Juan de Pasto. Se desarrolló entre marzo de 2025 y junio de 2026: el estudio bibliográfico y la contextualización comenzaron en el séptimo semestre, en marzo de 2025, y el trabajo de campo se realizó entre abril y junio de 2026. La fase se encuentra prácticamente completa: solo queda pendiente, como cierre, la documentación del proceso en el <em>Portal de Memorias</em>, que es el sitio web del proyecto (https://diseno-unicesmag.github.io/slqnd/). Las tareas realizadas y lo que se obtuvo en cada una se exponen a continuación.",
    "id": "b262"
   },
   {
@@ -1241,7 +1241,7 @@
   },
   {
    "type": "p",
-   "html": "Se construyó una matriz digital tipo hoja de cálculo, denominada <em>Cadena de Valor</em>, en la que se organizaron y relacionaron los conceptos teóricos y autores clave en torno al <em>burnout</em> académico, el trabajo emocional (Cascales Mira, 2022) y el diseño participativo como vehículo de elaboración simbólica, en el marco de la sociedad del rendimiento (Han, 2012, 2014). El contenido de la matriz se exportó como una red conceptual navegable e interactiva publicada en la plataforma web del proyecto, que sirve como marco referencial abierto (Figura 20).",
+   "html": "La indagación teórica fue un proceso extenso y riguroso. Desde marzo de 2025, durante más de un año, se recolectó, contrastó y amplió información sobre el <em>burnout</em> académico, el trabajo emocional (Cascales Mira, 2022) y el diseño participativo como vehículo de elaboración simbólica, en el marco de la sociedad del rendimiento (Han, 2012, 2014). A medida que ese conocimiento crecía, el proyecto también evolucionó: su enfoque, su objetivo y los productos que proponía se replantearon varias veces hasta consolidar el planteamiento con el que hoy se trabaja. Esa información consolidada se organizó en una matriz digital tipo hoja de cálculo, denominada <em>Cadena de Valor</em>, que relaciona los conceptos teóricos y los autores clave. El contenido de la matriz se exportó como una red conceptual navegable e interactiva publicada en la plataforma web del proyecto, que sirve como marco referencial abierto (Figura 20).",
    "id": "b264"
   },
   {
@@ -1781,7 +1781,7 @@
      }
     ]
    },
-   "note": "<em>Nota.</em> Distribución porcentual de las 17 respuestas registradas en la pregunta P7 de la CDPS."
+   "note": "<em>Nota.</em> Distribución porcentual de las 17 respuestas registradas en la pregunta P7 de la CDPS. En dorado, la opción más elegida."
   },
   {
    "type": "p",
@@ -1861,7 +1861,7 @@
      }
     ]
    },
-   "note": "<em>Nota.</em> Comparación de los resultados dominantes de las preguntas P8 a P11 de la CDPS."
+   "note": "<em>Nota.</em> Comparación de los resultados dominantes de las preguntas P8 a P11 de la CDPS. En dorado, el resultado más alto."
   },
   {
    "type": "p",
@@ -2049,7 +2049,7 @@
    "label": "Figura 27",
    "title": "Afirmaciones de Hiperexigencia con las que se Identifican los Participantes (P14)",
    "type": "figure",
-   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada afirmación (N = 15; selección múltiple).",
+   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada afirmación (N = 15; selección múltiple). En dorado, la opción más elegida.",
    "chart": {
     "type": "bar",
     "dir": "bar",
@@ -2101,7 +2101,7 @@
    "label": "Figura 28",
    "title": "Factores de Presión y Momentos de Mayor Carga en el Semestre (P16 y P16b)",
    "type": "figure",
-   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada opción (selección múltiple). P16: 14 participantes respondieron; P16b: 15.",
+   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada opción (selección múltiple). P16: 14 participantes respondieron; P16b: 15. En dorado, la opción más elegida en cada pregunta.",
    "chart": {
     "type": "bar",
     "dir": "bar",
@@ -2268,7 +2268,7 @@
    "label": "Figura 29",
    "title": "Reacciones ante el Agotamiento Profundo (P17)",
    "type": "figure",
-   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada reacción (N = 15; selección múltiple).",
+   "note": "<em>Nota.</em> Porcentaje de participantes que eligió cada reacción (N = 15; selección múltiple). En dorado, la opción más elegida.",
    "chart": {
     "type": "bar",
     "dir": "bar",
@@ -2334,7 +2334,7 @@
      }
     ]
    },
-   "note": "<em>Nota.</em> Distribución porcentual de las 31 respuestas registradas en la pregunta P18 de la CDPS"
+   "note": "<em>Nota.</em> Distribución porcentual de las 31 respuestas registradas en la pregunta P18 de la CDPS. En dorado, la opción más elegida."
   },
   {
    "id": "b358",
@@ -2854,12 +2854,7 @@
   },
   {
    "type": "p",
-   "html": "<strong>Síntesis Diagnóstica y Oportunidades de Diseño</strong>",
-   "id": "b426"
-  },
-  {
-   "type": "p",
-   "html": "El recorrido de la Fase 1, articulado a través de la CDPS (n = 15), el taller <em>Sobre lo que no dices</em> con sus cuatro hojas individuales (Flor, Blue, Nyo y Sun) y la entrevista con el diseñador y psicólogo Gabriel Iván Parra Rosero, consolidó una base exploratoria sobre la vivencia del agotamiento y el silenciamiento en estudiantes de diseño. Los hallazgos sugieren que la sobrecarga académica se vive también en el cuerpo (cansancio, ansiedad, bloqueo creativo) y que muchos jóvenes tienden a guardarse lo que sienten. A partir de esta base se identifican cuatro oportunidades de diseño que orientan la creación y el prototipado del ecosistema <em>phygital</em>:",
+   "html": "<strong>Síntesis diagnóstica y oportunidades de diseño:</strong> El recorrido de la Fase 1, articulado a través de la CDPS (n = 15), el taller <em>Sobre lo que no dices</em> con sus cuatro hojas individuales (Flor, Blue, Nyo y Sun) y la entrevista con el diseñador y psicólogo Gabriel Iván Parra Rosero, consolidó una base exploratoria sobre la vivencia del agotamiento y el silenciamiento en estudiantes de diseño. Los hallazgos sugieren que la sobrecarga académica se vive también en el cuerpo (cansancio, ansiedad, bloqueo creativo) y que muchos jóvenes tienden a guardarse lo que sienten. A partir de esta base se identifican cuatro oportunidades de diseño que orientan la creación y el prototipado del ecosistema <em>phygital</em>:",
    "id": "b427"
   },
   {
@@ -2885,12 +2880,7 @@
   },
   {
    "type": "p",
-   "html": "<strong>Requerimientos de Diseño</strong>",
-   "id": "b432"
-  },
-  {
-   "type": "p",
-   "html": "Las oportunidades anteriores se traducen en los requerimientos de diseño de la Tabla 14. Siguiendo la recomendación de Blease et al. (2026), la columna \"Origen\" indica si cada requerimiento proviene de los participantes, del experto entrevistado, de la literatura o de una decisión del diseñador.",
+   "html": "<strong>Requerimientos de diseño:</strong> Las oportunidades anteriores se traducen en los requerimientos de diseño de la Tabla 14. Siguiendo la recomendación de Blease et al. (2026), la columna \"Origen\" indica si cada requerimiento proviene de los participantes, del experto entrevistado, de la literatura o de una decisión del diseñador.",
    "id": "b433"
   },
   {
@@ -3032,16 +3022,16 @@
    "label": "Figura 41",
    "title": "Pruebas de Visualización del PMV de MetafoRA",
    "type": "figure",
-   "src": "img/image23.jpeg",
+   "src": "img/fig41-01.jpg",
    "images": [
-    "img/image23.jpeg",
-    "img/image24.jpeg",
-    "img/image25.jpeg",
-    "img/image26.jpeg",
-    "img/image27.jpeg",
-    "img/image28.jpeg",
-    "img/image29.jpeg",
-    "img/image30.jpeg"
+    "img/fig41-01.jpg",
+    "img/fig41-02.jpg",
+    "img/fig41-03.jpg",
+    "img/fig41-04.jpg",
+    "img/fig41-05.jpg",
+    "img/fig41-06.jpg",
+    "img/fig41-07.jpg",
+    "img/fig41-08.jpg"
    ],
    "note": "<em>Nota.</em> Capturas de pantalla de la interfaz del PMV MetafoRA desarrollado en Unity con Vuforia Engine: biblioteca de obras, apertura de la cámara y modo de escaneo del sustrato físico."
   },
@@ -3256,7 +3246,7 @@
   },
   {
    "type": "p",
-   "html": "Las formas propuestas son curvas y contemporáneas, con el fin de alejarse de la rigidez geométrica ortogonal de los formatos institucionales o psiquiátricos: líneas continuas, bordes redondeados y transiciones suaves inspiradas en la fluidez de los estados afectivos humanos. La interfaz busca parecer cercana al lenguaje visual que los jóvenes ya utilizan en su cotidianidad, de modo que no se imponga una nueva estética y, en su lugar, se acceda al usuario desde lo familiar. La tipografía combina fuentes sin serifa modernas de alta legibilidad en pantalla para los elementos interactivos con sutiles acentos de corte humanista o gestual para los textos confesionales: el propósito es que la app se sienta cómoda y conocida, para que las revelaciones realizadas con la RA sean la verdadera sorpresa.",
+   "html": "Las formas propuestas son curvas y contemporáneas, con el fin de alejarse de la rigidez geométrica ortogonal de los formatos institucionales o psiquiátricos: líneas continuas, bordes redondeados y transiciones suaves inspiradas en la fluidez de los estados afectivos humanos. La interfaz se acerca al lenguaje visual que los jóvenes ya usan a diario, para llegar a ellos desde lo familiar y no imponer una estética nueva. La tipografía combina sin serifa modernas y legibles en pantalla, para los elementos interactivos, con acentos humanistas o gestuales para los textos confesionales: la app debe sentirse cómoda y conocida, para que las revelaciones con la RA sean la verdadera sorpresa.",
    "id": "b507"
   },
   {
@@ -3752,6 +3742,17 @@
    "html": "Yeo, J. P.-H., &amp; Teo, C.-T. (2020). Designing wellbeing: The role of design in developing open-mindedness in mental health. En K. Christer, C. Craig, &amp; P. Chamberlain (Eds.), <em>Proceedings of the 6th European Conference on Design4Health</em> (Vol. 4, pp. 766-773). Sheffield Hallam University.",
    "id": "b572",
    "style": "referencia"
+  },
+  {
+   "id": "b-ia-t",
+   "type": "heading",
+   "level": 1,
+   "html": "Declaración de Uso de Inteligencia Artificial"
+  },
+  {
+   "id": "b-ia",
+   "type": "p",
+   "html": "En la preparación de este documento se utilizó inteligencia artificial generativa como herramienta de apoyo para la corrección ortográfica, gramatical y de estilo. Todas sus sugerencias fueron revisadas y validadas por el autor, quien asume la responsabilidad total sobre el contenido, las ideas y los resultados de este trabajo. La inteligencia artificial no figura como autora ni se cita como fuente."
   }
  ],
  "meta": {
