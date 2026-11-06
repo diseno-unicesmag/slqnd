@@ -46,7 +46,7 @@ export function redCadena() {
         c._p = [cx, cy];
         nodos.push({ x: cx, y: cy, r: 7, c: m.c, t: 'c' });
         const der = li === 0;
-        textos.push(`<text x="${cx + (der ? -10 : 10)}" y="${cy - 10}" text-anchor="${der ? 'end' : 'start'}" class="rc" paint-order="stroke" stroke="#120d26" stroke-width="4">${esc(c.t)}</text>`);
+        textos.push(`<text x="${cx + (der ? -10 : 10)}" y="${cy - 10}" text-anchor="${der ? 'end' : 'start'}" class="rc">${esc(c.t)}</text>`);
       });
       k += 0.8;
       const am = angsM.reduce((a, x) => a + x, 0) / angsM.length;
@@ -56,7 +56,7 @@ export function redCadena() {
       nodos.push({ x: mx, y: my, r: 17, c: m.c, t: 'm', n: m.n });
       const der = li === 0;
       const lx = mx + (der ? -46 : 46); // el rótulo se corre hacia el núcleo para no tocar las categorías
-      textos.push(`<text x="${lx}" y="${my + 32}" text-anchor="middle" class="rm" paint-order="stroke" stroke="#120d26" stroke-width="4">${esc(m.t)}</text><text x="${lx}" y="${my + 44}" text-anchor="middle" class="rs">${esc(m.s)}</text>`);
+      textos.push(`<text x="${lx}" y="${my + 32}" text-anchor="middle" class="rm">${esc(m.t)}</text><text x="${lx}" y="${my + 44}" text-anchor="middle" class="rs">${esc(m.s)}</text>`);
     });
   });
   const curva = ({ a: [x1, y1], b: [x2, y2] }) => { const mx = (x1 + x2) / 2; return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; };
@@ -66,10 +66,30 @@ export function redCadena() {
   // cristal líquido que va encima (en pliegos.jsx) los refleje y los doble
   const halo = `<defs><filter id="rn-halo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter></defs><g filter="url(#rn-halo)">` +
     nucleo.map(([a, c]) => `<circle cx="${(CX + Math.cos(a) * 34).toFixed(1)}" cy="${(CY + Math.sin(a) * 34).toFixed(1)}" r="22" fill="${c}"/>`).join('') + '</g>';
+  // Los textos no llevan contorno (sobre el degradado se veía como un parche oscuro): en su lugar,
+  // una máscara borra las líneas y los anillos justo detrás de cada texto y dentro de cada nodo hueco
+  const mascara = `<mask id="rn-m" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#fff"/>` +
+    `<g fill="#000" stroke="#000" stroke-width="7" stroke-linejoin="round">${textos.join('').replace(/fill:[^;}]+/g, '')}</g>` +
+    nodos.filter(n => n.t === 'h').map(n => `<circle cx="${n.x}" cy="${n.y}" r="${n.r}" fill="#000"/>`).join('') + '</mask>';
+  // Núcleo: esfera de cristal transparente en el mismo dibujo (una sola pieza sobre el lomo): deja ver
+  // el halo de colores, refleja cada color en su borde, brillo arriba a la izquierda y canto fino
+  const R0 = 56;
+  const esfera = `<defs>` +
+    `<clipPath id="rn-esf"><circle cx="${CX}" cy="${CY}" r="${R0}"/></clipPath>` +
+    `<radialGradient id="rn-cuerpo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".02"/><stop offset=".72" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity=".28"/></radialGradient>` +
+    `<radialGradient id="rn-brillo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>` +
+    `<filter id="rn-suave" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>` +
+    `<filter id="rn-sombra" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter></defs>` +
+    `<ellipse cx="${CX}" cy="${CY + R0 * 0.9}" rx="${R0 * 0.8}" ry="${R0 * 0.18}" fill="#000" opacity=".45" filter="url(#rn-sombra)"/>` +
+    `<g clip-path="url(#rn-esf)"><circle cx="${CX}" cy="${CY}" r="${R0}" fill="url(#rn-cuerpo)"/>` +
+    `<g filter="url(#rn-suave)" opacity=".9">` + nucleo.map(([a, c]) => `<circle cx="${(CX + Math.cos(a) * R0 * 0.95).toFixed(1)}" cy="${(CY + Math.sin(a) * R0 * 0.95).toFixed(1)}" r="12" fill="${c}"/>`).join('') + `</g>` + `<circle cx="${CX}" cy="${CY}" r="${R0 * 0.55}" fill="#120d26" opacity=".18" filter="url(#rn-suave)"/>` +
+    `<ellipse cx="${CX - R0 * 0.32}" cy="${CY - R0 * 0.48}" rx="${R0 * 0.46}" ry="${R0 * 0.2}" transform="rotate(-28 ${CX - R0 * 0.32} ${CY - R0 * 0.48})" fill="url(#rn-brillo)"/>` +
+    `<ellipse cx="${CX + R0 * 0.42}" cy="${CY + R0 * 0.6}" rx="${R0 * 0.22}" ry="${R0 * 0.07}" transform="rotate(-35 ${CX + R0 * 0.42} ${CY + R0 * 0.6})" fill="#fff" opacity=".35" filter="url(#rn-suave)"/></g>` +
+    `<circle cx="${CX}" cy="${CY}" r="${R0 - 0.6}" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.2"/>`;
   return `<svg class="red-cadena" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">` +
     `<style>.rh{font:700 9.5px Montserrat;fill:#fff}.ra{font:500 8px Montserrat;fill:rgba(255,255,255,.6)}.rc{font:800 10.5px Montserrat;fill:#fff}.rm{font:900 13px Montserrat;fill:#fff}.rs{font:700 8px Montserrat;fill:#f5c542;letter-spacing:.08em}.rn{font:900 11px Montserrat;fill:#120d26}</style>` +
-    anillos + lazos.map(l => `<path d="${curva(l)}" fill="none" stroke="${l.c}" stroke-width="${l.w}"/>`).join('') +
-    halo +
-    nodos.map(n => `<circle cx="${n.x}" cy="${n.y}" r="${n.r}" fill="${n.t === 'h' ? '#120d26' : n.c}" stroke="${n.c}" stroke-width="${n.t === 'h' ? 1.5 : 0}"/>` + (n.n ? `<text x="${n.x}" y="${n.y + 4}" text-anchor="middle" class="rn">${n.n}</text>` : '')).join('') +
+    `<defs>${mascara}</defs><g mask="url(#rn-m)">` + anillos + lazos.map(l => `<path d="${curva(l)}" fill="none" stroke="${l.c}" stroke-width="${l.w}"/>`).join('') + '</g>' +
+    esfera +
+    nodos.map(n => `<circle cx="${n.x}" cy="${n.y}" r="${n.r}" fill="${n.t === 'h' ? 'none' : n.c}" stroke="${n.c}" stroke-width="${n.t === 'h' ? 1.5 : 0}"/>` + (n.n ? `<text x="${n.x}" y="${n.y + 4}" text-anchor="middle" class="rn">${n.n}</text>` : '')).join('') +
     textos.join('') + '</svg>';
 }

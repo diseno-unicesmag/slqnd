@@ -806,12 +806,7 @@ class Maquetador {
     der.el.insertAdjacentHTML('beforeend', `<div class="red-lienzo">${svg}</div><div class="red-ley"><span><i class="m"></i>Macrocategoría</span><span><i class="c"></i>Categoría</span><span><i class="h"></i>Subcategoría · autores</span></div>`);
     // Núcleo de cristal líquido sobre el lomo: una mitad en cada página, con el mismo mapa,
     // refracta las líneas y el halo de colores que convergen en el centro
-    const D = 112;
-    [[izq, RED_CX - D / 2], [der, RED_CX - 8.5 * PX - D / 2]].forEach(([pg, x]) => {
-      const n = h('span', 'red-nucleo'); n.style.cssText = `left:${x}px;top:${RED_CY - D / 2}px`;
-      pg.el.appendChild(n);
-      vidrio(n, D, D, { radio: D / 2, ca: 5, fuerza: Math.round(D * 0.4), prof: Math.round(D * 0.14), desenfoque: 0.6, fondo: 'rgba(255,255,255,0.015)', sombra: '0 22px 44px rgba(0,0,0,0.4)' });
-    });
+    // el núcleo de cristal ahora va dibujado dentro del SVG (redCadena): una sola pieza sobre el lomo
   }
   referencias(parte) {
     this.modo = 'refs'; this.seccionActual = 'Referencias';
