@@ -2841,7 +2841,8 @@
      "Los cocreadores son los invitados de honor en la muestra final, donde conocen la versión definitiva de sus obras aumentadas."
     ]
    ],
-   "note": "<em>Nota.</em> Síntesis de la entrevista en profundidad con Gabriel Iván Parra Rosero del 25 de junio de 2026 (2 horas y 20 minutos)."
+   "note": "<em>Nota.</em> Síntesis de la entrevista en profundidad con Gabriel Iván Parra Rosero del 25 de junio de 2026 (2 horas y 20 minutos).",
+   "compacta": true
   },
   {
    "id": "b422",
@@ -3022,16 +3023,16 @@
    "label": "Figura 41",
    "title": "Pruebas de Visualización del PMV de MetafoRA",
    "type": "figure",
-   "src": "img/fig41-01.jpg",
+   "src": "img/image23.jpeg",
    "images": [
-    "img/fig41-01.jpg",
-    "img/fig41-02.jpg",
-    "img/fig41-03.jpg",
-    "img/fig41-04.jpg",
-    "img/fig41-05.jpg",
-    "img/fig41-06.jpg",
-    "img/fig41-07.jpg",
-    "img/fig41-08.jpg"
+    "img/image23.jpeg",
+    "img/image24.jpeg",
+    "img/image25.jpeg",
+    "img/image26.jpeg",
+    "img/image27.jpeg",
+    "img/image28.jpeg",
+    "img/image29.jpeg",
+    "img/image30.jpeg"
    ],
    "note": "<em>Nota.</em> Capturas de pantalla de la interfaz del PMV MetafoRA desarrollado en Unity con Vuforia Engine: biblioteca de obras, apertura de la cámara y modo de escaneo del sustrato físico."
   },
@@ -3270,7 +3271,7 @@
    "id": "t004",
    "label": "Figura 49",
    "title": "Trayectoria del Proyecto en Eventos Académicos y Convocatorias (2025–2026)",
-   "src": "img/fig-trayectoria.png",
+   "src": "img/fig-trayectoria-v2.png",
    "note": "<em>Nota.</em> Elaboración propia a partir de los certificados de participación de cada evento. En dorado, los reconocimientos obtenidos."
   },
   {

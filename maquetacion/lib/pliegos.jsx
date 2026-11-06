@@ -249,7 +249,7 @@ class Maquetador {
           if (!completa) ancho = Math.min(ancho, ...fila.map(i => maxAncho(i) * suma / r[i]));
           const alto = Math.max(4 * L, Math.round(ancho / suma / L) * L);   // alto en renglones: el recorte es de unos px
           const fr = h('div', 'fig-fila');
-          fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; if (!b.foto) im.style.objectFit = 'contain'; fr.appendChild(im); });
+          fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; if (!b.foto && n === 1 && completa) im.style.objectFit = 'contain'; /* esquemas a lo ancho: enteros */ fr.appendChild(im); });
           c.appendChild(fr);
         });
         if (PAGINA_SOLA.has(b.id)) f.classList.add('fig-pagina');
@@ -267,7 +267,7 @@ class Maquetador {
     return f;
   }
   tabla(b) {
-    const f = h('figure', 'ancho tabla');
+    const f = h('figure', 'ancho tabla' + (b.compacta ? ' compacta' : ''));   // compacta: menos aire entre filas
     f.appendChild(h('span', 'rot', b.label)); f.appendChild(h('span', 'tit', b.title));
     const t = h('table');
     if (b.head?.length) { const th = h('thead'); b.head.forEach(r => { const tr = h('tr'); r.forEach(c => tr.appendChild(h('th', '', c))); th.appendChild(tr); }); t.appendChild(th); }
