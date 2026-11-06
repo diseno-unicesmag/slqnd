@@ -3,7 +3,7 @@
 // antes de imprimir, cada pieza de cristal se fotografía en pantalla a alta resolución y esa imagen
 // la reemplaza en su mismo lugar. El texto y las imágenes siguen siendo vectores y originales.
 //
-// Uso: node herramientas/exportar-pdf.mjs <url de la maquetación> <salida.pdf>
+// Uso: node herramientas/exportar-pdf.mjs <url de la maquetación> <salida.pdf> [--pliegos]
 import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 
@@ -60,8 +60,16 @@ if (!porPliegos) await p.addStyleTag({ content: `@media print { @page { size: 8.
   .lista-pliegos .pliego::after, .lista-pliegos .pliego::before { display: none !important; }
   .lista-pliegos .pag { break-after: page; position: relative !important; overflow: hidden !important; }
   .lista-pliegos .pag.vacia { display: none !important; }  }` });
+// Por pliegos: la portada va sola en una hoja carta y el lomo se marca con una línea que se ve
+// sobre cualquier fondo (claro, oscuro o foto), para que se lea como maquetación a doble página
+if (porPliegos) await p.addStyleTag({ content: `@media print { @page { size: 17in 11in; margin: 0; }
+  @page portada { size: 8.5in 11in; margin: 0; }
+  .lista-pliegos .pliego.solo-der { page: portada; width: 8.5in !important; }
+  .lista-pliegos .pliego.solo-der > .pag.vacia { display: none !important; }
+  .lista-pliegos .pliego.solo-der::after, .lista-pliegos .pliego.solo-der::before { display: none !important; }
+  .lista-pliegos .pliego:not(.solo-der)::after { background: rgba(140, 140, 150, 0.6) !important; width: 1px !important; box-shadow: none !important; } }` });
 // La última página no fuerza salto: así no sale una hoja en blanco de más al final
 if (!porPliegos) await p.evaluate(() => { const ps = document.querySelectorAll('.lista-pliegos .pag:not(.vacia)'); const ultima = ps[ps.length - 1]; if (ultima) ultima.style.breakAfter = 'auto'; });
-await p.pdf({ path: salida, width: porPliegos ? '17in' : '8.5in', height: '11in', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
+await p.pdf({ path: salida, width: porPliegos ? '17in' : '8.5in', height: '11in', printBackground: true, preferCSSPageSize: porPliegos, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
 await nav.close();
 console.log(`PDF listo: ${salida} (${n} piezas de cristal fotografiadas)`);
