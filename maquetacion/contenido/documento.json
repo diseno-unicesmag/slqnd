@@ -727,7 +727,7 @@
    "type": "figure",
    "label": "Figura 5",
    "title": "Campaña \"We Listen\" – Samaritans (MullenLowe, 2016)",
-   "src": "img/image2.png",
+   "src": "img/fig5-welisten.jpg",
    "note": "<em>Nota.</em> Retrato de espaldas del fotógrafo Nadav Kander para la campaña. Fuente: Samaritans y MullenLowe London (It's Nice That, 2016).",
    "referente": true
   },
@@ -3041,11 +3041,11 @@
    "label": "Figura 42",
    "title": "Secuencia de Interacción del PMV de MetafoRA: la Obra Reacciona al Escaneo",
    "images": [
-    "img/metafora-reaccion-01.jpg",
-    "img/metafora-reaccion-02.jpg",
-    "img/metafora-reaccion-03.jpg",
-    "img/metafora-reaccion-04.jpg",
-    "img/metafora-reaccion-05.jpg"
+    "img/fig42-01.jpg",
+    "img/fig42-02.jpg",
+    "img/fig42-03.jpg",
+    "img/fig42-04.jpg",
+    "img/fig42-05.jpg"
    ],
    "note": "<em>Nota.</em> Fotogramas de un registro en video de la pantalla del prototipo: la cámara reconoce la ilustración enmarcada (1–2), la capa de realidad aumentada agrieta el frasco (3), lo quiebra (4) y libera su contenido (5). Elaboración propia."
   },
