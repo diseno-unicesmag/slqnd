@@ -1612,8 +1612,14 @@
   },
   {
    "type": "p",
-   "html": "Dos preguntas completan este bloque. En la P4b, el 53,3 % (n = 8) afirmó tener clarísimo el origen de su autoexigencia y el 26,7 % (n = 4) tener una ligera idea, mientras el 13,3 % (n = 2) respondió «no sé, creo que así nací». En la P6, sobre qué tan rápido se agota la paciencia ante las dificultades (escala de 1 a 5), la media fue M = 2,80: el 33,3 % (n = 5) eligió el nivel 4 («rápido») y nadie eligió el 5 («exploto de una») (Tabla 4). La frustración aparece, pero contenida, un rasgo que la pregunta P7 confirma.",
+   "html": "Dos preguntas completan este bloque. En la P4b, el 53,3 % (n = 8) afirmó tener clarísimo el origen de su autoexigencia y el 26,7 % (n = 4) tener una ligera idea, mientras el 13,3 % (n = 2) respondió «no sé, creo que así nací».",
    "id": "b302"
+  },
+  {
+   "id": "b302b",
+   "type": "p",
+   "html": "En la P6, sobre qué tan rápido se agota la paciencia ante las dificultades (escala de 1 a 5), la media fue M = 2,80: el 33,3 % (n = 5) eligió el nivel 4 («rápido») y nadie eligió el 5 («exploto de una») (Tabla 4). La frustración aparece, pero contenida, un rasgo que la pregunta P7 confirma.",
+   "saltoAntes": true
   },
   {
    "id": "b303",
@@ -3227,17 +3233,12 @@
   },
   {
    "type": "p",
-   "html": "<strong>Glassmorfismo y Translucidez</strong>",
-   "id": "b498"
-  },
-  {
-   "type": "p",
-   "html": "La decisión estética y estilística central del proyecto es el <em>glassmorfismo</em>: superficies con efecto de cristal translúcido o vidrio esmerilado con desenfoque de fondo, que aluden, literalmente, a los lentes y a las ventanas. A través de ellos se puede adivinar formas y densidades, pero con una ligera distorsión y opacidad que sugieren que hay algo más allá, esperando ser enfocado. La realidad aumentada no hace otra cosa: actúa como el haz de luz que atraviesa el vidrio, aclarando aquello que la materia apenas insinúa.",
+   "html": "<strong>Glassmorfismo y translucidez:</strong> La decisión estética y estilística central del proyecto es el <em>glassmorfismo</em>: superficies con efecto de cristal translúcido o vidrio esmerilado con desenfoque de fondo, que aluden, literalmente, a los lentes y a las ventanas. A través de ellos se puede adivinar formas y densidades, pero con una ligera distorsión y opacidad que sugieren que hay algo más allá, esperando ser enfocado. La realidad aumentada no hace otra cosa: actúa como el haz de luz que atraviesa el vidrio, aclarando aquello que la materia apenas insinúa.",
    "id": "b499"
   },
   {
    "type": "p",
-   "html": "<strong>Paleta Cromática: La Tensión entre Silencio y Revelación</strong>",
+   "html": "<strong>Paleta cromática, la tensión entre silencio y revelación:</strong> se organiza en tres grupos de color.",
    "id": "b500"
   },
   {
@@ -3258,13 +3259,8 @@
    "note": "<em>Nota.</em> Elaboración propia."
   },
   {
-   "type": "quote",
-   "html": "<strong>Morfología Orgánica y Tipografía Contemporánea</strong>",
-   "id": "b506"
-  },
-  {
    "type": "p",
-   "html": "Las formas propuestas son curvas y contemporáneas, con el fin de alejarse de la rigidez geométrica ortogonal de los formatos institucionales o psiquiátricos: líneas continuas, bordes redondeados y transiciones suaves inspiradas en la fluidez de los estados afectivos humanos. La interfaz se acerca al lenguaje visual que los jóvenes ya usan a diario, para llegar a ellos desde lo familiar y no imponer una estética nueva. La tipografía combina sin serifa modernas y legibles en pantalla, para los elementos interactivos, con acentos humanistas o gestuales para los textos confesionales: la app debe sentirse cómoda y conocida, para que las revelaciones con la RA sean la verdadera sorpresa.",
+   "html": "<strong>Morfología orgánica y tipografía contemporánea:</strong> Las formas propuestas son curvas y contemporáneas, con el fin de alejarse de la rigidez geométrica ortogonal de los formatos institucionales o psiquiátricos: líneas continuas, bordes redondeados y transiciones suaves inspiradas en la fluidez de los estados afectivos humanos. La interfaz se acerca al lenguaje visual que los jóvenes ya usan a diario, para llegar a ellos desde lo familiar y no imponer una estética nueva. La tipografía combina sin serifa modernas y legibles en pantalla, para los elementos interactivos, con acentos humanistas o gestuales para los textos confesionales: la app debe sentirse cómoda y conocida, para que las revelaciones con la RA sean la verdadera sorpresa.",
    "id": "b507"
   },
   {
