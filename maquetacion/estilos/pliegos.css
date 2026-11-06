@@ -527,7 +527,7 @@
 .pl .pq-firma { display: block; margin-top: .3in; font-size: 9pt; font-weight: 700; }
 .pl .pag-pregunta .folio, .pl .pag-pregunta .folio * { color: #2b1759 !important; }
 /* 3i «Doble 3» */
-.pl .tres-i { background: #1d1a2b; }
+.pl .tres-i { background: var(--d); }   /* el mismo morado de la apertura de capítulo */
 .pl .ti-tag { position: absolute; left: .85in; top: .9in; font-size: 7.5pt; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--g); }
 .pl .ti-tri { position: absolute; left: .85in; top: 1.35in; font-size: 76pt; font-weight: 900; line-height: .95; letter-spacing: -.05em; color: #fff; }
 .pl .ti-tri span { display: block; } .pl .ti-tri i { font-style: normal; color: var(--g); }
