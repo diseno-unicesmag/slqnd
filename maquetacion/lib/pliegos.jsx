@@ -26,8 +26,8 @@ const AIRE = L;                     // aire entre el texto y la figura que sigue
 const enRenglon = v => Math.ceil(v / L - 0.02) * L;   // redondea hacia arriba al siguiente renglón
 const PPI_MAX = 60;   // solo se frena lo que quedaría pixelado de verdad
 const AIRE_SECCION = 3 * L;          // blanco sobre el título de cada apartado
-const SANGRE = new Set(['Figura 43']);
-const PLIEGO_FOTO = new Set(['Figura 20', 'Figura 33']);   // fotografías de campo a doble página, a sangre   // fotografías de campo a página completa
+const SANGRE = new Set(['b467']);   // por id de bloque: la numeración de figuras puede cambiar
+const PLIEGO_FOTO = new Set(['b271', 'b387']);   // fotografías de campo a doble página, a sangre   // fotografías de campo a página completa
 // Citas destacadas: salen junto al párrafo de donde vienen, si hace rato que no hay una
 const CITAS = [
   ['si descanso, siento culpa', 'Si descanso, siento culpa', 'Respuesta de la CDPS (P14)'],
@@ -35,12 +35,27 @@ const CITAS = [
   ['no desaparecen, sino que se pudren', 'Al ser ignorados, no desaparecen: se pudren bajo la superficie', ''],
   ['no añade información ajena a la obra', 'La realidad aumentada no añade: revela', 'MetafoRA'],
 ];
-const A_LO_ANCHO = new Set(['Figura 1', 'Figura 2', 'Figura 3', 'Figura 38', 'Figura 39', 'Figura 44', 'Figura 46', 'Figura 47']);
+const A_LO_ANCHO = new Set(['b093', 'b119', 'b141', 'b444', 'b450', 'b478', 'b492', 'b502']);
 const PAGINA_SOLA = new Set([]);   // van solas en su página (la Figura 38 ya no: el texto sigue debajo)
 const MIN_TABLA = 1.4 * PX;         // menos que esto no vale la pena empezar una tabla
 const RADIO_PANEL = 0.3 * PX;       // mismo radio para todas las tarjetas de cristal sobre foto
 
 const h = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+// Sin viudas: las dos últimas palabras del párrafo van unidas (espacio duro), para que el último renglón
+// nunca quede con una sola palabra. Solo si juntas son cortas, para no forzar un renglón muy abierto.
+const sinViuda = e => {
+  const tw = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), ns = []; while (tw.nextNode()) ns.push(tw.currentNode);
+  let cola = '';
+  for (let i = ns.length - 1; i >= 0; i--) {
+    const n = ns[i], v = n.nodeValue, txt = i === ns.length - 1 ? v.replace(/\s+$/, '') : v;
+    const k = txt.search(/\s(?=\S*$)/);
+    if (k < 0) { cola = txt + cola; continue; }
+    const ultima = txt.slice(k + 1) + cola, previa = (txt.slice(0, k).match(/\S+$/) || [''])[0];
+    if (ultima.length && ultima.length + previa.length <= 22) n.nodeValue = v.slice(0, k) + '\u00a0' + v.slice(k + 1);
+    break;
+  }
+  return e;
+};
 const partirNum = (t, re) => { const m = t.match(re); return m ? [m[1], m[2]] : ['', t]; };
 
 export function separarTitulo(b) {
@@ -150,6 +165,7 @@ class Maquetador {
     switch (b.type) {
       case 'p': {
         const e = h('p', b.style === 'referencia' ? 'ref' : '', b.html);
+        if (b.style !== 'referencia') sinViuda(e);
         if (primero && this.modo !== 'refs' && !this.sinCapitular && textoPlano(b.html).length > 250) e.classList.add('dc', 'sigue');
         return e;
       }
@@ -169,8 +185,8 @@ class Maquetador {
         return h('h5', 't5 ej', (n ? `<span class="n">${n.replace(/\.$/, '')}</span>` : '') + `<span class="tx">${tit}${tag ? `<i class="tag hueco" aria-hidden="true">${tag}</i>` : ''}</span>${tag ? `<i class="tag fijo ${cls}">${tag}</i>` : ''}`);
       }
       case 'quote': return h('blockquote', 'cita', b.html);
-      case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(h('li', '', it))); return ul; }
-      case 'figure': if (PLIEGO_FOTO.has(b.label)) { (this.fotosPend ??= []).push(b); return null; } if (b.label === 'Figura 18') { this.rutaPendiente = b; return null; } if (b.label === 'Figura 47') { this.paletaPendiente = b; return null; } return this.figura(b);
+      case 'list': { const ul = h('ul', 'lista'); b.items.forEach(it => ul.appendChild(sinViuda(h('li', '', it)))); return ul; }
+      case 'figure': if (PLIEGO_FOTO.has(b.id)) { (this.fotosPend ??= []).push(b); return null; } if (b.id === 'b256') { this.rutaPendiente = b; return null; } if (b.id === 'b502') { this.paletaPendiente = b; return null; } return this.figura(b);
       case 'table': return this.tabla(b);
       default: return null;
     }
@@ -193,7 +209,7 @@ class Maquetador {
         const filasDe = k => { const out = [], por = Math.ceil(n / k); for (let i = 0; i < n; i += por) out.push([...Array(Math.min(por, n - i)).keys()].map(x => x + i)); return out; };
         // Ninguna imagen se amplía por encima de ~150 ppi efectivos
         const maxAncho = i => ds[i][0] / PPI_MAX * PX, TRES = 3 * COL + 2 * GUT;
-        const completa = A_LO_ANCHO.has(b.label) || b.label === 'Figura 42';
+        const completa = A_LO_ANCHO.has(b.id) || b.id === 'b467r';
         let filas, anchoTotal = ANCHO_CAJA;
         if (n === 1 && b.referente) {
           // Referentes: todos igual, la imagen a la derecha en tres columnas y el pie a la izquierda
@@ -217,7 +233,7 @@ class Maquetador {
             const pena = Math.abs(Math.min(...altos) - 3.4 * PX) + (total > 36 * L ? 1e4 : 0);
             if (!mejor || pena < mejor.pena) mejor = { fs, pena };
           }
-          filas = b.label === 'Figura 42' ? filasDe(2) : mejor.fs;
+          filas = b.id === 'b467r' ? filasDe(2) : mejor.fs;
         }
         filas.forEach(fila => {
           const suma = fila.reduce((a, i) => a + r[i], 0);
@@ -225,11 +241,11 @@ class Maquetador {
           if (!completa) ancho = Math.min(ancho, ...fila.map(i => maxAncho(i) * suma / r[i]));
           const alto = Math.max(4 * L, Math.round(ancho / suma / L) * L);   // alto en renglones: el recorte es de unos px
           const fr = h('div', 'fig-fila');
-          fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; fr.appendChild(im); });
+          fila.forEach(i => { const im = h('img'); im.src = this.resolver(fuentes[i]); im.alt = b.title || ''; im.style.width = (ancho * r[i] / suma) + 'px'; im.style.height = alto + 'px'; if (!b.foto) im.style.objectFit = 'contain'; fr.appendChild(im); });
           c.appendChild(fr);
         });
-        if (PAGINA_SOLA.has(b.label)) f.classList.add('fig-pagina');
-        if (SANGRE.has(b.label) && n === 1) { f.classList.add('fig-pagina', 'fig-sangre'); f.classList.remove('fig-lado'); }
+        if (PAGINA_SOLA.has(b.id)) f.classList.add('fig-pagina');
+        if (SANGRE.has(b.id) && n === 1) { f.classList.add('fig-pagina', 'fig-sangre'); f.classList.remove('fig-lado'); }
         if (f.classList.contains('fig-lado')) {
           // pie a la izquierda (columna 1), imagen alineada a la derecha
           const pie = h('div', 'fig-pie'); while (f.firstChild) pie.appendChild(f.firstChild);
@@ -271,7 +287,7 @@ class Maquetador {
   }
   cerrarBanda() {
     if (!this.banda) return;
-    if (this.banda.children.length) this.y += enRenglon(this.banda.offsetHeight);
+    if (this.banda.children.length) { const alto = this.banda.offsetHeight; this.equilibrar(this.banda); this.y += enRenglon(alto); }
     else this.banda.remove();
     this.banda = null;
   }
@@ -295,6 +311,23 @@ class Maquetador {
     this.paginaFlujo();
     const vacia = !this.banda && this.y === 0;
     resto.forEach((r, k) => this.agregarTexto(r, vacia && k === 0 ? guardia + 1 : 0));
+  }
+  // Al equilibrar dos columnas, el navegador puede dejar la izquierda un renglón más corta que la derecha:
+  // la letra capital (o un título) hace que los renglones de la izquierda midan unos px de más y el renglón
+  // que sobra ya no cabe en el alto calculado. Se da medio renglón de holgura y se llena columna a columna.
+  equilibrar(b) {
+    if (b.classList.contains('llena') || b.classList.contains('una-col') || b.classList.contains('referencias')) return;
+    const fondos = () => {
+      const c = b.getBoundingClientRect(), mitad = c.left + c.width / 2, r = document.createRange(); r.selectNodeContents(b);
+      const rs = [...r.getClientRects()].filter(x => x.width > 2 && x.height < 2 * L);
+      const fin = lado => Math.max(0, ...rs.filter(x => (x.left < mitad) === lado).map(x => x.bottom - c.top));
+      return { izq: fin(true), der: fin(false) };
+    };
+    const a = fondos(); if (!a.der || a.der - a.izq < L / 2) return;
+    const alto = b.offsetHeight;
+    b.style.height = (alto + 0.6 * L) + 'px'; b.style.columnFill = 'auto';
+    const d = fondos();
+    if (this.desborda(b) || d.der - d.izq >= L / 2 || d.izq > alto + 0.6 * L || !d.der) { b.style.height = ''; b.style.columnFill = ''; }
   }
   // Junta dos pedazos seguidos del mismo párrafo o lista (para no abrir un párrafo nuevo a mitad de frase)
   unir(a, b) {
@@ -484,7 +517,7 @@ class Maquetador {
     vidrio(el, el.offsetWidth, el.offsetHeight, { radio, prof: Math.round(radio * 0.5), fuerza: Math.round(radio * 0.9), ca: 3, desenfoque: 10, fondo: 'rgba(255,255,255,0.07)', sombra: '0 40px 90px rgba(0,0,0,0.35)' });
   }
   // La ruta metodológica se arma como pliego propio en cuanto la página siguiente sea izquierda
-  // Figura 46 como pliego: la paleta a sangre en bandas y la tipografía en grande
+  // La paleta (b502) como pliego: la paleta a sangre en bandas y la tipografía en grande
   emitirPaleta() {
     const b = this.paletaPendiente; if (!b || this.siguienteEsDerecha) return;
     this.paletaPendiente = null;
@@ -678,7 +711,7 @@ class Maquetador {
     const [n, t] = separarTitulo(s.titulo);
     const p = this.pagina('pag-pregunta'); p.flujo = true;
     let q = s.bloques[0].html;
-    ['estrategia de diseño participativo', 'experiencia phygital', 'elaboración emocional'].forEach(k => { q = q.replace(k, `<u>${k}</u>`); });
+    ['estrategia de diseño participativo', 'experiencia <em>phygital</em>', 'experiencia phygital', 'elaboración emocional'].forEach(k => { q = q.replace(k, `<u>${k}</u>`); });
     const d = h('div', 'pq-dorada', `<span class="pq-tag">${n} · ${t}</span><span class="pq-comillas">“</span><p>${q}</p><span class="pq-firma">Pregunta de investigación</span><span class="pq-comillas pq-cierre">”</span>`);
     d.querySelector('p').dataset.b = s.bloques[0].id; this.marcar(d, s.titulo.id);
     d.style.height = ALTO_CAJA + 'px';   // alto de la caja completo: las comillas de cierre van a la esquina de abajo

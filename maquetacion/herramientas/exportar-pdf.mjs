@@ -29,8 +29,9 @@ const n = await p.evaluate(() => {
 });
 for (let k = 0; k < n; k++) {
   const sel = `[data-cristal="${k}"]`;
-  await p.locator(sel).scrollIntoViewIfNeeded();
-  await p.waitForTimeout(60);
+  // Centrada en pantalla: si queda a medias en el borde, la toma sale cortada (la lente de la pág. 28)
+  await p.evaluate(s => document.querySelector(s).scrollIntoView({ block: 'center', inline: 'center' }), sel);
+  await p.waitForTimeout(120);
   // Se fotografía con margen: el cristal desplaza píxeles de su alrededor, y si la toma se recorta
   // al borde exacto, lo que queda fuera sale negro (la «barra negra» de las lentes)
   const r = await p.evaluate(s => { const b = document.querySelector(s).getBoundingClientRect(); return { x: b.left, y: b.top, width: b.width, height: b.height }; }, sel);
