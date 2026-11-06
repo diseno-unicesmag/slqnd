@@ -2784,7 +2784,8 @@
    "id": "b416",
    "type": "heading",
    "level": 5,
-   "html": "F. Entrevista a Gabriel Iván Parra Rosero: Lineamientos Éticos y Metodológicos (Trabajo de Campo)"
+   "html": "F. Entrevista a Gabriel Iván Parra Rosero: Lineamientos Éticos y Metodológicos (Trabajo de Campo)",
+   "saltoAntes": true
   },
   {
    "type": "p",
@@ -3103,7 +3104,8 @@
   {
    "type": "p",
    "html": "El contraste no busca establecer qué grupo se expresa mejor, sino observar cómo cambian las figuras proyectivas, los temas y las propuestas de RA entre ambas comunidades. El protocolo de los talleres se resume en la Tabla 15, a partir de los lineamientos de la Tabla 13 y de las acciones 2.2 a 2.5 del proyecto: convocatoria con identidad flexible, talleres de producción artística, desarrollo de <em>MetafoRA</em> e integración del ecosistema.",
-   "id": "b472"
+   "id": "b472",
+   "saltoAntes": true
   },
   {
    "id": "b473",
